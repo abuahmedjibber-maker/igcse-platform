@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 6 · Unit 9 Live Listening Test · LIS Sudan</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14213D;--red:#C8102E;--gold:#E9A23B;--plum:#6B2F8F;--plum-soft:#F4EEF8;--ink:#1B2236;--muted:#5C667A;--line:#DCE2EC;--bg:#F6F8FB;--card:#fff;--ok:#1E7B3A;--ok-soft:#E8F5EC;--bad:#B3261E;--bad-soft:#FCECEA;--blue:#1F5FAD}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,sans-serif}
+button,input{font:inherit}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header.top{background:#fff;border-bottom:4px solid var(--navy);position:relative}
+header.top:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:4px;background:linear-gradient(90deg,var(--navy) 0 60%,var(--gold) 60% 80%,var(--red) 80%)}
+.mast{display:flex;align-items:center;gap:14px;padding:16px 0 18px}
+.mast img{width:64px;height:64px;flex:none}
+.mast .mid{flex:1;text-align:center;min-width:0}
+.school{font-family:'Source Serif 4',Georgia,serif;font-weight:700;color:var(--navy);font-size:clamp(18px,3.4vw,27px);line-height:1.15}
+.dept{color:var(--red);font-weight:700;font-size:13px;letter-spacing:.06em;margin-top:2px}
+.hero{background:var(--navy);color:#fff;border-radius:16px;margin:28px 0 18px;padding:22px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+.hero h1{margin:0;font-size:clamp(22px,4vw,30px);line-height:1.15;font-weight:800}
+.hero .u{color:var(--gold);font-weight:600;font-size:18px;margin-top:4px}
+.hero .r{font-size:14px;opacity:.85;text-align:right}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 16px}
+.who{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+label.f{display:block;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:4px}
+input.t{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;color:var(--ink)}
+input.t:focus,button:focus-visible{outline:3px solid #9FB8E8;outline-offset:1px;border-color:var(--blue)}
+.tabs{display:flex;gap:8px;margin:0 0 16px}
+.tabs button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px;font-weight:700;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--plum);border-color:var(--plum);color:#fff}
+.tabs button.sp[aria-selected=true]{background:var(--blue);border-color:var(--blue)}
+h2.ex{font-size:20px;margin:26px 0 4px;color:var(--navy)}
+p.rub{margin:0 0 14px;color:var(--muted)}
+.rec{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--plum-soft);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.play{position:relative;width:74px;height:74px;border:0;border-radius:50%;background:transparent;cursor:pointer;padding:0}
+.play svg.ring{position:absolute;inset:0}
+.play .core{position:absolute;inset:9px;border-radius:50%;background:var(--plum);display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.play:hover .core{transform:scale(1.04)}
+.play[disabled]{cursor:not-allowed}.play[disabled] .core{background:#B9AEC3}
+.rec h3{margin:0;font-size:16px;color:var(--plum)}
+.rec .meta{font-size:13px;color:var(--muted);margin-top:2px}
+.prog{height:8px;background:#E3D6EC;border-radius:8px;overflow:hidden;margin-top:8px}
+.prog i{display:block;height:100%;width:0;background:var(--plum);transition:width .25s linear}
+.q{padding:12px 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.qn{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:13px;align-items:center;justify-content:center;margin-right:8px;flex:none}
+.qt{display:flex;align-items:flex-start}
+.qt span.s{padding-top:2px}
+.ans{margin:8px 0 0 36px}
+.opts{display:grid;gap:8px;margin:8px 0 0 36px}
+.opt{display:flex;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;background:#fff}
+.opt input{accent-color:var(--plum);width:18px;height:18px}
+.opt b{color:var(--plum)}
+.opt:has(input:checked){border-color:var(--plum);background:var(--plum-soft)}
+.fb{margin:6px 0 0 36px;font-size:14px;border-radius:8px;padding:6px 10px;display:none}
+.done .fb{display:block}
+.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.bar{position:sticky;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:12px 0;margin-top:20px;z-index:5}
+.bar .wrap{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.btn{border:0;border-radius:12px;padding:12px 20px;font-weight:700;cursor:pointer;background:var(--navy);color:#fff}
+.btn.red{background:var(--red)}.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.result{display:none;text-align:center}
+.done .result{display:block}
+.score{font-size:64px;font-weight:800;color:var(--navy);line-height:1}
+.score small{font-size:24px;color:var(--muted)}
+.band{display:inline-block;margin-top:8px;padding:4px 14px;border-radius:30px;font-weight:700;background:var(--plum-soft);color:var(--plum)}
+.split{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.split div{border:1px solid var(--line);border-radius:10px;padding:8px;font-size:14px;color:var(--muted)}
+.split b{display:block;color:var(--navy);font-size:20px}
+.spq{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.spq:first-of-type{border-top:0}
+.mini{width:46px;height:46px;border-radius:50%;border:0;background:var(--blue);color:#fff;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
+.timer{font-variant-numeric:tabular-nums;font-weight:800;color:var(--blue);font-size:34px}
+.cardS{border:2px solid var(--blue);border-radius:14px;overflow:hidden;margin:10px 0}
+.cardS .h{background:var(--blue);color:#fff;padding:12px 16px;font-weight:800}
+.cardS ol{margin:0;padding:14px 16px 14px 36px;background:#F1F5FC}
+.cardS li{margin:5px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.rec-me{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+footer{margin:30px 0 90px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+footer b{color:var(--navy);display:block}
+.tlink{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:13px}
+.teach{display:none;background:#FFF8EC;border:1px solid #F2D49C;border-radius:12px;padding:12px;margin-top:10px}
+.teach.on{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.notice{background:#FFF8EC;border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 10px 10px 0;font-size:15px}
+.hidden{display:none!important}
+@media (max-width:560px){.who{grid-template-columns:1fr}.mast img{width:46px;height:46px}.rec{grid-template-columns:1fr;justify-items:start}.ans,.opts,.fb{margin-left:0}.split{grid-template-columns:1fr}.hero .r{text-align:left}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.bar,.tabs,#speak,.rec,.tlink,.teach,button{display:none!important}body{background:#fff}.card{border:0}.done .fb{display:block}}
+</style></head><body>
+<header class="top"><div class="wrap mast"><img src="logo.png" alt="London International School – Sudan crest"><div class="mid"><div class="school">London International Schools – Sudan</div><div class="dept">Primary Section · Department of English</div></div><img src="logo.png" alt=""></div></header>
+<main class="wrap" id="app">
+ <section class="hero"><div><h1 id="h1"></h1><div class="u" id="hu"></div></div><div class="r">Section B · Listening · 20 marks<br>Section F · Speaking practice</div></section>
+ <div class="card who"><div><label class="f" for="nm">Student name</label><input class="t" id="nm" autocomplete="name" placeholder="Write your full name"></div><div><label class="f" for="cl">Class</label><input class="t" id="cl" placeholder="e.g. 6A"></div></div>
+ <div class="tabs" role="tablist"><button role="tab" aria-selected="true" id="tL">Listening test</button><button role="tab" class="sp" aria-selected="false" id="tS">Speaking practice</button></div>
+ <section id="listen">
+  <div class="notice">Use headphones if you are working alone. Each recording can be played <b>twice</b>. Read the questions before you press play.</div>
+  <div id="exs"></div>
+  <div class="card result" id="res"></div>
+ </section>
+ <section id="speak" class="hidden"></section>
+ <footer><div><b>Mr. Jibber Ahmed Mohammed</b>English Language Trainer &amp; Instructor</div><div style="text-align:right">London International Schools – Sudan<br><button class="tlink" id="tOpen">Teacher controls</button></div></footer>
+ <div class="teach" id="teach"><span>Teacher PIN</span><input class="t" id="pin" style="width:120px" inputmode="numeric"><button class="btn" id="pinGo">Unlock</button><span id="tmsg" style="font-size:14px;color:var(--muted)"></span></div>
+</main>
+<div class="bar" id="bar"><div class="wrap"><span id="cnt">0 of 20 answered</span><div class="row"><button class="btn ghost hidden" id="printB">Print result</button><button class="btn red" id="sub">Submit answers</button></div></div></div>
+<audio id="au" preload="none"></audio>
+<script>
+const D=JSON.parse(decodeURIComponent(escape(atob("==Qf91lI/kHaXByPs92boN2cgQXYgQnchBCZuFGIjl2c11GIuJXYlxGIvRHIuVmckxWaoNGIy9mZgQnbhRncvBXbpBCdpBycJJCIsIyPzxWYpJXZ0FWbgQWZsNWejVmcg02byZGIltWYtBCbv9GajNHIyV3b5BCZsV3bjBCdhh2VisFI6IydvxGbvZmIgwSfdJyP09mbgkHa3BicvBSeodFI/MXZjFGbwByYpxmY1BHIulGI0JXYgUmdhhGIkxWdvh2cg42dvRHI5JXZ2VGIr5WaoRHI19Weg8GRiACLi8zc05WZ2VGIsFmc1RHb1NGI55WYg8Gdgcmbp92ZgU3b5BSZyFEI/QmbltWZldHI0hXZuByZul2bkBSdvlHIlJXYgQXYodlIgwiI/EWbhJHZgI3bgMWazVXbgwCdyFGIulGIkVGdzVmclRnbpBiblVmYgU3b5BSZ2FGagcmbvxGI39GSiACLi8TZrlGbgs2bvxGI0lGIzV2bkBCdhh2dgQmbhBCLm9GIlRWYtBCdpBycpBCdhh2ViACLi4SZrlGbgU3b5BCdhhGdgcmbpRGbpVnYgEGIy9GI0JXYgY2bgU2YllGcgEGI0V3biFGIrxWYUJyWgojIzRHct9mcwJCIsISZmlGbgkXbg4WagMWazVXbgQmbhBCdyFkIgojIjlGcvRnI7BiOiQmchNmIgwSXi8DdzVmYgU2apxGI19Weg8GZgMnc19GbvNGI0FGaXJCIsIyP05WZtVnc0NnbpBCbhNWazVXbgEGI5FGbwBSdvlHIvRkIgwiI/cmbpRnbpFGcgI3bgcmbpdXYyRGIltWasBSdvlHIvRkIbBiOi0mchdnI7BiOiMnIgwSfd1VMgwSXiIXZoNWYlRHI0JXYgM3JulWbzFWWiACLiIXZoR3btRmbhJ3ZgM3JulWbzFWWiACLiI3b5FWbgUGa0JyWgwiI/cmbp5WZw9GIlhGdgI3bmBSe0l2YgIXZoR3buFGIt9mcmByZulGbsVmdhJHdgMXag8GaXJyWgwSXxACLdJCZlN3bsNGIw9GazBSZoRnIgwiImZ2bgwGblZGIzVGbpRHIl12bzJCIsISZr9mciByczFGbnBSZt92cisFIsIyPoRnbv1GI0NXYsBCZl5WZwBXYoBCdhh2VisFIs0FMgwSXicmbp5mcv1GI5JXZ2VmIgwiIzdmbp5WZ2VGI5FGZpJnRg42biACLiMnbv9mbyVGdmFGI5FGZzJXdoRFIu9mIbBCLi8zYpF2cv1GIlhGdg42bgsmcvdHI5xGbhV3c1Byc05WZkVHdzBSZoRHIvRGIuVGaXJyWgwSXyACLdJycl52b0NHIsxWYtNnIgwiIzNXYsdGIkVmc19GbvNmIgwiIzVGbpRHIuV2avJnYisFIsIyPm9GIlRWYtByauVnc0BSZlJHdgUGa0BycpBCdhh2VisFIs0FMgwSXiMXZpJHduV3bjBCduVmclZmZpRmIgwiIzJXZoNWYlRHIlhGdiACLiMHduVGZ1R3cgUGa0JyWgwiI/c3boNHIjlWYz9WbgUGa0BibpByckJXaiBSZoRHIvRGI0FGaXJyWgwSXxACLdJSZyVHdwxWdjNHIhJCIsIyZulGdulWYwBSYiACLiMWahN3btBSYisFIsIyPlNmbhJHduVGIlhGdgQXYgQXdwByb0BibhxGcgQ3cylmZgIXZoNWYlRHIkFWZoBSZoRHIklGZgQXYodlIbtFI6IycxJCIsIicl52ZpNXZkByYpF2cv1GIn5WdvlHIhBCa0l2dgcXZpZnclRnbJJCI6ISZsRXa0JyegojIzwmIgwSfd1lI0wnc19mZiACLi4yaj9Gbjdybg81Xf9FI0FGIzVmdhVGbgMXdiBSZoRlIbBCLdJyc09GciACLi4ycuFGcgQmbhByXf91XgwWY0VWbgY2bgUGZh1GIzlGIsxWYXByYpNXdNBSZoRlIbBCLdJyayFGciACLi4yXf91XgUGa0BibpByYp52YpBHIhBSZ2FGagwGbpdHIwV3bydGIlhGVisFIs0lIzBXdjJCIsIiLf91XfBCZuFGIzVGdhxGcg4WZr9mciBSbvJnZgUGZh1GIzlGIldGZpJnYgUGa0BiclRmb1ByYpF2cv1GIlhGVisFIs0lIzVGb0R3biJCIsIiLf91XfByYpR3chxGcgQGbvBSbvJnZgUGZh1GIoNXamBSYgMXagsmcvdHdyFGI0NncpZGIlhGVisFIs0lIyEDflZHbldHdiACLi4ycyFWZ5ByXf91XgI3bmBSZklWdnBSYg4WZlJGIzFGagQWYkRWYIBycNJyWbBiOiMXciACLiwWahJHVgQncBBSZkl2cyVmdpJFIlhGVgozasFGViAiOiUGb0lGdisHI6IiMsJCIs0Vfd1lI2wHepNnIgwiI/QWZl5GIsFWbBBycl9GZgMHZuFmYgIXZiJWdyBSeuFWbgc3bIJyWgwSXi4Wa0BCdpV3YzlmYgQGbvxnbpRHI0lWdjNXaiBCZs9GIuFGfulGdgQXa1N2cpJGfulGdgQXa1N2cpJGIhJCIsIyPyFGdpV3ZgIXZoBSZrFWbg8GdgcmbpNXdgwWYtFEIzlGI0FGaXJyWbBiOiMXciACLiIXY0lWdnBSYgcmbptWYNJCI6ISZsRXa0JyegwSfd1lI05WahBHIsxWY3BSeyFmbpRmcvxHdulWYwBCbsF2diACLi8TZzVHI5VGa0BCZpRGI05WahBHIm9GIk5WarBCdhh2VisFIs0lIuVWZ05WYjxnblVGduF2YgUGa0BSeixnblVGduF2YgUGa0xnblVGduF2YgUGa0Byb0BCd4VmbiACLi8DbhJXdtBydl5GIlhGdgMXagUmclh2Vis1WgojIzFnIgwiIsFmc11GIs92boN2cgcXZuBSZoRlIgojIlxGdpRnI7BCL91VXiM3azFWb8N3azFWbg4WYjlmcmFkIgwiI/QXdvJWYg42bpRXailGa4VGI3VmbgUGa0BycpBCdhh2VisFIs0lI0wnc19mZ8RzMhBDM1xFfzRmb19GcgQDfzRmb19GcgIXdvZmIgwiI/Q3cvNGI0V2ajlGdgQnblRWd0NHIhBycl9GZgg2Y11GI39GSis1WgojIzFnIgwiItVXZzVXbgQnchBSZoRHIn5WasxWYDJCI6ISZsRXa0JyegwSfd1lI0JXYgQXZlJHdzxHcvh2crJ3b3BCdyFGI0VWZyR3c8B3boN3ay92dgQnchBCdlVmc0NHIlhGdiACLi8DdzJXamByZul2bkBiclhGdvJnYgMXaoBCZuFGItlmchtEIlJXYgQXYodlIbBCLdJSe0JXaoRHIl5WauxHMz4SO8BzM6kDfl5WauBCdzFGcgYGbhhmIgwiI/MXZpxWatFmZgI3bmBiblB3bgwWY2lGdzVmZgUGa0Bycl9GZgUWbpRHI0FGaXJyWbBiOiMXciACLikXYkJXd0F2UgI3bmBycuFGbQJCI6ISZsRXa0JyebBiOiEDbiACLiMHdyFGIn5Wa6FWbBJCI6ICdp5WdiACL2AiOiUGZhJ3ZiACL5AiOi4mIgwiIuFGZ1NFITlETgcjYwATdcBCdzVGVgcmbp5WZ0NXaMBSZ2lGTgkDI0lmbVByNiBDM1xFI2ASZkFmcHJCI6ISZsRXa0Jye".split('').reverse().join('')))));
+const $=s=>document.querySelector(s), el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+document.title=D.title;$('#h1').textContent=`Grade ${D.grade} · Unit ${D.n} Live Listening Test`;$('#hu').textContent=`Unit ${D.n}: ${D.unit}`;
+let teacher=false, submitted=false, playing=null; const au=$('#au'); const plays={};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function ring(left){const r=33,c=2*Math.PI*r,seg=c/2-4;let s='';for(let i=0;i<2;i++){const on=i<left;s+=`<circle cx="37" cy="37" r="${r}" fill="none" stroke="${on?'#6B2F8F':'#DCCFE6'}" stroke-width="5" stroke-dasharray="${seg} ${c-seg}" stroke-dashoffset="${-i*(c/2)+c/4-2}" stroke-linecap="round"/>`}return `<svg class="ring" width="74" height="74" viewBox="0 0 74 74">${s}</svg>`}
+const PLAY='<svg width="22" height="22" viewBox="0 0 24 24"><path d="M7 4l14 8-14 8z" fill="#fff"/></svg>', PAUSE='<svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="9" width="3" height="6" rx="1"/><rect x="8" y="5" width="3" height="14" rx="1"/><rect x="13" y="7" width="3" height="10" rx="1"/><rect x="18" y="10" width="3" height="4" rx="1"/></svg>';
+function player(id,title,meta){plays[id]=0;const w=el('div','rec');w.innerHTML=`<button class="play" id="p_${id}" aria-label="Play ${esc(title)}">${ring(2)}<span class="core">${PLAY}</span></button><div><h3>${esc(title)}</h3><div class="meta" id="m_${id}">${meta} · 2 plays left</div><div class="prog"><i id="g_${id}"></i></div></div>`;w.querySelector('button').onclick=()=>toggle(id);return w}
+function refresh(id){const left=teacher?2:Math.max(0,2-plays[id]);const b=$('#p_'+id);b.querySelector('svg.ring').outerHTML=ring(left);b.disabled=!teacher&&left===0&&playing!==id;$('#m_'+id).textContent=playing===id?'Playing… listen carefully':(left===0?'You have heard this recording twice':`${left} play${left>1?'s':''} left`)}
+function toggle(id){if(playing===id){return}if(playing){return}if(!teacher&&plays[id]>=2)return;plays[id]++;playing=id;au.src='audio/'+id+'.mp3';au.currentTime=0;au.play().catch(()=>{playing=null;plays[id]--;alertMsg('Tap play again to start the audio.')});$('#p_'+id+' .core').innerHTML=PAUSE;document.querySelectorAll('.play').forEach(b=>{if(b.id!=='p_'+id)b.disabled=true});refresh(id)}
+au.ontimeupdate=()=>{if(playing&&au.duration)$('#g_'+playing).style.width=(au.currentTime/au.duration*100)+'%'};
+au.onended=au.onerror=()=>{const id=playing;playing=null;if(!id)return;$('#p_'+id+' .core').innerHTML=PLAY;$('#g_'+id).style.width='100%';Object.keys(plays).forEach(refresh)};
+function alertMsg(m){$('#cnt').textContent=m}
+const Q=[];let qn=0;
+function textQ(box,q,acc){qn++;const i=Q.length;Q.push({type:'t',acc});const d=el('div','q');d.innerHTML=`<div class="qt"><span class="qn">${qn}</span><span class="s">${esc(q).replace('____','<b>________</b>')}</span></div><div class="ans"><input class="t" id="a${i}" autocomplete="off" aria-label="Answer ${qn}"></div><div class="fb" id="f${i}"></div>`;box.appendChild(d)}
+function mcQ(box,q,o,c){qn++;const i=Q.length;Q.push({type:'m',c,o});const d=el('div','q');d.innerHTML=`<div class="qt"><span class="qn">${qn}</span><span class="s">${esc(q)}</span></div><div class="opts">${o.map((t,k)=>`<label class="opt"><input type="radio" name="a${i}" value="${k}"><b>${'ABC'[k]}</b>${esc(t)}</label>`).join('')}</div><div class="fb" id="f${i}"></div>`;box.appendChild(d)}
+const X=$('#exs');
+X.appendChild(el('h2','ex','Exercise 1 · Short extracts'));X.appendChild(el('p','rub','You will hear four short recordings. Answer each question in no more than three words.'));
+D.l1.forEach((r,k)=>{const c=el('div','card');c.appendChild(player('l1_'+(k+1),`Recording ${k+1} · ${r.title}`,'Short extract'));r.qs.forEach(([q,a])=>textQ(c,q,a));X.appendChild(c)});
+X.appendChild(el('h2','ex','Exercise 2 · Sentence completion'));X.appendChild(el('p','rub','Complete each sentence with one or two words or a number.'));
+{const c=el('div','card');c.appendChild(player('l2',D.l2.title,'Talk'));D.l2.qs.forEach(([q,a])=>textQ(c,q,a));X.appendChild(c)}
+X.appendChild(el('h2','ex','Exercise 3 · Multiple choice'));X.appendChild(el('p','rub','Choose the correct answer, A, B or C.'));
+{const c=el('div','card');c.appendChild(player('l3',D.l3.title,'Interview'));D.l3.qs.forEach(([q,o,a])=>mcQ(c,q,o,a));X.appendChild(c)}
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9%£'\- ]/g,' ').replace(/-/g,' ').replace(/\b(a|an|the)\b/g,' ').replace(/\s+/g,' ').trim();
+function lev(a,b){const m=[];for(let i=0;i<=a.length;i++){m[i]=[i];for(let j=1;j<=b.length;j++)m[i][j]=i?Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1)):j}return m[a.length][b.length]}
+function ok(v,acc){const n=norm(v);if(!n)return false;return acc.split('|').some(a=>{const t=norm(a);return n===t||(t.length>5&&!/\d/.test(t)&&lev(n,t)<=1)})}
+function answered(){return Q.filter((q,i)=>q.type==='t'?$('#a'+i).value.trim():document.querySelector(`input[name=a${i}]:checked`)).length}
+document.addEventListener('input',()=>{if(!submitted)$('#cnt').textContent=`${answered()} of ${Q.length} answered`});
+$('#sub').onclick=()=>{if(submitted)return;if(!$('#nm').value.trim()){$('#nm').focus();alertMsg('Write your name before you submit.');return}const a=answered();if(a<Q.length&&$('#sub').dataset.c!=='1'){$('#sub').dataset.c='1';$('#sub').textContent=`Submit with ${Q.length-a} blank?`;return}mark()};
+function mark(){submitted=true;if(playing){au.pause();au.onended()}let s=0,parts=[0,0,0];Q.forEach((q,i)=>{let good,show;if(q.type==='t'){const inp=$('#a'+i);good=ok(inp.value,q.acc);inp.readOnly=true;show=q.acc.split('|')[0]}else{const ch=document.querySelector(`input[name=a${i}]:checked`);good=ch&&+ch.value===q.c;document.querySelectorAll(`input[name=a${i}]`).forEach(x=>x.disabled=true);show='ABC'[q.c]+' – '+q.o[q.c]}if(good){s++;parts[i<8?0:i<14?1:2]++}const f=$('#f'+i);f.className='fb '+(good?'ok':'no');f.textContent=good?'Correct':'Correct answer: '+show});
+document.body.classList.add('done');const pct=Math.round(s/Q.length*100);const band=pct>=85?'Excellent':pct>=70?'Very good':pct>=55?'Good':pct>=40?'Satisfactory':'Keep practising';
+$('#res').innerHTML=`<div style="color:var(--muted)">${esc($('#nm').value)}${$('#cl').value?' · '+esc($('#cl').value):''} · ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div><div class="score">${s}<small> / ${Q.length}</small></div><div class="band">${band} · ${pct}%</div><div class="split"><div><b>${parts[0]}/8</b>Short extracts</div><div><b>${parts[1]}/6</b>Sentence completion</div><div><b>${parts[2]}/6</b>Multiple choice</div></div><p style="color:var(--muted);font-size:14px;margin:14px 0 0">Scroll up to see the correct answers. Show this result to your teacher.</p>`;
+$('#res').scrollIntoView({behavior:'smooth',block:'center'});$('#sub').disabled=true;$('#sub').textContent='Submitted';$('#printB').classList.remove('hidden');$('#cnt').textContent=`Score: ${s} / ${Q.length}`;
+try{localStorage.setItem('lis_g6_u'+D.n+'_done',JSON.stringify({s,n:$('#nm').value,t:Date.now()}))}catch(e){}}
+$('#printB').onclick=()=>window.print();
+// speaking
+const S=$('#speak');let tmr=null;
+function countdown(elm,secs,done){clearInterval(tmr);let t=secs;const f=()=>{elm.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};f();tmr=setInterval(()=>{t--;f();if(t<=0){clearInterval(tmr);done&&done()}},1000)}
+function sAudio(id){au.pause();playing=null;au.src='audio/'+id+'.mp3';au.play()}
+S.innerHTML=`<div class="notice">Listen to the examiner, then answer aloud. Use the timers to practise speaking for the right length of time. You can record yourself and listen back.</div><h2 class="ex">Part 1 · Warm-up</h2><div class="card" id="sw"></div><h2 class="ex">Part 2 · Topic card</h2><div class="card"><div class="row"><button class="mini" id="cardA" aria-label="Play the examiner's introduction">${PLAY}</button><span>Listen to the examiner introduce the card.</span></div><div class="cardS"><div class="h">${esc(D.s.card.topic)}</div><ol>${D.s.card.prompts.map(p=>'<li>'+esc(p)+'</li>').join('')}</ol></div><div class="row" style="justify-content:space-between"><div><div class="timer" id="tm">1:00</div><span style="color:var(--muted);font-size:14px" id="tmL">Preparation time</span></div><div class="row"><button class="btn" id="prep">Start 1-minute preparation</button><button class="btn ghost" id="talk">Start 3-minute talk</button></div></div><div class="rec-me"><button class="btn ghost" id="recB">Record my answer</button><audio id="mine" controls class="hidden"></audio><span id="recS" style="font-size:14px;color:var(--muted)"></span></div></div><h2 class="ex">Part 3 · Follow-up</h2><div class="card" id="sf"></div>`;
+const addQ=(box,id,q)=>{const d=el('div','spq');d.innerHTML=`<button class="mini" aria-label="Play question">${PLAY}</button><span>${esc(q)}</span>`;d.querySelector('button').onclick=()=>sAudio(id);box.appendChild(d)};
+D.s.warm.forEach((q,i)=>addQ($('#sw'),'s_w'+(i+1),q));D.s.follow.forEach((q,i)=>addQ($('#sf'),'s_f'+(i+1),q));
+$('#cardA').onclick=()=>sAudio('s_card');
+$('#prep').onclick=()=>{$('#tmL').textContent='Preparation time – think, do not write';countdown($('#tm'),60,()=>{$('#tmL').textContent='Time is up – start talking'})};
+$('#talk').onclick=()=>{$('#tmL').textContent='Speaking time';countdown($('#tm'),180,()=>{$('#tmL').textContent='Well done – time is up'})};
+let mr=null,chunks=[];
+$('#recB').onclick=async()=>{if(mr&&mr.state==='recording'){mr.stop();return}try{const st=await navigator.mediaDevices.getUserMedia({audio:true});mr=new MediaRecorder(st);chunks=[];mr.ondataavailable=e=>chunks.push(e.data);mr.onstop=()=>{st.getTracks().forEach(t=>t.stop());const m=$('#mine');m.src=URL.createObjectURL(new Blob(chunks,{type:mr.mimeType}));m.classList.remove('hidden');$('#recB').textContent='Record again';$('#recS').textContent='Listen to your answer.'};mr.start();$('#recB').textContent='Stop recording';$('#recS').textContent='Recording…'}catch(e){$('#recS').textContent='Allow microphone access in your browser to record.'}};
+// tabs
+function tab(sp){$('#tL').setAttribute('aria-selected',!sp);$('#tS').setAttribute('aria-selected',sp);$('#listen').classList.toggle('hidden',sp);S.classList.toggle('hidden',!sp);$('#bar').classList.toggle('hidden',sp);if(playing){au.pause();au.onended()}}
+$('#tL').onclick=()=>tab(false);$('#tS').onclick=()=>tab(true);
+$('#tOpen').onclick=()=>$('#teach').classList.toggle('on');
+$('#pinGo').onclick=()=>{if($('#pin').value==='2026'){teacher=true;Object.keys(plays).forEach(refresh);$('#tmsg').textContent='Teacher mode: unlimited plays. Reload the page to reset for students.'}else $('#tmsg').textContent='That PIN is not correct.'};
+</script></body></html>
