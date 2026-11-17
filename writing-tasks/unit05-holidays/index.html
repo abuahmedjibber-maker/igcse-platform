@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Writing Studio – Unit 5: Holidays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+.chk{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.chk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff}
+.chk li .ic{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;background:var(--bad)}
+.chk li.y{border-color:var(--ok);background:var(--ok-l)} .chk li.y .ic{background:var(--ok)}
+.chk li.p{border-color:var(--part);background:var(--part-l)} .chk li.p .ic{background:var(--part)}
+.chk li .pt{margin-left:auto;font-weight:800;color:var(--mut);white-space:nowrap}
+.livehd{margin-top:14px;font-weight:800;color:var(--teal-d);font-size:14.5px}
+.warn{margin-top:10px;background:var(--part-l);border-left:4px solid var(--part);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600}
+.wchip{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-weight:800;background:#fff;color:var(--mut);margin-left:4px}
+.wchip.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.rub{display:grid;gap:6px;margin-top:10px} .rb{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.rb input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal)}
+.q .num{flex:0 0 32px}
+textarea{resize:vertical;line-height:1.55}
+.q > .keybox{margin-top:0}
+@media(max-width:600px){.q .row div[style*="grid-template-columns"]{grid-template-columns:1fr!important}}
+@media(max-width:600px){.q div[style*="repeat(5,1fr)"]{grid-template-columns:1fr 1fr!important}.q div[style*="grid-template-columns:1fr 1fr;gap:8px"]{grid-template-columns:1fr!important}}
+</style>
+
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Writing Studio: Holidays</h1>
+  <p>Unit 5 · Grade 8 · Interactive writing tasks</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">6 writing tasks</span><span class="chip">100 checklist marks</span><span class="chip">✍ live feedback</span><span class="chip">+ self-assessment</span></div>
+    <ul class="ins">
+      <li>Complete the tasks in order. Each one practises a skill from <b>Unit 5</b> of your Coursebook (pages 62–73).</li>
+      <li>As you type, the <b>live checklist</b> under each task turns green when you include what is needed. Use it to improve your writing.</li>
+      <li>Your writing is saved on this device while you work. Press <b>Submit</b> when you finish.</li>
+      <li>The checklist score is a guide only – your teacher will read your work and give the final mark.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 8A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start writing →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TASKS -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/6 tasks</span><span class="timer" id="wtot">✍ 0 words</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your writing checklist score</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm" id="resOut">out of 100</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by task</h3><div class="brk" id="brk"></div>
+    <div id="wcSum" class="note"></div>
+    <div id="selfBox" class="note"></div>
+    <p class="note">The checklist score shows how many of the required features your writing includes. <b>Your teacher will read your work and give the final mark.</b></p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your work to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams). All your writing is included.</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="8" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const KEY = 'igcse-u05-writing-v1';
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => (s||'').replace(/[‘’`´]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,'-');
+const wc = s => { s=(s||'').trim(); return s ? s.split(/\s+/).length : 0; };
+let st = {name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0};
+let showModel = false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.a)return s}catch(e){}return null}
+const A = k => st.a[k] || '';
+const got = it => it[1]?it[2]:(typeof it[3]==='number'?it[3]:(it[3]&&it[2]>1?1:0));
+const sum = items => items.reduce((s,it)=>s+got(it),0);
+const R = (a,b) => [...Array(b-a).keys()].map(x=>x+a);
+
+
+/* ---------- shared word lists ---------- */
+const LK={
+ 'Sequence':['first of all','to begin with','firstly','secondly','thirdly','after that','afterwards','in addition','moreover','furthermore','besides','finally','lastly','to sum up','in conclusion','as well as','also','then','next','first'],
+ 'Contrast / comparison':['on the other hand','in spite of','in contrast','even though','compared with','compared to','nevertheless','nonetheless','however','although','whereas','despite','similarly','likewise','unlike','though','while','but','yet'],
+ 'Cause / effect':['as a result','for this reason','because of','that is why','due to','consequently','therefore','because','since','thus','so','as']};
+const LCAT=Object.keys(LK);
+function links(t){
+  const out={};let s=' '+t+' ';
+  LCAT.forEach(c=>out[c]=new Set());
+  const all=[];LCAT.forEach(c=>LK[c].forEach(w=>all.push([w,c])));all.sort((a,b)=>b[0].length-a[0].length);
+  all.forEach(([w,c])=>{const re=new RegExp('\\b'+w.replace(/ /g,'\\s+')+'\\b','g');if(re.test(s)){out[c].add(w);s=s.replace(re,' ## ')}});
+  return out;
+}
+const linkCount = L => LCAT.reduce((n,c)=>n+L[c].size,0);
+const REG_BAD=/\b(lol|omg|u|ur|gonna|wanna|gotta|kinda|dunno|ya|cuz|coz|stupid|rubbish|sucks)\b|!!|\?\?/;
+const paras = raw => (raw||'').split(/\n\s*\n|\n/).map(x=>x.trim()).filter(x=>wc(x)>=5);
+const sents = raw => norm(raw).split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean);
+const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
+
+/* ---------- -ing engine (Language focus, pp. 65–67) ---------- */
+const ADJ_ING=['amazing','stunning','interesting','exciting','boring','fascinating','relaxing','tiring','surprising','frightening','terrifying','thrilling','breathtaking','charming','amusing','annoying','confusing','disappointing','embarrassing','exhausting','inspiring','shocking','satisfying','refreshing','challenging','entertaining','worrying','astonishing','outstanding','welcoming','rewarding','demanding','encouraging','pleasing','striking','appealing','calming','soothing','energising','energizing','frustrating','alarming','charming','dazzling','fulfilling','overwhelming','captivating','enchanting','interesting','disgusting','depressing','tempting','promising','caring'];
+const NONGER=['thing','things','something','anything','nothing','everything','king','kings','ring','rings','sing','bring','spring','string','wing','wings','swing','sting','morning','mornings','evening','evenings','during','ceiling','building','buildings','wedding','pudding','sibling','siblings','darling','earring','viking','beijing','nanjing','ping','ling','ding','ming','thong','cling','fling','sling','king','wring','sightseeing'];
+const isAdjIng = w => ADJ_ING.includes(w);
+const isIng = w => /^[a-z]{2,}ing$/.test(w)&&!NONGER.includes(w)&&w.length>4;
+const PREP_ING=/\b(in|on|at|of|for|about|without|before|after|by|instead\s+of|like|from|with|through|despite|forward\s+to|used\s+to|besides|while|when)\s+([a-z]+ing)\b/g;
+const BE_ING=/\b(am|is|are|was|were|be|been|'m|'re|'s|isn't|aren't|wasn't|weren't)\s+(not\s+)?((?:also|still|currently|always|now|just|really|already)\s+)?([a-z]+ing)\b/g;
+function ingUses(raw){ // returns {A,B,C,D,np} arrays of words
+  const t=norm(raw).toLowerCase().replace(/\s+/g,' ').trim(),o={A:[],B:[],C:[],D:[],np:false};
+  sents(t).forEach(s=>{const w=s.replace(/^["'(]/,'').split(/[\s,]+/);
+    if(w[0]&&isIng(w[0])&&!isAdjIng(w[0])){const v=s.match(/\b(is|was|are|were|can|could|will|would|makes?|made|helps?|helped|gives?|gave|takes?|took|costs?|cost|seems?|seemed|sounds?|has|had|isn't|wasn't|must|might|should|became|becomes|keeps?|kept|needs?|means?|meant)\b/);
+      if(v){o.A.push(w[0]);const before=s.slice(0,v.index).trim().split(/\s+/).length;if(before>=3)o.np=true}}
+    let m;const P=new RegExp(PREP_ING.source,'g');while((m=P.exec(s))){if(isIng(m[2]))o.B.push(m[2])}
+    const B=new RegExp(BE_ING.source,'g');while((m=B.exec(s))){const v=m[4];if(isAdjIng(v))o.D.push(v);else if(isIng(v)&&!(v==='going'&&/^\s+to\b/.test(s.slice(m.index+m[0].length))))o.C.push(v)}
+    w.forEach(x=>{const y=x.replace(/[^a-z]/g,'');if(isAdjIng(y)&&!o.D.includes(y))o.D.push(y)});
+  });
+  return o}
+const ingAll = raw => {const o=ingUses(raw);return [...new Set([...o.A,...o.B,...o.C,...o.D])]};
+
+/* ---------- holiday vocabulary ---------- */
+const HOLV=/\b(holidays?|activity\s+holidays?|destinations?|tourists?|tourism|sightseeing|aerial|helicopters?|underwater|scuba|div(e|ing|er|ers)|snorkell?ing|coral|reefs?|cruises?|yoga|volcano(es)?|volcanic|eagles?|festivals?|sand[\s-]dunes?|dunes?|quad\s+bikes?|racing|guides?|tours?|wildlife|scenery|views?|resorts?|hotels?|accommodation|excursions?|trips?|journey|abroad|souvenirs?|landscapes?|beach(es)?|camping|hiking|attractions?|photography|cameraman|documentary|itinerary|booking|backpacks?)\b/g;
+const holv = t => new Set((t.match(HOLV)||[]).map(x=>x.replace(/\s+/g,' ')));
+
+/* ---------- Task 1: Holiday vocabulary (B2, D1, B4) ---------- */
+const LOCS=['i Mongolia','ii Turkey','iii Australia','iv China','v Italy','vi Ecuador','vii Saudi Arabia'];
+// [letter, activity, answer, picture, clue, keyword regex]
+const B2=[['a','Volcano climbing','vi Ecuador',6,'Picture 6 shows hikers on a misty volcanic slope. Which country in the list lies on the equator and is famous for its volcanoes?',/volcan|climb/],
+ ['b','Hunting with eagles','i Mongolia',1,'Picture 1 shows men in fur hats with golden eagles on a mountain top. Which Central Asian country in the list fits?',/eagle|hunting/],
+ ['c','Slow food cheese festival','v Italy',5,'Picture 5 – read the sign on the stall: “La Baita del Formaggio”. Which language is it?',/cheese|food\s+festival|slow\s+food/],
+ ['d','Yoga cruise','ii Turkey',2,'Picture 2 – read the boat’s name on the sail: “Serhat Bey”. Which language is it?',/yoga|cruise/],
+ ['e','Underwater photography','iii Australia',3,'Picture 3 shows a diver beside coral. Which country has the Great Barrier Reef?',/underwater|photograph|scuba|diving|coral|reef/],
+ ['f','Sand-dune racing','vii Saudi Arabia',7,'Picture 7 shows quad bikes on red sand dunes. Which country in the list has huge sand deserts?',/sand|dunes?|quad|desert|racing/],
+ ['g','Aerial tourism','iv China',4,'Picture 4 – look at the famous wall in the picture. Where is it?',/aerial|helicopter|great\s+wall|from\s+the\s+(sky|air)/]];
+function b2(k){const [l,a,ans,p,clue]=B2[k],v=A('t1m'+k);if(!v)return {ok:false,empty:true,msg:''};
+  if(v===ans)return {ok:true,msg:`Correct – picture ${p}.`};
+  const dup=B2.some((x,j)=>j!==k&&A('t1m'+j)===v&&v===x[2]);
+  return {ok:false,msg:(dup?'That location belongs to another holiday. ':'Not quite. ')+clue}}
+const D1W=['chef','documentary','guide','beach','password','cameraman','restaurant','snorkelling','credit card','wildlife'];
+const d1re = w => new RegExp('\\b'+w.replace(' ','\\s+')+(w==='wildlife'||w==='snorkelling'?'':'s?')+'\\b');
+const d1in = t => D1W.filter(w=>d1re(w).test(t));
+function d1(i){const raw=norm(A('t1d'+i)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(t)<6)return {ok:false,msg:'Write a complete sentence (6+ words).'};
+  const u=d1in(t);if(!u.length)return {ok:false,msg:'Use at least one word from the D1 box (chef, documentary, guide …).'};
+  const prev=new Set(R(0,i).flatMap(j=>d1(j).ok?d1in(norm(A('t1d'+j)).toLowerCase()):[]));
+  const fresh=u.filter(w=>!prev.has(w));if(!fresh.length)return {ok:false,msg:`You have already used “${u.join(', ')}” – use a different box word in this sentence.`};
+  if(!/^[A-Z0-9“"']/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(!/[.!?]$/.test(raw))return {ok:false,msg:'End with a full stop.'};
+  return {ok:true,msg:`Good – box word${fresh.length>1?'s':''}: ${fresh.join(', ')}.`}}
+const RANKS=['1','2','3','4','5','6','7'];
+const rankOf = r => B2.findIndex((x,k)=>A('t1r'+k)===r);
+const rankOK = () => {const v=R(0,7).map(k=>A('t1r'+k));return v.every(Boolean)&&new Set(v).size===7};
+const REASON=/\b(because|as|since|so|that's\s+why|the\s+reason|which|love|enjoy|interest\w*|excit\w*|fascinat\w*|amazing|boring|scared|afraid|frighten\w*|dangerous|hate|don't\s+like|do\s+not\s+like|can't\s+stand|tired|cold|hot)\b/;
+function chk1(){
+  const n=R(0,7).filter(k=>b2(k).ok).length,nd=R(0,5).filter(i=>d1(i).ok).length,raw=A('t1txt'),t=norm(raw).toLowerCase(),w=wc(t),S=sents(raw).map(x=>x.toLowerCase());
+  const r1=rankOf('1'),r7=rankOf('7');
+  const has=(k)=>k>=0&&S.some((s,j)=>B2[k][5].test(s)&&(REASON.test(s)||REASON.test(S[j+1]||'')||REASON.test(S[j+2]||'')));
+  const who=S.some(s=>/\b(take|bring|invite|go\s+with|travel\s+with|come\s+with|share)\b/.test(s)&&/\b(my|our|best\s+friend|family|brother|sister|father|mother|dad|mum|mom|cousin|uncle|aunt|grandparents?|friends?)\b/.test(s)&&REASON.test(s));
+  const pref=/\b(yes\s+please|i'd\s+really\s+love|i\s+would\s+really\s+love|i'd\s+love|i\s+would\s+love|no\s+way|doesn't\s+interest\s+me|does\s+not\s+interest\s+me|i'd\s+prefer|i\s+would\s+prefer|i'd\s+rather|i'm\s+(not\s+)?(keen|interested)|i\s+am\s+(not\s+)?(keen|interested)|my\s+(number\s+one|first\s+choice|favourite))\b/.test(t);
+  const hv=holv(t),L=links(t),lc=linkCount(L);
+  const items=[[`B2: activity holidays matched to their locations (${n}/7)`,n===7,7,n],
+   [`D1: holiday sentences with the box words (${nd}/5)`,nd===5,5,nd],
+   ['B4a: all seven holidays ranked from 1 to 7 (each number once)',rankOK(),1],
+   [`Paragraph length 80–100 words (${w})`,w>=80&&w<=100,1],
+   [`Your number 1${r1>=0?' ('+B2[r1][1].toLowerCase()+')':''} named, with a reason`,has(r1),1],
+   [`Your number 7${r7>=0?' ('+B2[r7][1].toLowerCase()+')':''} named, with a reason`,has(r7),1],
+   ['B4b: who you would take on your number-1 holiday, and why',who,1],
+   ['Expressions of preference (I’d really love … / No way! … / I’d prefer …)',pref,1],
+   [`Holiday vocabulary from the unit (${hv.size}) – aim for 3+`+(hv.size?': '+[...hv].slice(0,6).join(', '):''),hv.size>=3,1],
+   [`Linking devices (${lc}) – aim for 2+`+(lc?': '+LCAT.flatMap(c=>[...L[c]]).slice(0,5).join(', '):''),lc>=2,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 2: Aerial tourism (C1, C3, C6) ---------- */
+const VIEWN='views?|scenery|landscapes?|sights?|panoramas?|sunsets?|sunrises?|skylines?|coastlines?|mountains?|valleys?|rivers?|lakes?|waterfalls?|cliffs?|canyons?|deserts?|dunes?|beach(es)?|reefs?|islands?|forests?|cit(y|ies)|towns?|buildings?|towers?|skyscrapers?|stadiums?|monuments?|landmarks?|walls?|palaces?|castles?|temples?|mosques?|bridges?|photos?|photographs?|pictures?|images?|shots?|colou?rs?|architecture|beauty|nature';
+const EXPN='experiences?|trips?|flights?|tours?|journeys?|holidays?|adventures?|rides?|moments?|days?|places?|locations?|destinations?|attractions?|spots?';
+// [adjective, accepted-noun regex source, meaning hint]
+const C3=[['amazing','',''],
+ ['ground-level','views?|perspectives?|angles?|photos?|photographs?|pictures?|images?|shots?|cameras?|tours?|sightseeing|entrances?|floors?|rooms?|flats?|apartments?|parking|car\\s+parks?|seats?|observation|level|height','at the same height as the ground – what can be at ground level on a sightseeing trip?'],
+ ['normal','days?|life|lives|jobs?|routines?|flights?|tourists?|views?|holidays?|working\\s+days?|speeds?|heights?|prices?|people|persons?|things?|cameras?|ways?|weather|conditions?|perspectives?|lifestyles?|trips?|journeys?|sightseeing|tours?|activit(y|ies)|eye\\s+level|level|size|temperature','ordinary or usual – what can be normal in a pilot’s work or a tourist’s trip?'],
+ ['spectacular',VIEWN+'|'+EXPN+'|displays?|shows?|fireworks|scenes?|performances?|landing|take-?off|events?|festivals?','very impressive to look at – what can be spectacular on a sightseeing flight?'],
+ ['dramatic',VIEWN+'|'+EXPN+'|changes?|scenes?|skies|sky|moments?|effects?|differences?|landing|take-?off|storms?|rocks?|peaks?|drops?|events?|stories|story','sudden or exciting and impressive – what can look dramatic from the sky?'],
+ ['static','views?|images?|pictures?|photos?|photographs?|cameras?|positions?|objects?|displays?|shots?|scenes?|exhibitions?|points?|perspectives?|observation|viewpoints?|models?|landscapes?|sightseeing|platforms?|towers?','not moving – what is static when you look from one fixed place?'],
+ ['popular','attractions?|tourist\\s+attractions?|destinations?|places?|tours?|holidays?|sights?|activit(y|ies)|spots?|resorts?|landmarks?|trips?|beach(es)?|restaurants?|festivals?|choices?|sports?|hobb(y|ies)|routes?|museums?|areas?|flights?|excursions?|cit(y|ies)|parks?|markets?|monuments?|sites?|experiences?','liked by many people – what can be popular with tourists?'],
+ ['stunning',VIEWN+'|'+EXPN+'|scenes?|gardens?|parks?|sunlight|lights|colours|outfits?','extremely beautiful – what can look stunning from a helicopter?']];
+function c3(k){const [adj,src,hint]=C3[k];if(!src)return {ok:true,ex:true,msg:''};
+  let v=norm(A('t2p'+k)).trim().toLowerCase().replace(/[.!,]$/,'').replace(/\s+/g,' ');if(!v)return {ok:false,empty:true,msg:''};
+  v=v.replace(new RegExp('^(an?\\s+|the\\s+)?'+adj.replace('-','[\\s-]?')+'\\s+'),'').replace(/^(an?|the)\s+/,'');
+  if(!v||v===adj)return {ok:false,msg:'Write a noun to go with the adjective.'};
+  if(wc(v)>3)return {ok:false,msg:'Write only the noun (1–2 words).'};
+  if(C3.some(x=>x[0]===v))return {ok:false,msg:'That is another adjective – write a noun.'};
+  if(new RegExp('^([a-z-]+\\s+)?('+src+')$').test(v))return {ok:true,msg:`Good collocation: ${adj} ${v}.`};
+  return {ok:false,msg:`“${adj} ${v}” is not a typical combination. Hint: ${adj} = ${hint}`}}
+const C3ADJ=/\b(amazing|ground[\s-]level|normal|spectacular|dramatic|static|popular|stunning)\b/g;
+const SKY=/\b(buildings?|towers?|skyscrapers?|mosques?|minarets?|domes?|mountains?|hills?|desert|dunes?|coast(line)?|sea|beach(es)?|rivers?|valleys?|palm\s+trees?|trees|farms?|gardens?|roads?|streets?|motorways?|highways?|houses?|stadiums?|skyline|lights|parks?|lakes?|reefs?|islands?|walls?|forts?|castles?|museums?|markets?|old\s+town|rocks?|cliffs?|canyons?|volcano(es)?|lava|camels?|villages?|tombs?|oasis|oases|wadis?|bridges?|railway|trains?|cars|traffic|people|crowds?|ships?|boats?|harbour|port|waterfalls?|sunset|clouds?|squares?|fountains?|monuments?|landmarks?)\b/g;
+function chk2(){
+  const n=C3.filter((x,k)=>x[1]&&c3(k).ok).length,raw=A('t2txt'),t=norm(raw).toLowerCase(),w=wc(t);
+  const pl=norm(A('t2place')).trim().toLowerCase(),plOk=pl.length>=3&&t.includes(pl.split(/[ ,(]/)[0]);
+  const sky=new Set((t.match(SKY)||[]).map(x=>x.replace(/([^s])s$/,'$1'))),adj=new Set(t.match(C3ADJ)||[]);
+  const cmp=/\b(from\s+(above|the\s+air|the\s+sky|up\s+high|the\s+helicopter)|bird's[\s-]eye|aerial\s+view)\b/.test(t)&&/\b(than|instead\s+of|rather\s+than|from\s+the\s+ground|on\s+the\s+ground|ground[\s-]level|eye[\s-]level|unlike|whereas|but\s+from)\b/.test(t);
+  const tv=/\b(you\s+(can|will|could|would)\s+(see|notice|spot|admire|enjoy|look)|tourists?\s+(can|will|could|would)\s+(see|notice|spot|admire|enjoy)|visitors?\s+(can|will|could)\s+(see|notice|spot|admire|enjoy)|we\s+(can|could|saw|will\s+see)|you\s+see)\b/.test(t);
+  const av=/\b(helicopters?|pilots?|fl(y|ying|ies|ew|ight|ights)|aerial|take[\s-]?off|land(ed|ing)?|hover\w*|soar\w*|in\s+the\s+air|from\s+the\s+sky)\b/.test(t);
+  const items=[[`C3: sensible adjective + noun combinations (${n}/7)`,n===7,7,n],
+   [`Paragraph length 80–100 words (${w})`,w>=80&&w<=100,1],
+   ['Names a famous place in your country (written in the box and in your paragraph)',plOk,1,pl.length>=3],
+   [`C1b: things of interest a tourist could see from the sky (${sky.size}) – aim for 4+`+(sky.size?': '+[...sky].slice(0,6).join(', '):''),sky.size>=4,2,sky.size>=2?1:0],
+   ['C1c: explains what is different from above compared with eye level',cmp,1],
+   [`Adjectives from the C3 box (${adj.size}) – aim for 3+`+(adj.size?': '+[...adj].join(', '):''),adj.size>=3,2,adj.size>=1?1:0],
+   ['Written from a tourist’s point of view (you can see … / tourists will notice …)',tv,1],
+   ['Helicopter / flying vocabulary (fly, pilot, take off, land, hover …)',av,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 3: Words ending in -ing ---------- */
+const USES=['A','B','C','D'];
+const USEN={A:'A – noun / subject of the sentence',B:'B – after a preposition',C:'C – continuous verb tense',D:'D – adjective'};
+// [letter, extract (html), answer, explanation]
+const ACT1=[['a','someone who has an <u>amazing</u> job','D','<i>amazing</i> describes the noun <i>job</i> → adjective.'],
+ ['b','Every day I see something that is <u>amazing</u>.','D','<i>is amazing</i> – here <i>amazing</i> describes <i>something</i>; it is an adjective, not a continuous tense.'],
+ ['c','<u>flying</u> helicopters was what I wanted to do','A','<i>flying helicopters</i> is the subject of the verb <i>was</i>.'],
+ ['d','It’s just one <u>fascinating</u> day after another.','D','<i>fascinating</i> describes the noun <i>day</i>.'],
+ ['e','Tell us how you became interested in <u>flying</u>.','B','<i>flying</i> comes after the preposition <i>in</i>.'],
+ ['f','the angle of view and speed are constantly <u>changing</u>','C','<i>are … changing</i> = present continuous.'],
+ ['g','in the film I was <u>watching</u>','C','<i>was watching</i> = past continuous.'],
+ ['h','instead of <u>seeing</u> things from the ground','B','<i>seeing</i> comes after the preposition <i>instead of</i>.']];
+const HINT1={A:'Is it the subject – the “thing” that does the verb?',B:'Look at the word just before it – is it a preposition (in, of, about, without …)?',C:'Is there a form of be before it making a continuous tense (is/are/was … + -ing)?',D:'Does it describe a noun, like an adjective?'};
+function act1(k){const [l,x,a,ex]=ACT1[k],v=A('t3a'+k);if(!v)return {ok:false,empty:true,msg:''};
+  if(v===a)return {ok:true,msg:'Correct – '+ex.replace(/<\/?[a-z]+>/g,'')};
+  return {ok:false,msg:`Not ${v}. ${HINT1[a]}`}}
+// [incorrect, correct, base, ing, source, hint, misspellings]
+const FIX=[['Sit at a computer all day isn’t healthy.','Sitting at a computer all day isn’t healthy.','sit','sitting','Language tip','The subject of a sentence must be a noun – use the -ing form, not the bare infinitive.',['siting']],
+ ['I’m looking forward to see you soon.','I’m looking forward to seeing you soon.','see','seeing','Language tip','In <i>look forward to</i>, <i>to</i> is a preposition – use the -ing form after it.',['seing']],
+ ['Swim with dolphins was the best part of our holiday.','Swimming with dolphins was the best part of our holiday.','swim','swimming','practice','The subject of a sentence must be a noun – use the -ing form.',['swiming']],
+ ['My sister is interested in take underwater photos.','My sister is interested in taking underwater photos.','take','taking','practice','After the preposition <i>in</i>, use the -ing form.',['takeing']],
+ ['Thank you for book the hotel for us.','Thank you for booking the hotel for us.','book','booking','practice','After the preposition <i>for</i>, use the -ing form.',['bookking']],
+ ['We relaxed on a glass-bottomed boat instead of dive.','We relaxed on a glass-bottomed boat instead of diving.','dive','diving','practice','After <i>instead of</i>, use the -ing form.',['diveing']]];
+const nrm = s => norm(s).toLowerCase().replace(/\s+/g,' ').trim().replace(/[.!]+$/,'');
+function fix(k){const [bad,good,base,ing,src,hint,miss]=FIX[k],raw=norm(A('t3f'+k)).trim(),t=nrm(raw);if(!raw)return {ok:false,empty:true,msg:''};
+  const words=t.split(/[\s,]+/);
+  if(miss.some(m=>words.includes(m)))return {ok:false,msg:`Check the spelling of the -ing form: ${ing}.`};
+  if(new RegExp('\\b(to\\s+)?'+base+'\\b').test(t)&&!words.includes(ing)){
+    if(new RegExp('\\b(to)\\s+'+base+'\\b').test(t)&&k!==1)return {ok:false,msg:'Don’t add “to” – use the -ing form. '+hint.replace(/<\/?i>/g,'')};
+    return {ok:false,msg:`“${base}” is still the bare infinitive. `+hint.replace(/<\/?i>/g,'')}}
+  if(new RegExp('\\b(to\\s+)?'+base+'s\\b|\\b'+base+'ed\\b').test(t))return {ok:false,msg:'Use the -ing form here, not another tense. '+hint.replace(/<\/?i>/g,'')};
+  if(t===nrm(good)){if(!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter.'};return {ok:true,msg:`Correct: “${ing}”.`}}
+  if(words.includes(ing))return {ok:false,msg:`Good – “${ing}” is right. Now copy the rest of the sentence exactly.`};
+  return {ok:false,msg:'Rewrite the whole sentence and correct the verb in bold. '+hint.replace(/<\/?i>/g,'')}}
+const OWN3=[['A','Use A – an -ing noun as the subject','Eating fast food is bad for you.','e.g. Swimming in the Red Sea is my favourite holiday activity.'],
+ ['B','Use B – -ing after a preposition','Why did you do that without asking?','e.g. We visited the old town before flying home.'],
+ ['C','Use C – -ing in a continuous tense','Tomorrow he is flying over the Great Wall of China.','e.g. Next summer my family is travelling to Turkey.'],
+ ['D','Use D – an -ing adjective','The scenery was stunning.','e.g. The view from the helicopter was breathtaking.'],
+ ['NP','-ing noun phrase (gerund + extra information)','Eating too much fast food is bad for you.','e.g. Taking photos of coral reefs is a popular activity.']];
+const HOLT=new RegExp(HOLV.source+'|\\b(travel\\w*|visit\\w*|fly\\w*|flew|swim\\w*|beach|sea|hotel|plane|summer|trip|abroad|airport|tour\\w*|camp\\w*|explor\\w*|climb\\w*|sail\\w*|photo\\w*|view|scenery|mountain|desert|island|city|country)\\b');
+function own3(k){const [u,lab,ex]=OWN3[k],raw=norm(A('t3o'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(t)<5)return {ok:false,msg:'Write a complete sentence (5+ words).'};
+  if(nrm(raw)===nrm(ex))return {ok:false,msg:'That is the coursebook example – write your own sentence.'};
+  const o=ingUses(raw);
+  if(u==='A'&&!o.A.length)return {ok:false,msg:'Start the sentence with an -ing word that is the subject, then a verb: “Diving with turtles is …”.'};
+  if(u==='B'&&!o.B.length)return {ok:false,msg:'Put an -ing form straight after a preposition (in, of, for, about, without, before, after, instead of …).'};
+  if(u==='C'&&!o.C.length)return {ok:false,msg:/going to/.test(t)?'Good, but avoid “going to + verb”: use be + -ing, e.g. “We are flying to Italy tomorrow.”':'Use be + -ing to make a continuous tense: “We are flying …” / “I was swimming …”.'};
+  if(u==='D'&&!o.D.length)return {ok:false,msg:'Use an -ing adjective (amazing, stunning, relaxing, exciting, breathtaking …).'};
+  if(u==='NP'&&!o.np)return {ok:false,msg:'Make a longer -ing phrase as the subject: -ing word + extra words + verb, e.g. “Taking photos of coral reefs is …”.'};
+  if(!HOLT.test(t))return {ok:false,msg:'Write your sentence about holidays or travel.'};
+  if(!/^[A-Z0-9“"']/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(!/[.!?]$/.test(raw))return {ok:false,msg:'End with a full stop.'};
+  const w={A:o.A,B:o.B,C:o.C,D:o.D,NP:o.A.concat(o.B)}[u][0];
+  return {ok:true,msg:`Good – ${u==='NP'?'-ing noun phrase':'use '+u}: “${w}”.`}}
+function chk3(){
+  const n1=R(0,8).filter(k=>act1(k).ok).length,n2=R(0,6).filter(k=>fix(k).ok).length,n3=R(0,5).filter(k=>own3(k).ok).length;
+  const items=[[`Activity 1: function of the -ing form – A, B, C or D (${n1}/8)`,n1===8,8,n1],
+   [`Language tip: common -ing mistakes corrected (${n2}/6)`,n2===6,6,n2],
+   [`Own sentences about holidays – one for each use (${n3}/5)`,n3===5,5,n3],
+   ['All four uses (A–D) shown in your own sentences',['A','B','C','D'].every((u,k)=>own3(k).ok),1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 4: Personal questions & fillers (E3, E6, Language tip) ---------- */
+// [letter, jumbled, accepted answers, imperative?]
+const E3=[['a','in / town / live / do / which / you',['which town do you live in','in which town do you live'],0],
+ ['b','for / weekend / what / plans / next / your / are',['what are your plans for next weekend'],0],
+ ['c','me / school / talk / at / favourite / your / to / subjects / about',['talk to me about your favourite subjects at school'],1],
+ ['d','your / what’s / name',['what\'s your name'],0],
+ ['e','you / name / your / do / spell / family / how',['how do you spell your family name'],0],
+ ['f','have / how / sisters / brothers / and / you / do / many',['how many brothers and sisters do you have','how many sisters and brothers do you have'],0],
+ ['g','describe / how / today / travelled / you / here',['describe how you travelled here today'],1],
+ ['h','career / would / follow / like / you / to / what',['what career would you like to follow'],0],
+ ['i','do / did / you / what / weekend / last',['what did you do last weekend'],0],
+ ['j','tell / you / what / doing / your / in / free / enjoy / time / me',['tell me what you enjoy doing in your free time'],1]];
+const toks = s => norm(s).toLowerCase().replace(/[^a-z' ]/g,' ').split(/\s+/).filter(Boolean);
+function e3(k){const [l,j,acc,imp]=E3[k],raw=norm(A('t4e'+k)).trim();if(!raw)return {ok:false,empty:true,msg:''};
+  const T=toks(raw),J=toks(j.replace(/\//g,' ')).sort().join(' ');
+  if(acc.includes(T.join(' '))){
+    if(!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+    if(imp&&!/[.?]$/.test(raw))return {ok:false,msg:'End with a full stop – it is an instruction, not a question.'};
+    if(!imp&&!/\?$/.test(raw))return {ok:false,msg:'End with a question mark (?).'};
+    return {ok:true,msg:imp?'Correct – a conversation starter (Speaking tip).':'Correct question.'}}
+  if([...T].sort().join(' ')===J)return {ok:false,msg:imp?'All the words are there – check the order: start with the instruction verb.':'All the words are there – check the order: question word + auxiliary + subject + verb.'};
+  const need=J.split(' '),miss=[...need],extra=[];T.forEach(x=>{const i=miss.indexOf(x);if(i>=0)miss.splice(i,1);else extra.push(x)});
+  return {ok:false,msg:(miss.length?`Use all the words – missing: ${miss.join(', ')}. `:'')+(extra.length?`Extra word(s): ${extra.join(', ')}.`:'')}}
+const E6Q=['Describe how you travelled here today.','Tell me what you enjoy doing in your free time.','Talk to me about your favourite subjects at school.','What career would you like to follow?','What did you do last weekend?','What are your plans for next weekend?'];
+const E6R=[[/\b(by\s+(car|bus|taxi|train|bike|bicycle|metro|coach|school\s+bus)|on\s+foot|walked|drove|took|came|rode|cycled|travelled|traveled|brought\s+me|dropped\s+me|gave\s+me\s+a\s+lift|lift)\b/,'Say how you travelled (by car, on foot, my father drove me …) – use the past simple.'],
+ [/\b(enjoy|like|love|prefer|spend|hobb(y|ies)|free\s+time|weekends?|interested|fan\s+of|keen\s+on)\b/,'Say what you enjoy doing (I enjoy + -ing / I love + -ing …).'],
+ [/\b(english|maths|mathematics|math|science|biology|chemistry|physics|history|geography|arabic|islamic|religion|quran|ict|computer|computing|art|pe|p\.e\.|physical\s+education|sport|french|economics|business|subjects?)\b/,'Name your favourite subject(s) and say why.'],
+ [/\b(would\s+like\s+to|'d\s+like\s+to|want\s+to|wants\s+to|hope\s+to|plan\s+to|planning\s+to|dream|become|be\s+an?|career|job|work\s+as|study|studying)\b/,'Say what you would like to be (I’d like to become … / I hope to work as …).'],
+ [/\b([a-z]+ed|went|visited|saw|had|ate|played|watched|spent|met|took|made|did|was|were|stayed|came|bought|drove|swam|read|wrote|slept|rode|flew|got)\b/,'Use the past simple: I went / I visited / I played …'],
+ [/\b(going\s+to|will|'ll|am\s+[a-z]+ing|'m\s+[a-z]+ing|are\s+[a-z]+ing|'re\s+[a-z]+ing|plan|plans|planning|hope\s+to|would\s+like|'d\s+like|might|may|intend)\b/,'Talk about the future: I’m going to … / I’m visiting … / I hope to …']];
+const FILL=[['well',/^well\b/],['as I said before',/^as\s+i\s+said\s+(before|earlier)\b/],['let me think',/^let\s+me\s+(think|see)\b/],['yes, you’re right',/^yes,?\s+you're\s+right\b/],['I’m not sure but',/^i'm\s+not\s+sure,?\s+but\b/],['hmmm',/^h+m+\b/],['to be honest',/^to\s+be\s+honest\b/],['so far',/^so\s+far\b/],['actually',/^actually\b/]];
+function filler(raw,qi){const t=norm(raw).trim().toLowerCase().replace(/^["'“]/,'');if(!t)return null;
+  const f=FILL.find(x=>x[1].test(t));if(f)return f[0];
+  const m=t.match(/^([a-z' ]{3,30})\?\s/);if(m&&qi>=0){const q=norm(E6Q[qi]).toLowerCase(),ws=m[1].trim().split(/\s+/);if(ws.length<=4&&ws.every(w=>q.includes(w.replace(/^my$/,'your').replace(/^i$/,'you'))||w==='my'||w==='i'))return 'echo: “'+cap(m[1].trim())+'?”'}
+  return null}
+function e6(k){const raw=norm(A('t4q'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  const S=sents(raw).filter(s=>wc(s)>=2),f=filler(raw,k);
+  if(wc(t)<8)return {ok:false,msg:'Develop your answer – a full answer of 2–3 sentences.'};
+  if(!E6R[k][0].test(t))return {ok:false,msg:E6R[k][1]};
+  if(S.length<2)return {ok:false,msg:'Write 2–3 sentences: answer, then add a reason, detail or example.'};
+  if(S.length>4)return {ok:false,msg:'Keep it to 2–3 sentences (4 at most).'};
+  if(!/^[A-Z“"']/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(!/[.!?]$/.test(raw))return {ok:false,msg:'End with a full stop.'};
+  return {ok:true,msg:'Good, developed answer.'+(f?` Filler: ${f}.`:'')}}
+const fillers = () => [...new Set(R(0,6).map(k=>filler(A('t4q'+k),k)).filter(Boolean).map(f=>f.startsWith('echo')?'echo':f))];
+function chk4(){
+  const n1=R(0,10).filter(k=>e3(k).ok).length,n2=R(0,6).filter(k=>e6(k).ok).length,F=fillers();
+  const dev=R(0,6).filter(k=>/\b(because|for\s+example|for\s+instance|such\s+as|so|as|since|which|especially|but)\b/.test(norm(A('t4q'+k)).toLowerCase())).length;
+  const items=[[`E3: jumbled words made into correct questions (${n1}/10)`,n1===10,5,Math.floor(n1/2)],
+   [`E6: full answers of 2–3 sentences (${n2}/6)`,n2===6,6,n2],
+   [`Fillers from the Language tip at the start of answers (${F.length}) – 3 different needed`+(F.length?': '+F.join(', '):''),F.length>=3,3,Math.min(F.length,3)],
+   [`Answers developed with reasons or examples (${dev}/6) – aim for 3+`,dev>=3,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 5: Project – Plan a holiday (role-play script) ---------- */
+const TYPES=['Aerial tourism','Underwater tourism','Yoga cruise','Volcano climbing','Hunting with eagles','Slow food festival','Sand-dune racing','Eco-holiday','My own idea'];
+const ROLE=['t5n0','t5n1','t5n2'],ROLED=['Assistant','Tourist 1','Tourist 2'];
+const roleName = k => (norm(A(ROLE[k])).trim()||ROLED[k]);
+function lines5(){const out=[];(A('t5txt')||'').split('\n').forEach(l=>{const m=norm(l).match(/^\s*([A-Za-z][\w .'-]{0,24}?)\s*:\s*(.+)$/);if(m)out.push({who:m[1].trim().toLowerCase(),txt:m[2].trim()})});return out}
+function chk5(){
+  const raw=A('t5txt'),t=norm(raw).toLowerCase(),w=wc(t),Ls=lines5(),names=[0,1,2].map(k=>roleName(k).toLowerCase());
+  const cnt=names.map(n=>Ls.filter(l=>l.who===n).length),spk=cnt.filter(c=>c>0).length;
+  const tq=Ls.filter(l=>l.who!==names[0]&&names.includes(l.who)&&/\?/.test(l.txt)).length,aq=Ls.some(l=>l.who===names[0]&&/\?/.test(l.txt));
+  const sug=/\b(i\s+(suggest|recommend)|i'd\s+(suggest|recommend)|you\s+(could|should|might|can)\s|why\s+don't\s+you|how\s+about|what\s+about|would\s+you\s+like|shall\s+(i|we)|let's|it's\s+a\s+good\s+idea)\b/.test(t);
+  const pref=/\b(i'd\s+(prefer|rather|love|like|really\s+love)|i\s+would\s+(prefer|rather|love|like)|i\s+prefer|we'd\s+(prefer|rather|love|like)|we\s+would\s+(prefer|rather|love|like)|i'm\s+(really\s+)?(keen|interested)|i\s+am\s+(really\s+)?(keen|interested)|i\s+don't\s+(like|want)|i'm\s+not\s+keen|i\s+love|we\s+love|i\s+(really\s+)?enjoy)\b/.test(t);
+  const price=/[$£€]\s?\d|\b\d[\d,. ]*\s*(riyals?|sar|sr|dollars?|pounds?|euros?|dirhams?|lira)\b|\b(how\s+much|costs?|price|prices|per\s+person|discount|cheap(er)?|expensive|budget)\b/.test(t);
+  const date=/\b(january|february|march|april|may|june|july|august|september|october|november|december|monday|tuesday|wednesday|thursday|friday|saturday|sunday|weekend|\d+\s*(st|nd|rd|th)\b|\d+\s+(nights?|days?|weeks?)|(one|two|three|four|five|six|seven|ten|fourteen)\s+(nights?|days?|weeks?)|summer|winter|spring|autumn|holidays?\s+in\s+[a-z]+|eid|when\s+(do|would|can))\b/.test(t);
+  const trav=/\b(fl(y|ight|ights|ying)|plane|airport|train|ferry|boat|ship|transfer|bus|coach|hotel|resort|accommodation|room|rooms|cabin|tent|camp|apartment|villa|stay|staying|check[\s-]in|breakfast|meals?)\b/.test(t);
+  const pl=norm(A('t5dest')).trim().toLowerCase(),dest=pl.length>=3&&t.includes(pl.split(/[ ,(]/)[0]);
+  const ings=ingAll(raw),adj=new Set(t.match(C3ADJ)||[]),L=links(t),lc=linkCount(L);
+  const items=[[`Length 150–200 words (${w})`,w>=150&&w<=200,1],
+   [`Three speakers, each speaking at least twice (${[0,1,2].map(k=>roleName(k)+' '+cnt[k]).join(' · ')})`,cnt.every(c=>c>=2),1,spk===3],
+   [`The tourists ask questions (${tq}) – aim for 3+`,tq>=3,2,tq>=1?1:0],
+   ['The travel assistant asks the tourists questions (personal questions / preferences)',aq,1],
+   ['Suggestions (I’d recommend … / You could … / How about …?)',sug,1],
+   ['Preferences (I’d prefer … / I’d rather … / I’m really keen on …)',pref,1],
+   ['Prices',price,1],['Dates or length of stay',date,1],['Travel and accommodation details',trav,1],
+   ['Destination named in the script'+(pl?` (${esc(A('t5dest').trim())})`:''),dest,1],
+   [`-ing forms (${ings.length})`+(ings.length?': '+ings.slice(0,5).join(', '):''),ings.length>=2,1],
+   [`Adjective + noun combinations with the C3 adjectives (${adj.size})`+(adj.size?': '+[...adj].join(', '):''),adj.size>=2,1],
+   [`Linking devices (${lc}) – aim for 3+`+(lc?': '+LCAT.flatMap(c=>[...L[c]]).slice(0,6).join(', '):''),lc>=3,1]];
+  return {items,score:sum(items),cnt};
+}
+
+/* ---------- Task 6: Exam-style email (enhancement) ---------- */
+const RUB=[['c1','Content','I described where I went and what I did on my unusual activity holiday',2],['c2','Content','I explained what I found most exciting or challenging, with reasons',2],['c3','Content','I suggested a holiday my friend would enjoy and said why',1],['c4','Content','My email is friendly and informal – right for a friend',1],
+ ['l1','Language','I organised my email clearly: greeting, opening, paragraphs and a friendly ending',2],['l2','Language','I used a range of holiday vocabulary and adjective + noun combinations from the unit',2],['l3','Language','I used -ing forms accurately (e.g. Diving with turtles was …, I’m looking forward to seeing you)',1],['l4','Language','I used a variety of linking devices',2],['l5','Language','My spelling, grammar and punctuation are mostly accurate; 120–160 words',2]];
+const PASTW=/\b([a-z]{3,}ed|went|saw|had|ate|took|made|did|was|were|came|bought|flew|swam|rode|met|got|felt|spent|found|kept|left|slept|sat|stood|began|caught|dove|dived|told|thought|gave|wore|drove|ran|won|lost|heard|learnt|learned|taught)\b/g;
+function chk6(){
+  const raw=A('t6txt'),r=norm(raw),t=r.toLowerCase(),W=wc(t),P=paras(raw),L=links(t),lc=linkCount(L),hv=holv(t),ings=ingAll(raw);
+  const first=(r.trim().split('\n')[0]||'').toLowerCase(),lastL=r.trim().split('\n').map(x=>x.trim()).filter(Boolean).slice(-3).join(' ').toLowerCase();
+  const greet=/^(hi|hello|hey|dear)\s+[a-z]/.test(first);
+  const open=/\b(how\s+are\s+you|how\s+are\s+things|how's\s+it\s+going|hope\s+you('re|\s+are)\s+(well|ok|fine|good)|i\s+hope\s+you|sorry\s+(i\s+haven't|for\s+not)|guess\s+what|thanks\s+for\s+your\s+(email|message|letter)|it\s+was\s+great\s+to\s+hear)\b/.test(t);
+  const close=/\b(write\s+(back\s+)?soon|love|best\s+wishes|see\s+you\s+soon|take\s+care|bye\s+for\s+now|all\s+the\s+best|speak\s+soon|can't\s+wait\s+to\s+(see|hear)|looking\s+forward\s+to\s+(hearing|seeing)|cheers|best)\b/.test(lastL);
+  const where=/\b(went|travelled|traveled|flew|visited|stayed|spent|go|been|holiday|trip|tour|cruise)\b[^.!?]{0,60}\b(to|in|at|on|around|over|near|of)\s+(the\s+)?[A-Z][a-z]+/.test(r);
+  const act=/\b(aerial|helicopter|sightseeing|underwater|photograph\w*|scuba|div(e|ed|ing)|snorkell?ing|coral|reef|yoga|cruise|eco[\s-]?holiday|volcano\w*|eagles?|sand[\s-]dunes?|quad|racing|hiking|climb\w*|kayak\w*|camping|rafting|sailing|safari|festival|zip[\s-]?lin\w*|paraglid\w*|balloon)\b/.test(t);
+  const exc=/\b(most\s+(exciting|thrilling|amazing|challenging|difficult|frightening|unforgettable)|the\s+best\s+(part|thing|moment)|the\s+hardest|challeng\w*|scary|frighten\w*|nervous|terrif\w*|thrilling|exciting|difficult)\b/.test(t);
+  const why=/\b(because|as|since|so|that's\s+why|which\s+(was|made))\b/.test(t);
+  const sug=/\b(you\s+(should|could|would|'d|might|must)\b|you'd|why\s+don't\s+you|how\s+about|what\s+about|i\s+(think|'m\s+sure|am\s+sure|bet)\s+you('d|\s+would|'ll|\s+will)|i\s+(recommend|suggest)|perfect\s+for\s+you|you\s+(love|like|enjoy))\b/.test(t);
+  const past=(t.match(PASTW)||[]).filter(x=>!['need','indeed','speed','bed','red','hundred','seed','feed','shed','used'].includes(x)).length;
+  const contr=(t.match(/\b[a-z]+'(s|re|ve|ll|d|m|t)\b/g)||[]).length;
+  const items=[
+   ['Informal greeting (Hi / Hello / Dear + name)',greet,1],
+   ['Friendly opening (How are you? / Guess what! / Hope you’re well)',open,1],
+   ['Friendly ending (Write back soon / See you soon / Love / Best wishes)',close,1],
+   [`Length 120–160 words (${W})`,W>=120&&W<=160,1],
+   [`Organised in paragraphs (${P.length}) – press Enter between paragraphs`,P.length>=3,1],
+   ['Point 1: where you went (a place name)',where,1],
+   ['Point 1: what you did – an unusual activity holiday',act,1],
+   ['Point 2: what you found most exciting or challenging',exc,1],
+   ['Point 2: explains why (because / as / so …)',exc&&why,1],
+   ['Point 3: suggests a holiday your friend would enjoy (You’d love … / Why don’t you …?)',sug,1],
+   [`Past tenses to describe the holiday (${past}) – aim for 5+`,past>=5,1],
+   [`-ing forms (${ings.length})`+(ings.length?': '+ings.slice(0,5).join(', '):'')+' – aim for 2+',ings.length>=2,1],
+   [`Linking devices – 4+ from at least two categories (${lc})`+(lc?': '+LCAT.flatMap(c=>[...L[c]]).slice(0,7).join(', '):''),lc>=4&&LCAT.filter(c=>L[c].size).length>=2,1],
+   [`Holiday vocabulary from the unit (${hv.size}) – aim for 4+`+(hv.size?': '+[...hv].slice(0,6).join(', '):''),hv.size>=4,1],
+   [`Informal register: contractions (${contr}), no slang, max. 2 “!”`,contr>=2&&wc(t)>20&&!REG_BAD.test(t)&&(t.match(/!/g)||[]).length<=2,1]];
+  return {items,score:sum(items)};
+}
+function selfScore(){let c=0,l=0;RUB.forEach(r=>{if(st.a['rub_'+r[0]]){if(r[1]==='Content')c+=r[3];else l+=r[3]}});return [c,l]}
+
+/* ---------- task definitions ---------- */
+const TASKS=[
+ {id:1,title:'Holiday vocabulary',icon:'🏝️',max:20,lesson:'Lessons 5.1 & 5.5 · B2, B4 & D1, Coursebook pp. 62–64, 68',chk:chk1,
+  done:()=>R(0,7).filter(k=>A('t1m'+k)).length>=5&&R(0,5).filter(i=>A('t1d'+i).trim()).length>=3&&wc(A('t1txt'))>=50,
+  words:()=>R(0,5).reduce((s,i)=>s+wc(A('t1d'+i)),0)+wc(A('t1txt')),
+  model:`<b>B2:</b> a vi – Volcano climbing in Ecuador (picture 6) · b i – Hunting with eagles in Mongolia (picture 1) · c v – Slow food cheese festival in Italy (picture 5) · d ii – Yoga cruise in Turkey (picture 2) · e iii – Underwater photography in Australia (picture 3) · f vii – Sand-dune racing in Saudi Arabia (picture 7) · g iv – Aerial tourism in China (picture 4)<br><b>D1 (examples):</b> Our guide showed us the wildlife near the lake. · I love snorkelling at the beach in Jeddah. · The cameraman filmed a documentary about the coral reef. · The chef at our hotel restaurant cooked fresh fish every evening. · Don’t forget the password when you pay online with your credit card.<br><b>B4 paragraph:</b> My number 1 is the underwater photography holiday in Australia. Yes please – I’d really love to go, because I am fascinated by coral reefs and sea creatures, and taking photos underwater sounds amazing. I would take my older brother, as he is an experienced diver and he could help me. My number 7 is hunting with eagles in Mongolia. No way! This holiday doesn’t interest me at all because I am a little afraid of large birds, and the mountains there are extremely cold. However, I would like to see the eagles in a documentary.`},
+ {id:2,title:'Aerial tourism',icon:'🚁',max:16,lesson:'Lesson 5.2 · C1, C3 & C6, Coursebook pp. 64–65',chk:chk2,
+  done:()=>C3.filter((x,k)=>x[1]&&A('t2p'+k).trim()).length>=4&&wc(A('t2txt'))>=50,words:()=>wc(A('t2txt')),
+  model:`<b>C3 (suggested combinations):</b> amazing job (example) · ground-level view · normal day · spectacular scenery · dramatic landscape · static picture · popular attraction · stunning view<br><b>Paragraph – AlUla from a helicopter:</b> As the helicopter takes off over AlUla, tourists can see a stunning landscape of golden sand and dramatic sandstone mountains. From above, you notice things you would never see at ground level: the ancient tombs of Hegra carved into the rocks, green palm farms in the old oasis and the shining mirror walls of Maraya. Elephant Rock, a popular attraction, looks surprisingly small from the sky. Unlike a static view from the ground, the angle and speed are always changing, so every minute brings a spectacular new picture. It is an amazing way to see how the valley fits together.`},
+ {id:3,title:'Words ending in -ing',icon:'🔤',max:20,lesson:'Lesson 5.3 · Language focus & Language tip, Coursebook pp. 65–67',chk:chk3,
+  done:()=>R(0,8).filter(k=>A('t3a'+k)).length>=6&&R(0,6).filter(k=>A('t3f'+k).trim()).length>=3&&R(0,5).filter(k=>A('t3o'+k).trim()).length>=3,
+  words:()=>R(0,6).reduce((s,k)=>s+wc(A('t3f'+k)),0)+R(0,5).reduce((s,k)=>s+wc(A('t3o'+k)),0),
+  model:`<b>Activity 1:</b> a D · b D · c A · d D · e B (after <i>in</i>) · f C (present continuous) · g C (past continuous) · h B (after <i>instead of</i>)<br><b>Language tip corrections:</b> Sitting at a computer all day isn’t healthy. · I’m looking forward to seeing you soon. · Swimming with dolphins was the best part of our holiday. · My sister is interested in taking underwater photos. · Thank you for booking the hotel for us. · We relaxed on a glass-bottomed boat instead of diving.<br><b>Own sentences (examples):</b> A – Snorkelling in the Red Sea is my favourite holiday activity. · B – We visited the old town before flying home. · C – Next summer my family is travelling to Turkey. · D – The view from the helicopter was breathtaking. · Noun phrase – Taking photos of coral reefs is a popular activity for divers.`},
+ {id:4,title:'Personal questions',icon:'💬',max:15,lesson:'Lessons 5.6–5.7 · E3, E6 & Language tip: Fillers, Coursebook pp. 69–70',chk:chk4,
+  done:()=>R(0,10).filter(k=>A('t4e'+k).trim()).length>=6&&R(0,6).filter(k=>A('t4q'+k).trim()).length>=3,
+  words:()=>R(0,10).reduce((s,k)=>s+wc(A('t4e'+k)),0)+R(0,6).reduce((s,k)=>s+wc(A('t4q'+k)),0),
+  model:`<b>E3:</b> a Which town do you live in? · b What are your plans for next weekend? · c Talk to me about your favourite subjects at school. · d What’s your name? · e How do you spell your family name? · f How many brothers and sisters do you have? · g Describe how you travelled here today. · h What career would you like to follow? · i What did you do last weekend? · j Tell me what you enjoy doing in your free time.<br><b>E6 (example answers):</b> a Well, my father drove me to school this morning because it was too hot to walk. The journey only took ten minutes. · b To be honest, I really enjoy swimming and reading. At the weekend I often go to the pool with my cousins. · c Let me think … My favourite subject is science, especially biology, because I find the human body fascinating. I also like English. · d Actually, I’d like to become an engineer, like my uncle. I enjoy solving problems and designing things. · e Last weekend I visited my grandparents in Yanbu. We had a big family lunch and went to the beach. · f Next weekend? Hmmm, I’m not sure yet, but I’m going to watch a football match with my friends.`},
+ {id:5,title:'Project: Plan a holiday',icon:'🧳',max:14,lesson:'Lesson 5.8 · Project: Plan a holiday, Coursebook pp. 71–72',chk:chk5,
+  done:()=>wc(A('t5txt'))>=80,words:()=>wc(A('t5txt')),
+  model:`<b>Roles:</b> Assistant – Sara; Tourists – Lina and Huda · <b>Destination:</b> Heron Island, Australia (underwater tourism)<br>Sara: Good morning! Welcome to SkySea Travel. What kind of holiday are you looking for?<br>Lina: Hello! We’re really interested in underwater tourism. Could you recommend a destination?<br>Sara: Of course. How about Heron Island on the Great Barrier Reef? The coral is stunning.<br>Huda: That sounds amazing! How much does it cost?<br>Sara: A seven-night package costs 9,500 riyals per person, including flights and a beach hotel.<br>Lina: When can we go? I’d prefer to travel in July.<br>Sara: There is a trip from 5th to 12th July. You could also try a glass-bottomed boat.<br>Huda: To be honest, I’m nervous about diving. Is there anything for beginners?<br>Sara: Yes, there are snorkelling lessons every morning before diving, so you can practise first.<br>Lina: Great. What about meals?<br>Sara: Breakfast and dinner are included. Would you like me to book it?<br>Huda: Yes, please! However, can we have a room with a sea view?<br>Sara: Certainly. I’m looking forward to seeing your stunning photos!`},
+ {id:6,title:'Exam-style email',icon:'✉️',max:15,lesson:'Lesson 5.9 · Enhancement task – exam-style writing (the unit has no printed writing exam)',chk:chk6,done:()=>wc(A('t6txt'))>=60,words:()=>wc(A('t6txt')),
+  model:`Hi Omar,<br><br>How are you? Guess what – I’ve just come back from an amazing underwater photography holiday in the Red Sea, near Umluj!<br><br>First of all, we stayed in a small eco-lodge by the beach for five days. Every morning our guide took us diving on the coral reef, and I learnt how to use an underwater camera. As well as turtles and colourful fish, I even saw a dolphin.<br><br>The most challenging part was taking clear photos, because the fish kept moving and I had to control my breathing at the same time. However, the most exciting moment was swimming next to a huge turtle. It was unforgettable!<br><br>You should try an aerial tour of AlUla. I think you’d love it because you enjoy photography, and the views of the mountains from a helicopter are stunning.<br><br>Write back soon and tell me your news.<br><br>Best wishes,<br>Faisal`}
+];
+
+
+const TOTAL=TASKS.reduce((s,t)=>s+t.max,0);
+
+/* ---------- UI helpers ---------- */
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+function checklist(items){return '<ul class="chk">'+items.map(it=>{const part=!it[1]&&(typeof it[3]==='number'?it[3]>0:!!it[3]);const g=got(it);
+  return `<li class="${it[1]?'y':(part?'p':'n')}"><span class="ic">${it[1]?'✔':(part?'◐':'✘')}</span><span>${it[0]}</span>${it[2]?`<span class="pt">${g}/${it[2]}</span>`:''}</li>`}).join('')+'</ul>'}
+function ta(key,rows,ph,extra=''){return `<textarea data-k="${key}" rows="${rows}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} ${extra}>${esc(A(key))}</textarea>`}
+function inp(key,ph,style=''){return `<input type="text" data-k="${key}" value="${esc(A(key))}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} style="${style}" autocomplete="off">`}
+function sel(key,opts,ph,style=''){return `<select data-k="${key}" ${st.submitted?'disabled':''} style="${style}"><option value="">${ph}</option>${opts.map(o=>`<option ${A(key)===o?'selected':''}>${o}</option>`).join('')}</select>`}
+
+/* ---------- render ---------- */
+function renderTabs(){
+  $('#tabs').innerHTML=TASKS.map((t,i)=>`<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${t.id}. ${esc(t.title)}<span class="d">${t.done()?'✓':''}</span></button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{renderTask(+b.dataset.i);scrollTo({top:0,behavior:'smooth'})});
+  updBar();
+}
+function updBar(){const d=TASKS.filter(t=>t.done()).length;$('#ptxt').textContent=d+'/6 tasks';$('#progI').style.width=(d/6*100)+'%';
+  $('#wtot').textContent='✍ '+TASKS.reduce((s,t)=>s+t.words(),0)+' words';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const e=b.querySelector('.d');if(e)e.textContent=TASKS[i].done()?'✓':''})}
+function head(t,instr){return `<div class="sec-h"><h2>${t.icon} Task ${t.id} – ${esc(t.title)}</h2><span class="mk">${t.max} marks</span></div><p class="sec-i">${t.lesson}. ${instr}</p>`}
+function modelBox(t){return st.submitted&&showModel?`<div class="ans"><b>Model answer:</b><br>${t.model}</div>`:''}
+const fbDiv=k=>`<div class="fb" data-fb="${k}"></div>`;
+
+
+function pick(key,opts,small=false){return `<div class="tfrow" data-pkw="${key}">${opts.map(o=>`<button type="button" class="tf ${A(key)===o?'sel':''}" data-pk="${key}" data-pv="${esc(o)}" ${st.submitted?'disabled':''} style="${small?'min-width:0;padding:7px 11px;font-size:14px':''}">${esc(o)}</button>`).join('')}</div>`}
+
+
+function tog(key,opts,allowed){const s=(A(key)||'').split('|');return `<div class="tfrow">${opts.map(o=>`<button type="button" class="tf ${s.includes(o)?'sel':''}" data-tg="${key}" data-tv="${esc(o)}" ${st.submitted?'disabled':''} style="min-width:0;padding:7px 11px;font-size:14px">${esc(o)}</button>`).join('')}</div>`}
+const subh = t => `<div class="sec-i" style="margin-top:18px;font-style:normal;font-weight:800;color:var(--teal-d)">${t}</div>`;
+
+function body(i){
+  const t=TASKS[i];
+  if(i===0){
+    let h=head(t,'<b>B2:</b> match each activity holiday (a–g) to its location (i–vii). Look for clues in the pictures on pages 62–63. <b>D1:</b> write five sentences about holidays, each using a <b>different word from the box</b>. <b>B4:</b> rank the seven holidays from 1 to 7, then write a paragraph of <b>80–100 words</b>: explain your number 1 (<i>Yes please! I’d really love to go on this holiday!</i>) and your number 7 (<i>No way! This holiday doesn’t interest me at all.</i>), and say who you would take on your number-1 holiday and why.');
+    h+=subh('B2 – Match the activity to the location');
+    B2.forEach((x,k)=>{h+=`<div class="q" data-q1m="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt">${esc(x[1])}</span><span class="qm">[1]</span></div><div class="body">${sel('t1m'+k,LOCS,'— choose the location —','max-width:300px')}${fbDiv('1m'+k)}</div></div>`});
+    h+=`${subh('D1 – Holiday sentences with the box words')}<div class="keybox" data-d1chips></div>`;
+    for(let k=0;k<5;k++)h+=`<div class="q" data-q1d="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t1d'+k,['e.g. Our guide showed us the wildlife near the lake.','e.g. I love snorkelling at the beach.','Write your sentence…','Write your sentence…','Write your sentence…'][k])}</span><span class="qm">[1]</span></div>${fbDiv('1d'+k)}</div>`;
+    h+=`${subh('B4a – Rank the holidays')}<div class="q"><span class="where">1 = Yes please! I’d really love to go on this holiday! · 7 = No way! This holiday doesn’t interest me at all. Use each number once.</span><div style="display:grid;gap:8px;margin-top:10px">`;
+    B2.forEach((x,k)=>{h+=`<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;padding:8px 10px"><span style="flex:0 0 200px;font-weight:800">${x[0]} ${esc(x[1])}</span>${pick('t1r'+k,RANKS,true)}</div>`});
+    h+=`</div><div class="warn hidden" data-rankw></div></div>
+      ${subh('B4 – My paragraph')}<div class="q"><label class="f">My number 1 and number 7 holidays (80–100 words)</label>${ta('t1txt',9,'My number 1 is … Yes please – I’d really love to go because …')}<div class="wc" data-wc="t1txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===1){
+    let h=head(t,'Wang Yanghua works as an <b>aerial tourism helicopter pilot</b>. <b>C3:</b> in the interview, each adjective in the box describes a noun (example: <i>amazing = job</i>). Check the order and the nouns from the recording in class with the audioscript (Appendix 3). Here, make your <b>own sensible adjective + noun combinations</b> for a sightseeing flight. Then write a paragraph of <b>80–100 words</b> describing a famous place in your country as a tourist would see it from a helicopter. Answer C1b–c: <i>What things of interest might a tourist see from the sky? What is different when you see something from above, rather than from eye level?</i>');
+    h+=`<div class="keybox"><span>amazing · ground-level · normal · spectacular · dramatic · static · popular · stunning</span></div>${subh('C3 / C6 – Adjective + noun combinations')}`;
+    C3.forEach((x,k)=>{h+=`<div data-q2p="${k}" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-top:8px;background:#fff"><span style="flex:0 0 120px;font-weight:800">${x[0]}</span><span>+</span><span style="flex:0 1 240px">${x[1]?inp('t2p'+k,'noun'):'<input type="text" value="job" disabled>'}</span>${x[1]?'':'<span class="where">example</span>'}<span class="fb" data-fb="2p${k}" style="margin:0;font-size:13px"></span></div>`});
+    h+=`${subh('Paragraph – A famous place from the sky')}<div class="q"><label class="f">Famous place in my country</label>${inp('t2place','e.g. AlUla','max-width:340px')}
+      <label class="f" style="margin-top:12px">My description (80–100 words)</label>${ta('t2txt',9,'As the helicopter takes off over …, tourists can see …')}<div class="wc" data-wc="t2txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===2){
+    let h=head(t,'<b>Activity 1:</b> look at the extracts from the interview with Wang Yanghua. Which function of the -ing form does each one show – A, B, C or D? <b>Language tip:</b> correct the common mistakes – do not use the bare infinitive as a noun or after a preposition. Then write <b>your own sentences about holidays</b>: one for each use (A–D) and one with an -ing noun phrase.');
+    h+=`<div class="keybox"><span><b>A</b> noun / subject: <i><u>Eating</u> fast food is bad for you.</i></span><span><b>B</b> after a preposition: <i>Why did you do that without <u>asking</u>?</i></span><span><b>C</b> continuous tense: <i>Tomorrow he is <u>flying</u> over the Great Wall of China.</i></span><span><b>D</b> adjective: <i>The scenery was <u>stunning</u>.</i></span></div>
+      ${subh('Activity 1 – A, B, C or D?')}`;
+    ACT1.forEach((x,k)=>{h+=`<div class="q" data-q3a="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${x[1]}</i></span><span class="qm">[1]</span></div><div class="body">${pick('t3a'+k,USES)}${fbDiv('3a'+k)}</div></div>`});
+    h+=`${subh('Language tip – Correct the mistakes')}<div class="keybox"><span>✘ <i><u>Sit</u> at a computer all day isn’t healthy.</i> → ✔ <i><u>Sitting</u> at a computer all day isn’t healthy.</i></span><span>Rewrite each sentence correctly. Sentences 1–2 are from the Language tip; 3–6 are extra practice.</span></div>`;
+    FIX.forEach((x,k)=>{h+=`<div class="q" data-q3f="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">✘ <i>${esc(x[0]).replace(new RegExp('\\b('+x[2]+')\\b','i'),'<b><u>$1</u></b>')}</i> <span class="where">(${x[4]==='practice'?'practice':'Language tip, p. 67'})</span></span><span class="qm">[1]</span></div><div class="body">${inp('t3f'+k,'Write the correct sentence…')}${fbDiv('3f'+k)}</div></div>`});
+    h+=subh('My own -ing sentences about holidays');
+    OWN3.forEach((x,k)=>{h+=`<div class="q" data-q3o="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${x[1]} <span class="where">– model: <i>${esc(x[2])}</i></span></span><span class="qm">[1]</span></div><div class="body">${inp('t3o'+k,x[3])}${fbDiv('3o'+k)}</div></div>`});
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===3){
+    let h=head(t,'<b>E3:</b> rearrange the words to make the questions. Remember the <b>Speaking tip</b>: some conversation starters are instructions (<i>Tell me about …, Talk about …</i>) – end those with a full stop. <b>E6:</b> now answer the six questions <b>yourself</b>, in <b>2–3 sentences</b> each. Start <b>at least three</b> answers with a <b>different filler</b> from the Language tip to give yourself thinking time.');
+    h+=subh('E3 – Rearrange the words');
+    E3.forEach((x,k)=>{h+=`<div class="q" data-q4e="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><span class="where">${esc(x[1])}</span></span><span class="qm">[½]</span></div><div class="body">${inp('t4e'+k,'Write the question…')}${fbDiv('4e'+k)}</div></div>`});
+    h+=`${subh('E6 – My answers')}<div class="keybox"><span><b>Fillers:</b> Well · As I said before · Let me think · Yes, you’re right · I’m not sure but · Hmmm · To be honest · So far · Actually</span><span>Example (E9): <i>How do you spell your family name? – <u>Actually</u> it’s quite easy …</i></span></div><div class="keybox" data-fchips></div>`;
+    E6Q.forEach((q,k)=>{h+=`<div class="q" data-q4q="${k}"><div class="qh"><span class="num">${'abcdef'[k]}</span><span class="qt">${esc(q)}</span><span class="qm">[1]</span></div><div class="body">${ta('t4q'+k,3,['e.g. Well, my father drove me to school this morning because …','e.g. To be honest, I really enjoy …','Let me think … My favourite subject is …','Actually, I’d like to become …','Last weekend I …','Next weekend? Hmmm, …'][k])}${fbDiv('4q'+k)}</div></div>`});
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===4){
+    let h=head(t,'<b>Project:</b> in groups of three, one of you is the <b>online travel assistant</b> and the others are the <b>two tourists</b>. Agree on a destination and a type of holiday (e.g. aerial tourism, underwater tourism, a yoga cruise – or your own idea). Write the <b>script</b> of your two-minute, three-way discussion (<b>150–200 words</b>): the tourists ask about dates, prices, travel, accommodation and activities; the assistant asks questions and makes suggestions. Include personal questions, -ing forms, adjective + noun combinations and linking devices.');
+    h+=`<div class="q"><b>Plan</b><div class="grid2" style="margin-top:8px">${[0,1,2].map(k=>`<div><label class="f">${['Online travel assistant – name','Tourist 1 – name','Tourist 2 – name'][k]}</label>${inp(ROLE[k],['e.g. Sara','e.g. Lina','e.g. Huda'][k])}</div>`).join('')}
+      <div><label class="f">Destination</label>${inp('t5dest','e.g. Heron Island, Australia')}</div></div>
+      <label class="f" style="margin-top:12px">Type of holiday</label>${pick('t5type',TYPES,true)}</div>
+      <div class="q"><label class="f">Our script – one line per turn, starting with the speaker’s name and a colon</label><div class="keybox" data-roles></div>${ta('t5txt',16,'Sara: Good morning! Welcome to … What kind of holiday are you looking for?\nLina: Hello! We’re really interested in …\nHuda: …')}<div class="wc" data-wc="t5txt"></div><div class="warn hidden" data-spk></div><div data-live></div>
+      <p class="note">Evaluation (step 5): Did the group communicate clearly · develop and link ideas · use a range of grammar and vocabulary · control pronunciation and intonation · help move the conversation forward?</p></div>`;
+    return h+modelBox(t);
+  }
+  if(i===5){
+    let h=head(t,'<b>Exam-style question (enhancement task).</b> You recently went on an unusual activity holiday (for example, aerial sightseeing, underwater photography, a yoga cruise or an eco-holiday). Write an <b>email</b> to a friend about it. In your email you should: <b>·</b> describe where you went and what you did <b>·</b> explain what you found most exciting or challenging <b>·</b> suggest a holiday your friend would enjoy and say why. Write about <b>120 to 160 words</b>. <i>You will receive up to 6 marks for the content of your email, and up to 9 marks for the language used. [Total: 15]</i>');
+    h+=`<div class="keybox"><span>⭐ Enhancement task – extra exam practice (the unit’s printed exam-style question is Listening).</span><span>✍ Writing tip: you are writing to a friend – use an informal, friendly style, cover all three bullet points and plan briefly before you write.</span></div>
+      <div class="q"><label class="f">Your email (press Enter between paragraphs)</label>${ta('t6txt',16,'Hi …,\n\nHow are you? Guess what – …')}<div class="wc" data-wc="t6txt"></div><div data-live></div></div>
+      <div class="q"><b>Self-assessment</b> <span class="where">– tick what is true about your email (Content /6, Language /9)</span>
+      <div class="rub">${RUB.map(r=>`<label class="rb"><input type="checkbox" data-rub="${r[0]}" ${st.a['rub_'+r[0]]?'checked':''} ${st.submitted?'disabled':''}><span><b>${r[1]}</b> · ${r[2]} <span class="where">(${r[3]})</span></span></label>`).join('')}</div>
+      <div class="note" data-self></div></div>`;
+    return h+modelBox(t);
+  }
+}
+
+function setFb(k,r,qsel){const A_=$('#qArea'),e=A_.querySelector(`[data-fb="${k}"]`);if(!e)return;const q=qsel?A_.querySelector(qsel):null;
+  if(r.empty||r.ex){e.className='fb';e.innerHTML='';if(q&&q.classList.contains('q'))q.className='q';else if(q)q.style.borderColor='';return}
+  const cls=r.ok?(r.two?'part':'ok'):'bad';e.className='fb '+cls;e.innerHTML=(r.ok?'✔ ':'✘ ')+esc(r.msg);
+  if(q){if(q.classList.contains('q'))q.className='q '+cls;else q.style.borderColor=`var(--${cls==='ok'?'ok':cls==='part'?'part':'bad'})`}}
+function live(i){
+  const A_=$('#qArea');
+  A_.querySelectorAll('[data-wc]').forEach(e=>{const k=e.dataset.wc,w=wc(A(k));const rng={t1txt:[80,100],t2txt:[80,100],t5txt:[150,200],t6txt:[120,160]}[k];
+    e.textContent=w+' words (aim for '+rng[0]+'–'+rng[1]+')';e.classList.toggle('over',w>rng[1])});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.classList.toggle('sel',A(b.dataset.pk)===b.dataset.pv));
+  A_.querySelectorAll('[data-tg]').forEach(b=>b.classList.toggle('sel',(A(b.dataset.tg)||'').split('|').includes(b.dataset.tv)));
+  if(i===0){R(0,7).forEach(k=>setFb('1m'+k,b2(k),`[data-q1m="${k}"]`));R(0,5).forEach(k=>setFb('1d'+k,d1(k),`[data-q1d="${k}"]`));
+    const ch=A_.querySelector('[data-d1chips]');if(ch){const used=new Set(R(0,5).flatMap(k=>d1in(norm(A('t1d'+k)).toLowerCase())));ch.innerHTML='<span>Box:</span>'+D1W.map(w=>`<span class="wchip ${used.has(w)?'on':''}">${used.has(w)?'✔ ':''}${w}</span>`).join('')}
+    const rw=A_.querySelector('[data-rankw]');if(rw){const v=R(0,7).map(k=>A('t1r'+k)).filter(Boolean),d=[...new Set(v.filter((x,j)=>v.indexOf(x)!==j))];
+      rw.classList.toggle('hidden',!d.length);rw.innerHTML=d.length?'⚠ Use each number only once – you have used <b>'+d.join(', ')+'</b> more than once.':''}}
+  if(i===1){C3.forEach((x,k)=>setFb('2p'+k,c3(k),`[data-q2p="${k}"]`))}
+  if(i===2){R(0,8).forEach(k=>setFb('3a'+k,act1(k),`[data-q3a="${k}"]`));R(0,6).forEach(k=>setFb('3f'+k,fix(k),`[data-q3f="${k}"]`));R(0,5).forEach(k=>setFb('3o'+k,own3(k),`[data-q3o="${k}"]`))}
+  if(i===3){R(0,10).forEach(k=>setFb('4e'+k,e3(k),`[data-q4e="${k}"]`));R(0,6).forEach(k=>setFb('4q'+k,e6(k),`[data-q4q="${k}"]`));
+    const fc=A_.querySelector('[data-fchips]');if(fc){const F=fillers();fc.innerHTML='<span>Different fillers used:</span>'+[0,1,2].map(j=>`<span class="wchip ${F[j]?'on':''}">${F[j]?'✔ '+esc(F[j]==='echo'?'echo question':F[j]):'○ filler '+(j+1)}</span>`).join('')}}
+  if(i===4){const rl=A_.querySelector('[data-roles]');if(rl)rl.innerHTML=`<span>Speakers: <b>${esc(roleName(0))}</b> (assistant) · <b>${esc(roleName(1))}</b> · <b>${esc(roleName(2))}</b> (tourists)</span>`;
+    const sp=A_.querySelector('[data-spk]');if(sp){const names=[0,1,2].map(k=>roleName(k).toLowerCase()),bad=[...new Set(lines5().map(l=>l.who).filter(w=>!names.includes(w)))];
+      sp.classList.toggle('hidden',!bad.length);sp.innerHTML=bad.length?'⚠ Unknown speaker name(s): <b>'+esc(bad.join(', '))+'</b> – use the names in your plan.':''}}
+  const L=A_.querySelector('[data-live]');
+  if(L){const c=TASKS[i].chk();let h='<div class="livehd">Live checklist · '+c.score+'/'+TASKS[i].max+'</div>'+checklist(c.items);
+    if(c.errs&&c.errs.length)h+='<div class="warn">'+c.errs.map(x=>'⚠ '+x).join('<br>')+'</div>';L.innerHTML=h}
+  const sf=A_.querySelector('[data-self]');if(sf){const [c,l]=selfScore();sf.innerHTML=`Your self-assessment: <b>Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15</b>`}
+  updBar();
+}
+
+
+function renderTask(i){
+  st.cur=i;save();renderTabs();
+  const last=i===TASKS.length-1;
+  let h=body(i);
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${last?(st.submitted?'':`<button class="btn red" id="subB">Submit my writing ✓</button>`):`<button class="btn" id="nextB">Next task →</button>`}</div>`;
+  const A_=$('#qArea');A_.innerHTML=h;
+  A_.querySelectorAll('[data-k]').forEach(el=>{el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{st.a[el.dataset.k]=el.value;save();live(i)})});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.addEventListener('click',()=>{st.a[b.dataset.pk]=b.dataset.pv;save();live(i)}));
+  A_.querySelectorAll('[data-tg]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.tg,v=b.dataset.tv;let s=(A(k)||'').split('|').filter(Boolean);s=s.includes(v)?s.filter(x=>x!==v):[...s,v];st.a[k]=s.join('|');save();live(i)}));
+  A_.querySelectorAll('[data-c11]').forEach(el=>el.addEventListener('change',()=>{st.a['c11_'+el.dataset.c11]=el.checked;save()}));
+  A_.querySelectorAll('[data-rub]').forEach(el=>el.addEventListener('change',()=>{st.a['rub_'+el.dataset.rub]=el.checked;save();live(i)}));
+  live(i);
+  if($('#prevB'))$('#prevB').onclick=()=>{renderTask(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderTask(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit();
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+
+/* ---------- flow ---------- */
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved writing will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+function openTest(){$('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');$('#who').textContent='👤 '+st.name+' · '+st.cls;renderTask(st.cur||0)}
+async function submit(){
+  const left=TASKS.filter(t=>!t.done()).length;
+  const ok=await modal('Submit your writing?',left?`You have <b>${left}</b> task${left>1?'s':''} not finished. You cannot change your writing after you submit.`:'You have completed every task. You cannot change your writing after you submit.',{ok:'Yes, submit'});
+  if(!ok)return;
+  st.submitted=true;
+  const secs=TASKS.map(t=>Math.min(t.max,t.chk().score));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.floor((Date.now()-st.start)/1000),at:new Date().toLocaleString()};
+  save();showResults();
+}
+function grade(p){return p>=85?'Excellent – your writing includes almost every required feature.':p>=70?'Very good. Check the red items in the checklist to improve further.':p>=50?'Good effort. Review each task’s checklist and add the missing features.':'Keep going! Read the checklist under each task and try again with your teacher’s help.'}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resOut').textContent='out of '+TOTAL;$('#resGrade').textContent=p+'% of checklist features';$('#resMsg').textContent=grade(p);
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=TASKS.map((t,i)=>`<div class="br"><span>${t.id}. ${esc(t.title)}</span><span class="t"><i style="width:${r.secs[i]/t.max*100}%"></i></span><span class="s">${r.secs[i]}/${t.max}</span></div>`).join('');
+  $('#wcSum').innerHTML='<b>Words written:</b> '+TASKS.map(t=>`Task ${t.id}: ${t.words()}`).join(' · ')+' · <b>Total: '+TASKS.reduce((s,t)=>s+t.words(),0)+'</b>';
+  const [c,l]=selfScore();$('#selfBox').innerHTML=`<b>Exam-style email self-assessment:</b> Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15`;
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,[c,l]=selfScore(),mm=Math.floor(r.time/60),tk=ok=>ok?'✓':'✗';
+  let s=`IGCSE ESL Writing Studio – Unit 5 (Holidays)\nName: ${st.name}\nClass: ${st.cls}\nChecklist score: ${r.total}/${TOTAL} (${Math.round(r.total/TOTAL*100)}%)\n`+
+   TASKS.map((t,i)=>`Task ${t.id} ${t.title}: ${r.secs[i]}/${t.max} (${t.words()} words)`).join('\n')+
+   `\nExam-style email self-assessment: Content ${c}/6, Language ${l}/9\nTime: ${mm} min · Submitted: ${r.at}\n`;
+  s+=`\n— Task 1: Holiday vocabulary —\nB2: `+B2.map((x,k)=>`${x[0]} ${A('t1m'+k)||'—'} ${tk(b2(k).ok)}`).join(' · ')+
+   '\nD1:\n'+R(0,5).map(k=>`${k+1}. ${A('t1d'+k).trim()||'—'} ${tk(d1(k).ok)}`).join('\n')+
+   '\nB4 ranking: '+RANKS.map(n=>{const k=rankOf(n);return `${n} ${k>=0?B2[k][1]:'—'}`}).join(' · ')+`\n\n${A('t1txt').trim()||'—'}`;
+  s+=`\n\n— Task 2: Aerial tourism —\nC3: `+C3.map((x,k)=>x[1]?`${x[0]} ${A('t2p'+k).trim()||'—'} ${tk(c3(k).ok)}`:`${x[0]} job (example)`).join(' · ')+
+   `\nPlace: ${A('t2place').trim()||'—'}\n\n${A('t2txt').trim()||'—'}`;
+  s+='\n\n— Task 3: Words ending in -ing —\nActivity 1: '+ACT1.map((x,k)=>`${x[0]} ${A('t3a'+k)||'—'} ${tk(act1(k).ok)}`).join(' · ')+
+   '\nCorrections:\n'+FIX.map((x,k)=>`${k+1}. ${A('t3f'+k).trim()||'—'} ${tk(fix(k).ok)}`).join('\n')+
+   '\nOwn sentences:\n'+OWN3.map((x,k)=>`${x[0]}: ${A('t3o'+k).trim()||'—'} ${tk(own3(k).ok)}`).join('\n');
+  s+='\n\n— Task 4: Personal questions —\nE3:\n'+E3.map((x,k)=>`${x[0]} ${A('t4e'+k).trim()||'—'} ${tk(e3(k).ok)}`).join('\n')+
+   '\nE6:\n'+E6Q.map((q,k)=>`${'abcdef'[k]} ${q}\n   ${A('t4q'+k).trim()||'—'} ${tk(e6(k).ok)}`).join('\n')+`\nFillers used: ${fillers().join(', ')||'none'}`;
+  s+=`\n\n— Task 5: Project – Plan a holiday —\nRoles: ${roleName(0)} (assistant), ${roleName(1)}, ${roleName(2)} (tourists)\nDestination: ${A('t5dest').trim()||'—'} · Type: ${A('t5type')||'—'}\n\n${A('t5txt').trim()||'—'}`;
+  s+=`\n\n— Task 6: Exam-style email (enhancement) —\n${A('t6txt').trim()||'—'}`;
+  return s;
+}
+
+
+
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderTask(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your writing will be cleared.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,a:{},start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function hsh(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await hsh(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderTask(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>
