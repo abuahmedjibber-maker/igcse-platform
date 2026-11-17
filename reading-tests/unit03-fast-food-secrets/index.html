@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Reading – Unit 3: Fast Food Secrets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Reading Comprehension: Things They Don’t Tell You About Fast Food</h1>
+  <p>Unit 3: Food · Text 3.1 “Things they don’t tell you about fast food”</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">40 questions</span><span class="chip">43 marks</span><span class="chip">⏱ 40 minutes</span><span class="chip">6 question types</span><span class="chip">+ summary task</span></div>
+    <ul class="ins">
+      <li>Read <b>Text 3.1</b> in your Coursebook (pages 39–40) carefully first. Keep it open while you answer.</li>
+      <li>Answer <b>all</b> questions. Use information from the text only.</li>
+      <li>Spelling counts in the vocabulary section. Keep short answers brief.</li>
+      <li>Your answers are saved on this device while you work. Press <b>Submit</b> when you finish to see your score.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 9A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start the test →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/40</span><span class="timer" id="timer">40:00</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your result</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm">out of 43</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by section</h3><div class="brk" id="brk"></div>
+    <p class="note">Short answers and notes are checked automatically for key words. Your teacher may adjust these marks after reading your answers.</p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your result to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams).</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="6" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const DATA = JSON.parse(decodeURIComponent(escape(atob("W3siaWQiOiAiQSIsICJ0aXRsZSI6ICJTaG9ydC1hbnN3ZXIgcXVlc3Rpb25zIiwgImljb24iOiAi4pyN77iPIiwgInNraWxsIjogIkxvY2F0aW5nIHNwZWNpZmljIGRldGFpbHMiLCAiaW5zdHIiOiAiQW5zd2VyIGVhY2ggcXVlc3Rpb24gYnJpZWZseSwgdXNpbmcgaW5mb3JtYXRpb24gZnJvbSB0aGUgdGV4dC4iLCAicXMiOiBbeyJ0IjogInNob3J0IiwgInEiOiAiQWNjb3JkaW5nIHRvIHBhcmFncmFwaCAxLCB3aGF0IGFyZSBUV08gbmVnYXRpdmUgZWZmZWN0cyBvZiBmYXN0IGZvb2Q/IiwgIm0iOiAyLCAicHRzIjogWyJ1bndlbGx8aWxsXFxifHNpY2t8bm90IHdlbGwiLCAib3ZlcndlaWdodHx3ZWlnaHR8ZmF0XFxifG9iZXMiLCAid2FsbGV0fG1vbmV5fGV4cGVuc2l2ZXxjb3N0fHBvY2tldCJdLCAiYSI6ICJBbnkgVFdPIG9mOiBpdCBtYXkgbWFrZSB5b3UgZmVlbCB1bndlbGwgLyBpdCBtYXkgY2F1c2UgeW91IHRvIGJlY29tZSBvdmVyd2VpZ2h0IC8gaXQgY2FuIGVtcHR5IHlvdXIgd2FsbGV0IChjb3N0IGEgbG90IG9mIG1vbmV5KS4iLCAibiI6ICIxIG1hcmsgZm9yIGVhY2ggZWZmZWN0LiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJIb3cgbWFueSBwZW9wbGUgdG9vayBwYXJ0IGluIHRoZSBzdHVkeSBhYm91dCBmYXN0IGZvb2QgYW5kIGRlcHJlc3Npb24/IiwgIm0iOiAxLCAicHRzIjogWyI5MDB8bmluZSBodW5kcmVkIl0sICJhIjogIk5lYXJseSA5MDAuIiwgIm4iOiAiMjAwMCwgMzAwIGFuZCAxMDAwIGFyZSB0aGUgbnVtYmVycyBpbiB0aGUgY2Fsb3JpZSByZXNlYXJjaC4iLCAicmVqZWN0IjogIjIwMDB8MiwwMDB8MTAwMHwxLDAwMHwzMDAifSwgeyJ0IjogInNob3J0IiwgInEiOiAiSG93IG11Y2ggZ3JlYXRlciBpcyB0aGUgcmlzayBvZiBkZXByZXNzaW9uIGZvciBwZW9wbGUgd2hvIG9mdGVuIGVhdCBidXJnZXJzLCBudWdnZXRzIGFuZCBmcmllcz8iLCAibSI6IDEsICJwdHMiOiBbIjUwfGZpZnR5fGhhbGYiXSwgImEiOiAiTW9yZSB0aGFuIDUwJSBncmVhdGVyIHRoYW4gZm9yIHBlb3BsZSB3aG8gbmV2ZXIgZWF0IHRoZW0uIiwgIm4iOiAiIiwgInJlamVjdCI6ICI0MHxmb3J0eXwyMDAifSwgeyJ0IjogInNob3J0IiwgInEiOiAiV2hhdCBUV08gdGhpbmdzIGRvZXMgdGhlIHdyaXRlciBzdWdnZXN0IHRvIHJlZHVjZSB0aGUgcmlzayBvZiBmZWVsaW5nIGRlcHJlc3NlZD8iLCAibSI6IDIsICJwdHMiOiBbImNvdXBsZXx0d2ljZXwodHdvfDIpIHRpbWVzfGEgbW9udGh8cGVyIG1vbnRofHJlZHVjZXxjdXQgZG93bnxsZXNzIG9mdGVufGVhdCBsZXNzIiwgInNhbGFkfGhlYWx0aHkgKG91dGxldHxwbGFjZXxyZXN0YXVyYW50fHNob3ApIl0sICJhIjogIkVhdCBmYXN0IGZvb2Qgb25seSBhIGNvdXBsZSBvZiB0aW1lcyBhIG1vbnRoIG9yIGxlc3MgKDEpIGFuZCBnZXQgaXQgb25seSBmcm9tIGhlYWx0aHkgb3V0bGV0cyBzdWNoIGFzIHNhbGFkIGJhcnMgKDEpLiIsICJuIjogIjEgbWFyayBmb3IgZWFjaCBzdWdnZXN0aW9uLiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJCeSBhYm91dCB3aGF0IHBlcmNlbnRhZ2UgZGlkIHRoZSBwYXJ0aWNpcGFudHMgdW5kZXJlc3RpbWF0ZSB0aGUgY2Fsb3JpZXMgaW4gdGhlaXIgZmFzdCBmb29kPyIsICJtIjogMSwgInB0cyI6IFsiNDB8Zm9ydHkiXSwgImEiOiAiQWJvdXQgNDAlLiIsICJuIjogIjIwMCBpcyB0aGUgbnVtYmVyIG9mIGNhbG9yaWVzLCBub3QgdGhlIHBlcmNlbnRhZ2UuIiwgInJlamVjdCI6ICJeXFxEKjIwMFxcRCokIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIldoYXQgaXMgdGhlIG1heGltdW0gbnVtYmVyIG9mIGNhbG9yaWVzIHRoZSB3cml0ZXIgYWR2aXNlcyBjaG9vc2luZyBvbiBhIG1lbnU/IiwgIm0iOiAxLCAicHRzIjogWyI1MDB8Zml2ZSBodW5kcmVkIl0sICJhIjogIjUwMCBjYWxvcmllcyAob3IgbGVzcykuIiwgIm4iOiAiIiwgInJlamVjdCI6ICIxMzAwfDEsMzAwfDIwMCJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJHaXZlIFRXTyBmYWN0cyB3aGljaCBzaG93IHRoYXQgdGhlIHRoaW4tYmFzZWQgdmVnZXRhYmxlIHBpenphIGlzIG5vdCBhcyBoZWFsdGh5IGFzIGl0IHNvdW5kcy4iLCAibSI6IDIsICJwdHMiOiBbIjEzMDB8MSwzMDB8dGhpcnRlZW4gaHVuZHJlZHxjYWxvcmllIiwgIjYwfHNpeHR5fGZhdCIsICJzb2RpdW18c2FsdCJdLCAiYSI6ICJBbnkgVFdPIG9mOiB0d28gc2xpY2VzIGNvbnRhaW4gMTMwMCBjYWxvcmllcyAvIDYwIGcgb2YgZmF0IC8gYSBsYXJnZSBhbW91bnQgb2Ygc29kaXVtLiIsICJuIjogIjEgbWFyayBmb3IgZWFjaCBmYWN0LiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJXaHkgYXJlIHRoZSBzYWxhZHMgaW4gc29tZSBmYXN0LWZvb2Qgb3V0bGV0cyBzcHJpbmtsZWQgd2l0aCBjaGVtaWNhbHM/IiwgIm0iOiAxLCAicHRzIjogWyJmcmVzaCJdLCAiYSI6ICJUbyBrZWVwIHRoZW0gbG9va2luZyBmcmVzaC4iLCAibiI6ICIiLCAicmVqZWN0IjogIm5vdCAobG9vayhpbmcpPyApP2ZyZXNofHVuZnJlc2h8aGVhbHRoeSJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJBY2NvcmRpbmcgdG8gdGhlIHdyaXRlciwgd2hhdCBjYW4gYmUgY29uc2lkZXJhYmx5IGNoZWFwZXIgdGhhbiBvcmRlcmluZyBhIHRha2Vhd2F5IG1lYWw/IiwgIm0iOiAxLCAicHRzIjogWyJjb29rfGhvbWV8c3VwZXJtYXJrZXR8aW5ncmVkaWVudCJdLCAiYSI6ICJDb29raW5nIGF0IGhvbWUgd2l0aCBpbmdyZWRpZW50cyBib3VnaHQgYXQgYSBzdXBlcm1hcmtldC4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiV2hhdCBpcyBzdXJwcmlzaW5nIGFib3V0IHRoZSDigJhuYXR1cmFsIHNtb2tlIGZsYXZvdXLigJkgaW4gYSBsb3Qgb2YgZmFzdCBmb29kPyIsICJtIjogMSwgInB0cyI6IFsiY29tbWVyY2lhbHxhcnRpZmljaWFsfHByb2R1Y2VkfG1hbnVmYWN0dXJ8ZmFjdG9yeXxzb2xkfGFkZGVkfGJvdWdodHxub3QgKHJlYWx8bmF0dXJhbCl8ZmFrZSJdLCAiYSI6ICJJdCBpcyBjb21tZXJjaWFsbHkgcHJvZHVjZWQgYW5kIGFkZGVkIHRvIHRoZSBmb29kIGFydGlmaWNpYWxseSDigJMgaXQgaXMgbm90IGZyb20gcmVhbCBmaXJlIGFuZCBzbW9rZS4iLCAibiI6ICIiLCAicmVqZWN0IjogIl4oaXQgKT8oY29tZXN8aXMpIChmcm9tICk/KGEgfHRoZSApPyhyZWFsICk/KGZpcmV8c21va2V8YmFyYmVjdWUpIn1dfSwgeyJpZCI6ICJCIiwgInRpdGxlIjogIlBhcmFncmFwaCBtYXRjaGluZyIsICJpY29uIjogIvCfp6kiLCAic2tpbGwiOiAiU2Nhbm5pbmcgJiBtYXRjaGluZyIsICJpbnN0ciI6ICJJbiB3aGljaCBwYXJhZ3JhcGggZG9lcyBpbmZvcm1hdGlvbiBhYm91dCBlYWNoIG9mIHRoZSBmb2xsb3dpbmcgYXBwZWFyPyBDaG9vc2UgYSBwYXJhZ3JhcGggbnVtYmVyLiIsICJrZXkiOiBbIjEg4oCTIFBhcmFncmFwaCAxIiwgIjIg4oCTIFBhcmFncmFwaCAyIiwgIjMg4oCTIFBhcmFncmFwaCAzIiwgIjQg4oCTIFBhcmFncmFwaCA0IiwgIjUg4oCTIFBhcmFncmFwaCA1IiwgIjYg4oCTIFBhcmFncmFwaCA2IiwgIjcg4oCTIFBhcmFncmFwaCA3Il0sICJxcyI6IFt7InQiOiAibWF0Y2giLCAicSI6ICJhIGxpbmsgYmV0d2VlbiBlYXRpbmcgaGFiaXRzIGFuZCBhIHBlcnNvbuKAmXMgbW9vZCIsICJhIjogIjIiLCAibiI6ICJGYXN0IGZvb2QgYW5kIHRoZSByaXNrIG9mIGZlZWxpbmcgZGVwcmVzc2VkLiJ9LCB7InQiOiAibWF0Y2giLCAicSI6ICJhIHJlY29tbWVuZGVkIGNhbG9yaWUgbGltaXQgZm9yIGEgbWVhbCIsICJhIjogIjMiLCAibiI6ICLigJzigKZjaG9vc2Ugc29tZXRoaW5nIHdpdGggNTAwIGNhbG9yaWVzIG9yIGxlc3Mu4oCdIn0sIHsidCI6ICJtYXRjaCIsICJxIjogImFuIGV4YW1wbGUgb2YgYSBkaXNoIHRoYXQgaXMgbGVzcyBoZWFsdGh5IHRoYW4gaXQgc291bmRzIiwgImEiOiAiNCIsICJuIjogIlRoZSB0aGluLWJhc2VkIHZlZ2V0YWJsZSBwaXp6YS4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiYSBjb21wYXJpc29uIG9mIHRoZSBjb3N0IG9mIHR3byB3YXlzIG9mIGdldHRpbmcgYSBtZWFsIiwgImEiOiAiNSIsICJuIjogIkNvb2tpbmcgYXQgaG9tZSB2cyBvcmRlcmluZyBhIHRha2Vhd2F5LiJ9LCB7InQiOiAibWF0Y2giLCAicSI6ICJzb21ldGhpbmcgdGhhdCBpcyBhZGRlZCB0byBmb29kIGFydGlmaWNpYWxseSIsICJhIjogIjYiLCAibiI6ICLigJhOYXR1cmFsIHNtb2tlIGZsYXZvdXLigJkuIn0sIHsidCI6ICJtYXRjaCIsICJxIjogInRoZSBiZW5lZml0cyByZWFkZXJzIG1heSBnYWluIGZyb20ga25vd2luZyB0aGUgc2VjcmV0cyIsICJhIjogIjciLCAibiI6ICJNb3JlIGluZm9ybWVkIGNob2ljZXMsIGZlZWxpbmcgaGVhbHRoaWVyLCBzYXZpbmcgbW9uZXkuIn1dfSwgeyJpZCI6ICJDIiwgInRpdGxlIjogIlRydWUsIEZhbHNlIG9yIE5vdCBHaXZlbiIsICJpY29uIjogIuKalu+4jyIsICJza2lsbCI6ICJVbmRlcnN0YW5kaW5nIGRldGFpbCIsICJpbnN0ciI6ICJDaG9vc2UgVFJVRSBpZiB0aGUgc3RhdGVtZW50IGFncmVlcyB3aXRoIHRoZSB0ZXh0LCBGQUxTRSBpZiBpdCBjb250cmFkaWN0cyB0aGUgdGV4dCwgb3IgTk9UIEdJVkVOIGlmIHRoZXJlIGlzIG5vIGluZm9ybWF0aW9uIGFib3V0IGl0LiAoU3RhdGVtZW50cyAx4oCTNSBhcmUgZnJvbSBDb3Vyc2Vib29rIEFjdGl2aXR5IEI1LikiLCAicXMiOiBbeyJ0IjogInRmIiwgInEiOiAiQSBsb3Qgb2YgdXMgY29uc2lkZXIgZmFzdCBmb29kIHRvIGJlIGNoZWFwLiIsICJhIjogIlQiLCAibiI6ICJQYXJhZ3JhcGggNTog4oCcTWFueSBvZiB1cyBiZWxpZXZlIHRoYXQgYnV5aW5nIGZhc3QgZm9vZCBpcyBhbiBpbmV4cGVuc2l2ZSBvcHRpb27igKbigJ0ifSwgeyJ0IjogInRmIiwgInEiOiAiRm9vZCB0aGF0IGxvb2tzIGhlYWx0aHkgbWF5IGluIGZhY3QgYmUgdGhlIG9wcG9zaXRlLiIsICJhIjogIlQiLCAibiI6ICJQYXJhZ3JhcGggNDogZm9vZCB0aGF0IHNvdW5kcyBoZWFsdGh5IGlzIHNvbWV0aW1lcyB3b3JzZS4ifSwgeyJ0IjogInRmIiwgInEiOiAiTW9zdCBwZW9wbGUgZG8gbm90IHVuZGVyc3RhbmQgdGhlIG51bWJlciBvZiBjYWxvcmllcyB0aGV5IGFyZSBlYXRpbmcuIiwgImEiOiAiVCIsICJuIjogIlBhcmFncmFwaCAzOiDigJx0aGUgbWFqb3JpdHkgb2YgcGVvcGxlIGhhdmUgbm8gaWRlYSBob3cgbWFueSBjYWxvcmllc+KApuKAnSJ9LCB7InQiOiAidGYiLCAicSI6ICJSZWR1Y2luZyB0aGUgYW1vdW50IG9mIGZhc3QgZm9vZCB5b3UgZWF0IGNhbiBoZWxwIHRvIHJlZHVjZSB5b3VyIHJpc2sgb2YgZGVwcmVzc2lvbi4iLCAiYSI6ICJUIiwgIm4iOiAiUGFyYWdyYXBoIDI6IGEgY291cGxlIG9mIHRpbWVzIHBlciBtb250aCBvciBsZXNzIOKGkiBsZXNzIGxpa2VseSB0byBmZWVsIGRlcHJlc3NlZC4ifSwgeyJ0IjogInRmIiwgInEiOiAiU29tZSDigJhuYXR1cmFs4oCZIGZsYXZvdXJzIGFyZSBhY3R1YWxseSBjb21tZXJjaWFsbHkgcHJvZHVjZWQuIiwgImEiOiAiVCIsICJuIjogIlBhcmFncmFwaCA2OiDigJhuYXR1cmFsIHNtb2tlIGZsYXZvdXLigJkgaXMgY29tbWVyY2lhbGx5IHByb2R1Y2VkLiJ9LCB7InQiOiAidGYiLCAicSI6ICJUaGUgc3R1ZHkgYWJvdXQgZmFzdCBmb29kIGFuZCBkZXByZXNzaW9uIGluY2x1ZGVkIG1vcmUgdGhhbiAxMDAwIHBhcnRpY2lwYW50cy4iLCAiYSI6ICJGIiwgIm4iOiAiSXQgaW5jbHVkZWQgbmVhcmx5IDkwMCBwYXJ0aWNpcGFudHMuIn0sIHsidCI6ICJ0ZiIsICJxIjogIlRoZSBzY2hvb2xjaGlsZHJlbiBpbiB0aGUgY2Fsb3JpZSByZXNlYXJjaCBndWVzc2VkIG1vcmUgYWNjdXJhdGVseSB0aGFuIHRoZSBhZHVsdHMuIiwgImEiOiAiTkciLCAibiI6ICJUaGUgcmVzdWx0cyBvZiBlYWNoIGdyb3VwIGFyZSBub3QgY29tcGFyZWQuIn0sIHsidCI6ICJ0ZiIsICJxIjogIlRoZSBoZWFsdGh5LXNvdW5kaW5nIHBpenphIGlzIHRvcHBlZCB3aXRoIGNoZWVzZSBhbmQgbWVhdC4iLCAiYSI6ICJGIiwgIm4iOiAiSXQgaGFzIHBsZW50eSBvZiB2ZWdldGFibGVzIOKAnGFuZCB3aXRob3V0IGFueSBjaGVlc2Ugb3IgbWVhdOKAnS4ifV19LCB7ImlkIjogIkQiLCAidGl0bGUiOiAiTXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyIsICJpY29uIjogIvCflJgiLCAic2tpbGwiOiAiR2lzdCwgaW5mZXJlbmNlICYgbWVhbmluZyIsICJpbnN0ciI6ICJDaG9vc2UgdGhlIGNvcnJlY3QgYW5zd2VyOiBBLCBCLCBDIG9yIEQuIiwgInFzIjogW3sidCI6ICJtY3EiLCAicSI6ICJXaGF0IGlzIHRoZSBtYWluIHB1cnBvc2Ugb2YgdGhlIGFydGljbGU/IiwgIm8iOiBbIlRvIGFkdmVydGlzZSBhIG5ldyBmYXN0LWZvb2QgcmVzdGF1cmFudCIsICJUbyBpbmZvcm0gcmVhZGVycyBhYm91dCBoaWRkZW4gZmFjdHMgc28gdGhleSBjYW4gbWFrZSBiZXR0ZXIgY2hvaWNlcyIsICJUbyBwZXJzdWFkZSByZWFkZXJzIG5ldmVyIHRvIGVhdCBmYXN0IGZvb2QgYWdhaW4iLCAiVG8gY29tcGFyZSB0aGUgcHJpY2VzIG9mIGRpZmZlcmVudCBmYXN0LWZvb2Qgb3V0bGV0cyJdLCAiYSI6IDEsICJuIjogIlBhcmFncmFwaCA3OiDigJzigKZ5b3UgY2FuIG1ha2UgbW9yZSBpbmZvcm1lZCBjaG9pY2Vz4oCm4oCdIn0sIHsidCI6ICJtY3EiLCAicSI6ICJJbiBwYXJhZ3JhcGggMSwg4oCcbm90IGJlIG91dCBvZiBwb2NrZXTigJ0gbWVhbnPigKYiLCAibyI6IFsibm90IGxvc2UgbW9uZXkuIiwgIm5vdCBsb3NlIHlvdXIgd2FsbGV0LiIsICJub3QgZWF0IHRvbyBtdWNoLiIsICJub3QgZmVlbCB1bndlbGwuIl0sICJhIjogMCwgIm4iOiAiIn0sIHsidCI6ICJtY3EiLCAicSI6ICJBY2NvcmRpbmcgdG8gcGFyYWdyYXBoIDIsIHdoZXJlIGlzIGl0IGJldHRlciB0byBnZXQgZmFzdCBmb29kPyIsICJvIjogWyJGcm9tIHN1cGVybWFya2V0cyIsICJGcm9tIGJ1cmdlciByZXN0YXVyYW50cyIsICJGcm9tIGhlYWx0aHkgb3V0bGV0cyBzdWNoIGFzIHNhbGFkIGJhcnMiLCAiRnJvbSBiYXJiZWN1ZSByZXN0YXVyYW50cyJdLCAiYSI6IDIsICJuIjogIiJ9LCB7InQiOiAibWNxIiwgInEiOiAiV2hhdCBkaWQgdGhlIGNhbG9yaWUgcmVzZWFyY2ggaW4gcGFyYWdyYXBoIDMgc2hvdz8iLCAibyI6IFsiUGVvcGxlIHRob3VnaHQgdGhlaXIgZm9vZCBjb250YWluZWQgbW9yZSBjYWxvcmllcyB0aGFuIGl0IHJlYWxseSBkaWQuIiwgIlBlb3BsZSB0aG91Z2h0IHRoZWlyIGZvb2QgY29udGFpbmVkIGZld2VyIGNhbG9yaWVzIHRoYW4gaXQgcmVhbGx5IGRpZC4iLCAiVGVlbmFnZXJzIGtuZXcgZXhhY3RseSBob3cgbWFueSBjYWxvcmllcyB0aGV5IHdlcmUgZWF0aW5nLiIsICJNb3N0IGZhc3QtZm9vZCBtZWFscyBjb250YWluIDUwMCBjYWxvcmllcyBvciBsZXNzLiJdLCAiYSI6IDEsICJuIjogIlRoZXkgdW5kZXJlc3RpbWF0ZWQgdGhlIG51bWJlciBieSBhcm91bmQgMjAwLiJ9LCB7InQiOiAibWNxIiwgInEiOiAiV2hhdCBkb2VzIHRoZSB3cml0ZXIgYWR2aXNlIGluIHBhcmFncmFwaCA0PyIsICJvIjogWyJBbHdheXMgY2hvb3NlIHBpenphIHdpdGhvdXQgY2hlZXNlIG9yIG1lYXQuIiwgIkF2b2lkIHNhbGFkcyBpbiBmYXN0LWZvb2Qgb3V0bGV0cy4iLCAiUmVhZCBhbGwgdGhlIGluZm9ybWF0aW9uIGNhcmVmdWxseSBiZWZvcmUgeW91IG9yZGVyLiIsICJPbmx5IGVhdCBmb29kIHRoYXQgbG9va3MgZnJlc2guIl0sICJhIjogMiwgIm4iOiAi4oCcUmVhZCBhbGwgdGhlIGluZm9ybWF0aW9uIHZlcnkgY2FyZWZ1bGx5IGJlZm9yZSB5b3Ugb3JkZXIu4oCdIn0sIHsidCI6ICJtY3EiLCAicSI6ICJXaGljaCB3b3JkIGJlc3QgZGVzY3JpYmVzIHRoZSB3cml0ZXLigJlzIGF0dGl0dWRlIGluIHRoZSBmaW5hbCBwYXJhZ3JhcGg/IiwgIm8iOiBbIkFuZ3J5IiwgIkhvcGVmdWwiLCAiRGlzYXBwb2ludGVkIiwgIldvcnJpZWQiXSwgImEiOiAxLCAibiI6ICLigJxIb3BlZnVsbHnigKYgV2UgaG9wZSB0aGlzIHdpbGwgbWFrZSB5b3UgZmVlbCBoZWFsdGhpZXLigKbigJ0ifV19LCB7ImlkIjogIkUiLCAidGl0bGUiOiAiVm9jYWJ1bGFyeSBpbiBjb250ZXh0IiwgImljb24iOiAi8J+UpCIsICJza2lsbCI6ICJXb3JkIG1lYW5pbmcgZnJvbSBjb250ZXh0IiwgImluc3RyIjogIkZpcnN0IGNvbXBsZXRlIHRoZSBnYXBzIGluIHRoZSB0ZXh0IHdpdGggdGhlIHdvcmRzIGZyb20gQ291cnNlYm9vayBBY3Rpdml0eSBCNy4gVGhlbiBmaW5kIE9ORSB3b3JkIGluIHRoZSBjb21wbGV0ZWQgdGV4dCB0aGF0IGhhcyB0aGUgc2FtZSBtZWFuaW5nLiBUaGUgcGFyYWdyYXBoIGlzIGdpdmVuIGluIGJyYWNrZXRzLiIsICJxcyI6IFt7InQiOiAidm9jYWIiLCAicSI6ICJzYWZlLCB1bnRocmVhdGVuaW5nIiwgIndoZXJlIjogInBhcmFncmFwaCAxIOKAkyBnYXAgKGEpIiwgImEiOiAiaGFybWxlc3MiLCAiYWx0IjogW10sICJuIjogIiJ9LCB7InQiOiAidm9jYWIiLCAicSI6ICJsYXJnZXN0IHBhcnQiLCAid2hlcmUiOiAicGFyYWdyYXBoIDMg4oCTIGdhcCAoYikiLCAiYSI6ICJtYWpvcml0eSIsICJhbHQiOiBbXSwgIm4iOiAiIn0sIHsidCI6ICJ2b2NhYiIsICJxIjogImVhdGluZyIsICJ3aGVyZSI6ICJwYXJhZ3JhcGggMyDigJMgZ2FwIChjKSIsICJhIjogImNvbnN1bWluZyIsICJhbHQiOiBbXSwgIm4iOiAiIn0sIHsidCI6ICJ2b2NhYiIsICJxIjogInRob3VnaHQgd2FzIGxlc3Mgb3Igc21hbGxlciB0aGFuIGl0IHdhcyIsICJ3aGVyZSI6ICJwYXJhZ3JhcGggMyDigJMgZ2FwIChlKSIsICJhIjogInVuZGVyZXN0aW1hdGVkIiwgImFsdCI6IFsidW5kZXJlc3RpbWF0ZSJdLCAibiI6ICIifSwgeyJ0IjogInZvY2FiIiwgInEiOiAic3VyZSB0byBoYXBwZW4iLCAid2hlcmUiOiAicGFyYWdyYXBoIDQg4oCTIGdhcCAoZikiLCAiYSI6ICJndWFyYW50ZWVkIiwgImFsdCI6IFtdLCAibiI6ICIifSwgeyJ0IjogInZvY2FiIiwgInEiOiAiYnkgYSBsYXJnZSBhbW91bnQiLCAid2hlcmUiOiAicGFyYWdyYXBoIDUg4oCTIGdhcCAoaCkiLCAiYSI6ICJjb25zaWRlcmFibHkiLCAiYWx0IjogW10sICJuIjogIiJ9XX0sIHsiaWQiOiAiRiIsICJ0aXRsZSI6ICJOb3RlLW1ha2luZyIsICJpY29uIjogIvCfk50iLCAic2tpbGwiOiAiU2VsZWN0aW5nIGtleSBwb2ludHMiLCAiaW5zdHIiOiAiWW91IGFyZSBwcmVwYXJpbmcgYSBzaG9ydCB0YWxrIGNhbGxlZCDigJhGaXZlIGZhc3QtZm9vZCBzZWNyZXRz4oCZLiBDb21wbGV0ZSBlYWNoIG5vdGUgdXNpbmcgaW5mb3JtYXRpb24gZnJvbSB0aGUgdGV4dC4gV3JpdGUgbm8gbW9yZSB0aGFuIFNJWCB3b3Jkcy4iLCAicXMiOiBbeyJ0IjogIm5vdGVzIiwgInEiOiAiU2VjcmV0IDEg4oCTIGVmZmVjdCBvbiBtb29kOiIsICJwdHMiOiBbImRlcHJlc3MiXSwgImEiOiAic21hbGwgYW1vdW50cyBpbmNyZWFzZSBkZXByZXNzaW9uIHJpc2siLCAibiI6ICIifSwgeyJ0IjogIm5vdGVzIiwgInEiOiAiU2VjcmV0IDIg4oCTIGNhbG9yaWVzOiIsICJwdHMiOiBbInVuZGVyZXN0aW1hdHxubyBpZGVhfGRvbi50IGtub3d8ZG8gbm90IGtub3d8KGd1ZXNzfHRoaW5rKS57MCwyMH0obGVzc3xmZXdlcnx3cm9uZykiXSwgImEiOiAicGVvcGxlIHVuZGVyZXN0aW1hdGUgY2Fsb3JpZXMgYnkgNDAlIiwgIm4iOiAiIn0sIHsidCI6ICJub3RlcyIsICJxIjogIlNlY3JldCA0IOKAkyBwcmljZToiLCAicHRzIjogWyIobm90fG4udHxpc24udCkuezAsMTV9KGNoZWFwfGluZXhwZW5zaXZlKXxleHBlbnNpdmV8Y29va2luZy57MCwyMH1jaGVhcGVyfGhvbWUuezAsMjB9Y2hlYXBlcnxjb3N0cz8gbW9yZSJdLCAiYSI6ICJmYXN0IGZvb2QgaXMgbm90IHJlYWxseSBjaGVhcCIsICJuIjogIiJ9LCB7InQiOiAibm90ZXMiLCAicSI6ICJTZWNyZXQgNSDigJMgYmFyYmVjdWUgdGFzdGU6IiwgInB0cyI6IFsiY29tbWVyY2lhbHxhcnRpZmljaWFsfHByb2R1Y2VkfG1hbnVmYWN0dXJ8YWRkZWR8ZmFrZXxub3QgKHJlYWx8bmF0dXJhbCkiXSwgImEiOiAi4oCYbmF0dXJhbCBzbW9rZSBmbGF2b3Vy4oCZIGNvbW1lcmNpYWxseSBwcm9kdWNlZCIsICJuIjogIiJ9XX1d"))));
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const TOTAL = 43, NQ = 40, TIME = 40*60, KEY = 'igcse-u03-fastfood-v1';
+const $ = s => document.querySelector(s);
+let st = {name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0};
+let showModel = false, tick = null;
+const norm = s => (s||'').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/\s+/g,' ').trim();
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.ans)return s}catch(e){}return null}
+
+// flatten questions
+const Q=[];DATA.forEach((s,si)=>s.qs.forEach(q=>{q.sec=si;q.note=q.n;q.n=Q.length+1;q.max=q.m||1;Q.push(q)}));
+const secMax=DATA.map(s=>s.qs.reduce((a,q)=>a+(q.m||1),0));
+
+function mark(q){
+  const v=st.ans[q.n];
+  if(v===undefined||v===''||v===null)return 0;
+  if(q.t==='tf'||q.t==='match')return v===q.a?1:0;
+  if(q.t==='mcq')return v===q.a?1:0;
+  const x=norm(v);
+  if(q.t==='vocab'){const w=x.replace(/[^a-z]/g,'');return [q.a,...(q.alt||[])].includes(w)?1:0}
+  if(q.reject&&new RegExp(q.reject,'i').test(x))return 0;
+  let p=0;q.pts.forEach(r=>{if(new RegExp(r,'i').test(x))p++});
+  return Math.min(p,q.max);
+}
+function answered(q){const v=st.ans[q.n];return v!==undefined&&v!==null&&String(v).trim()!==''}
+
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+
+// ---------- start ----------
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved answers will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+
+function openTest(){
+  $('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');
+  $('#who').textContent='👤 '+st.name+' · '+st.cls;
+  renderTabs();renderSection(st.cur||0);startTimer();
+}
+function startTimer(){
+  clearInterval(tick);
+  const upd=()=>{
+    if(st.submitted){$('#timer').textContent='Submitted';return}
+    const left=TIME-Math.floor((Date.now()-st.start)/1000);
+    if(left<=0){$('#timer').textContent='00:00';clearInterval(tick);toast('Time is up – your answers have been submitted.');submit(true);return}
+    const m=Math.floor(left/60),s=left%60;$('#timer').textContent='⏱ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    $('#timer').classList.toggle('low',left<300);
+  };upd();tick=setInterval(upd,1000);
+}
+function renderTabs(){
+  const sections=[...DATA.map(s=>s.id+'. '+s.title),'G. Summary'];
+  $('#tabs').innerHTML=sections.map((t,i)=>{
+    let d='';if(i<DATA.length){const qs=DATA[i].qs;const a=qs.filter(q=>answered(q)).length;d=`<span class="d">${a}/${qs.length}</span>`}
+    else d=st.summary.trim()?'<span class="d">✓</span>':'';
+    return `<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${esc(t)}${d}</button>`}).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>renderSection(+b.dataset.i));
+  const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+}
+function qHTML(q){
+  const v=st.ans[q.n],rev=st.submitted,dis=rev?'disabled':'';
+  let body='';
+  if(q.t==='mcq'){body='<div class="opts">'+q.o.map((o,i)=>{let c='';if(rev){if(i===q.a&&showModel)c='right';if(v===i)c=(i===q.a?'right':'wrong')}else if(v===i)c='sel';
+    return `<button class="opt ${c}" data-v="${i}" ${dis}><span class="L">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`}).join('')+'</div>'}
+  else if(q.t==='tf'){body='<div class="tfrow">'+[['T','TRUE'],['F','FALSE'],['NG','NOT GIVEN']].map(([k,l])=>{let c='';if(rev){if(v===k)c=(k===q.a?'right':'wrong');else if(showModel&&k===q.a)c='right'}else if(v===k)c='sel';
+    return `<button class="tf ${c}" data-v="${k}" ${dis}>${l}</button>`}).join('')+'</div>'}
+  else if(q.t==='match'){body=`<select data-in ${dis} style="max-width:320px"><option value="">— choose a letter —</option>${DATA[q.sec].key.map(k=>`<option value="${k[0]}" ${v===k[0]?'selected':''}>${esc(k)}</option>`).join('')}</select>`}
+  else if(q.t==='vocab'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="One word from the text" style="max-width:320px" autocomplete="off" autocapitalize="off" spellcheck="false">`}
+  else if(q.t==='notes'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="Maximum six words" autocomplete="off"><div class="wc" data-wc></div>`}
+  else{body=`<textarea data-in ${dis} rows="${q.m>=3?3:2}" placeholder="Write your answer here">${esc(v||'')}</textarea>`}
+  let fb='';
+  if(rev){const g=mark(q);const cls=g===q.max?'ok':g>0?'part':'bad';
+    fb=`<div class="fb ${cls}">${cls==='ok'?'✔ Correct':cls==='part'?'◐ Partly correct':'✘ '+(answered(q)?'Incorrect':'Not answered')} · ${g}/${q.max} mark${q.max>1?'s':''}</div>`;
+    if(showModel){const a=q.t==='mcq'?'ABCD'[q.a]+' – '+q.o[q.a]:q.t==='tf'?({T:'TRUE',F:'FALSE',NG:'NOT GIVEN'})[q.a]:q.a;
+      fb+=`<div class="ans"><b>Model answer:</b> ${esc(a)}${q.note?`<span class="n">${esc(q.note)}</span>`:''}</div>`}}
+  const qtext=q.t==='vocab'?`Find a word that means <b>“${esc(q.q)}”</b> <span class="where">(${esc(q.where)})</span>`:esc(q.q);
+  const st_=rev?(mark(q)===q.max?'ok':mark(q)>0?'part':'bad'):(answered(q)?'done':'');
+  return `<div class="q ${st_}" data-n="${q.n}"><div class="qh"><span class="num">${q.n}</span><span class="qt">${qtext}</span><span class="qm">[${q.max}]</span></div><div class="body">${body}${fb}</div></div>`;
+}
+function renderSection(i){
+  st.cur=i;save();renderTabs();
+  const A=$('#qArea');let h='';
+  if(i<DATA.length){const s=DATA[i];
+    h+=`<div class="sec-h"><h2>${s.icon} Section ${s.id} – ${esc(s.title)}</h2><span class="mk">${secMax[i]} marks</span></div><p class="sec-i">${esc(s.instr)}</p>`;
+    if(s.key)h+=`<div class="keybox">${s.key.map(esc).join('<span style="opacity:.4">|</span>')}</div>`;
+    h+=s.qs.map(qHTML).join('');
+  } else {
+    h+=`<div class="sec-h"><h2>📄 Section G – Summary (extension)</h2><span class="mk">teacher-marked</span></div>
+    <p class="sec-i">Summarise what the writer says fast-food companies don’t tell customers. Write about 60–80 words, using your own words as far as possible.</p>
+    <div class="q"><textarea id="sumIn" rows="9" ${st.submitted?'disabled':''} placeholder="Start your summary here…">${esc(st.summary)}</textarea><div class="wc" id="sumWc"></div>
+    ${st.submitted&&showModel?`<div class="ans"><b>Model answer:</b> Fast-food companies do not tell customers that eating even small amounts of fast food can increase the risk of depression. Most people also underestimate the calories in their meals by about 40%. In addition, dishes that sound healthy, such as a vegetable pizza, can contain huge amounts of calories, fat and salt, and some salads are sprinkled with chemicals. Furthermore, fast food is not really cheap compared with cooking at home, and its ‘natural smoke flavour’ is produced commercially.<span class="n">Content: up to 4 marks (1 per relevant point – risk of depression; calories underestimated; healthy-sounding food can be worse / salads with chemicals; not cheaper than cooking at home; ‘natural smoke flavour’ commercially produced). Language: up to 2 marks.</span></div>`:''}</div>`;
+  }
+  const last=i===DATA.length;
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${
+    st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${
+    last?(st.submitted?'':`<button class="btn red" id="subB">Submit my answers ✓</button>`):`<button class="btn" id="nextB">Next section →</button>`}</div>`;
+  A.innerHTML=h;
+  A.querySelectorAll('.q[data-n]').forEach(el=>{
+    const n=+el.dataset.n;
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+    el.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});
+    const inp=el.querySelector('[data-in]');
+    if(inp){const wc=el.querySelector('[data-wc]');
+      const wcu=()=>{if(!wc)return;const w=inp.value.trim()?inp.value.trim().split(/\s+/).length:0;wc.textContent=w+' / 6 words';wc.classList.toggle('over',w>6)};wcu();
+      inp.addEventListener(inp.tagName==='SELECT'?'change':'input',()=>{st.ans[n]=inp.value;save();wcu();el.classList.toggle('done',answered(Q[n-1]));renderTabsLite()})}
+  });
+  const si=$('#sumIn');if(si){const u=()=>{const w=si.value.trim()?si.value.trim().split(/\s+/).length:0;$('#sumWc').textContent=w+' words (aim for 60–80)';$('#sumWc').classList.toggle('over',w>80)};u();
+    si.oninput=()=>{st.summary=si.value;save();u();renderTabsLite()}}
+  if($('#prevB'))$('#prevB').onclick=()=>{renderSection(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderSection(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit(false);
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+function renderTabsLite(){const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const d=b.querySelector('.d');if(i<DATA.length){const qs=DATA[i].qs;const t=qs.filter(answered).length+'/'+qs.length;if(d)d.textContent=t}})}
+function refreshQ(n){const el=document.querySelector(`.q[data-n="${n}"]`);const tmp=document.createElement('div');tmp.innerHTML=qHTML(Q[n-1]);el.replaceWith(tmp.firstElementChild);
+  const ne=document.querySelector(`.q[data-n="${n}"]`);ne.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+  ne.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});renderTabsLite()}
+
+async function submit(auto){
+  if(!auto){const left=NQ-Q.filter(answered).length;
+    const ok=await modal('Submit your answers?',left?`You have <b>${left}</b> unanswered question${left>1?'s':''}. You cannot change your answers after you submit.`:'You have answered every question. You cannot change your answers after you submit.',{ok:'Yes, submit'});
+    if(!ok)return}
+  st.submitted=true;
+  const secs=DATA.map((s,i)=>s.qs.reduce((a,q)=>a+mark(q),0));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.min(TIME,Math.floor((Date.now()-st.start)/1000)),at:new Date().toLocaleString()};
+  save();clearInterval(tick);showResults();
+}
+function grade(p){return p>=90?['A*','Outstanding work! You read the text with great accuracy.']:p>=80?['A','Excellent – a very strong performance.']:p>=70?['B','Very good. Review the questions you missed to reach the top grade.']:p>=60?['C','Good effort. Check details carefully and read each question twice.']:p>=50?['D','Fair. Go back to the text and review your incorrect answers.']:p>=40?['E','Keep practising – focus on finding exact details in the text.']:['U','Don’t give up! Re-read the text with your teacher’s help and try again.']}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100),[g,m]=grade(p);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resGrade').textContent=p+'%  ·  Indicative grade '+g;$('#resMsg').textContent=m;
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=DATA.map((s,i)=>`<div class="br"><span>${s.id}. ${esc(s.title)}</span><span class="t"><i style="width:${r.secs[i]/secMax[i]*100}%"></i></span><span class="s">${r.secs[i]}/${secMax[i]}</span></div>`).join('');
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,mm=Math.floor(r.time/60);
+  const line=Q.map(q=>{const g=mark(q);return q.n+(g===q.max?'✓':g>0?'½':'✗')}).join(' ');
+  return `IGCSE ESL Reading – Unit 3 (fast food secrets)\nName: ${st.name}\nClass: ${st.cls}\nScore: ${r.total}/43 (${Math.round(r.total/TOTAL*100)}%)\n`+
+  DATA.map((s,i)=>`Section ${s.id} ${s.title}: ${r.secs[i]}/${secMax[i]}`).join('\n')+
+  `\nTime taken: ${mm} min · Submitted: ${r.at}\n\nQuestion by question:\n${line}\n\nShort answers:\n`+
+  Q.filter(q=>['short','notes','vocab'].includes(q.t)).map(q=>`${q.n}. ${(st.ans[q.n]||'—').toString().trim()}`).join('\n')+
+  `\n\nSummary (${st.summary.trim()?st.summary.trim().split(/\s+/).length:0} words):\n${st.summary.trim()||'—'}`;
+}
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderSection(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your answers will be cleared and the timer will restart.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,ans:{},summary:'',start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function h(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await h(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderSection(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>

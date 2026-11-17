@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Reading – Unit 3: Gusto Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Reading a Review: Gusto Restaurant</h1>
+  <p>Unit 3: Food · Linking devices in a restaurant review</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">30 questions</span><span class="chip">32 marks</span><span class="chip">⏱ 35 minutes</span><span class="chip">4 question types</span><span class="chip">+ summary task</span></div>
+    <ul class="ins">
+      <li>Read <b>the Gusto review</b> in your Coursebook (page 45) carefully first. Keep it open while you answer.</li>
+      <li>Answer <b>all</b> questions. Use information from the text only.</li>
+      <li>Spelling counts in the vocabulary section. Keep short answers brief.</li>
+      <li>Your answers are saved on this device while you work. Press <b>Submit</b> when you finish to see your score.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 9A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start the test →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/30</span><span class="timer" id="timer">35:00</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your result</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm">out of 32</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by section</h3><div class="brk" id="brk"></div>
+    <p class="note">Short answers and notes are checked automatically for key words. Your teacher may adjust these marks after reading your answers.</p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your result to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams).</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="6" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const DATA = JSON.parse(decodeURIComponent(escape(atob("W3siaWQiOiAiQSIsICJ0aXRsZSI6ICJQYXJhZ3JhcGggb3JkZXIiLCAiaWNvbiI6ICLwn6epIiwgInNraWxsIjogIlVuZGVyc3RhbmRpbmcgdGhlIHN0cnVjdHVyZSBvZiBhIHJldmlldyIsICJpbnN0ciI6ICJUaGUgZm91ciBwYXJhZ3JhcGhzIG9mIHRoZSBHdXN0byByZXZpZXcgYXJlIHByaW50ZWQgaW4gdGhlIHdyb25nIG9yZGVyLiBXaGljaCBwb3NpdGlvbiBzaG91bGQgZWFjaCBwYXJhZ3JhcGggdGFrZSBpbiBhIGxvZ2ljYWwgcmV2aWV3IChJbnRyb2R1Y3Rpb24g4oaSIEJyaWVmIGRlc2NyaXB0aW9uIOKGkiBPcGluaW9uIOKGkiBSZWNvbW1lbmRhdGlvbik/IiwgImtleSI6IFsiMSDigJMgZmlyc3QgcGFyYWdyYXBoIiwgIjIg4oCTIHNlY29uZCBwYXJhZ3JhcGgiLCAiMyDigJMgdGhpcmQgcGFyYWdyYXBoIiwgIjQg4oCTIGZvdXJ0aCBwYXJhZ3JhcGgiXSwgInFzIjogW3sidCI6ICJtYXRjaCIsICJxIjogIlRoZSBwYXJhZ3JhcGggYmVnaW5uaW5nIOKAnChhKSDigKYsIChiKSDigKYgdGhpcyByZXN0YXVyYW50IGhhcyBhbiBJdGFsaWFuIG5hbWUsIGl0IGRlZmluaXRlbHkgZG9lcyBub3QgZ3VhcmFudGVlIGEgZ29vZCBtZWFsLuKAnSIsICJhIjogIjQiLCAibiI6ICJSZWNvbW1lbmRhdGlvbiDigJMgaXQgc3VtcyB1cCBhbmQgd2FybnMgdGhlIHJlYWRlci4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiVGhlIHBhcmFncmFwaCBiZWdpbm5pbmcg4oCcSG93IGNhbiB0aGlzIHBsYWNlIGNhbGwgaXRzZWxmIGFuIEl0YWxpYW4gcmVzdGF1cmFudD/igJ0iLCAiYSI6ICIxIiwgIm4iOiAiSW50cm9kdWN0aW9uIOKAkyBhIHF1ZXN0aW9uIHRvIGNhcHR1cmUgaW50ZXJlc3QsIHRoZW4gdGhlIHdyaXRlcuKAmXMgdmlzaXQgYW5kIG1haW4gdmlldy4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiVGhlIHBhcmFncmFwaCBiZWdpbm5pbmcg4oCcU28gd2h5IHdvbuKAmXQgd2UgZ28gYmFjaz/igJ0iLCAiYSI6ICIzIiwgIm4iOiAiT3BpbmlvbiDigJMgdGhlIHJlYXNvbnM6IHByaWNlcywgc2xvdyBzZXJ2aWNlLCB0YXN0ZWxlc3MgZm9vZC4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiVGhlIHBhcmFncmFwaCBiZWdpbm5pbmcg4oCcR3VzdG8gaXMgbG9jYXRlZCBpbiB0aGUgZm9vZCBjb3VydCBhdCB0aGUgc2hvcHBpbmcgbWFsbOKApuKAnSIsICJhIjogIjIiLCAibiI6ICJCcmllZiBkZXNjcmlwdGlvbiDigJMgbG9jYXRpb24sIG9wZW5pbmcgaG91cnMgYW5kIG1lbnUuIn1dfSwgeyJpZCI6ICJCIiwgInRpdGxlIjogIkxpbmtpbmcgd29yZHMg4oCTIGdhcC1maWxsIiwgImljb24iOiAi8J+UlyIsICJza2lsbCI6ICJVc2luZyBsaW5raW5nIGRldmljZXMiLCAiaW5zdHIiOiAiQ2hvb3NlIHRoZSBsaW5raW5nIGRldmljZSB0aGF0IGJlc3QgY29tcGxldGVzIGVhY2ggZ2FwIGluIHRoZSByZXZpZXcuIFRoaW5rIGFib3V0IHRoZSBmdW5jdGlvbjogc2VxdWVuY2UsIGNvbnRyYXN0IG9yIGNhdXNlL2VmZmVjdC4iLCAicXMiOiBbeyJ0IjogIm1jcSIsICJxIjogIuKAnChiKSDigKbigKbigKYgdGhpcyByZXN0YXVyYW50IGhhcyBhbiBJdGFsaWFuIG5hbWUsIGl0IGRlZmluaXRlbHkgZG9lcyBub3QgZ3VhcmFudGVlIGEgZ29vZCBtZWFsLuKAnSIsICJvIjogWyJBbHRob3VnaCIsICJIb3dldmVyIiwgIkJlY2F1c2UiLCAiQXMgYSByZXN1bHQiXSwgImEiOiAwLCAibiI6ICJDb250cmFzdCBpbnNpZGUgb25lIHNlbnRlbmNlIHdpdGggdHdvIGNsYXVzZXMg4oaSIGFsdGhvdWdoLiBIb3dldmVyIG11c3Qgc3RhcnQgYSBuZXcgc2VudGVuY2UuIn0sIHsidCI6ICJtY3EiLCAicSI6ICLigJwoYykg4oCm4oCm4oCmLCBkb27igJl0IGV4cGVjdCB0aGlzIHRvIGJlIGFuIGluZXhwZW5zaXZlIG5pZ2h0IG91dCHigJ0iLCAibyI6IFsiSW4gYWRkaXRpb24iLCAiQWx0aG91Z2giLCAiQmVjYXVzZSIsICJXaGVyZWFzIl0sICJhIjogMCwgIm4iOiAiQWRkcyBhbm90aGVyIHBvaW50IOKGkiBJbiBhZGRpdGlvbiAvIE1vcmVvdmVyLiJ9LCB7InQiOiAibWNxIiwgInEiOiAi4oCcSG93IGNhbiB0aGlzIHBsYWNlIGNhbGwgaXRzZWxmIGFuIEl0YWxpYW4gcmVzdGF1cmFudD8gKGQpIOKApuKApuKApiBteSBmcmllbmRzIGFuZCBJIGRlY2lkZWQgdG8gdHJ5IHRoZSBuZXcgR3VzdG8u4oCdIiwgIm8iOiBbIkFsdGhvdWdoIiwgIkhvd2V2ZXIiLCAiTGFzdCB3ZWVrZW5kIiwgIkFzIGEgcmVzdWx0Il0sICJhIjogMiwgIm4iOiAiQSB0aW1lIGV4cHJlc3Npb24gdG8gc2VxdWVuY2UgdGhlIHN0b3J5IOKGkiBMYXN0IHdlZWtlbmQgLyBSZWNlbnRseS4ifSwgeyJ0IjogIm1jcSIsICJxIjogIuKAnOKApiBteSBmcmllbmRzIGFuZCBJIGRlY2lkZWQgdG8gdHJ5IHRoZSBuZXcgR3VzdG8uIChlKSDigKbigKbigKYsIHdlIHdpbGwgbmV2ZXIgcmV0dXJuLuKAnSIsICJvIjogWyJCZWNhdXNlIiwgIkhvd2V2ZXIiLCAiQWx0aG91Z2giLCAiRmlyc3RseSJdLCAiYSI6IDEsICJuIjogIkNvbnRyYXN0IGJldHdlZW4gdHJ5aW5nIHRoZSByZXN0YXVyYW50IGFuZCBuZXZlciByZXR1cm5pbmcg4oaSIEhvd2V2ZXIgLyBVbmZvcnR1bmF0ZWx5LiJ9LCB7InQiOiAibWNxIiwgInEiOiAi4oCcU28gd2h5IHdvbuKAmXQgd2UgZ28gYmFjaz8gKGYpIOKApuKApuKApiwgdGhlIHByaWNlcyBhcmUgcmlkaWN1bG91c2x5IGV4cGVuc2l2ZS7igJ0iLCAibyI6IFsiQWx0aG91Z2giLCAiQmVjYXVzZSIsICJGaXJzdGx5IiwgIk9uIHRoZSBvdGhlciBoYW5kIl0sICJhIjogMiwgIm4iOiAiVGhlIGZpcnN0IG9mIHNldmVyYWwgcmVhc29ucyDihpIgRmlyc3RseSAvIEZpcnN0IG9mIGFsbC4ifSwgeyJ0IjogIm1jcSIsICJxIjogIuKAnOKApiB0aGUgcHJpY2VzIGFyZSByaWRpY3Vsb3VzbHkgZXhwZW5zaXZlLiAoZykg4oCm4oCm4oCmLCB0d28gb2YgbXkgZnJpZW5kcyBoYWQgdG8gc2hhcmUgYSBwaXp6YSwgYW5kIG5vbmUgb2YgdXMgY291bGQgYWZmb3JkIGEgZGVzc2VydC7igJ0iLCAibyI6IFsiQXMgYSByZXN1bHQiLCAiSG93ZXZlciIsICJBbHRob3VnaCIsICJJbiBjb25jbHVzaW9uIl0sICJhIjogMCwgIm4iOiAiUmVzdWx0IG9mIHRoZSBoaWdoIHByaWNlcyDihpIgQXMgYSByZXN1bHQgLyBDb25zZXF1ZW50bHkuIn0sIHsidCI6ICJtY3EiLCAicSI6ICLigJzigKYgbm9uZSBvZiB1cyBjb3VsZCBhZmZvcmQgYSBkZXNzZXJ0LiAoaCkg4oCm4oCm4oCmLCB3ZSBoYWQgdG8gd2FpdCBuZWFybHkgMzAgbWludXRlcyBmb3Igc29tZW9uZSB0byBzZXJ2ZSB1cy7igJ0iLCAibyI6IFsiQWx0aG91Z2giLCAiSW4gYWRkaXRpb24iLCAiQmVjYXVzZSIsICJXaGVyZWFzIl0sICJhIjogMSwgIm4iOiAiQWRkcyBhbm90aGVyIGNvbXBsYWludCDihpIgSW4gYWRkaXRpb24gLyBNb3Jlb3Zlci4ifSwgeyJ0IjogIm1jcSIsICJxIjogIuKAnFdoZW4gdGhlIGZvb2QgZXZlbnR1YWxseSB0dXJuZWQgdXAsIGl0IHdhcyBhdCBsZWFzdCBob3QgYW5kIHdlbGwgcHJlc2VudGVkLiAoaikg4oCm4oCm4oCmLCBpdCB3YXMgdGFzdGVsZXNzIOKApuKAnSIsICJvIjogWyJNb3Jlb3ZlciIsICJCZWNhdXNlIiwgIkhvd2V2ZXIiLCAiRmlyc3RseSJdLCAiYSI6IDIsICJuIjogIkNvbnRyYXN0IHdpdGggdGhlIHBvc2l0aXZlIHBvaW50IOKGkiBIb3dldmVyIC8gTmV2ZXJ0aGVsZXNzLiJ9LCB7InQiOiAibWNxIiwgInEiOiAi4oCc4oCmIGl0IHdhcyB0YXN0ZWxlc3MgYW5kIChrKSDigKbigKbigKYgdGhlIHBpenphIGJyZWFkIGxvb2tlZCBncmVhdCwgaXQgd2FzIHRvbyBoYXJkIHRvIGVhdC7igJ0iLCAibyI6IFsiaG93ZXZlciIsICJhbHRob3VnaCIsICJiZWNhdXNlIiwgInNvIl0sICJhIjogMSwgIm4iOiAiQ29udHJhc3QgYmV0d2VlbiB0d28gY2xhdXNlcyBpbiBvbmUgc2VudGVuY2Ug4oaSIGFsdGhvdWdoLiJ9LCB7InQiOiAibWNxIiwgInEiOiAi4oCcVGhlIG1lbnUgaXMgcXVpdGUgZXh0ZW5zaXZlLCBhbmQgKG0pIOKApuKApuKApiB0aGVyZSBhcmUgc2V2ZXJhbCBvcHRpb25zIGZvciBraWRzLuKAnSIsICJvIjogWyJtb3Jlb3ZlciIsICJhbHRob3VnaCIsICJiZWNhdXNlIiwgImhvd2V2ZXIiXSwgImEiOiAwLCAibiI6ICJBZGRzIGEgZnVydGhlciBwb3NpdGl2ZSBwb2ludCDihpIgbW9yZW92ZXIgLyBpbiBhZGRpdGlvbi4ifV19LCB7ImlkIjogIkMiLCAidGl0bGUiOiAiU2hvcnQtYW5zd2VyIHF1ZXN0aW9ucyIsICJpY29uIjogIuKcje+4jyIsICJza2lsbCI6ICJMb2NhdGluZyBzcGVjaWZpYyBkZXRhaWxzIiwgImluc3RyIjogIkFuc3dlciBlYWNoIHF1ZXN0aW9uIGJyaWVmbHksIHVzaW5nIGluZm9ybWF0aW9uIGZyb20gdGhlIHJldmlldy4iLCAicXMiOiBbeyJ0IjogInNob3J0IiwgInEiOiAiV2hlcmUgaXMgR3VzdG8gbG9jYXRlZD8iLCAibSI6IDEsICJwdHMiOiBbImZvb2QgY291cnR8KHNob3BwaW5nICk/bWFsbCJdLCAiYSI6ICJJbiB0aGUgZm9vZCBjb3VydCBhdCB0aGUgc2hvcHBpbmcgbWFsbC4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiV2hhdCBhcmUgR3VzdG/igJlzIG9wZW5pbmcgaG91cnMgb24gd2Vla2RheXM/IiwgIm0iOiAxLCAicHRzIjogWyIoMTF8ZWxldmVuKS57MCwyNX0oMTB8dGVuKSJdLCAiYSI6ICJGcm9tIDExIGEubS4gdG8gMTAgcC5tLiIsICJuIjogIiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJHaXZlIFRXTyBkZXRhaWxzIGFib3V0IEd1c3Rv4oCZcyBtZW51LiIsICJtIjogMiwgInB0cyI6IFsiZXh0ZW5zaXZlfHdpZGV8YmlnfGxhcmdlfGxvbmd8bG90fG1hbnkgZGlzaGVzfGNob2ljZSIsICJraWRzfGNoaWxkcmVufGNoaWxkIl0sICJhIjogIkl0IGlzIHF1aXRlIGV4dGVuc2l2ZSAoMSkgYW5kIHRoZXJlIGFyZSBzZXZlcmFsIG9wdGlvbnMgZm9yIGtpZHMgKDEpLiIsICJuIjogIjEgbWFyayBmb3IgZWFjaCBkZXRhaWwuIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIkdpdmUgVFdPIGRldGFpbHMgdGhhdCBzaG93IHRoZSBwcmljZXMgd2VyZSB2ZXJ5IGhpZ2guIiwgIm0iOiAyLCAicHRzIjogWyJzaGFyIiwgImRlc3NlcnQiXSwgImEiOiAiVHdvIG9mIHRoZSB3cml0ZXLigJlzIGZyaWVuZHMgaGFkIHRvIHNoYXJlIGEgcGl6emEgKDEpIGFuZCBub25lIG9mIHRoZW0gY291bGQgYWZmb3JkIGEgZGVzc2VydCAoMSkuIiwgIm4iOiAiMSBtYXJrIGZvciBlYWNoIGRldGFpbC4ifSwgeyJ0IjogInNob3J0IiwgInEiOiAiSG93IGxvbmcgZGlkIHRoZSBncm91cCB3YWl0IGFsdG9nZXRoZXIsIGZyb20gYXJyaXZpbmcgdW50aWwgdGhlaXIgZm9vZCBjYW1lPyIsICJtIjogMSwgInB0cyI6IFsiNjB8c2l4dHl8KGFufG9uZXwxKSBob3VyIl0sICJhIjogIk5lYXJseSBhbiBob3VyIChhYm91dCAzMCBtaW51dGVzIHRvIGJlIHNlcnZlZCArIGFub3RoZXIgMzAgbWludXRlcyBmb3IgdGhlIGZvb2QpLiIsICJuIjogIjMwIG1pbnV0ZXMgaXMgb25seSBwYXJ0IG9mIHRoZSB3YWl0LiIsICJyZWplY3QiOiAiXlxcVyoobmVhcmx5IHxhYm91dCB8YXJvdW5kIHxhbG1vc3QgKT8oMzB8dGhpcnR5KSggbWludXRlc3wgbWluc3wgbWluKT9cXFcqJCJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJHaXZlIE9ORSBwb3NpdGl2ZSB0aGluZyB0aGUgd3JpdGVyIHNheXMgYWJvdXQgdGhlIGZvb2QuIiwgIm0iOiAxLCAicHRzIjogWyJob3R8cHJlc2VudGVkfHByZXNlbnRhdGlvbnxsb29rZWQgKGdyZWF0fGdvb2R8bmljZSkiXSwgImEiOiAiSXQgd2FzIGhvdCBhbmQgd2VsbCBwcmVzZW50ZWQgLyB0aGUgcGl6emEgYnJlYWQgbG9va2VkIGdyZWF0LiIsICJuIjogIiJ9XX0sIHsiaWQiOiAiRCIsICJ0aXRsZSI6ICJUcnVlLCBGYWxzZSBvciBOb3QgR2l2ZW4iLCAiaWNvbiI6ICLimpbvuI8iLCAic2tpbGwiOiAiVW5kZXJzdGFuZGluZyBkZXRhaWwiLCAiaW5zdHIiOiAiQ2hvb3NlIFRSVUUgaWYgdGhlIHN0YXRlbWVudCBhZ3JlZXMgd2l0aCB0aGUgdGV4dCwgRkFMU0UgaWYgaXQgY29udHJhZGljdHMgdGhlIHRleHQsIG9yIE5PVCBHSVZFTiBpZiB0aGVyZSBpcyBubyBpbmZvcm1hdGlvbiBhYm91dCBpdC4iLCAicXMiOiBbeyJ0IjogInRmIiwgInEiOiAiVGhlIHdyaXRlciB3ZW50IHRvIEd1c3RvIHdpdGggc29tZSBmcmllbmRzLiIsICJhIjogIlQiLCAibiI6ICLigJzigKZteSBmcmllbmRzIGFuZCBJIGRlY2lkZWQgdG8gdHJ5IHRoZSBuZXcgR3VzdG8u4oCdIn0sIHsidCI6ICJ0ZiIsICJxIjogIlRoZSBncm91cCB3YXMgc2VydmVkIHNvb24gYWZ0ZXIgdGhleSBhcnJpdmVkLiIsICJhIjogIkYiLCAibiI6ICLigJzigKZ3ZSBoYWQgdG8gd2FpdCBuZWFybHkgMzAgbWludXRlcyBmb3Igc29tZW9uZSB0byBzZXJ2ZSB1cy7igJ0ifSwgeyJ0IjogInRmIiwgInEiOiAiVGhlIHBpenphIGJyZWFkIGxvb2tlZCBnb29kLiIsICJhIjogIlQiLCAibiI6ICLigJzigKZ0aGUgcGl6emEgYnJlYWQgbG9va2VkIGdyZWF04oCm4oCdIn0sIHsidCI6ICJ0ZiIsICJxIjogIlRoZSB3cml0ZXIgcGxhbnMgdG8gZ28gYmFjayB0byBHdXN0byBzb29uLiIsICJhIjogIkYiLCAibiI6ICLigJzigKZ3ZSB3aWxsIG5ldmVyIHJldHVybi7igJ0ifSwgeyJ0IjogInRmIiwgInEiOiAiR3VzdG8gaXMgbW9yZSBleHBlbnNpdmUgdGhhbiB0aGUgb3RoZXIgcmVzdGF1cmFudHMgaW4gdGhlIGZvb2QgY291cnQuIiwgImEiOiAiTkciLCAibiI6ICJUaGUgcmV2aWV3IGRvZXMgbm90IGNvbXBhcmUgR3VzdG8gd2l0aCBvdGhlciByZXN0YXVyYW50cy4ifSwgeyJ0IjogInRmIiwgInEiOiAiVGhlIHdyaXRlciBwYWlkIGZvciBldmVyeW9uZeKAmXMgbWVhbC4iLCAiYSI6ICJORyIsICJuIjogIlRoZSByZXZpZXcgZG9lcyBub3Qgc2F5IHdobyBwYWlkLiJ9XX0sIHsiaWQiOiAiRSIsICJ0aXRsZSI6ICJNdWx0aXBsZS1jaG9pY2UgcXVlc3Rpb25zIiwgImljb24iOiAi8J+UmCIsICJza2lsbCI6ICJHaXN0LCBpbmZlcmVuY2UgJiBtZWFuaW5nIiwgImluc3RyIjogIkNob29zZSB0aGUgY29ycmVjdCBhbnN3ZXI6IEEsIEIsIEMgb3IgRC4iLCAicXMiOiBbeyJ0IjogIm1jcSIsICJxIjogIldoYXQgaXMgdGhlIHdyaXRlcuKAmXMgb3ZlcmFsbCBvcGluaW9uIG9mIEd1c3RvPyIsICJvIjogWyJJdCBpcyBleGNlbGxlbnQgdmFsdWUgZm9yIG1vbmV5LiIsICJJdCBpcyBkaXNhcHBvaW50aW5nIGFuZCBub3Qgd29ydGggdmlzaXRpbmcuIiwgIlRoZSBmb29kIGlzIGdyZWF0IGJ1dCB0aGUgc2VydmljZSBpcyBzbG93LiIsICJJdCBpcyBhIGdvb2QgcGxhY2UgZm9yIGEgcXVpY2ssIGNoZWFwIG1lYWwuIl0sICJhIjogMSwgIm4iOiAiRXhwZW5zaXZlLCBzbG93IGFuZCB0YXN0ZWxlc3Mg4oCTIOKAnHdlIHdpbGwgbmV2ZXIgcmV0dXJu4oCdLiJ9LCB7InQiOiAibWNxIiwgInEiOiAiV2h5IGRvZXMgdGhlIHdyaXRlciBhc2sg4oCcU28gd2h5IHdvbuKAmXQgd2UgZ28gYmFjaz/igJ0iLCAibyI6IFsiVG8gYXNrIHRoZSByZWFkZXIgZm9yIGFkdmljZSIsICJUbyBpbnRyb2R1Y2UgdGhlIHJlYXNvbnMgZm9yIHRoZWlyIG9waW5pb24iLCAiVG8gc2hvdyB0aGF0IHRoZXkgYXJlIG5vdCBzdXJlIiwgIlRvIGRlc2NyaWJlIHRoZSByZXN0YXVyYW504oCZcyBsb2NhdGlvbiJdLCAiYSI6IDEsICJuIjogIlRoZSBxdWVzdGlvbiBpbnRyb2R1Y2VzIHRoZSByZWFzb25zIHRoYXQgZm9sbG93IChwcmljZXMsIHNlcnZpY2UsIGZvb2QpLiJ9LCB7InQiOiAibWNxIiwgInEiOiAi4oCcV2hlbiB0aGUgZm9vZCBldmVudHVhbGx5IHR1cm5lZCB1cCDigKbigJ0gc3VnZ2VzdHMgdGhhdCB0aGUgZm9vZCDigKYiLCAibyI6IFsiYXJyaXZlZCBhZnRlciBhIGxvbmcgd2FpdCIsICJhcnJpdmVkIGNvbGQiLCAid2FzIG5vdCB3aGF0IHRoZXkgb3JkZXJlZCIsICJ3YXMgc2VydmVkIHZlcnkgcXVpY2tseSJdLCAiYSI6IDAsICJuIjogIuKAnEV2ZW50dWFsbHnigJ0gbWVhbnMgYWZ0ZXIgYSBsb25nIHRpbWUg4oCTIHRoZXkgaGFkIHdhaXRlZCBhbm90aGVyIDMwIG1pbnV0ZXMuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJUaGUgd29yZCDigJxyaWRpY3Vsb3VzbHnigJ0gaW4g4oCcdGhlIHByaWNlcyBhcmUgcmlkaWN1bG91c2x5IGV4cGVuc2l2ZeKAnSBzaG93cyB0aGF0IHRoZSB3cml0ZXIgdGhpbmtzIHRoZSBwcmljZXMgYXJlIOKApiIsICJvIjogWyJmYWlyIiwgInNsaWdodGx5IGhpZ2giLCAiZmFyIHRvbyBoaWdoIiwgImxvd2VyIHRoYW4gZXhwZWN0ZWQiXSwgImEiOiAyLCAibiI6ICLigJxSaWRpY3Vsb3VzbHnigJ0gaXMgYSBzdHJvbmcgd29yZCBtZWFuaW5nIOKAnGV4dHJlbWVseSAvIHVucmVhc29uYWJseeKAnS4ifV19XQ=="))));
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const TOTAL = 32, NQ = 30, TIME = 35*60, KEY = 'igcse-u03-gusto-v1';
+const $ = s => document.querySelector(s);
+let st = {name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0};
+let showModel = false, tick = null;
+const norm = s => (s||'').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/\s+/g,' ').trim();
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.ans)return s}catch(e){}return null}
+
+// flatten questions
+const Q=[];DATA.forEach((s,si)=>s.qs.forEach(q=>{q.sec=si;q.note=q.n;q.n=Q.length+1;q.max=q.m||1;Q.push(q)}));
+const secMax=DATA.map(s=>s.qs.reduce((a,q)=>a+(q.m||1),0));
+
+function mark(q){
+  const v=st.ans[q.n];
+  if(v===undefined||v===''||v===null)return 0;
+  if(q.t==='tf'||q.t==='match')return v===q.a?1:0;
+  if(q.t==='mcq')return v===q.a?1:0;
+  const x=norm(v);
+  if(q.t==='vocab'){const w=x.replace(/[^a-z]/g,'');return [q.a,...(q.alt||[])].includes(w)?1:0}
+  if(q.reject&&new RegExp(q.reject,'i').test(x))return 0;
+  let p=0;q.pts.forEach(r=>{if(new RegExp(r,'i').test(x))p++});
+  return Math.min(p,q.max);
+}
+function answered(q){const v=st.ans[q.n];return v!==undefined&&v!==null&&String(v).trim()!==''}
+
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+
+// ---------- start ----------
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved answers will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+
+function openTest(){
+  $('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');
+  $('#who').textContent='👤 '+st.name+' · '+st.cls;
+  renderTabs();renderSection(st.cur||0);startTimer();
+}
+function startTimer(){
+  clearInterval(tick);
+  const upd=()=>{
+    if(st.submitted){$('#timer').textContent='Submitted';return}
+    const left=TIME-Math.floor((Date.now()-st.start)/1000);
+    if(left<=0){$('#timer').textContent='00:00';clearInterval(tick);toast('Time is up – your answers have been submitted.');submit(true);return}
+    const m=Math.floor(left/60),s=left%60;$('#timer').textContent='⏱ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    $('#timer').classList.toggle('low',left<300);
+  };upd();tick=setInterval(upd,1000);
+}
+function renderTabs(){
+  const sections=[...DATA.map(s=>s.id+'. '+s.title),'F. Writing'];
+  $('#tabs').innerHTML=sections.map((t,i)=>{
+    let d='';if(i<DATA.length){const qs=DATA[i].qs;const a=qs.filter(q=>answered(q)).length;d=`<span class="d">${a}/${qs.length}</span>`}
+    else d=st.summary.trim()?'<span class="d">✓</span>':'';
+    return `<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${esc(t)}${d}</button>`}).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>renderSection(+b.dataset.i));
+  const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+}
+function qHTML(q){
+  const v=st.ans[q.n],rev=st.submitted,dis=rev?'disabled':'';
+  let body='';
+  if(q.t==='mcq'){body='<div class="opts">'+q.o.map((o,i)=>{let c='';if(rev){if(i===q.a&&showModel)c='right';if(v===i)c=(i===q.a?'right':'wrong')}else if(v===i)c='sel';
+    return `<button class="opt ${c}" data-v="${i}" ${dis}><span class="L">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`}).join('')+'</div>'}
+  else if(q.t==='tf'){body='<div class="tfrow">'+[['T','TRUE'],['F','FALSE'],['NG','NOT GIVEN']].map(([k,l])=>{let c='';if(rev){if(v===k)c=(k===q.a?'right':'wrong');else if(showModel&&k===q.a)c='right'}else if(v===k)c='sel';
+    return `<button class="tf ${c}" data-v="${k}" ${dis}>${l}</button>`}).join('')+'</div>'}
+  else if(q.t==='match'){body=`<select data-in ${dis} style="max-width:320px"><option value="">— choose a letter —</option>${DATA[q.sec].key.map(k=>`<option value="${k[0]}" ${v===k[0]?'selected':''}>${esc(k)}</option>`).join('')}</select>`}
+  else if(q.t==='vocab'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="One word from the text" style="max-width:320px" autocomplete="off" autocapitalize="off" spellcheck="false">`}
+  else if(q.t==='notes'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="Maximum six words" autocomplete="off"><div class="wc" data-wc></div>`}
+  else{body=`<textarea data-in ${dis} rows="${q.m>=3?3:2}" placeholder="Write your answer here">${esc(v||'')}</textarea>`}
+  let fb='';
+  if(rev){const g=mark(q);const cls=g===q.max?'ok':g>0?'part':'bad';
+    fb=`<div class="fb ${cls}">${cls==='ok'?'✔ Correct':cls==='part'?'◐ Partly correct':'✘ '+(answered(q)?'Incorrect':'Not answered')} · ${g}/${q.max} mark${q.max>1?'s':''}</div>`;
+    if(showModel){const a=q.t==='mcq'?'ABCD'[q.a]+' – '+q.o[q.a]:q.t==='tf'?({T:'TRUE',F:'FALSE',NG:'NOT GIVEN'})[q.a]:q.a;
+      fb+=`<div class="ans"><b>Model answer:</b> ${esc(a)}${q.note?`<span class="n">${esc(q.note)}</span>`:''}</div>`}}
+  const qtext=q.t==='vocab'?`Find a word that means <b>“${esc(q.q)}”</b> <span class="where">(${esc(q.where)})</span>`:esc(q.q);
+  const st_=rev?(mark(q)===q.max?'ok':mark(q)>0?'part':'bad'):(answered(q)?'done':'');
+  return `<div class="q ${st_}" data-n="${q.n}"><div class="qh"><span class="num">${q.n}</span><span class="qt">${qtext}</span><span class="qm">[${q.max}]</span></div><div class="body">${body}${fb}</div></div>`;
+}
+function renderSection(i){
+  st.cur=i;save();renderTabs();
+  const A=$('#qArea');let h='';
+  if(i<DATA.length){const s=DATA[i];
+    h+=`<div class="sec-h"><h2>${s.icon} Section ${s.id} – ${esc(s.title)}</h2><span class="mk">${secMax[i]} marks</span></div><p class="sec-i">${esc(s.instr)}</p>`;
+    if(s.key)h+=`<div class="keybox">${s.key.map(esc).join('<span style="opacity:.4">|</span>')}</div>`;
+    h+=s.qs.map(qHTML).join('');
+  } else {
+    h+=`<div class="sec-h"><h2>📄 Section F – Writing (extension)</h2><span class="mk">teacher-marked</span></div>
+    <p class="sec-i">Write a short paragraph about a restaurant you know, using at least four linking devices. Write about 60–80 words.</p>
+    <div class="q"><textarea id="sumIn" rows="9" ${st.submitted?'disabled':''} placeholder="Start your summary here…">${esc(st.summary)}</textarea><div class="wc" id="sumWc"></div>
+    ${st.submitted&&showModel?`<div class="ans"><b>Model answer:</b> Last month, my family and I tried a small grill restaurant near our home. Firstly, the location is very convenient, and in addition there is plenty of parking. Although the décor is quite simple, the staff are friendly and polite. Moreover, the grilled chicken was fresh and delicious. However, we had to wait twenty minutes for our food because the restaurant was very busy. To sum up, I would recommend it to anyone who enjoys tasty, reasonably priced food.<span class="n">Content: up to 4 marks (names / describes a real restaurant (1); gives opinions on at least two features, e.g. location, food, staff, prices, service (2); clear recommendation (1)). Language: up to 2 marks (at least four correct linking devices of sequence, contrast and cause/effect; correct use of however / although; accuracy).</span></div>`:''}</div>`;
+  }
+  const last=i===DATA.length;
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${
+    st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${
+    last?(st.submitted?'':`<button class="btn red" id="subB">Submit my answers ✓</button>`):`<button class="btn" id="nextB">Next section →</button>`}</div>`;
+  A.innerHTML=h;
+  A.querySelectorAll('.q[data-n]').forEach(el=>{
+    const n=+el.dataset.n;
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+    el.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});
+    const inp=el.querySelector('[data-in]');
+    if(inp){const wc=el.querySelector('[data-wc]');
+      const wcu=()=>{if(!wc)return;const w=inp.value.trim()?inp.value.trim().split(/\s+/).length:0;wc.textContent=w+' / 6 words';wc.classList.toggle('over',w>6)};wcu();
+      inp.addEventListener(inp.tagName==='SELECT'?'change':'input',()=>{st.ans[n]=inp.value;save();wcu();el.classList.toggle('done',answered(Q[n-1]));renderTabsLite()})}
+  });
+  const si=$('#sumIn');if(si){const u=()=>{const w=si.value.trim()?si.value.trim().split(/\s+/).length:0;$('#sumWc').textContent=w+' words (aim for 60–80)';$('#sumWc').classList.toggle('over',w>80)};u();
+    si.oninput=()=>{st.summary=si.value;save();u();renderTabsLite()}}
+  if($('#prevB'))$('#prevB').onclick=()=>{renderSection(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderSection(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit(false);
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+function renderTabsLite(){const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const d=b.querySelector('.d');if(i<DATA.length){const qs=DATA[i].qs;const t=qs.filter(answered).length+'/'+qs.length;if(d)d.textContent=t}})}
+function refreshQ(n){const el=document.querySelector(`.q[data-n="${n}"]`);const tmp=document.createElement('div');tmp.innerHTML=qHTML(Q[n-1]);el.replaceWith(tmp.firstElementChild);
+  const ne=document.querySelector(`.q[data-n="${n}"]`);ne.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+  ne.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});renderTabsLite()}
+
+async function submit(auto){
+  if(!auto){const left=NQ-Q.filter(answered).length;
+    const ok=await modal('Submit your answers?',left?`You have <b>${left}</b> unanswered question${left>1?'s':''}. You cannot change your answers after you submit.`:'You have answered every question. You cannot change your answers after you submit.',{ok:'Yes, submit'});
+    if(!ok)return}
+  st.submitted=true;
+  const secs=DATA.map((s,i)=>s.qs.reduce((a,q)=>a+mark(q),0));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.min(TIME,Math.floor((Date.now()-st.start)/1000)),at:new Date().toLocaleString()};
+  save();clearInterval(tick);showResults();
+}
+function grade(p){return p>=90?['A*','Outstanding work! You read the text with great accuracy.']:p>=80?['A','Excellent – a very strong performance.']:p>=70?['B','Very good. Review the questions you missed to reach the top grade.']:p>=60?['C','Good effort. Check details carefully and read each question twice.']:p>=50?['D','Fair. Go back to the text and review your incorrect answers.']:p>=40?['E','Keep practising – focus on finding exact details in the text.']:['U','Don’t give up! Re-read the text with your teacher’s help and try again.']}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100),[g,m]=grade(p);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resGrade').textContent=p+'%  ·  Indicative grade '+g;$('#resMsg').textContent=m;
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=DATA.map((s,i)=>`<div class="br"><span>${s.id}. ${esc(s.title)}</span><span class="t"><i style="width:${r.secs[i]/secMax[i]*100}%"></i></span><span class="s">${r.secs[i]}/${secMax[i]}</span></div>`).join('');
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,mm=Math.floor(r.time/60);
+  const line=Q.map(q=>{const g=mark(q);return q.n+(g===q.max?'✓':g>0?'½':'✗')}).join(' ');
+  return `IGCSE ESL Reading – Unit 3 (Gusto review)\nName: ${st.name}\nClass: ${st.cls}\nScore: ${r.total}/32 (${Math.round(r.total/TOTAL*100)}%)\n`+
+  DATA.map((s,i)=>`Section ${s.id} ${s.title}: ${r.secs[i]}/${secMax[i]}`).join('\n')+
+  `\nTime taken: ${mm} min · Submitted: ${r.at}\n\nQuestion by question:\n${line}\n\nShort answers:\n`+
+  Q.filter(q=>['short','notes','vocab'].includes(q.t)).map(q=>`${q.n}. ${(st.ans[q.n]||'—').toString().trim()}`).join('\n')+
+  `\n\nSummary (${st.summary.trim()?st.summary.trim().split(/\s+/).length:0} words):\n${st.summary.trim()||'—'}`;
+}
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderSection(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your answers will be cleared and the timer will restart.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,ans:{},summary:'',start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function h(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await h(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderSection(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>
