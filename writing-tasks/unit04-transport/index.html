@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Writing Studio – Unit 4: Transport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+.chk{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.chk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff}
+.chk li .ic{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;background:var(--bad)}
+.chk li.y{border-color:var(--ok);background:var(--ok-l)} .chk li.y .ic{background:var(--ok)}
+.chk li.p{border-color:var(--part);background:var(--part-l)} .chk li.p .ic{background:var(--part)}
+.chk li .pt{margin-left:auto;font-weight:800;color:var(--mut);white-space:nowrap}
+.livehd{margin-top:14px;font-weight:800;color:var(--teal-d);font-size:14.5px}
+.warn{margin-top:10px;background:var(--part-l);border-left:4px solid var(--part);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600}
+.wchip{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-weight:800;background:#fff;color:var(--mut);margin-left:4px}
+.wchip.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.rub{display:grid;gap:6px;margin-top:10px} .rb{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.rb input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal)}
+.q .num{flex:0 0 32px}
+textarea{resize:vertical;line-height:1.55}
+.q > .keybox{margin-top:0}
+@media(max-width:600px){.q .row div[style*="grid-template-columns"]{grid-template-columns:1fr!important}}
+@media(max-width:600px){.q div[style*="repeat(5,1fr)"]{grid-template-columns:1fr 1fr!important}.q div[style*="grid-template-columns:1fr 1fr;gap:8px"]{grid-template-columns:1fr!important}}
+</style>
+
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Writing Studio: Transport</h1>
+  <p>Unit 4 · Grade 8 · Interactive writing tasks</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">6 writing tasks</span><span class="chip">100 checklist marks</span><span class="chip">✍ live feedback</span><span class="chip">+ self-assessment</span></div>
+    <ul class="ins">
+      <li>Complete the tasks in order. Each one practises a skill from <b>Unit 4</b> of your Coursebook (pages 49–61).</li>
+      <li>As you type, the <b>live checklist</b> under each task turns green when you include what is needed. Use it to improve your writing.</li>
+      <li>Your writing is saved on this device while you work. Press <b>Submit</b> when you finish.</li>
+      <li>The checklist score is a guide only – your teacher will read your work and give the final mark.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 8A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start writing →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TASKS -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/6 tasks</span><span class="timer" id="wtot">✍ 0 words</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your writing checklist score</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm" id="resOut">out of 100</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by task</h3><div class="brk" id="brk"></div>
+    <div id="wcSum" class="note"></div>
+    <div id="selfBox" class="note"></div>
+    <p class="note">The checklist score shows how many of the required features your writing includes. <b>Your teacher will read your work and give the final mark.</b></p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your work to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams). All your writing is included.</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="8" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const KEY = 'igcse-u04-writing-v1';
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => (s||'').replace(/[‘’`´]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,'-');
+const wc = s => { s=(s||'').trim(); return s ? s.split(/\s+/).length : 0; };
+let st = {name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0};
+let showModel = false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.a)return s}catch(e){}return null}
+const A = k => st.a[k] || '';
+const got = it => it[1]?it[2]:(typeof it[3]==='number'?it[3]:(it[3]&&it[2]>1?1:0));
+const sum = items => items.reduce((s,it)=>s+got(it),0);
+const R = (a,b) => [...Array(b-a).keys()].map(x=>x+a);
+
+
+/* ---------- shared word lists ---------- */
+const TRANS_SRC="\\b(high[\\s-]speed\\s+trains?|bullet\\s+trains?|trains?|buses|bus|coach(es)?|cars?|taxis?|cabs?|planes?|aeroplanes?|airplanes?|aircraft|jets?|flights?|helicopters?|ferr(y|ies)|boats?|ships?|yachts?|cruise\\s+liners?|(hot[\\s-]air\\s+)?balloons?|bicycles?|bikes?|motorbikes?|motorcycles?|(electric\\s+|e-)?scooters?|trams?|underground|metro|subway|lorr(y|ies)|trucks?|hovercraft|rockets?|airships?|camels?|horses?|vans?|minibus(es)?|boda[\\s-]bodas?|cable\\s+cars?|rowing\\s+boats?|on\\s+foot|walk(ing)?|cycl(e|ing))\\b";
+const hasT = s => new RegExp(TRANS_SRC,'i').test(s);
+const allT = s => [...new Set((s.match(new RegExp(TRANS_SRC,'gi'))||[]).map(x=>x.toLowerCase()))];
+const LK={
+ 'Sequence':['first of all','to begin with','firstly','secondly','thirdly','after that','afterwards','in addition','moreover','furthermore','besides','finally','lastly','to sum up','in conclusion','as well as','also','then','next','first'],
+ 'Contrast / comparison':['on the other hand','in spite of','in contrast','even though','compared with','compared to','nevertheless','nonetheless','however','although','whereas','despite','similarly','likewise','unlike','though','while','but','yet'],
+ 'Cause / effect':['as a result','for this reason','because of','that is why','due to','consequently','therefore','because','since','thus','so','as']};
+const LCAT=Object.keys(LK);
+function links(t){
+  const out={};let s=' '+t+' ';
+  LCAT.forEach(c=>out[c]=new Set());
+  const all=[];LCAT.forEach(c=>LK[c].forEach(w=>all.push([w,c])));all.sort((a,b)=>b[0].length-a[0].length);
+  all.forEach(([w,c])=>{const re=new RegExp('\\b'+w.replace(/ /g,'\\s+')+'\\b','g');if(re.test(s)){out[c].add(w);s=s.replace(re,' ## ')}});
+  return out;
+}
+const linkCount = L => LCAT.reduce((n,c)=>n+L[c].size,0);
+const REG_BAD=/\b(lol|omg|u|ur|gonna|wanna|gotta|kinda|dunno|ya|yeah|cuz|coz|stupid|rubbish|sucks)\b|!!|\?\?/;
+const paras = raw => (raw||'').split(/\n\s*\n|\n/).map(x=>x.trim()).filter(x=>wc(x)>=5);
+function regOK(raw){const t=norm(raw).toLowerCase();return wc(t)>20&&!REG_BAD.test(t)&&(t.match(/!/g)||[]).length<=2}
+const sents = raw => norm(raw).split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean);
+
+/* ---------- passive voice engine (Language focus, pp. 56–57) ---------- */
+const IRR=['built','made','done','seen','taken','given','driven','ridden','flown','stolen','sold','bought','caught','held','known','shown','written','spoken','broken','chosen','kept','left','paid','put','set','cut','hit','run','found','brought','told','worn','grown','thrown','eaten','become','begun','understood','forgotten','hidden','lost','sent','spent','won','woken','fed','led','met','read','said','shut','taught','thought','hurt','let','laid','beaten','frozen','bitten','drawn','overtaken','rebuilt','heard','felt','struck','hung','spread','dug','sought','upheld','withdrawn','forbidden','shaken','sunk','swept','sworn','torn','undertaken','won'];
+const PP='([a-z]+ed|'+IRR.join('|')+')';
+const ADJ_ED=['crowded','interested','bored','tired','excited','worried','amazed','scared','pleased','satisfied','talented','related','experienced','skilled','qualified','old-fashioned','surprised','shocked','frightened','annoyed','disappointed','delighted','relaxed','confused','embarrassed','exhausted','terrified','thrilled','need','red','bed','shed','speed','seed','feed','weed','indeed','hundred','sacred'];
+const ADV='((?:not|also|still|often|usually|always|never|sometimes|mainly|widely|rarely|only|now|currently|already|recently|just|ever|easily|regularly|carefully|frequently|generally|commonly|increasingly|being)\\s+)?';
+const PAS=[
+ ['Present continuous',new RegExp("\\b(am|is|are|isn't|aren't)\\s+((?:not|also|still|currently|now)\\s+)?being\\s+"+PP+"\\b",'g')],
+ ['Past continuous',new RegExp("\\b(was|were|wasn't|weren't)\\s+((?:not|also|still)\\s+)?being\\s+"+PP+"\\b",'g')],
+ ['Present perfect',new RegExp("\\b(has|have|hasn't|haven't)\\s+((?:not|also|already|recently|just|never|ever|now)\\s+)?been\\s+"+PP+"\\b",'g')],
+ ['Past perfect',new RegExp("\\b(had|hadn't)\\s+((?:not|also|already|just|never)\\s+)?been\\s+"+PP+"\\b",'g')],
+ ['Modal',new RegExp("\\b(can|could|should|must|will|would|may|might|cannot|can't|won't|shouldn't|mustn't|couldn't|wouldn't|needs?\\s+to|has\\s+to|have\\s+to|ought\\s+to)\\s+((?:not|also|easily|never|still|only|always|soon|definitely|probably|really|then)\\s+)?be\\s+"+PP+"\\b",'g')],
+ ['Present simple',new RegExp("\\b(am|is|are|isn't|aren't)\\s+"+ADV.replace('|being','')+PP+"\\b",'g')],
+ ['Past simple',new RegExp("\\b(was|were|wasn't|weren't)\\s+"+ADV.replace('|being','')+PP+"\\b",'g')]];
+function passives(t){ // t: normalised lower-case text
+  const out=[];let s=t;
+  PAS.forEach(([n,re])=>{s=s.replace(re,(m,...g)=>{const pp=g[2];if(ADJ_ED.includes(pp))return m;out.push({tense:n,phrase:m,end:0});return ' '.repeat(m.length)})});
+  return out;
+}
+const BASE='build|make|take|give|drive|ride|fly|steal|sell|buy|catch|hold|know|show|write|speak|break|choose|keep|pay|find|bring|tell|wear|grow|throw|eat|forget|hide|lose|send|spend|wake|introduce|remove|injure|manufacture|book|use|increase|train|include|cause|force|estimate|call|require|repair|protect|ban|stop|kill|design|launch|operate|register|educate|inform|prevent|organise|organize|rush|hear|see|damage|reduce|encourage|provide|allow|improve|ignore|involve|invent|deliver|replace|create|carry|fix|check|teach|punish|enforce|install|plan|wash|invite|employ|hire|follow|obey|sell|change|accommodate|advertise|believe';
+const RE_BASE=new RegExp("\\b(is|are|was|were|be|been|being|isn't|aren't|wasn't|weren't)\\s+(not\\s+)?("+BASE+")\\b");
+const RE_NOBE=/\b(i|he|she|it|we|they|cars|buses|roads|people|tickets|riders|drivers)\s+(woken|stolen|taken|given|driven|ridden|written|broken|chosen|eaten|seen|done|flown|known|shown|spoken|thrown|grown|forgotten|hidden|begun|worn)\b/;
+function pasErrs(raw){const t=norm(raw).toLowerCase(),f=[];let m;
+  if((m=t.match(RE_BASE)))f.push(`Use the past participle after <b>be</b>: “${esc(m[0])}” → “${esc(m[1])} ${m[2]?'not ':''}${esc(ppOf(m[3]))}” (Language tip, p. 57).`);
+  if((m=t.match(RE_NOBE)))f.push(`Include the <b>be</b> form: “${esc(m[0])}” → “${esc(m[1])} ${['i','he','she','it'].includes(m[1])?'was':'were'} ${esc(m[2])}” (Language tip, p. 57).`);
+  return f}
+const PPMAP={build:'built',make:'made',take:'taken',give:'given',drive:'driven',ride:'ridden',fly:'flown',steal:'stolen',sell:'sold',buy:'bought',catch:'caught',hold:'held',know:'known',show:'shown',write:'written',speak:'spoken',break:'broken',choose:'chosen',keep:'kept',pay:'paid',find:'found',bring:'brought',tell:'told',wear:'worn',grow:'grown',throw:'thrown',eat:'eaten',forget:'forgotten',hide:'hidden',lose:'lost',send:'sent',spend:'spent',wake:'woken',hear:'heard',see:'seen',teach:'taught',stop:'stopped',ban:'banned',plan:'planned',carry:'carried'};
+function ppOf(v){return PPMAP[v]||(v.endsWith('e')?v+'d':v+'ed')}
+
+/* ---------- question-form checker (D7, F5) ---------- */
+const AUXW="did|do|does|was|were|is|are|had|has|have|could|can|would|will|should|didn't|wasn't|weren't|isn't|aren't|don't|doesn't";
+const PASTV="[a-z]+ed|got|went|took|made|cost|had|saw|came|left|felt|caught|gave|broke|drove|rode|paid|flew|ate|bought|sat|met|kept|lost|won|spent|brought|told|happened";
+function qform(raw){
+  const s=norm(raw).trim();if(!s)return {ok:false,empty:true,msg:''};
+  if(wc(s)<3)return {ok:false,msg:'Write a complete question.'};
+  if(!/\?$/.test(s))return {ok:false,msg:'End your question with a question mark (?).'};
+  if(!/^[A-Z]/.test(s))return {ok:false,msg:'Start with a capital letter.'};
+  const c=s.replace(/^(in|during|on|at|for|by)\s+[^,?]{1,30},\s*/i,'').toLowerCase();
+  const didPast=new RegExp("\\b(did|didn't)\\s+([a-z]+\\s+){1,3}?("+"[a-z]+ed|went|took|saw|came|left|felt|paid|got|ate|bought|flew|drove|rode|caught|gave)\\b");
+  if(new RegExp('^('+AUXW+')\\b').test(c)){
+    if(didPast.test(c)&&/^(did|didn't)\b/.test(c))return {ok:false,msg:'After did, use the base form of the verb: “Did I go…?”, not “Did I went…?”.'};
+    return {ok:true,msg:'Correct question form.'}}
+  if(/^(what|when|where|who|whom|why|which|how|whose)\b/.test(c)){
+    const rest=c.replace(/^(how\s+(long|much|many|far|fast|old|often)|what\s+(time|kind\s+of|sort\s+of|type\s+of)|what|when|where|who|whom|why|which|how|whose)\b/,'');
+    if(new RegExp('\\b('+AUXW+')\\b').test(rest)){
+      if(didPast.test(rest))return {ok:false,msg:'After did, use the base form: “When did we leave?”, not “When did we left?”.'};
+      return {ok:true,msg:'Correct question form.'}}
+    if(new RegExp('^(how\\s+many|how\\s+much|which|what|who)\\s+([a-z\'-]+\\s+){0,4}?('+PASTV+')\\b').test(c))return {ok:true,msg:'Correct subject question.'};
+    return {ok:false,msg:'Add an auxiliary verb: “Where did I go?” / “How long was the journey?”.'}}
+  return {ok:false,msg:'Start with a question word (What, When, How long…) or an auxiliary (Did, Was…).'};
+}
+
+/* ---------- Task 1: Transport vocabulary (B1–B6) ---------- */
+const COLS=['Air','People','Rail','Road','Water'];
+const B3W=[['cabin',['Air','Rail','Water']],['captain',['People','Air','Water'],'People'],['coach',['Road'],'Road'],['conductor',['People','Rail']],['crew',['Air','People','Water']],['cruise liner',['Water']],['cyclist',['People','Road']],['driver',['People','Road','Rail']],['ferry',['Water']],['helicopter',['Air']],['hot-air balloon',['Air']],['lorry',['Road']],['motorist',['People','Road']],['passenger',['People','Air','Rail','Road','Water']],['pedestrian',['People','Road']],['pilot',['Air','People']],['platform',['Rail']],['rowing boat',['Water']],['station',['Rail','Road']],['tourist',['People']],['tram',['Rail','Road']],['underground',['Rail']],['vehicle',['Road','Rail']],['yacht',['Water']]];
+const b3sel = k => (A('t1w'+k)||'').split('|').filter(Boolean);
+function b3(k){const [w,acc,ex]=B3W[k];if(ex)return {ok:true,ex:true,msg:''};
+  const s=b3sel(k);if(!s.length)return {ok:false,empty:true,msg:''};
+  const wrong=s.filter(c=>!acc.includes(c));
+  if(wrong.length)return {ok:false,msg:`“${w}” does not usually go in ${wrong.join(' / ')}. Check its meaning again.`};
+  const more=acc.filter(c=>!s.includes(c));
+  return {ok:true,msg:more.length?`Correct. It can also go in: ${more.join(', ')}.`:'Correct.'}}
+const ADVW=/\b(fast|faster|quick|quicker|cheap|cheaper|comfortable|convenient|relaxing|safe|safer|healthy|eco-friendly|environmentally[\s-]friendly|green|clean|fun|exciting|enjoyable|reliable|flexible|spacious|quiet|smooth|punctual|practical|easy|efficient|affordable|luxurious|scenic|beautiful\s+views?|good\s+for\s+the\s+environment|popular|free|interesting|on\s+time|no\s+traffic)\b/;
+const DISW=/\b(slow|slower|expensive|dangerous|uncomfortable|crowded|noisy|polluting|pollution|pollutes|unreliable|tiring|boring|delayed|delays|late|risky|inconvenient|cramped|stressful|unhealthy|dirty|unsafe|difficult|bumpy|seasick|sick|traffic\s+jams?|stuck\s+in\s+traffic|bad\s+weather|takes?\s+(a\s+long\s+time|ages)|limited|tired|hot|cold|wet|frightening|scary|accidents?)\b/;
+const CONTR=/\b(but|although|though|however|whereas|while|on\s+the\s+other\s+hand|yet|even\s+though|despite)\b/;
+function b4(i){const raw=norm(A('t1s'+i)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(t)<5)return {ok:false,msg:'Write a complete sentence.'};
+  if(/^a high-speed train is fast but expensive\.?$/.test(t))return {ok:false,msg:'That is the example – write your own sentence.'};
+  const m=allT(t);if(!m.length)return {ok:false,msg:'Name a method of transport (e.g. a coach, a ferry, a bicycle).'};
+  for(let j=0;j<i;j++){const p=allT(norm(A('t1s'+j)).toLowerCase());if(p.length&&p[0]===m[0])return {ok:false,msg:'Choose a different method of transport for each sentence.'}}
+  if(!ADVW.test(t))return {ok:false,msg:'Add an advantage (e.g. fast, cheap, comfortable, relaxing).'};
+  if(!DISW.test(t))return {ok:false,msg:'Add a disadvantage (e.g. slow, expensive, dangerous, crowded).'};
+  if(!CONTR.test(t))return {ok:false,msg:'Join the advantage and the disadvantage with but / although / however / whereas.'};
+  if(!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(!/[.!]$/.test(raw))return {ok:false,msg:'End with a full stop.'};
+  return {ok:true,msg:`Good – advantage and disadvantage of ${m[0]}.`}}
+const B5T=['a The problems with different methods of transport','b How transport has changed in your lifetime','c The future of transport'];
+const B5EX=['air pollution','too much traffic in town centres','less air travel'];
+function b5(i){const v=norm(A('t1n'+i)).trim().toLowerCase().replace(/[.]$/,'');if(!v)return {ok:false,empty:true,msg:''};
+  if(!A('t1top'))return {ok:false,msg:'First choose your topic.'};
+  if(B5EX.includes(v))return {ok:false,msg:'That is the example – write a new note.'};
+  if(wc(v)>8)return {ok:false,msg:'Notes are short (up to 8 words) – not full sentences.'};
+  for(let j=0;j<i;j++)if(norm(A('t1n'+j)).trim().toLowerCase().replace(/[.]$/,'')===v)return {ok:false,msg:'Repeated note – write a different idea.'};
+  return {ok:true,msg:'Good note.'}}
+function chk1(){
+  const n=B3W.filter((w,k)=>!w[2]&&b3(k).ok).length,multi=B3W.filter((w,k)=>!w[2]&&b3(k).ok&&b3sel(k).length>=2).length;
+  const box=B3W.map(w=>w[0]);
+  const extra=new Set(COLS.flatMap((c,k)=>norm(A('t1e'+k)).toLowerCase().split(/[,;\n]+/).map(x=>x.trim()).filter(x=>x&&!box.includes(x))));
+  const s=R(0,4).filter(i=>b4(i).ok).length,nt=R(0,3).filter(i=>b5(i).ok).length;
+  const items=[[`B3: words in a correct column (${n}/22)`,n===22,11,Math.floor(n/2)],
+   [`Words placed in more than one column (${multi}) – aim for 4+`,multi>=4,1],
+   [`Words added from B1 and B2 (${extra.size}) – aim for 5+`,extra.size>=5,1],
+   [`B4d: advantage + disadvantage sentences (${s}/4)`,s===4,4,s],
+   [`B5: topic chosen and three short notes (${nt}/3)`,nt===3&&!!A('t1top'),3,A('t1top')?nt:0]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 2: Mystery journey (D6–D7) ---------- */
+const TIME=/\b\d{1,2}([.:]\d{2})?\s*(a\.?\s?m\b\.?|p\.?\s?m\b\.?|o'clock)|\b\d{1,2}[.:]\d{2}\b|\b(midday|midnight|noon|dawn|sunrise|sunset)\b|\b(early|late)\s+(in\s+the\s+)?(morning|afternoon|evening)\b|\b(in\s+the\s+(morning|afternoon|evening)|at\s+night)\b/;
+const NUMW='(\\d+(\\.\\d+)?|an?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|forty-five|fifty|ninety|half|a\\s+few|several)(\\s+and\\s+a\\s+(half|quarter))?[\\s-]+(hours?|minutes?|mins|days?|nights?)\\b';
+const LEN=new RegExp('\\b(took|take|takes|lasted|last|lasts|for|about|around|nearly|almost|over|only|just|exactly)\\s+(about\\s+|around\\s+|nearly\\s+|almost\\s+|over\\s+|only\\s+|just\\s+|exactly\\s+|more\\s+than\\s+|less\\s+than\\s+)?'+NUMW+'|\\b(hour|minute|day)[\\s-]long\\b|'+NUMW.replace(/\\b$/,'')+'\\s+(later|journey|trip|ride|flight)\\b|\\bhalf\\s+an\\s+hour\\b');
+const DEP=/\b(left|leave|set\s+off|set\s+out|departed|depart|started|began|took\s+off|boarded|got\s+on|got\s+in|went\s+at)\b/;
+const ARR=/\b(arriv\w*|got\s+(there|to|into|home|back)|reached|landed|pulled\s+into)\b/;
+const WEATHER=/\b(sunny|rainy|raining|rain|rained|cloudy|windy|wind|hot|cold|warm|cool|chilly|freezing|snow\w*|storm\w*|fog\w*|misty|humid|dusty|sandstorm|clear\s+sky|blue\s+sky|weather|temperature|degrees|summer|winter|spring|autumn|january|february|march|april|june|july|august|september|october|november|december|ramadan|eid)\b/;
+const FEEL=/\b(excited|nervous|anxious|worried|happy|glad|delighted|thrilled|bored|tired|exhausted|scared|frightened|afraid|terrified|relaxed|calm|amazed|surprised|disappointed|sad|upset|uncomfortable|proud|curious|sleepy|seasick|stressed|peaceful|enjoyed|loved|hated|felt|feeling)\b/;
+const COMP=/\b(with\s+(my|our|two|three|four|a|some|his|her|the)\b|alone|on\s+my\s+own|by\s+myself|by\s+ourselves|my\s+(family|parents|father|mother|dad|mum|mom|brothers?|sisters?|friends?|cousins?|uncle|aunt|grandparents|grandfather|grandmother|classmates|wife|husband|children))/;
+const COST=/[$£€]\s?\d|\b\d[\d,. ]*\s*(riyals?|sar|sr|dollars?|pounds?|euros?|dirhams?)\b|\b(costs?|paid|pay|price|fares?|free\s+of\s+charge|for\s+free|tickets?\s+(were|was|cost))\b/;
+function chk2(){
+  const raw=A('t2txt'),t=norm(raw).toLowerCase(),w=wc(t),S=sents(raw).map(x=>x.toLowerCase());
+  const named=allT(t),sec=norm(A('t2sec')).toLowerCase(),secOk=hasT(sec);
+  const arr=S.some(x=>ARR.test(x)&&TIME.test(x)),dep=S.some(x=>DEP.test(x)&&TIME.test(x)&&!ARR.test(x))||S.filter(x=>TIME.test(x)).length>=2&&arr;
+  const nq=R(0,5).filter(i=>qform(A('t2q'+i)).ok).length;
+  const items=[
+   [`Length 80–100 words (${w})`,w>=80&&w<=100,1],
+   ['Mystery kept: secret answer given and the transport is not named'+(named.length?` – remove: ${named.join(', ')}`:''),secOk&&!named.length&&w>=30,1,secOk||(!named.length&&w>=30)],
+   ['Departure time (e.g. We left at 8.30 a.m.)',dep,1],
+   ['Length of the journey (e.g. It took two hours)',LEN.test(t),1],
+   ['Arrival time (e.g. We arrived at 10.30)',arr,1,S.some(x=>ARR.test(x))],
+   ['The weather and/or the time of year',WEATHER.test(t)||/\bMay\b/.test(raw),1],
+   ['Your feelings',FEEL.test(t),1],
+   ['Your travelling companions (or that you travelled alone)',COMP.test(t),1],
+   ['The price',COST.test(t),1],
+   [`D7: correctly formed questions about your paragraph (${nq}/5 – 4 or 5 needed)`,nq>=4,4,Math.min(nq,4)]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 3: -ion nouns, E3 vocabulary, opinion paragraph ---------- */
+const ION=[['collide','collision',1],['organise','organisation',1],['introduce','introduction',0,'-duce → -duction'],['register','registration',0,'register + -ation (no extra e)'],['educate','education',0,'drop the final -e and add -ion'],['inform','information',0,'inform + -ation'],['estimate','estimation',0,'drop the final -e and add -ion'],['prevent','prevention',0,'prevent + -ion'],['participate','participation',0,'drop the final -e and add -ion']];
+function ion(k){const [v,n,ex,h]=ION[k];if(ex)return {ok:true,ex:true,msg:''};
+  const a=norm(A('t3i'+k)).trim().toLowerCase().replace(/[.]$/,'');if(!a)return {ok:false,empty:true,msg:''};
+  if(a===n)return {ok:true,msg:`Correct: ${v} → ${n}.`};
+  if(a===v)return {ok:false,msg:'Change the verb into a noun ending in -ion.'};
+  if(!/ion$/.test(a))return {ok:false,msg:'The noun should end in -ion (see the Language tip).'};
+  return {ok:false,msg:`Check the spelling. Hint: ${h}.`}}
+const VOC=[['A','navigating','verb (-ing)',/\b(find(ing)?|finds)\s+(the\s+|a\s+|your\s+|their\s+|his\s+|her\s+|one's\s+)?(way|route|path)|\bsteer|\bdirect(ing)?\b|\bguid|\bmov(e|ing)\s+(through|around|along|carefully|between)|\btravel(l?ing)?\s+(through|along|around|across|between)|\bplan(ning)?\s+(a\s+|the\s+)?route|\bcontrol/],
+ ['A','potholed','adjective',/\bholes?\b|uneven|damaged|broken|bad\s+(condition|surface|state)|bumpy|cracked|rough/],
+ ['A','livelihoods','noun',/(way|ways|means)\s+of\s+(earning|making|getting)|income|\bearn|\bjobs?\b|\bwork|money\s+(to|for)\s+(live|living)|\bliving\b|support\s+(themselves|yourself|a\s+family)/],
+ ['A','swelled','verb (past)',/increas|\bgrew\b|\bgrown\b|got\s+(bigger|larger)|\brose\b|\brisen\b|expand|became\s+(bigger|larger|more)|went\s+up/],
+ ['A','strain','noun / verb',/pressure|stress|too\s+much|burden|difficult|demand|overload|tension|effort|hard\s+work/],
+ ['A','trauma','noun',/injur|wound|shock|damage|hurt|distress|emergenc|upsetting|harm/],
+ ['B','catastrophic','adjective',/disaster|terrible|very\s+(bad|serious|harmful|damaging)|extremely\s+(bad|serious|harmful|damaging)|devastating|tragic|huge\s+(damage|harm)|awful|ruinous/],
+ ['B','fatalities','noun',/death|\bdied\b|\bdead\b|killed|lose\s+(their\s+)?li(fe|ves)|lost\s+(their\s+)?li(fe|ves)/],
+ ['B','campaigns','noun',/(organi[sz]ed|planned|series\s+of|set\s+of|group\s+of)\s+(activities|actions|events|efforts)|effort|activities\s+to|movement|promot|\bto\s+(achieve|raise|change|persuade|make\s+people|encourage)|awareness/],
+ ['B','initiatives','noun',/new\s+(plans?|ideas?|schemes?|programmes?|programs?|projects?|actions?|steps?)|\bplans?\b|schemes?|programmes?|programs?|projects?|actions?\s+to|steps?\s+to|ideas?\s+to/],
+ ['B','participant','noun',/(person|someone|somebody|people|one)\s+who\s+(takes?\s+part|participat|joins?|is\s+involved)|take[s]?\s+part|\bmember\b|attendee|involved|joins?\s+(in|an?)/],
+ ['B','slogan','noun',/(short|memorable|catchy|easy[\s-]to[\s-]remember)\s+(phrase|sentence|words?|motto|saying)|\bmotto\b|\bphrase\b|catchphrase/]];
+function voc(k){const [c,w,pos,re]=VOC[k],v=norm(A('t3v'+k)).trim().toLowerCase();if(!v)return {ok:false,empty:true,msg:''};
+  if(wc(v)<2)return {ok:false,msg:'Explain the meaning in a few words.'};
+  if(re.test(v))return {ok:true,msg:'Good – this matches the dictionary meaning.'};
+  return {ok:false,msg:`This does not match the dictionary meaning yet. Check again (${w} is a ${pos}).`}}
+const POL=[/helmet/,/train(ing|ed)?\b|courses?\b|lessons?\b|instruct/,/licen[cs]e/,/registr|register/,/speed\s*(limit|camera|bump)|slow(er)?\s+down|drive\s+slowly|ride\s+slowly/,/reflect|jacket|visible|lights?\b/,/\bage\b|minimum|older\s+than|under\s+(18|eighteen)|over\s+(18|eighteen)/,/fine[sd]?\b|punish|penalt|arrest|police\s+(check|control|stop)/,/repair|pothole|better\s+roads|road\s+improvement|improve\s+the\s+roads/,/campaign|awareness|educat|slogan|school\s+programme/,/insurance/,/passengers?\s+(limit|only)|only\s+one\s+passenger|number\s+of\s+passengers/,/first[\s-]aid/];
+function chk3(){
+  const n1=ION.filter((x,k)=>!x[2]&&ion(k).ok).length,n2=VOC.filter((x,k)=>voc(k).ok).length;
+  const raw=A('t3txt'),t=norm(raw).toLowerCase(),w=wc(t),pol=POL.filter(r=>r.test(t)).length;
+  const ions=new Set((t.match(/\b[a-z]{3,}(tion|sion)s?\b/g)||[]));
+  const items=[
+   [`Language tip: -ion nouns from verbs (${n1}/7)`,n1===7,7,n1],
+   [`E3: meanings of the 12 words (${n2}/12)`,n2===12,6,Math.floor(n2/2)],
+   [`Paragraph length 80–100 words (${w})`,w>=80&&w<=100,1],
+   ['About young boda-boda / motorbike riders',/\b(boda[\s-]bodas?|motorbikes?|motorcycles?|motorcyclists?|riders?)\b/.test(t),1],
+   [`At least three different safety policies (${pol})`,pol>=3,2,pol>=2?1:0],
+   ['Suggests policies with modal verbs (should / could / must…)',/\b(should|could|must|ought\s+to|need\s+to|needs\s+to|have\s+to|has\s+to)\b/.test(t),1],
+   [`Uses 2+ nouns ending in -ion (${ions.size})`+(ions.size?': '+[...ions].slice(0,5).join(', '):''),ions.size>=2,1],
+   ['Gives reasons or results (because / so / as a result / this would…)',/\b(because|so\s+that|so|as\s+a\s+result|therefore|this\s+(would|will|could)|which\s+(would|will)|in\s+order\s+to)\b/.test(t),1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 4: Passive voice ---------- */
+const ACT1P=[['a','In a recent news report it was estimated that there are hundreds of thousands of bikes operating in the capital, Kampala.',/^was\s+estimated$/,'Past simple'],
+ ['b','About 40% of trauma cases at the hospital are caused by boda-boda accidents.',/^are\s+caused$/,'Present simple'],
+ ['c','This problem is helped by boda-bodas.',/^is\s+helped$/,'Present simple'],
+ ['d','Ali Niwamanya, 25, a boda-boda driver for only nine months, was forced to spend three months in Mulago hospital.',/^was\s+forced$/,'Past simple'],
+ ['e','Some measures are being taken to try to halt the problem.',/^are\s+being\s+taken$/,'Present continuous'],
+ ['f','Road safety measures were not included within the budget.',/^were\s+(not\s+)?included$/,'Past simple'],
+ ['g','Other initiatives are also being introduced.',/^are\s+(also\s+)?being\s+introduced$/,'Present continuous'],
+ ['h','1800 boda-boda riders have been trained in basic road safety.',/^have\s+been\s+trained$/,'Present perfect']];
+const TENSES=['Present simple','Past simple','Present continuous','Present perfect'];
+function act1(i){const [l,s,re,ten]=ACT1P[i],v=norm(A('t4p'+i)).trim().toLowerCase().replace(/[.]$/,'').replace(/\s+/g,' '),c=A('t4t'+i);
+  if(!v&&!c)return {ok:false,empty:true,msg:''};
+  if(!v)return {ok:false,msg:'Write the passive verb phrase you would underline.'};
+  if(!re.test(v))return {ok:false,msg:'Write only the passive: the be form + the past participle (e.g. “have been called”).'};
+  if(!c)return {ok:false,msg:'Now choose the tense.'};
+  if(c!==ten)return {ok:false,msg:`Right passive – but look at the be form again: which tense is “${v.split(' ')[0]}${/being/.test(v)?' being':''}${/been/.test(v)?' been':''}”?`};
+  return {ok:true,msg:`Correct: ${v} – ${ten.toLowerCase()} passive.`}}
+// [letter, before, verb hint, after, accepted regexes, base, pp, hint]
+const ACT3P=[['a','The first bicycle','manufacture','in the early 19th century.',[/\bwas\s+manufactured\b/],'manufacture','manufactured','The early 19th century is finished past time → past simple passive (was + past participle).'],
+ ['b','My sister’s car','steal','!',[/\bhas\s+been\s+stolen\b/,/\bwas\s+stolen\b/],'steal','stolen','News with a result now → present perfect passive (has been + past participle).'],
+ ['c','Every year thousands of people','injure','on our roads.',[/\bare\s+injured\b/],'injure','injured','“Every year” = a regular fact, and “people” is plural → are + past participle.'],
+ ['d','Which method of transport','use','most in your country?',[/\bis\s+used\b/],'use','used','A general fact now about one method → present simple passive (is + past participle).'],
+ ['e','The price of petrol','increase','rapidly because of a shortage of oil.',[/\bhas\s+been\s+increased\b/,/\bis\s+being\s+increased\b/,/\bwas\s+increased\b/],'increase','increased','“The price” is singular: try the present perfect (has been …) or the present continuous (is being …).'],
+ ['f','Sometimes airships','can/hear','when they come in to land.',[/\bcan\s+be\s+heard\b/],'hear','heard','After a modal: can + be + past participle.'],
+ ['g','The tickets','book','many months before the trip.',[/\bwere\s+booked\b/,/\bhad\s+been\s+booked\b/,/\bare\s+booked\b/],'book','booked','“The tickets” is plural → were + past participle (or had been / are + past participle).'],
+ ['h','Camels','not/rush',', even if you try to make them go faster.',[/\b(cannot|can't|can\s+not)\s+be\s+rushed\b/],'rush','rushed','It is not possible to make them hurry → cannot + be + past participle.']];
+function act3(i){const [l,b,vh,a,acc,base,pp,hint]=ACT3P[i],t=norm(A('t4a'+i)).trim().toLowerCase().replace(/\s+/g,' ');
+  if(!t)return {ok:false,empty:true,msg:''};
+  if(acc.some(r=>r.test(t)))return {ok:true,msg:`Correct: ${acc.map(r=>(t.match(r)||[])[0]).find(Boolean)}.`};
+  const be=/\b(am|is|are|was|were|be|been|being)\b/.test(t);
+  if(!be)return {ok:false,msg:'Include the be form – the passive is be + past participle (Language tip: “He was woken…”).'};
+  if(new RegExp('\\b'+base+'\\b').test(t)||(base==='steal'&&/\bstole\b/.test(t)))return {ok:false,msg:`Use the past participle: ${pp}, not ${base==='steal'&&/\bstole\b/.test(t)?'stole':base}.`};
+  if(i===5&&!/\bcan\b/.test(t))return {ok:false,msg:'Keep the modal verb can: can + be + past participle.'};
+  if(i===7&&!/\b(cannot|can't|can\s+not)\b/.test(t))return {ok:false,msg:'Use can + not: cannot / can’t + be + past participle.'};
+  if(!new RegExp('\\b'+pp+'\\b').test(t))return {ok:false,msg:`Use the past participle of ${base}: ${pp}.`};
+  return {ok:false,msg:'Check the tense: '+hint}}
+const OWNT=['Present simple','Past simple','Present continuous','Present perfect','Modal'];
+const TOPIC4=/\b(roads?|traffic|transport|tickets?|drivers?|passengers?|petrol|fuel|stations?|airports?|routes?|journeys?|licen[cs]es?|speed|helmets?|seat\s*belts?|motorists?|pedestrians?|cyclists?|vehicles?|lanes?|bridges?|highways?|parking|railways?|cycle|fines?|accidents?|signs?|tracks?|lines?)\b/;
+const MANNER=/^(bus|car|cars|train|trains|plane|air|sea|road|rail|metro|ferry|coach|foot|bike|bicycle|taxi|boat|ship|land|tram|underground|day|night|far|now|then|hand)$/;
+function own4(i){const raw=norm(A('t4s'+i)).trim(),t=raw.toLowerCase(),c=A('t4k'+i);
+  if(!raw)return {ok:false,empty:true,msg:''};
+  if(!c)return {ok:false,msg:'Choose the passive form you used.'};
+  if(wc(t)<5)return {ok:false,msg:'Write a complete sentence of at least 5 words.'};
+  if(!hasT(t)&&!TOPIC4.test(t))return {ok:false,msg:'Write a sentence about transport in your country.'};
+  const e=pasErrs(raw);if(e.length)return {ok:false,msg:e[0].replace(/<\/?b>/g,'')};
+  const P=passives(t);
+  if(!P.length)return {ok:false,msg:'No passive found – use be + past participle (e.g. is used, was opened, are being built).'};
+  const p=P.find(x=>x.tense===c);
+  if(!p)return {ok:false,msg:`Your passive (“${P[0].phrase.trim()}”) is ${P[0].tense.toLowerCase()} – write a ${c.toLowerCase()} passive or change your choice.`};
+  if(!/^[A-Z0-9‘“"']/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(!/[.!]$/.test(raw))return {ok:false,msg:'End with a full stop.'};
+  const after=t.slice(t.indexOf(p.phrase.trim())+p.phrase.trim().length),ag=after.match(/\bby\s+([a-z0-9'-]+)/);
+  const agent=ag&&!MANNER.test(ag[1]);
+  return {ok:true,agent,msg:`Good – ${c.toLowerCase()} passive: “${p.phrase.trim()}”${agent?' + by-agent':''}.`}}
+function chk4(){
+  const n1=R(0,8).filter(i=>act1(i).ok).length,n3=R(0,8).filter(i=>act3(i).ok).length,okS=R(0,5).filter(i=>own4(i).ok);
+  const tn=new Set(okS.map(i=>A('t4k'+i))),ag=okS.some(i=>own4(i).agent);
+  const items=[[`Activity 1: passive + tense named (${n1}/8)`,n1===8,8,n1],[`Activity 3: correct passive forms (${n3}/8)`,n3===8,8,n3],
+   [`Own sentences about transport with a correct passive (${okS.length}/5)`,okS.length===5,5,okS.length],[`All five forms used (${tn.size}/5)`,tn.size===5,1],
+   ['At least one sentence with by + agent (e.g. … by the government)',ag,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 5: Cycle-safety slides + statistics questions ---------- */
+const CYC=/\b(helmets?|lights?|reflect\w*|bright|visible|brakes?|tyres?|tires?|signals?|hand\s+signals?|traffic|lanes?|blind\s+spots?|parked\s+cars?|doors?|drivers?|pedestrians?|crossings?|junctions?|roundabouts?|speed|distance|bell|chain|seat|check|road|ride|riding|cyclists?|bikes?|bicycles?|wear|eye\s+contact|headphones|phone)\b/g;
+const bullets = k => (A('t5b'+k)||'').split('\n').map(x=>x.replace(/^\s*[-•*–·]\s*/,'').trim()).filter(Boolean);
+function slide(k){const ti=wc(A('t5t'+k)),b=bullets(k);return ti>=1&&ti<=8&&b.length>=3&&b.length<=4}
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const STAT={fat:[14,14,11,9,10,11,8,8,19,10,11,15,140],s41:[2703,2667,2614,2859,2746,2629,2537,2367,2331,2440,2048,1994,30232],rto:[119,179,117,96,99,102,77,72,72,68,85,94,1180],dd:[499,587,552,558,600,644,590,545,443,354,321,216,5909],seat:[911,1020,1168,1180,1136,992,1225,1058,841,772,574,428,11305],mob:[2445,2723,2846,3020,2992,2410,2537,2427,2322,2217,1688,1325,28952],spd:[13445,11776,11396,12798,12733,11329,11486,11981,10744,11979,9406,7724,136797]};
+const STN={fat:'Fatalities',s41:'Section 41 RTA – Detention of vehicles',rto:'Road traffic offences',dd:'Dangerous driving',seat:'Seatbelts',mob:'Mobile phones',spd:'Speeding – total'};
+const CATRE={fat:/fatalit|deaths?\b|died|killed/,s41:/section\s*41|detention|detain|seiz/,rto:/road\s+traffic\s+offen[cs]es?/,dd:/dangerous(ly)?\s+driv/,seat:/seat\s*-?belts?/,mob:/mobile|phones?\b/,spd:/speed/};
+const MONRE=/\b(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|June?|July?|Aug(ust)?|Sept?(ember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)\b/g;
+const monIdx = m => MONTHS.findIndex(x=>x.slice(0,3).toLowerCase()===m.slice(0,3).toLowerCase());
+function expected(q){const t=norm(q).toLowerCase(),cats=Object.keys(CATRE).filter(k=>CATRE[k].test(t));if(cats.length!==1)return null;const c=cats[0],v=STAT[c].slice(0,12);
+  const ms=[...new Set((norm(q).match(MONRE)||[]).map(monIdx))];
+  if(/\b(which|what)\s+month|\bwhen\b/.test(t)){
+    if(/highest|most|largest|biggest|greatest|peak|maximum/.test(t)){const mx=Math.max(...v);return {c,months:v.map((x,i)=>x===mx?i:-1).filter(i=>i>=0)}}
+    if(/lowest|fewest|least|smallest|minimum/.test(t)){const mn=Math.min(...v);return {c,months:v.map((x,i)=>x===mn?i:-1).filter(i=>i>=0)}}
+    return null}
+  if(ms.length===1&&/how\s+many|what\s+(was|is)\s+the\s+(number|total)/.test(t))return {c,num:[v[ms[0]]],m:ms[0]};
+  if(!ms.length&&/how\s+many|what\s+(was|is)\s+the\s+(number|total)/.test(t)&&/total|altogether|in\s+all|whole\s+year|in\s+2019|the\s+year|all\s+year|for\s+the\s+year|that\s+year/.test(t))return {c,num:c==='s41'?[30232,29935]:[STAT[c][12]],m:12};
+  return null}
+function q5(i){const q=A('t5q'+i),a=norm(A('t5a'+i)).trim();
+  if(!q.trim()&&!a)return {ok:false,empty:true,msg:''};
+  const f=qform(q);if(!f.ok)return f.empty?{ok:false,msg:'Write the question.'}:f;
+  const t=norm(q).toLowerCase();
+  if(!Object.values(CATRE).some(r=>r.test(t))&&!(norm(q).match(MONRE))&&!/statistic|figure|table|number|notice|offence|surpris/.test(t))return {ok:false,msg:'Ask about the statistics in Text 4.2 (fatalities, speeding, seatbelts, mobile phones…).'};
+  for(let j=0;j<i;j++)if(norm(A('t5q'+j)).trim().toLowerCase()===t.trim())return {ok:false,msg:'Repeated question – ask a different one.'};
+  if(!a)return {ok:false,msg:'Write the answer your partner should give.'};
+  const e=expected(q);
+  if(e){const al=a.toLowerCase();
+    if(e.months){if(e.months.some(m=>new RegExp('\\b'+MONTHS[m].slice(0,3).toLowerCase()).test(al)))return {ok:true,msg:'Correct – the table confirms your answer.'};
+      return {ok:false,msg:`Check the table again: look along the “${STN[e.c]}” row.`}}
+    const nums=(a.replace(/(\d)[ ,](?=\d{3}\b)/g,'$1').match(/\d+/g)||[]).map(Number);
+    if(nums.some(n=>e.num.includes(n)))return {ok:true,msg:'Correct – the table confirms your answer.'};
+    return {ok:false,msg:`Check the table again: “${STN[e.c]}” row, ${e.m===12?'Total column':MONTHS[e.m]}.`}}
+  return {ok:true,msg:'Good question (this answer is not checked automatically).'}}
+const SURP=['i couldn\'t believe','i could not believe','i can\'t believe','i cannot believe','no way','you\'re joking','you\'re kidding','you must be joking','really?','seriously?','that\'s amazing','that\'s incredible','that\'s unbelievable','that\'s shocking','that\'s surprising','it\'s surprising','it\'s amazing','it\'s incredible','it\'s unbelievable','it\'s shocking','wow','i had no idea','what a surprise','i was surprised','i\'m surprised','i was shocked','i\'m shocked','i was amazed','i\'m amazed','what a shock','how surprising','i never knew'];
+const surpFound = t => SURP.filter(p=>t.includes(p));
+function chk5(){
+  const b=[0,1].flatMap(bullets),bw=b.every(x=>wc(x)<=12),voc=new Set((norm([0,1].map(k=>A('t5t'+k)+' '+A('t5b'+k)).join(' ')).toLowerCase().match(CYC)||[]));
+  const diff=slide(0)&&slide(1)&&norm(A('t5t0')).trim().toLowerCase()!==norm(A('t5t1')).trim().toLowerCase();
+  const acc=b.length>=6&&b.every(x=>/^[A-Z0-9]/.test(x))&&!REG_BAD.test(b.join(' ').toLowerCase())&&!b.some(x=>/\s{2,}|[,.]{2,}/.test(x));
+  const nq=R(0,5).filter(i=>q5(i).ok).length,r=norm(A('t5r')).toLowerCase(),sp=surpFound(r);
+  const stat=Object.values(CATRE).some(x=>x.test(r))||/\d/.test(r)||!!norm(A('t5r')).match(MONRE);
+  const items=[['Slide 1: a title and 3–4 bullet points',slide(0),1],['Slide 2: a title and 3–4 bullet points',slide(1),1],
+   ['Two different cycle-safety tips',diff,1],[`Short bullet points – 12 words or fewer each`,b.length>=6&&bw,1],
+   [`Cycle-safety vocabulary (${voc.size}) – aim for 4+`+(voc.size?': '+[...voc].slice(0,6).join(', '):''),voc.size>=4,1],
+   ['Simple and error-free: each bullet starts with a capital, no slang',acc,1],
+   [`F5: questions about the statistics with correct answers (${nq}/5)`,nq===5,5,nq],
+   [`Reaction with a surprise expression`+(sp.length?': '+sp.join(', '):''),sp.length>=1,1],
+   ['Reaction refers to a specific statistic',sp.length>=1&&stat,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 6: Exam-style article (enhancement) ---------- */
+const RUB=[['c1','Content','I wrote about how young people in my area can travel more safely (to school, by bike, motorbike taxi, bus or car)',2],['c2','Content','I responded to both students’ comments (mobile phones while driving; safer roads for cycling)',2],['c3','Content','I added ideas of my own, with reasons or examples',1],['c4','Content','My article suits a school magazine: a title, an engaging opening and clear advice for readers',1],
+ ['l1','Language','I organised my article clearly: title, introduction, developed paragraphs and a conclusion',2],['l2','Language','I used a range of transport vocabulary from the unit',2],['l3','Language','I used the passive voice accurately (e.g. more cycle lanes should be built)',1],['l4','Language','I used a variety of linking devices',2],['l5','Language','My spelling, grammar and punctuation are mostly accurate; 120–160 words',2]];
+const SAFE=[/helmet/,/seat\s*-?belts?/,/speed(ing)?\b|slow\s+down|too\s+fast/,/cross(ing|ings)?\b|zebra|traffic\s+lights?/,/reflect|bright\s+cloth|visible|lights?\s+at\s+night|high[\s-]visibility/,/train(ing|ed)|lessons?|course|educat|campaign|awareness/,/boda|motorbike\s+taxi|motorbike/,/\bbus(es)?\b/,/licen[cs]e/,/police|fines?\b|law/,/headphones|music/,/pavements?|footpaths?|pedestrians?/];
+const UVOC=/\b(pedestrians?|cyclists?|passengers?|vehicles?|motorists?|drivers?|fatalit(y|ies)|lorr(y|ies)|trams?|helmets?|traffic|road\s+safety|initiatives?|campaigns?|collisions?|registration|seat\s*-?belts?|speeding|offences?|potholed|livelihoods?|participants?|slogans?|commuters?|journeys?)\b/g;
+function chk6(){
+  const raw=A('t6txt'),t=norm(raw).toLowerCase(),W=wc(t),P=paras(raw),L=links(t),lc=linkCount(L),pas=passives(t),uv=new Set(t.match(UVOC)||[]);
+  const own=SAFE.filter(r=>r.test(t)).length;
+  const items=[
+   ['A title for the magazine article',wc(A('t6title'))>=2,1],
+   [`Length 120–160 words (${W})`,W>=120&&W<=160,1],
+   [`Organised in paragraphs (${P.length}) – press Enter between paragraphs`,P.length>=3,1],
+   ['Responds to comment 1: mobile phones while driving',/\b(mobile|phones?|texting|messages?)\b/.test(t)&&/\bdriv/.test(t),1],
+   ['Responds to comment 2: cycling and safer roads',/\b(cycl\w*|bikes?|bicycles?)\b/.test(t)&&/\b(roads?|lanes?|paths?|safe\w*)\b/.test(t),1],
+   [`Ideas of your own – 2+ safety points (${own})`,own>=2,1],
+   ['Gives clear advice (should / must / need to / make sure…)',/\b(should|must|need\s+to|ought\s+to|make\s+sure|it\s+is\s+important\s+to|it's\s+important\s+to|always|never)\b/.test(t),1],
+   [`Uses the passive voice (${pas.length})`+(pas.length?': '+pas.slice(0,3).map(p=>p.phrase.trim()).join(', '):''),pas.length>=1,1],
+   [`Linking devices – 4+ from at least two categories (${lc})`+(lc?': '+LCAT.flatMap(c=>[...L[c]]).slice(0,7).join(', '):''),lc>=4&&LCAT.filter(c=>L[c].size).length>=2,1],
+   [`Transport vocabulary from the unit (${uv.size}) – aim for 3+`+(uv.size?': '+[...uv].slice(0,6).join(', '):''),uv.size>=3,1],
+   ['Suitable register for a school magazine (no slang, max. 2 “!”)',regOK(raw),1]];
+  return {items,errs:pasErrs(raw),score:sum(items)};
+}
+function selfScore(){let c=0,l=0;RUB.forEach(r=>{if(st.a['rub_'+r[0]]){if(r[1]==='Content')c+=r[3];else l+=r[3]}});return [c,l]}
+
+/* ---------- task definitions ---------- */
+const TASKS=[
+ {id:1,title:'Transport vocabulary',icon:'🚆',max:20,lesson:'Lesson 4.1 · B1–B6, Coursebook pp. 49–51',chk:chk1,
+  done:()=>B3W.filter((w,k)=>!w[2]&&b3sel(k).length).length>=15&&R(0,4).filter(i=>A('t1s'+i).trim()).length>=2,
+  words:()=>R(0,4).reduce((s,i)=>s+wc(A('t1s'+i)),0)+R(0,3).reduce((s,i)=>s+wc(A('t1n'+i)),0)+R(0,5).reduce((s,k)=>s+wc(A('t1e'+k)),0),
+  model:`<b>B3 (suggested – many words fit more than one column):</b> Air – cabin, crew, helicopter, hot-air balloon, pilot, (passenger) · People – captain, conductor, crew, cyclist, driver, motorist, passenger, pedestrian, pilot, tourist · Rail – cabin (sleeper), conductor, platform, station, tram, underground, vehicle, (driver, passenger) · Road – coach, cyclist, driver, lorry, motorist, pedestrian, tram, vehicle, (station – bus/coach station) · Water – cabin, captain, crew, cruise liner, ferry, rowing boat, yacht, (passenger)<br><b>From B1/B2 (examples):</b> high-speed train, bullet train, motorbike, motorcyclist, helmet, electric scooter, hovercraft, rocket, launch pad<br><b>B4d:</b> A coach is cheap but slow. · A plane is fast but causes air pollution. · A bicycle is healthy and cheap, but it is dangerous in heavy traffic. · A ferry is relaxing, although it can be delayed by bad weather.<br><b>B5 (suggested):</b> a traffic jams · accidents · expensive fuel &nbsp;|&nbsp; b more cars on the roads · electric scooters · online tickets &nbsp;|&nbsp; c electric / driverless cars · high-speed rail · space tourism`},
+ {id:2,title:'Mystery journey',icon:'🧳',max:13,lesson:'Lesson 4.4 · D6–D7, Coursebook p. 54',chk:chk2,
+  done:()=>wc(A('t2txt'))>=50&&R(0,5).filter(i=>A('t2q'+i).trim()).length>=3,words:()=>wc(A('t2txt'))+R(0,5).reduce((s,i)=>s+wc(A('t2q'+i)),0),
+  model:`<b>Paragraph:</b> Last April, on a warm and sunny spring morning, I travelled from Madinah to Makkah with my parents and my two younger brothers. We left at 8.30 a.m. from a modern station near the city centre. The journey took about two and a half hours, and we arrived at 11 a.m. I felt very excited because I could watch the desert rushing past the large windows at an incredible speed. My father paid 150 riyals for each ticket, which he thought was good value. I was a little tired when we arrived, but very happy.<br><b>D7 questions:</b> When did we leave? · How long did the journey take? · What was the weather like? · Who was I with? · How much did each ticket cost?<br><b>Secret answer:</b> the high-speed train`},
+ {id:3,title:'Boda-boda safety',icon:'🏍️',max:20,lesson:'Lesson 4.5 · E1d, E3 & Language tip, Coursebook pp. 54–55',chk:chk3,
+  done:()=>ION.filter((x,k)=>!x[2]&&A('t3i'+k).trim()).length>=5&&VOC.filter((x,k)=>A('t3v'+k).trim()).length>=6&&wc(A('t3txt'))>=50,
+  words:()=>wc(A('t3txt'))+VOC.reduce((s,x,k)=>s+wc(A('t3v'+k)),0),
+  model:`<b>-ion nouns:</b> introduce → introduction · register → registration · educate → education · inform → information · estimate → estimation · prevent → prevention · participate → participation<br><b>E3 (suggested meanings):</b> navigating – finding your way along a route · potholed – (of a road) full of holes and damaged · livelihoods – ways of earning money to live · swelled – grew / increased in number or size · strain – pressure or stress on something · trauma – a serious injury (or a very shocking experience) · catastrophic – extremely bad, causing disaster · fatalities – deaths in an accident · campaigns – organised activities to achieve a goal, e.g. to raise awareness · initiatives – new plans or actions to solve a problem · participant – a person who takes part in something · slogan – a short, memorable phrase used in a campaign<br><b>Paragraph:</b> In my opinion, several policies should be introduced to improve the safety of young boda-boda riders. Firstly, the registration of every motorbike taxi should be compulsory, so the police know who is riding. Secondly, riders must wear a helmet and a reflector jacket, because these simple items can prevent serious injuries in a collision. In addition, free road-safety education should be offered to all new riders, as training improves their skills. Finally, the government could repair potholed roads. With these policies, the number of fatalities would fall.`},
+ {id:4,title:'Passive voice',icon:'🔄',max:23,lesson:'Lesson 4.6 · Language focus, Coursebook pp. 56–57',chk:chk4,
+  done:()=>R(0,8).filter(i=>A('t4p'+i).trim()).length>=5&&R(0,8).filter(i=>A('t4a'+i).trim()).length>=5&&R(0,5).filter(i=>A('t4s'+i).trim()).length>=3,
+  words:()=>R(0,8).reduce((s,i)=>s+wc(A('t4a'+i)),0)+R(0,5).reduce((s,i)=>s+wc(A('t4s'+i)),0),
+  model:`<b>Activity 1:</b> a was estimated – past simple · b are caused – present simple · c is helped – present simple · d was forced – past simple · e are being taken – present continuous · f were not included – past simple (negative) · g are (also) being introduced – present continuous · h have been trained – present perfect<br><b>Activity 3:</b> a was manufactured · b has been stolen (also: was stolen) · c are injured · d is used · e has been increased / is being increased / was increased · f can be heard · g were booked / had been booked (also: are booked) · h cannot / can’t be rushed<br><b>Own sentences (examples):</b> In Saudi Arabia, most journeys are made by car. (present simple) · The Haramain high-speed railway was opened in 2018. (past simple) · More cycle lanes are being planned in our city. (present continuous) · Thousands of electric scooters have been introduced in big cities. (present perfect) · Seatbelts must be worn by all passengers. (modal + by-agent)`},
+ {id:5,title:'Cycle safety & statistics',icon:'🚲',max:13,lesson:'Lessons 4.7–4.8 · F5 & Project, Coursebook pp. 58–60',chk:chk5,
+  done:()=>[0,1].filter(k=>bullets(k).length>=2).length>=2&&R(0,5).filter(i=>A('t5q'+i).trim()).length>=3,
+  words:()=>[0,1].reduce((s,k)=>s+wc(A('t5t'+k))+wc(A('t5b'+k)),0)+R(0,5).reduce((s,i)=>s+wc(A('t5q'+i))+wc(A('t5a'+i)),0)+wc(A('t5r')),
+  model:`<b>Slide 1 – Be seen, be safe</b><br>• Wear bright or reflective clothes.<br>• Use front and back lights at night.<br>• Put reflectors on your wheels.<br>• Make eye contact with drivers.<br><b>Slide 2 – Protect your head</b><br>• Always wear a helmet.<br>• Check that it fits well.<br>• Fasten the strap under your chin.<br>• Replace it after a crash.<br><br><b>F5 questions:</b> In May, how many people got a fixed charge notice for not wearing a seatbelt? – 1136 · Which month had the most fatalities? – September (19) · How many fixed charge notices for mobile phones were there in April? – 3020 · Which month had the lowest number of speeding notices? – December (7724) · How many people were caught for dangerous driving in 2019? – 5909<br><b>Reaction:</b> I couldn’t believe the number of people caught for speeding – 136 797 in one year!`},
+ {id:6,title:'Exam-style article',icon:'📰',max:11,lesson:'Lesson 4.9 · Enhancement task – exam-style writing (the unit has no printed writing exam)',chk:chk6,done:()=>wc(A('t6txt'))>=60,words:()=>wc(A('t6txt'))+wc(A('t6title')),
+  model:`<b>Safer journeys start with us</b><br><br>How do you get to school every morning? Whether you walk, cycle or take a bus, every journey should be a safe one.<br><br>Firstly, too many people use their mobile phones while driving. One message can take a driver’s eyes off the road for several seconds, and that is when collisions happen. If your parents drive you to school, politely remind them to put their phones away.<br><br>Secondly, cycling to school would be great if the roads were safer. In my opinion, more cycle lanes should be built near schools. Until then, cyclists must wear a helmet and bright clothes so that motorists can see them.<br><br>Moreover, passengers in cars should always wear a seatbelt, and pedestrians should only cross the road at crossings. On a motorbike taxi, a helmet is essential.<br><br>To sum up, small changes can save lives. Let’s make every journey a safer journey!`}
+];
+
+const TOTAL=TASKS.reduce((s,t)=>s+t.max,0);
+
+/* ---------- UI helpers ---------- */
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+function checklist(items){return '<ul class="chk">'+items.map(it=>{const part=!it[1]&&(typeof it[3]==='number'?it[3]>0:!!it[3]);const g=got(it);
+  return `<li class="${it[1]?'y':(part?'p':'n')}"><span class="ic">${it[1]?'✔':(part?'◐':'✘')}</span><span>${it[0]}</span>${it[2]?`<span class="pt">${g}/${it[2]}</span>`:''}</li>`}).join('')+'</ul>'}
+function ta(key,rows,ph,extra=''){return `<textarea data-k="${key}" rows="${rows}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} ${extra}>${esc(A(key))}</textarea>`}
+function inp(key,ph,style=''){return `<input type="text" data-k="${key}" value="${esc(A(key))}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} style="${style}" autocomplete="off">`}
+function sel(key,opts,ph,style=''){return `<select data-k="${key}" ${st.submitted?'disabled':''} style="${style}"><option value="">${ph}</option>${opts.map(o=>`<option ${A(key)===o?'selected':''}>${o}</option>`).join('')}</select>`}
+
+/* ---------- render ---------- */
+function renderTabs(){
+  $('#tabs').innerHTML=TASKS.map((t,i)=>`<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${t.id}. ${esc(t.title)}<span class="d">${t.done()?'✓':''}</span></button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{renderTask(+b.dataset.i);scrollTo({top:0,behavior:'smooth'})});
+  updBar();
+}
+function updBar(){const d=TASKS.filter(t=>t.done()).length;$('#ptxt').textContent=d+'/6 tasks';$('#progI').style.width=(d/6*100)+'%';
+  $('#wtot').textContent='✍ '+TASKS.reduce((s,t)=>s+t.words(),0)+' words';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const e=b.querySelector('.d');if(e)e.textContent=TASKS[i].done()?'✓':''})}
+function head(t,instr){return `<div class="sec-h"><h2>${t.icon} Task ${t.id} – ${esc(t.title)}</h2><span class="mk">${t.max} marks</span></div><p class="sec-i">${t.lesson}. ${instr}</p>`}
+function modelBox(t){return st.submitted&&showModel?`<div class="ans"><b>Model answer:</b><br>${t.model}</div>`:''}
+const fbDiv=k=>`<div class="fb" data-fb="${k}"></div>`;
+
+
+function pick(key,opts,small=false){return `<div class="tfrow" data-pkw="${key}">${opts.map(o=>`<button type="button" class="tf ${A(key)===o?'sel':''}" data-pk="${key}" data-pv="${esc(o)}" ${st.submitted?'disabled':''} style="${small?'min-width:0;padding:7px 11px;font-size:14px':''}">${esc(o)}</button>`).join('')}</div>`}
+
+
+function tog(key,opts,allowed){const s=(A(key)||'').split('|');return `<div class="tfrow">${opts.map(o=>`<button type="button" class="tf ${s.includes(o)?'sel':''}" data-tg="${key}" data-tv="${esc(o)}" ${st.submitted?'disabled':''} style="min-width:0;padding:7px 11px;font-size:14px">${esc(o)}</button>`).join('')}</div>`}
+const subh = t => `<div class="sec-i" style="margin-top:18px;font-style:normal;font-weight:800;color:var(--teal-d)">${t}</div>`;
+
+function body(i){
+  const t=TASKS[i];
+  if(i===0){
+    let h=head(t,'<b>B3:</b> put each word from the box into the correct column of the table – <b>Air, People, Rail, Road</b> or <b>Water</b>. Some words can go in more than one column (tap every column that fits). Two have been done as examples. Then add words from B1 and B2. <b>B4d:</b> write four sentences about the advantages and disadvantages of different methods of transport. <b>B5:</b> choose one topic and write three notes about it.');
+    h+=`<div class="q"><b>B3 – Sort the words</b> <span class="where">(tap one or more columns)</span><div style="display:grid;gap:8px;margin-top:10px">`;
+    B3W.forEach((w,k)=>{h+=`<div data-q1="${k}" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;padding:8px 10px"><span style="flex:0 0 130px;font-weight:800">${w[0]}</span>${w[2]?`<span class="tfrow"><button class="tf sel" disabled style="min-width:0;padding:7px 11px;font-size:14px">${w[2]}</button></span><span class="where">example</span>`:tog('t1w'+k,COLS)}<span class="fb" data-fb="1w${k}" style="margin:0;font-size:13px"></span></div>`});
+    h+=`</div><div data-table style="margin-top:14px;overflow-x:auto"></div></div>
+      <div class="q"><b>Add words from B1 and B2</b> <span class="where">(separate words with commas)</span><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px">${COLS.map((c,k)=>`<div><label class="f">${c}</label>${inp('t1e'+k,['e.g. rocket','e.g. motorcyclist','e.g. bullet train','e.g. motorbike','e.g. hovercraft'][k])}</div>`).join('')}</div></div>
+      ${subh('B4d – Advantages and disadvantages')}<div class="keybox"><span>Example: <i>A high-speed train is fast but expensive.</i></span><span>Use a different method of transport in each sentence.</span></div>`;
+    for(let k=0;k<4;k++)h+=`<div class="q" data-q1s="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t1s'+k,['e.g. A coach is cheap but slow.','e.g. A ferry is relaxing, although …','Write your sentence…','Write your sentence…'][k])}</span><span class="qm">[1]</span></div>${fbDiv('1s'+k)}</div>`;
+    h+=`${subh('B5 – Three notes on one topic')}<div class="q"><label class="f">My topic</label>${sel('t1top',B5T,'— choose a topic —')}
+      <div class="keybox" style="margin-top:10px"><span>Examples: a <i>air pollution</i></span><span>b <i>too much traffic in town centres</i></span><span>c <i>less air travel</i></span></div>`;
+    for(let k=0;k<3;k++)h+=`<div data-q1n="${k}" style="margin-top:8px"><div class="row" style="flex-wrap:nowrap"><span class="num">${k+1}</span><div style="flex:1">${inp('t1n'+k,'short note (2–8 words)')}</div></div>${fbDiv('1n'+k)}</div>`;
+    h+=`<p class="note">B6: tell your group what you have written, then ask questions about each other’s topics.</p><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===1){
+    let h=head(t,'<b>D6:</b> choose a method of transport that you have used and write a short paragraph about a journey (<b>80–100 words</b>). <b>Do not mention the method of transport</b>, but remember to include: the time and length of the journey and the arrival time · the weather and/or the time of year · your feelings · your travelling companions (if any) · the price. <b>D7:</b> write four or five questions about your paragraph, similar to the ones in D3 (e.g. <i>Who was I with?</i>). Read your paragraph to a partner and see if they can answer your questions and guess the method of transport.');
+    h+=`<div class="q"><label class="f">Secret answer – the method of transport (your partner must guess it)</label>${inp('t2sec','e.g. high-speed train','max-width:340px')}</div>
+      <div class="q"><label class="f">D6 – My mystery journey (80–100 words)</label>${ta('t2txt',9,'Last summer, on a hot and sunny morning, I …')}<div class="wc" data-wc="t2txt"></div><div class="warn hidden" data-named></div></div>
+      ${subh('D7 – Questions about my journey')}`;
+    for(let k=0;k<5;k++)h+=`<div class="q" data-q2q="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t2q'+k,['e.g. Who was I with?','e.g. How long did the journey take?','Write your question…','Write your question…','Write your question… (optional)'][k])}</span></div>${fbDiv('2q'+k)}</div>`;
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===2){
+    let h=head(t,'<b>Language tip – nouns ending in -ion:</b> write the noun for each verb. <b>E3:</b> use a print or online dictionary and explain the meaning of each word in your own words. Then write a paragraph of <b>80–100 words</b> answering E1d: <i>What policies could be introduced to help improve the safety of young motorbike riders?</i>');
+    h+=`<div class="keybox"><span><b>Language tip:</b> if you know the verbs <i>collide</i> or <i>organise</i>, you may recognise that the nouns <i>collision</i> and <i>organisation</i> have related meanings.</span></div>
+      <div class="q"><b>Verb → noun (-ion)</b><div style="display:grid;gap:8px;margin-top:10px">`;
+    ION.forEach((x,k)=>{h+=`<div data-q3i="${k}" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;padding:8px 10px"><span style="flex:0 0 120px;font-weight:800">${x[0]}</span><span>→</span><span style="flex:0 1 240px">${x[2]?`<input type="text" value="${x[1]}" disabled>`:inp('t3i'+k,'noun')}</span>${x[2]?'<span class="where">example</span>':''}<span class="fb" data-fb="3i${k}" style="margin:0;font-size:13px"></span></div>`});
+    h+=`</div></div>${subh('E3 – What do the words mean?')}`;
+    ['A','B'].forEach(c=>{h+=`<div class="q"><b>Column ${c}</b><div style="display:grid;gap:8px;margin-top:8px">`;
+      VOC.forEach((x,k)=>{if(x[0]!==c)return;h+=`<div data-q3v="${k}"><div class="row" style="flex-wrap:nowrap"><span style="flex:0 0 120px;font-weight:800">${x[1]}</span><div style="flex:1">${inp('t3v'+k,'meaning in your own words')}</div></div>${fbDiv('3v'+k)}</div>`});
+      h+=`</div></div>`});
+    h+=`${subh('E1d – Safety policies for young boda-boda riders')}<div class="q"><label class="f">My paragraph (80–100 words)</label>${ta('t3txt',9,'In my opinion, several policies should be introduced to …')}<div class="wc" data-wc="t3txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===3){
+    let h=head(t,'<b>Activity 1:</b> write the passive verb phrase in each sentence from the boda-boda listening text and name its tense. <b>Activity 3:</b> complete the sentences using the passive form of the verbs in brackets. Finally, write <b>five sentences about transport in your country</b> using the passive voice in five different forms, and include <b>by + agent</b> in at least one.');
+    h+=`<div class="keybox"><span><b>Form:</b> <i>be</i> + past participle – <i>boda-bodas <u>have been called</u> Uganda’s silent killers</i>.</span><span><b>Continuous:</b> <i>are <u>being</u> taken</i>.</span><span><b>Language tip:</b> include the <i>be</i> form (<i>He <u>was woken</u></i>) and use the past participle (<i>will be <u>removed</u></i>).</span></div>
+      ${subh('Activity 1 – Find the passive and name the tense')}`;
+    ACT1P.forEach((x,k)=>{h+=`<div class="q" data-q4p="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])}</i></span><span class="qm">[1]</span></div><div class="body"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${inp('t4p'+k,'passive, e.g. have been called')}${sel('t4t'+k,TENSES,'— tense —')}</div>${fbDiv('4p'+k)}</div></div>`});
+    h+=subh('Activity 3 – Complete with the passive form');
+    ACT3P.forEach((x,k)=>{h+=`<div class="q" data-q4a="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt">${esc(x[1])} … <b>(${esc(x[2])})</b>${/^[!?.,]/.test(x[3])?'':' '}${esc(x[3])}</span><span class="qm">[1]</span></div><div class="body">${inp('t4a'+k,'write the missing words, e.g. was …')}${fbDiv('4a'+k)}</div></div>`});
+    h+=subh('My own passive sentences about transport in my country');
+    for(let k=0;k<5;k++)h+=`<div class="q" data-q4s="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${sel('t4k'+k,OWNT,'— passive form —','max-width:300px')}</span><span class="qm">[1]</span></div><div class="body">${inp('t4s'+k,['e.g. Most journeys in my country are made by car.','e.g. A new bridge was opened last year.','e.g. More cycle lanes are being planned.','e.g. Speed cameras have been installed on the main roads.','e.g. Seatbelts must be worn by all passengers.'][k])}${fbDiv('4s'+k)}</div></div>`;
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===4){
+    let h=head(t,'<b>Project:</b> write the text for <b>two slides</b> about <b>two cycle-safety tips</b> (one tip per slide) – a title and <b>3–4 short bullet points</b> each. Remember the evaluation criterion: <i>Is the writing simple and error-free?</i> <b>F5:</b> write <b>five questions</b> about the statistics in Text 4.2 (An Garda Síochána, 2019) with the answers, then react to the statistics with an expression of surprise.');
+    h+=`<div class="keybox"><span>✍ One bullet point per line – start each with a capital letter, 12 words or fewer.</span></div>`;
+    for(let k=0;k<2;k++)h+=`<div class="q"><b>Slide ${k+1}</b><div style="margin-top:8px"><label class="f">Title</label>${inp('t5t'+k,['e.g. Be seen, be safe','e.g. Protect your head'][k])}<label class="f" style="margin-top:10px">Bullet points (one per line)</label>${ta('t5b'+k,4,['Wear bright or reflective clothes.\nUse front and back lights at night.\n…','Always wear a helmet.\nCheck that it fits well.\n…'][k])}</div></div>`;
+    h+=`${subh('F5 – Five questions about the statistics in Text 4.2')}<div class="keybox"><span>Example: <i>In May, how many people got a fixed charge notice for not wearing a seatbelt?</i> – <b>1136</b></span><span>Answers about a month or a total are checked against the table.</span></div>`;
+    for(let k=0;k<5;k++)h+=`<div class="q" data-q5q="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t5q'+k,['e.g. Which month had the most fatalities?','e.g. How many people got a fixed charge notice for speeding in January?','Write your question…','Write your question…','Write your question…'][k])}</span><span class="qm">[1]</span></div><div class="body">${inp('t5a'+k,'answer','max-width:320px')}${fbDiv('5q'+k)}</div></div>`;
+    h+=`<div class="q"><label class="f">My reaction – what surprises you most?</label><div class="keybox"><span>Really? · No way! · I couldn’t believe … · I had no idea … · That’s incredible!</span></div>${inp('t5r','e.g. I couldn’t believe the number of people caught for speeding!')}<div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===5){
+    let h=head(t,'<b>Exam-style question (enhancement task).</b> Your school magazine is running a series on safer journeys. Write an <b>article</b> about how young people in your area can travel more safely (to school, by bike, motorbike taxi, bus or car). Here are some comments from other students: <i>“Too many people use their mobile phones while driving.”</i> &nbsp;<i>“Cycling to school would be great if the roads were safer.”</i> <b>Now write an article for the school magazine.</b> The comments above may give you some ideas, and you should also use some ideas of your own. Write about <b>120 to 160 words</b>. <i>You will receive up to 6 marks for the content of your article, and up to 9 marks for the language used. [Total: 15]</i>');
+    h+=`<div class="keybox"><span>⭐ Enhancement task – extra exam practice (the unit has no printed writing exam).</span><span>✍ Writing tip: underline the key words, think about who will read it, and plan briefly before you write.</span></div>
+      <div class="q"><label class="f">Title</label>${inp('t6title','e.g. Safer journeys start with us')}<label class="f" style="margin-top:12px">Your article (press Enter between paragraphs)</label>${ta('t6txt',15,'How do you get to school every morning? …')}<div class="wc" data-wc="t6txt"></div><div data-live></div></div>
+      <div class="q"><b>Self-assessment</b> <span class="where">– tick what is true about your article (Content /6, Language /9)</span>
+      <div class="rub">${RUB.map(r=>`<label class="rb"><input type="checkbox" data-rub="${r[0]}" ${st.a['rub_'+r[0]]?'checked':''} ${st.submitted?'disabled':''}><span><b>${r[1]}</b> · ${r[2]} <span class="where">(${r[3]})</span></span></label>`).join('')}</div>
+      <div class="note" data-self></div></div>`;
+    return h+modelBox(t);
+  }
+}
+function setFb(k,r,qsel){const A_=$('#qArea'),e=A_.querySelector(`[data-fb="${k}"]`);if(!e)return;const q=qsel?A_.querySelector(qsel):null;
+  if(r.empty||r.ex){e.className='fb';e.innerHTML='';if(q&&q.classList.contains('q'))q.className='q';else if(q)q.style.borderColor='';return}
+  const cls=r.ok?(r.two?'part':'ok'):'bad';e.className='fb '+cls;e.innerHTML=(r.ok?'✔ ':'✘ ')+esc(r.msg);
+  if(q){if(q.classList.contains('q'))q.className='q '+cls;else q.style.borderColor=`var(--${cls==='ok'?'ok':cls==='part'?'part':'bad'})`}}
+function live(i){
+  const A_=$('#qArea');
+  A_.querySelectorAll('[data-wc]').forEach(e=>{const k=e.dataset.wc,w=wc(A(k));const rng={t2txt:[80,100],t3txt:[80,100],t6txt:[120,160]}[k];
+    e.textContent=w+' words (aim for '+rng[0]+'–'+rng[1]+')';e.classList.toggle('over',w>rng[1])});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.classList.toggle('sel',A(b.dataset.pk)===b.dataset.pv));
+  A_.querySelectorAll('[data-tg]').forEach(b=>b.classList.toggle('sel',(A(b.dataset.tg)||'').split('|').includes(b.dataset.tv)));
+  if(i===0){B3W.forEach((w,k)=>setFb('1w'+k,b3(k),`[data-q1="${k}"]`));R(0,4).forEach(k=>setFb('1s'+k,b4(k),`[data-q1s="${k}"]`));R(0,3).forEach(k=>setFb('1n'+k,b5(k),`[data-q1n="${k}"]`));
+    const tb=A_.querySelector('[data-table]');if(tb){const col=c=>B3W.filter((w,k)=>w[2]?w[2]===c:b3sel(k).includes(c)).map(w=>w[0]);
+      tb.innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px"><tr>${COLS.map(c=>`<th style="background:var(--teal);color:#fff;padding:6px 8px;border:1px solid var(--teal-d)">${c}</th>`).join('')}</tr><tr>${COLS.map(c=>`<td style="vertical-align:top;border:1px solid var(--line);padding:6px 8px;background:var(--teal-l)">${col(c).join('<br>')||'<span class="where">—</span>'}</td>`).join('')}</tr></table>`}}
+  if(i===1){R(0,5).forEach(k=>setFb('2q'+k,qform(A('t2q'+k)),`[data-q2q="${k}"]`));
+    const nm=A_.querySelector('[data-named]');if(nm){const n=allT(norm(A('t2txt')).toLowerCase());nm.classList.toggle('hidden',!n.length);nm.innerHTML=n.length?'⚠ Keep it a mystery! Remove the name of the transport: <b>'+esc(n.join(', '))+'</b>':''}}
+  if(i===2){ION.forEach((x,k)=>setFb('3i'+k,ion(k),`[data-q3i="${k}"]`));VOC.forEach((x,k)=>setFb('3v'+k,voc(k),`[data-q3v="${k}"]`))}
+  if(i===3){ACT1P.forEach((x,k)=>setFb('4p'+k,act1(k),`[data-q4p="${k}"]`));ACT3P.forEach((x,k)=>setFb('4a'+k,act3(k),`[data-q4a="${k}"]`));R(0,5).forEach(k=>setFb('4s'+k,own4(k),`[data-q4s="${k}"]`))}
+  if(i===4){R(0,5).forEach(k=>setFb('5q'+k,q5(k),`[data-q5q="${k}"]`))}
+  const L=A_.querySelector('[data-live]');
+  if(L){const c=TASKS[i].chk();let h='<div class="livehd">Live checklist · '+c.score+'/'+TASKS[i].max+'</div>'+checklist(c.items);
+    if(c.errs&&c.errs.length)h+='<div class="warn">'+c.errs.map(x=>'⚠ '+x).join('<br>')+'</div>';L.innerHTML=h}
+  const sf=A_.querySelector('[data-self]');if(sf){const [c,l]=selfScore();sf.innerHTML=`Your self-assessment: <b>Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15</b>`}
+  updBar();
+}
+
+function renderTask(i){
+  st.cur=i;save();renderTabs();
+  const last=i===TASKS.length-1;
+  let h=body(i);
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${last?(st.submitted?'':`<button class="btn red" id="subB">Submit my writing ✓</button>`):`<button class="btn" id="nextB">Next task →</button>`}</div>`;
+  const A_=$('#qArea');A_.innerHTML=h;
+  A_.querySelectorAll('[data-k]').forEach(el=>{el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{st.a[el.dataset.k]=el.value;save();live(i)})});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.addEventListener('click',()=>{st.a[b.dataset.pk]=b.dataset.pv;save();live(i)}));
+  A_.querySelectorAll('[data-tg]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.tg,v=b.dataset.tv;let s=(A(k)||'').split('|').filter(Boolean);s=s.includes(v)?s.filter(x=>x!==v):[...s,v];st.a[k]=s.join('|');save();live(i)}));
+  A_.querySelectorAll('[data-c11]').forEach(el=>el.addEventListener('change',()=>{st.a['c11_'+el.dataset.c11]=el.checked;save()}));
+  A_.querySelectorAll('[data-rub]').forEach(el=>el.addEventListener('change',()=>{st.a['rub_'+el.dataset.rub]=el.checked;save();live(i)}));
+  live(i);
+  if($('#prevB'))$('#prevB').onclick=()=>{renderTask(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderTask(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit();
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+
+/* ---------- flow ---------- */
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved writing will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+function openTest(){$('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');$('#who').textContent='👤 '+st.name+' · '+st.cls;renderTask(st.cur||0)}
+async function submit(){
+  const left=TASKS.filter(t=>!t.done()).length;
+  const ok=await modal('Submit your writing?',left?`You have <b>${left}</b> task${left>1?'s':''} not finished. You cannot change your writing after you submit.`:'You have completed every task. You cannot change your writing after you submit.',{ok:'Yes, submit'});
+  if(!ok)return;
+  st.submitted=true;
+  const secs=TASKS.map(t=>Math.min(t.max,t.chk().score));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.floor((Date.now()-st.start)/1000),at:new Date().toLocaleString()};
+  save();showResults();
+}
+function grade(p){return p>=85?'Excellent – your writing includes almost every required feature.':p>=70?'Very good. Check the red items in the checklist to improve further.':p>=50?'Good effort. Review each task’s checklist and add the missing features.':'Keep going! Read the checklist under each task and try again with your teacher’s help.'}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resOut').textContent='out of '+TOTAL;$('#resGrade').textContent=p+'% of checklist features';$('#resMsg').textContent=grade(p);
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=TASKS.map((t,i)=>`<div class="br"><span>${t.id}. ${esc(t.title)}</span><span class="t"><i style="width:${r.secs[i]/t.max*100}%"></i></span><span class="s">${r.secs[i]}/${t.max}</span></div>`).join('');
+  $('#wcSum').innerHTML='<b>Words written:</b> '+TASKS.map(t=>`Task ${t.id}: ${t.words()}`).join(' · ')+' · <b>Total: '+TASKS.reduce((s,t)=>s+t.words(),0)+'</b>';
+  const [c,l]=selfScore();$('#selfBox').innerHTML=`<b>Exam-style article self-assessment:</b> Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15`;
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,[c,l]=selfScore(),mm=Math.floor(r.time/60),tk=ok=>ok?'✓':'✗';
+  let s=`IGCSE ESL Writing Studio – Unit 4 (Transport)\nName: ${st.name}\nClass: ${st.cls}\nChecklist score: ${r.total}/${TOTAL} (${Math.round(r.total/TOTAL*100)}%)\n`+
+   TASKS.map((t,i)=>`Task ${t.id} ${t.title}: ${r.secs[i]}/${t.max} (${t.words()} words)`).join('\n')+
+   `\nExam-style article self-assessment: Content ${c}/6, Language ${l}/9\nTime: ${mm} min · Submitted: ${r.at}\n`;
+  s+=`\n— Task 1: Transport vocabulary —\nB3:\n`+COLS.map(cl=>`${cl}: ${B3W.filter((w,k)=>w[2]?w[2]===cl:b3sel(k).includes(cl)).map(w=>w[0]).join(', ')||'—'}`).join('\n')+
+   `\nWrong placements: ${B3W.filter((w,k)=>!w[2]&&b3sel(k).length&&!b3(k).ok).map(w=>w[0]).join(', ')||'none'}`+
+   `\nB1/B2 words – `+COLS.map((cl,k)=>`${cl}: ${A('t1e'+k)||'—'}`).join(' | ')+
+   '\nB4d:\n'+R(0,4).map(k=>`${k+1}. ${A('t1s'+k).trim()||'—'} ${tk(b4(k).ok)}`).join('\n')+
+   `\nB5 (${A('t1top')||'—'}): `+R(0,3).map(k=>A('t1n'+k).trim()||'—').join(' · ');
+  s+=`\n\n— Task 2: Mystery journey —\nSecret answer: ${A('t2sec')||'—'}\n\n${A('t2txt').trim()||'—'}\n\nD7 questions:\n`+R(0,5).filter(k=>A('t2q'+k).trim()).map(k=>`${k+1}. ${A('t2q'+k).trim()} ${tk(qform(A('t2q'+k)).ok)}`).join('\n');
+  s+=`\n\n— Task 3: Boda-boda safety —\n-ion nouns: `+ION.filter(x=>!x[2]).map(x=>{const k=ION.indexOf(x);return `${x[0]} → ${A('t3i'+k)||'—'} ${tk(ion(k).ok)}`}).join(' · ')+
+   '\nE3:\n'+VOC.map((x,k)=>`${x[1]}: ${A('t3v'+k).trim()||'—'} ${tk(voc(k).ok)}`).join('\n')+`\n\nParagraph:\n${A('t3txt').trim()||'—'}`;
+  s+='\n\n— Task 4: Passive voice —\nActivity 1:\n'+ACT1P.map((x,k)=>`${x[0]} ${A('t4p'+k)||'—'} – ${A('t4t'+k)||'—'} ${tk(act1(k).ok)}`).join('\n')+
+   '\nActivity 3:\n'+ACT3P.map((x,k)=>`${x[0]} ${A('t4a'+k).trim()||'—'} ${tk(act3(k).ok)}`).join('\n')+
+   '\nOwn sentences:\n'+R(0,5).map(k=>`${k+1}. [${A('t4k'+k)||'—'}] ${A('t4s'+k).trim()||'—'} ${tk(own4(k).ok)}`).join('\n');
+  s+=`\n\n— Task 5: Cycle safety & statistics —\n`+[0,1].map(k=>`Slide ${k+1}: ${A('t5t'+k)||'—'}\n`+bullets(k).map(b=>'• '+b).join('\n')).join('\n')+
+   '\nF5 questions:\n'+R(0,5).map(k=>`${k+1}. ${A('t5q'+k).trim()||'—'} – ${A('t5a'+k).trim()||'—'} ${tk(q5(k).ok)}`).join('\n')+`\nReaction: ${A('t5r').trim()||'—'}`;
+  s+=`\n\n— Task 6: Exam-style article (enhancement) —\n${A('t6title').trim()||'(no title)'}\n\n${A('t6txt').trim()||'—'}`;
+  return s;
+}
+
+
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderTask(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your writing will be cleared.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,a:{},start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function hsh(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await hsh(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderTask(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>

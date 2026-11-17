@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Reading – Unit 4: Road Traffic Statistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Reading Data: Road Traffic Statistics</h1>
+  <p>Unit 4: Transport · Text 4.2 Garda road traffic statistics (2019)</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">30 questions</span><span class="chip">31 marks</span><span class="chip">⏱ 35 minutes</span><span class="chip">5 question types</span><span class="chip">+ summary task</span></div>
+    <ul class="ins">
+      <li>Read <b>Text 4.2</b> in your Coursebook (page 58) carefully first. Keep it open while you answer.</li>
+      <li>Answer <b>all</b> questions. Use information from the text only.</li>
+      <li>Spelling counts in the vocabulary section. Keep short answers brief.</li>
+      <li>Your answers are saved on this device while you work. Press <b>Submit</b> when you finish to see your score.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 9A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start the test →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/30</span><span class="timer" id="timer">35:00</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your result</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm">out of 31</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by section</h3><div class="brk" id="brk"></div>
+    <p class="note">Short answers and notes are checked automatically for key words. Your teacher may adjust these marks after reading your answers.</p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your result to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams).</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="6" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const DATA = JSON.parse(decodeURIComponent(escape(atob("W3siaWQiOiAiQSIsICJ0aXRsZSI6ICJSZWFkaW5nIHRoZSB0YWJsZSIsICJpY29uIjogIvCfk4oiLCAic2tpbGwiOiAiTG9jYXRpbmcgZmlndXJlcyBpbiBhIHRhYmxlIiwgImluc3RyIjogIkFuc3dlciBlYWNoIHF1ZXN0aW9uIHVzaW5nIHRoZSBmaWd1cmVzIGluIFRleHQgNC4yLiBXcml0ZSBhIG51bWJlciwgYSBtb250aCBvciBhIGNhdGVnb3J5LiIsICJxcyI6IFt7InQiOiAic2hvcnQiLCAicSI6ICJIb3cgbWFueSBwZW9wbGUgZGllZCBvbiBJcmVsYW5k4oCZcyByb2FkcyBpbiAyMDE5PyIsICJtIjogMSwgInB0cyI6IFsiKF58W14wLTldKTE0MChbXjAtOV18JCl8b25lIGh1bmRyZWQgKGFuZCApP2ZvcnR5Il0sICJhIjogIjE0MC4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiKENvdXJzZWJvb2sgRjUpIEluIE1heSwgaG93IG1hbnkgcGVvcGxlIGdvdCBhIGZpeGVkIGNoYXJnZSBub3RpY2UgZm9yIG5vdCB3ZWFyaW5nIGEgc2VhdGJlbHQ/IiwgIm0iOiAxLCAicHRzIjogWyIoXnxbXjAtOV0pMVtcXHMsLsKg4oCJXT8xMzYoW14wLTldfCQpIl0sICJhIjogIjExMzYuIiwgIm4iOiAiIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIkhvdyBtYW55IGZhdGFsaXRpZXMgd2VyZSB0aGVyZSBpbiBTZXB0ZW1iZXI/IiwgIm0iOiAxLCAicHRzIjogWyIoXnxbXjAtOV0pMTkoW14wLTldfCQpfG5pbmV0ZWVuIl0sICJhIjogIjE5LiIsICJuIjogIiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJJbiB3aGljaCBUV08gbW9udGhzIHdlcmUgdGhlcmUgb25seSBlaWdodCBmYXRhbGl0aWVzPyIsICJtIjogMiwgInB0cyI6IFsiXFxianVsIiwgIlxcYmF1ZyJdLCAiYSI6ICJKdWx5ICgxKSBhbmQgQXVndXN0ICgxKS4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiV2hhdCB3YXMgdGhlIHRvdGFsIG51bWJlciBvZiBmaXhlZCBjaGFyZ2Ugbm90aWNlcyBmb3IgbW9iaWxlIHBob25lcz8iLCAibSI6IDEsICJwdHMiOiBbIihefFteMC05XSkyOFtcXHMsLsKg4oCJXT85NTIoW14wLTldfCQpIl0sICJhIjogIjI4IDk1Mi4iLCAibiI6ICJBY2NlcHQgMjggOTUyIC8gMjgsOTUyIC8gMjg5NTIuIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIkhvdyBtYW55IGRhbmdlcm91cyBkcml2aW5nIG9mZmVuY2VzIHdlcmUgcmVjb3JkZWQgaW4gSnVuZT8iLCAibSI6IDEsICJwdHMiOiBbIihefFteMC05XSk2NDQoW14wLTldfCQpIl0sICJhIjogIjY0NC4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiV2hpY2ggY2F0ZWdvcnkgaW4gdGhlIHRhYmxlIGhhcyB0aGUgbGFyZ2VzdCB0b3RhbD8iLCAibSI6IDEsICJwdHMiOiBbInNwZWVkIl0sICJhIjogIlNwZWVkaW5nICgxMzYgNzk3IGZpeGVkIGNoYXJnZSBub3RpY2VzKS4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiSW4gd2hpY2ggbW9udGggZGlkIHRoZSBwb2xpY2UgZGV0YWluIHRoZSBtb3N0IHZlaGljbGVzIHVuZGVyIFNlY3Rpb24gNDE/IiwgIm0iOiAxLCAicHRzIjogWyJcXGJhcHIiXSwgImEiOiAiQXByaWwgKDI4NTkpLiIsICJuIjogIiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJJbiB3aGljaCBtb250aCB3ZXJlIHRoZSBmZXdlc3Qgcm9hZCB0cmFmZmljIG9mZmVuY2VzIHJlY29yZGVkPyIsICJtIjogMSwgInB0cyI6IFsiXFxib2N0Il0sICJhIjogIk9jdG9iZXIgKDY4KS4iLCAibiI6ICIifSwgeyJ0IjogInNob3J0IiwgInEiOiAiVXAgdG8gd2hpY2ggZGF0ZSBhcmUgdGhlIGZhdGFsaXR5IGZpZ3VyZXMgY3VycmVudD8iLCAibSI6IDEsICJwdHMiOiBbIjE4KHRoKT9cXHMqKG9mXFxzKik/YXVnfGF1Z1xcdypcXHMqMTgiXSwgImEiOiAiMTggQXVndXN0IDIwMjAuIiwgIm4iOiAiIiwgInJlamVjdCI6ICJtYXJjaCJ9XX0sIHsiaWQiOiAiQiIsICJ0aXRsZSI6ICJUcnVlLCBGYWxzZSBvciBOb3QgR2l2ZW4iLCAiaWNvbiI6ICLimpbvuI8iLCAic2tpbGwiOiAiSW50ZXJwcmV0aW5nIGRhdGEiLCAiaW5zdHIiOiAiQ2hvb3NlIFRSVUUgaWYgdGhlIHN0YXRlbWVudCBhZ3JlZXMgd2l0aCB0aGUgc3RhdGlzdGljcywgRkFMU0UgaWYgaXQgY29udHJhZGljdHMgdGhlbSwgb3IgTk9UIEdJVkVOIGlmIHRoZXJlIGlzIG5vIGluZm9ybWF0aW9uIGFib3V0IGl0LiIsICJxcyI6IFt7InQiOiAidGYiLCAicSI6ICJNb3JlIHBlb3BsZSBkaWVkIG9uIHRoZSByb2FkcyBpbiBKYW51YXJ5IHRoYW4gaW4gRGVjZW1iZXIuIiwgImEiOiAiRiIsICJuIjogIkphbnVhcnkgMTQsIERlY2VtYmVyIDE1LiJ9LCB7InQiOiAidGYiLCAicSI6ICJUaGUgbnVtYmVyIG9mIGZhdGFsaXRpZXMgaW4gSmFudWFyeSB3YXMgdGhlIHNhbWUgYXMgaW4gRmVicnVhcnkuIiwgImEiOiAiVCIsICJuIjogIjE0IGluIGVhY2ggbW9udGguIn0sIHsidCI6ICJ0ZiIsICJxIjogIlRoZSBmaWd1cmVzIGZvciBzcGVlZGluZyBmaW5lcyBtYXkgc3RpbGwgY2hhbmdlLiIsICJhIjogIlQiLCAibiI6ICJBbGwgZmlndXJlcyBleGNlcHQgZmF0YWxpdGllcyBhcmUg4oCccHJvdmlzaW9uYWwgZmlndXJlcyBhbmQgc3ViamVjdCB0byBjaGFuZ2XigJ0uIn0sIHsidCI6ICJ0ZiIsICJxIjogIk1vc3Qgb2YgdGhlIHBlb3BsZSBraWxsZWQgb24gdGhlIHJvYWRzIHdlcmUgZHJpdmVycy4iLCAiYSI6ICJORyIsICJuIjogIlRoZSB0YWJsZSBkb2VzIG5vdCBzYXkgd2hvIHdhcyBraWxsZWQuIn0sIHsidCI6ICJ0ZiIsICJxIjogIk1vcmUgZml4ZWQgY2hhcmdlIG5vdGljZXMgZm9yIG1vYmlsZSBwaG9uZXMgd2VyZSBnaXZlbiBpbiBBcHJpbCB0aGFuIGluIGFueSBvdGhlciBtb250aC4iLCAiYSI6ICJUIiwgIm4iOiAiMzAyMCBpbiBBcHJpbCDigJMgdGhlIGhpZ2hlc3QuIn0sIHsidCI6ICJ0ZiIsICJxIjogIkZpeGVkIGNoYXJnZSBub3RpY2VzIGZvciBzcGVlZGluZyB3ZXJlIGhpZ2hlc3QgaW4gdGhlIHN1bW1lciBtb250aHMuIiwgImEiOiAiRiIsICJuIjogIlRoZSBoaWdoZXN0IG1vbnRoIHdhcyBKYW51YXJ5ICgxMyA0NDUpLiJ9LCB7InQiOiAidGYiLCAicSI6ICJUaGUgcG9saWNlIGdhdmUgbW9yZSBmaXhlZCBjaGFyZ2Ugbm90aWNlcyBmb3Igc3BlZWRpbmcgaW4gMjAxOSB0aGFuIGluIDIwMTguIiwgImEiOiAiTkciLCAibiI6ICJUaGVyZSBhcmUgbm8gZmlndXJlcyBmb3IgMjAxOC4ifV19LCB7ImlkIjogIkMiLCAidGl0bGUiOiAiTXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyIsICJpY29uIjogIvCflJgiLCAic2tpbGwiOiAiQ29tcGFyaW5nIGZpZ3VyZXMiLCAiaW5zdHIiOiAiQ2hvb3NlIHRoZSBjb3JyZWN0IGFuc3dlcjogQSwgQiwgQyBvciBELiIsICJxcyI6IFt7InQiOiAibWNxIiwgInEiOiAiV2hpY2ggbW9udGggaGFkIHRoZSBoaWdoZXN0IG51bWJlciBvZiBmYXRhbGl0aWVzPyIsICJvIjogWyJKYW51YXJ5IiwgIkFwcmlsIiwgIlNlcHRlbWJlciIsICJEZWNlbWJlciJdLCAiYSI6IDIsICJuIjogIjE5IGRlYXRocyBpbiBTZXB0ZW1iZXIuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJJbiB3aGljaCBtb250aCB3ZXJlIHRoZSBmZXdlc3QgZml4ZWQgY2hhcmdlIG5vdGljZXMgZm9yIHNwZWVkaW5nIGdpdmVuPyIsICJvIjogWyJKYW51YXJ5IiwgIkp1bHkiLCAiTm92ZW1iZXIiLCAiRGVjZW1iZXIiXSwgImEiOiAzLCAibiI6ICI3NzI0IGluIERlY2VtYmVyLiJ9LCB7InQiOiAibWNxIiwgInEiOiAiSW4gd2hpY2ggbW9udGggd2VyZSB0aGUgbW9zdCBmaXhlZCBjaGFyZ2Ugbm90aWNlcyBmb3Igc2VhdGJlbHRzIGdpdmVuPyIsICJvIjogWyJBcHJpbCIsICJNYXkiLCAiSnVseSIsICJBdWd1c3QiXSwgImEiOiAyLCAibiI6ICIxMjI1IGluIEp1bHkuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJJbiB3aGljaCBtb250aCB3ZXJlIHJvYWQgdHJhZmZpYyBvZmZlbmNlcyBoaWdoZXN0PyIsICJvIjogWyJKYW51YXJ5IiwgIkZlYnJ1YXJ5IiwgIkp1bmUiLCAiT2N0b2JlciJdLCAiYSI6IDEsICJuIjogIjE3OSBpbiBGZWJydWFyeS4ifSwgeyJ0IjogIm1jcSIsICJxIjogIkNvbXBhcmVkIHdpdGggc2VhdGJlbHQgbm90aWNlcywgdGhlIHRvdGFsIG51bWJlciBvZiBtb2JpbGUgcGhvbmUgbm90aWNlcyB3YXPigKYiLCAibyI6IFsiYWJvdXQgdGhlIHNhbWUuIiwgImFib3V0IGhhbGYgYXMgbWFueS4iLCAiYWJvdXQgdHdvIGFuZCBhIGhhbGYgdGltZXMgYXMgbWFueS4iLCAiYWJvdXQgdGVuIHRpbWVzIGFzIG1hbnkuIl0sICJhIjogMiwgIm4iOiAiMjggOTUyIGNvbXBhcmVkIHdpdGggMTEgMzA1LiJ9LCB7InQiOiAibWNxIiwgInEiOiAiV2hpY2ggc3RhdGVtZW50IGFib3V0IGRhbmdlcm91cyBkcml2aW5nIGlzIGNvcnJlY3Q/IiwgIm8iOiBbIkl0IHdhcyBoaWdoZXN0IGluIEphbnVhcnkgYW5kIGxvd2VzdCBpbiBKdWx5LiIsICJJdCB3YXMgaGlnaGVzdCBpbiBKdW5lIGFuZCBsb3dlc3QgaW4gRGVjZW1iZXIuIiwgIkl0IHdhcyB0aGUgc2FtZSBldmVyeSBtb250aC4iLCAiSXRzIHRvdGFsIHdhcyBoaWdoZXIgdGhhbiB0aGUgdG90YWwgZm9yIHNlYXRiZWx0cy4iXSwgImEiOiAxLCAibiI6ICJKdW5lIDY0NCwgRGVjZW1iZXIgMjE2OyB0b3RhbCA1OTA5IGlzIGxvd2VyIHRoYW4gMTEgMzA1LiJ9XX0sIHsiaWQiOiAiRCIsICJ0aXRsZSI6ICJNYXRjaGluZyIsICJpY29uIjogIvCfp6kiLCAic2tpbGwiOiAiU2Nhbm5pbmcgYSB0YWJsZSIsICJpbnN0ciI6ICJXaGljaCBjYXRlZ29yeSBpbiB0aGUgdGFibGUgbWF0Y2hlcyBlYWNoIGRlc2NyaXB0aW9uPyBDaG9vc2UgYSBsZXR0ZXIuIFNvbWUgbGV0dGVycyBhcmUgbm90IHVzZWQuIiwgImtleSI6IFsiQSDigJMgRmF0YWxpdGllcyIsICJCIOKAkyBTZWN0aW9uIDQxIFJUQSDigJMgRGV0ZW50aW9uIG9mIHZlaGljbGVzIiwgIkMg4oCTIFJvYWQgdHJhZmZpYyBvZmZlbmNlcyIsICJEIOKAkyBEYW5nZXJvdXMgZHJpdmluZyIsICJFIOKAkyBTZWF0YmVsdHMgKGZpeGVkIGNoYXJnZSBub3RpY2VzKSIsICJGIOKAkyBNb2JpbGUgcGhvbmVzIChmaXhlZCBjaGFyZ2Ugbm90aWNlcykiLCAiRyDigJMgU3BlZWRpbmcg4oCTIHRvdGFsIChmaXhlZCBjaGFyZ2Ugbm90aWNlcykiXSwgInFzIjogW3sidCI6ICJtYXRjaCIsICJxIjogIkl0IGhhcyB0aGUgc21hbGxlc3QgbnVtYmVycyBpbiBldmVyeSBtb250aC4iLCAiYSI6ICJBIiwgIm4iOiAiQmV0d2VlbiA4IGFuZCAxOSBlYWNoIG1vbnRoLiJ9LCB7InQiOiAibWF0Y2giLCAicSI6ICJJdCB3YXMgaGlnaGVzdCBpbiBGZWJydWFyeSwgd2l0aCAxNzkuIiwgImEiOiAiQyIsICJuIjogIiJ9LCB7InQiOiAibWF0Y2giLCAicSI6ICJJdHMgaGlnaGVzdCBtb250aCB3YXMgQXByaWwgKDI4NTkpLCBhbmQgaXRzIHByaW50ZWQgdG90YWwgaXMgMzAgMjMyLiIsICJhIjogIkIiLCAibiI6ICJUaGUgc291cmNlIG5vdGVzIHRoZSBmaWd1cmVzIGFyZSBwcm92aXNpb25hbDsgdGhlIHByaW50ZWQgdG90YWwgaXMgdXNlZC4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiSXRzIHRvdGFsIGZvciB0aGUgeWVhciB3YXMgMTEgMzA1LiIsICJhIjogIkUiLCAibiI6ICIifV19LCB7ImlkIjogIkUiLCAidGl0bGUiOiAiVm9jYWJ1bGFyeSIsICJpY29uIjogIvCflKQiLCAic2tpbGwiOiAiV29yZCBtZWFuaW5nIGZyb20gY29udGV4dCAoQ291cnNlYm9vayBGMykiLCAiaW5zdHIiOiAiRmluZCBPTkUgd29yZCBvbiB0aGUgd2ViIHBhZ2UgKHRhYmxlIG9yIGZvb3Rub3RlKSB0aGF0IGhhcyB0aGUgc2FtZSBtZWFuaW5nLiIsICJxcyI6IFt7InQiOiAidm9jYWIiLCAicSI6ICJkZWF0aHMsIGVzcGVjaWFsbHkgaW4gYWNjaWRlbnRzIiwgIndoZXJlIjogInRoZSB0YWJsZSIsICJhIjogImZhdGFsaXRpZXMiLCAiYWx0IjogWyJmYXRhbGl0eSJdLCAibiI6ICIifSwgeyJ0IjogInZvY2FiIiwgInEiOiAibm90IGZpbmFsOyBtYXkgYmUgY2hhbmdlZCBsYXRlciIsICJ3aGVyZSI6ICJ0aGUgZm9vdG5vdGUiLCAiYSI6ICJwcm92aXNpb25hbCIsICJhbHQiOiBbXSwgIm4iOiAiIn0sIHsidCI6ICJ2b2NhYiIsICJxIjogInRoZSBhY3Qgb2YgdGhlIHBvbGljZSB0YWtpbmcgYW5kIGhvbGRpbmcgc29tZXRoaW5nLCBzdWNoIGFzIGEgdmVoaWNsZSIsICJ3aGVyZSI6ICJ0aGUgdGFibGUiLCAiYSI6ICJkZXRlbnRpb24iLCAiYWx0IjogW10sICJuIjogIiJ9XX1d"))));
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const TOTAL = 31, NQ = 30, TIME = 35*60, KEY = 'igcse-u04-garda-v1';
+const $ = s => document.querySelector(s);
+let st = {name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0};
+let showModel = false, tick = null;
+const norm = s => (s||'').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/\s+/g,' ').trim();
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.ans)return s}catch(e){}return null}
+
+// flatten questions
+const Q=[];DATA.forEach((s,si)=>s.qs.forEach(q=>{q.sec=si;q.note=q.n;q.n=Q.length+1;q.max=q.m||1;Q.push(q)}));
+const secMax=DATA.map(s=>s.qs.reduce((a,q)=>a+(q.m||1),0));
+
+function mark(q){
+  const v=st.ans[q.n];
+  if(v===undefined||v===''||v===null)return 0;
+  if(q.t==='tf'||q.t==='match')return v===q.a?1:0;
+  if(q.t==='mcq')return v===q.a?1:0;
+  const x=norm(v);
+  if(q.t==='vocab'){const w=x.replace(/[^a-z]/g,'');return [q.a,...(q.alt||[])].includes(w)?1:0}
+  if(q.reject&&new RegExp(q.reject,'i').test(x))return 0;
+  let p=0;q.pts.forEach(r=>{if(new RegExp(r,'i').test(x))p++});
+  return Math.min(p,q.max);
+}
+function answered(q){const v=st.ans[q.n];return v!==undefined&&v!==null&&String(v).trim()!==''}
+
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+
+// ---------- start ----------
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved answers will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+
+function openTest(){
+  $('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');
+  $('#who').textContent='👤 '+st.name+' · '+st.cls;
+  renderTabs();renderSection(st.cur||0);startTimer();
+}
+function startTimer(){
+  clearInterval(tick);
+  const upd=()=>{
+    if(st.submitted){$('#timer').textContent='Submitted';return}
+    const left=TIME-Math.floor((Date.now()-st.start)/1000);
+    if(left<=0){$('#timer').textContent='00:00';clearInterval(tick);toast('Time is up – your answers have been submitted.');submit(true);return}
+    const m=Math.floor(left/60),s=left%60;$('#timer').textContent='⏱ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    $('#timer').classList.toggle('low',left<300);
+  };upd();tick=setInterval(upd,1000);
+}
+function renderTabs(){
+  const sections=[...DATA.map(s=>s.id+'. '+s.title),'F. Writing'];
+  $('#tabs').innerHTML=sections.map((t,i)=>{
+    let d='';if(i<DATA.length){const qs=DATA[i].qs;const a=qs.filter(q=>answered(q)).length;d=`<span class="d">${a}/${qs.length}</span>`}
+    else d=st.summary.trim()?'<span class="d">✓</span>':'';
+    return `<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${esc(t)}${d}</button>`}).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>renderSection(+b.dataset.i));
+  const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+}
+function qHTML(q){
+  const v=st.ans[q.n],rev=st.submitted,dis=rev?'disabled':'';
+  let body='';
+  if(q.t==='mcq'){body='<div class="opts">'+q.o.map((o,i)=>{let c='';if(rev){if(i===q.a&&showModel)c='right';if(v===i)c=(i===q.a?'right':'wrong')}else if(v===i)c='sel';
+    return `<button class="opt ${c}" data-v="${i}" ${dis}><span class="L">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`}).join('')+'</div>'}
+  else if(q.t==='tf'){body='<div class="tfrow">'+[['T','TRUE'],['F','FALSE'],['NG','NOT GIVEN']].map(([k,l])=>{let c='';if(rev){if(v===k)c=(k===q.a?'right':'wrong');else if(showModel&&k===q.a)c='right'}else if(v===k)c='sel';
+    return `<button class="tf ${c}" data-v="${k}" ${dis}>${l}</button>`}).join('')+'</div>'}
+  else if(q.t==='match'){body=`<select data-in ${dis} style="max-width:320px"><option value="">— choose a letter —</option>${DATA[q.sec].key.map(k=>`<option value="${k[0]}" ${v===k[0]?'selected':''}>${esc(k)}</option>`).join('')}</select>`}
+  else if(q.t==='vocab'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="One word from the text" style="max-width:320px" autocomplete="off" autocapitalize="off" spellcheck="false">`}
+  else if(q.t==='notes'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="Maximum six words" autocomplete="off"><div class="wc" data-wc></div>`}
+  else{body=`<textarea data-in ${dis} rows="${q.m>=3?3:2}" placeholder="Write your answer here">${esc(v||'')}</textarea>`}
+  let fb='';
+  if(rev){const g=mark(q);const cls=g===q.max?'ok':g>0?'part':'bad';
+    fb=`<div class="fb ${cls}">${cls==='ok'?'✔ Correct':cls==='part'?'◐ Partly correct':'✘ '+(answered(q)?'Incorrect':'Not answered')} · ${g}/${q.max} mark${q.max>1?'s':''}</div>`;
+    if(showModel){const a=q.t==='mcq'?'ABCD'[q.a]+' – '+q.o[q.a]:q.t==='tf'?({T:'TRUE',F:'FALSE',NG:'NOT GIVEN'})[q.a]:q.a;
+      fb+=`<div class="ans"><b>Model answer:</b> ${esc(a)}${q.note?`<span class="n">${esc(q.note)}</span>`:''}</div>`}}
+  const qtext=q.t==='vocab'?`Find a word that means <b>“${esc(q.q)}”</b> <span class="where">(${esc(q.where)})</span>`:esc(q.q);
+  const st_=rev?(mark(q)===q.max?'ok':mark(q)>0?'part':'bad'):(answered(q)?'done':'');
+  return `<div class="q ${st_}" data-n="${q.n}"><div class="qh"><span class="num">${q.n}</span><span class="qt">${qtext}</span><span class="qm">[${q.max}]</span></div><div class="body">${body}${fb}</div></div>`;
+}
+function renderSection(i){
+  st.cur=i;save();renderTabs();
+  const A=$('#qArea');let h='';
+  if(i<DATA.length){const s=DATA[i];
+    h+=`<div class="sec-h"><h2>${s.icon} Section ${s.id} – ${esc(s.title)}</h2><span class="mk">${secMax[i]} marks</span></div><p class="sec-i">${esc(s.instr)}</p>`;
+    if(s.key)h+=`<div class="keybox">${s.key.map(esc).join('<span style="opacity:.4">|</span>')}</div>`;
+    h+=s.qs.map(qHTML).join('');
+  } else {
+    h+=`<div class="sec-h"><h2>📄 Section F – Writing (extension)</h2><span class="mk">teacher-marked</span></div>
+    <p class="sec-i">Describe two important facts shown by the statistics and suggest one road-safety measure. Write about 60–80 words.</p>
+    <div class="q"><textarea id="sumIn" rows="9" ${st.submitted?'disabled':''} placeholder="Start your summary here…">${esc(st.summary)}</textarea><div class="wc" id="sumWc"></div>
+    ${st.submitted&&showModel?`<div class="ans"><b>Model answer:</b> The statistics show that 140 people died on Irish roads in 2019, and September was the worst month, with 19 deaths. Another important fact is that speeding was by far the most common offence: the police gave 136 797 fixed charge notices for it. In my opinion, more speed cameras should be placed near schools and on busy roads, because drivers slow down when they know they are being watched.<span class="n">Content: up to 4 marks (two accurate facts taken from the table, with correct figures/months (2); one clear road-safety measure (1) with a reason (1)). Language: up to 2 marks (accurate numbers and comparatives, clear linking, accuracy).</span></div>`:''}</div>`;
+  }
+  const last=i===DATA.length;
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${
+    st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${
+    last?(st.submitted?'':`<button class="btn red" id="subB">Submit my answers ✓</button>`):`<button class="btn" id="nextB">Next section →</button>`}</div>`;
+  A.innerHTML=h;
+  A.querySelectorAll('.q[data-n]').forEach(el=>{
+    const n=+el.dataset.n;
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+    el.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});
+    const inp=el.querySelector('[data-in]');
+    if(inp){const wc=el.querySelector('[data-wc]');
+      const wcu=()=>{if(!wc)return;const w=inp.value.trim()?inp.value.trim().split(/\s+/).length:0;wc.textContent=w+' / 6 words';wc.classList.toggle('over',w>6)};wcu();
+      inp.addEventListener(inp.tagName==='SELECT'?'change':'input',()=>{st.ans[n]=inp.value;save();wcu();el.classList.toggle('done',answered(Q[n-1]));renderTabsLite()})}
+  });
+  const si=$('#sumIn');if(si){const u=()=>{const w=si.value.trim()?si.value.trim().split(/\s+/).length:0;$('#sumWc').textContent=w+' words (aim for 60–80)';$('#sumWc').classList.toggle('over',w>80)};u();
+    si.oninput=()=>{st.summary=si.value;save();u();renderTabsLite()}}
+  if($('#prevB'))$('#prevB').onclick=()=>{renderSection(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderSection(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit(false);
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+function renderTabsLite(){const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const d=b.querySelector('.d');if(i<DATA.length){const qs=DATA[i].qs;const t=qs.filter(answered).length+'/'+qs.length;if(d)d.textContent=t}})}
+function refreshQ(n){const el=document.querySelector(`.q[data-n="${n}"]`);const tmp=document.createElement('div');tmp.innerHTML=qHTML(Q[n-1]);el.replaceWith(tmp.firstElementChild);
+  const ne=document.querySelector(`.q[data-n="${n}"]`);ne.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+  ne.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});renderTabsLite()}
+
+async function submit(auto){
+  if(!auto){const left=NQ-Q.filter(answered).length;
+    const ok=await modal('Submit your answers?',left?`You have <b>${left}</b> unanswered question${left>1?'s':''}. You cannot change your answers after you submit.`:'You have answered every question. You cannot change your answers after you submit.',{ok:'Yes, submit'});
+    if(!ok)return}
+  st.submitted=true;
+  const secs=DATA.map((s,i)=>s.qs.reduce((a,q)=>a+mark(q),0));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.min(TIME,Math.floor((Date.now()-st.start)/1000)),at:new Date().toLocaleString()};
+  save();clearInterval(tick);showResults();
+}
+function grade(p){return p>=90?['A*','Outstanding work! You read the text with great accuracy.']:p>=80?['A','Excellent – a very strong performance.']:p>=70?['B','Very good. Review the questions you missed to reach the top grade.']:p>=60?['C','Good effort. Check details carefully and read each question twice.']:p>=50?['D','Fair. Go back to the text and review your incorrect answers.']:p>=40?['E','Keep practising – focus on finding exact details in the text.']:['U','Don’t give up! Re-read the text with your teacher’s help and try again.']}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100),[g,m]=grade(p);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resGrade').textContent=p+'%  ·  Indicative grade '+g;$('#resMsg').textContent=m;
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=DATA.map((s,i)=>`<div class="br"><span>${s.id}. ${esc(s.title)}</span><span class="t"><i style="width:${r.secs[i]/secMax[i]*100}%"></i></span><span class="s">${r.secs[i]}/${secMax[i]}</span></div>`).join('');
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,mm=Math.floor(r.time/60);
+  const line=Q.map(q=>{const g=mark(q);return q.n+(g===q.max?'✓':g>0?'½':'✗')}).join(' ');
+  return `IGCSE ESL Reading – Unit 4 (road traffic statistics)\nName: ${st.name}\nClass: ${st.cls}\nScore: ${r.total}/31 (${Math.round(r.total/TOTAL*100)}%)\n`+
+  DATA.map((s,i)=>`Section ${s.id} ${s.title}: ${r.secs[i]}/${secMax[i]}`).join('\n')+
+  `\nTime taken: ${mm} min · Submitted: ${r.at}\n\nQuestion by question:\n${line}\n\nShort answers:\n`+
+  Q.filter(q=>['short','notes','vocab'].includes(q.t)).map(q=>`${q.n}. ${(st.ans[q.n]||'—').toString().trim()}`).join('\n')+
+  `\n\nSummary (${st.summary.trim()?st.summary.trim().split(/\s+/).length:0} words):\n${st.summary.trim()||'—'}`;
+}
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderSection(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your answers will be cleared and the timer will restart.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,ans:{},summary:'',start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function h(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await h(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderSection(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>
