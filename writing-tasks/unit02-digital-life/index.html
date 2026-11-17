@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Writing Studio – Unit 2: Digital life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+.chk{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.chk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff}
+.chk li .ic{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;background:var(--bad)}
+.chk li.y{border-color:var(--ok);background:var(--ok-l)} .chk li.y .ic{background:var(--ok)}
+.chk li.p{border-color:var(--part);background:var(--part-l)} .chk li.p .ic{background:var(--part)}
+.chk li .pt{margin-left:auto;font-weight:800;color:var(--mut);white-space:nowrap}
+.livehd{margin-top:14px;font-weight:800;color:var(--teal-d);font-size:14.5px}
+.warn{margin-top:10px;background:var(--part-l);border-left:4px solid var(--part);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600}
+.wchip{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-weight:800;background:#fff;color:var(--mut);margin-left:4px}
+.wchip.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.rub{display:grid;gap:6px;margin-top:10px} .rb{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.rb input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal)}
+.q .num{flex:0 0 32px}
+textarea{resize:vertical;line-height:1.55}
+.q > .keybox{margin-top:0}
+@media(max-width:600px){.q .row div[style*="grid-template-columns"]{grid-template-columns:1fr!important}}
+</style>
+
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Writing Studio: Digital life</h1>
+  <p>Unit 2 · Grade 8 · Interactive writing tasks</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">6 writing tasks</span><span class="chip">57 checklist marks</span><span class="chip">✍ live feedback</span><span class="chip">+ self-assessment</span></div>
+    <ul class="ins">
+      <li>Complete the tasks in order. Each one practises a skill from <b>Unit 2</b> of your Coursebook (pages 20–36).</li>
+      <li>As you type, the <b>live checklist</b> under each task turns green when you include what is needed. Use it to improve your writing.</li>
+      <li>Your writing is saved on this device while you work. Press <b>Submit</b> when you finish.</li>
+      <li>The checklist score is a guide only – your teacher will read your work and give the final mark.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 8A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start writing →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TASKS -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/6 tasks</span><span class="timer" id="wtot">✍ 0 words</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your writing checklist score</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm" id="resOut">out of 57</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by task</h3><div class="brk" id="brk"></div>
+    <div id="wcSum" class="note"></div>
+    <div id="selfBox" class="note"></div>
+    <p class="note">The checklist score shows how many of the required features your writing includes. <b>Your teacher will read your work and give the final mark.</b></p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your work to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams). All your writing is included.</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="8" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const KEY = 'igcse-u02-writing-v1';
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => (s||'').replace(/[‘’`´]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,'-');
+const wc = s => { s=(s||'').trim(); return s ? s.split(/\s+/).length : 0; };
+let st = {name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0};
+let showModel = false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.a)return s}catch(e){}return null}
+const A = k => st.a[k] || '';
+const sum = items => items.reduce((s,it)=>s+(it[1]?it[2]:(typeof it[3]==='number'?it[3]:(it[3]?1:0))),0);
+const R = (a,b) => [...Array(b-a).keys()].map(x=>x+a);
+
+/* ---------- shared: -ly spelling ---------- */
+const SPELL=[['finaly','finally'],['realy','really'],['sincerly','sincerely'],['extremly','extremely'],['completly','completely'],['compleatly','completely'],['totaly','totally'],['absolutly','absolutely'],['absolutley','absolutely'],['incredibily','incredibly'],['incredably','incredibly'],['unexpectadly','unexpectedly'],['unexpectidly','unexpectedly'],['usualy','usually'],['definately','definitely'],['definitly','definitely'],['defenitely','definitely'],['carefuly','carefully'],['hopefuly','hopefully'],['successfuly','successfully'],['beautifuly','beautifully'],['immediatly','immediately'],['truely','truly'],['basicly','basically'],['suprisingly','surprisingly'],['actualy','actually'],['especialy','especially'],['generaly','generally'],['normaly','normally'],['quikly','quickly'],['recentely','recently'],['supposedely','supposedly'],['obviosly','obviously'],['certainely','certainly'],['wholely','wholly'],['dayly','daily'],['happyly','happily'],['easyly','easily'],['luckyly','luckily'],['angryly','angrily']];
+function spellErrs(t){const s=norm(t).toLowerCase(),f=[];SPELL.forEach(([w,r])=>{if(new RegExp('\\b'+w+'\\b').test(s))f.push(`<b>${w}</b> → <b>${r}</b>`)});return f}
+const spellMsg = f => f.length?['Check your -ly spelling: '+f.join(' · ')+' (Language tip, p. 29: keep the final <b>-l</b> or <b>-e</b> before adding -ly, e.g. final → final<b>ly</b>, extreme → extreme<b>ly</b>).']:[];
+
+/* ---------- Task 1: My digital life ---------- */
+const DEV=/\b(phones?|smartphones?|mobiles?|tablets?|ipads?|laptops?|computers?|pcs?|tvs?|televisions?|smart\s*tvs?|consoles?|playstation|xbox|nintendo(\s+switch)?|headsets?|headphones|earphones|earbuds|smart\s*watch(es)?|vr|speakers?|kindle|e-?readers?)\b/g;
+const DIGV=/\b(stream(ing|s|ed)?|online|apps?|social\s+media|video\s+games?|gaming|games?|download(s|ing|ed)?|series|episodes?|films?|movies?|videos?|music|podcasts?|video\s+calls?|chat(ting)?|messages?|youtube|subscri\w+|platforms?|screen\s+time|internet|wi-?fi|3d|channels?)\b/g;
+function chk1(){
+  const t=norm(A('t1txt')).toLowerCase(), w=wc(t);
+  const devs=new Set((t.match(DEV)||[]).map(x=>x.replace(/s$/,''))), dv=new Set(t.match(DIGV)||[]);
+  const hrs=/\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|half\s+an?|an?)\s*(\.\d+\s*)?(hours?|hrs?|minutes?|mins?)\b/;
+  const wd=/\b(week\s*days?|school\s+days?|during\s+the\s+week|on\s+weekdays|monday|from\s+sunday\s+to\s+thursday|school\s+nights?)\b/.test(t);
+  const we=/\b(weekends?|friday|saturday|holidays?)\b/.test(t);
+  const items=[
+   ['Planner completed (devices, weekday, weekend, limits)',['t1dev','t1wd','t1we','t1lim'].every(k=>wc(A(k))>=1),1],
+   [`Length 80–100 words (${w})`,w>=80&&w<=100,1],
+   [`Names at least 2 devices (${devs.size})`+(devs.size?': '+[...devs].join(', '):''),devs.size>=2,1],
+   ['Screen time on a weekday, with hours or minutes',wd&&hrs.test(t),1,wd],
+   ['Screen time at the weekend',we,1],
+   ['Explains limits (rules, allowed, parents, switch off…)',/\b(limits?|limited|rules?|allow(ed|s)?|not\s+allowed|let\s+me|parents?|mum|mother|dad|father|switch\s+off|turn\s+off|no\s+more\s+than|only\s+(for\s+)?\w+\s+hours?|maximum|bedtime|until)\b/.test(t),1],
+   [`At least 3 digital-entertainment words (${dv.size})`+(dv.size?': '+[...dv].slice(0,6).join(', '):''),dv.size>=3,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 2: online event programme ---------- */
+function tmin(s){ // returns list of minutes for each time found in s
+  const out=[];s=norm(s).toLowerCase();const re=/\b(\d{1,2})(?:[:.](\d{2}))?\s*(a\.?m\.?|p\.?m\.?)?(?=\s|$|-|–|to\b|\)|,)/g;let m;
+  while((m=re.exec(s))){const h=+m[1],mi=m[2]?+m[2]:0;if(!m[2]&&!m[3])continue;if(h>24||mi>59)continue;let v=(h%12)*60+mi;if(m[3]&&m[3][0]==='p')v+=720;else if(!m[3]&&h>=13)v=h*60+mi;out.push(v)}
+  return out}
+function sched(){
+  const rows=R(0,6).map(k=>({k,t:A('t2t'+k),a:A('t2a'+k),r:A('t2r'+k)})).filter(x=>x.t.trim()||x.a.trim()||x.r.trim());
+  const timed=rows.filter(x=>tmin(x.t).length&&wc(x.a)>=1);
+  let pts=[],prev=null,order=true;
+  timed.forEach(x=>{let v=tmin(x.t).map(z=>{let q=z;if(prev!==null){while(q<prev-60)q+=720}prev=Math.max(prev??q,q);return q});
+    if(pts.length&&v[0]<pts[pts.length-1][0])order=false;pts.push(v)});
+  let span=0;if(pts.length){const first=pts[0][0],lastArr=pts[pts.length-1];span=lastArr[lastArr.length-1]-first}
+  return {rows,timed,span,order}
+}
+function chk2(){
+  const s=sched(), reasons=s.timed.filter(x=>wc(x.r)>=3).length, n=s.timed.length;
+  const aud=norm(A('t2aud')).toLowerCase();
+  const items=[
+   ['Event title (at least 2 words)',wc(A('t2title'))>=2,1],
+   ['Target audience stated (e.g. teenagers aged 13–16)',wc(aud)>=2,1],
+   [`At least 4 timed items with an activity (${n})`,n>=4,2,n>=2?1:0],
+   [`The programme lasts three hours (${s.span?Math.floor(s.span/60)+' h '+(s.span%60)+' min':'—'}) – give start and end times, e.g. 4:00–4:30`,n>=2&&s.span>=170&&s.span<=190,1],
+   ['Items are in time order',n>=2&&s.order,1],
+   [`A reason for every timed item (${reasons}/${n})`,n>=4&&reasons===n,2,reasons>=2?1:0]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 3: exam-style notes on Text 2.2 ---------- */
+const P1=[['curved','curved screens / ‘wraparound’ view',/curv|wrap\s*-?\s*around/],['sound','high-quality sound systems',/\bsound/],['angles','better viewing angles',/angle|(from|to)\s+the\s+side|side\s+of\s+the\s+screen/],
+ ['picture','amazing picture quality / cinema-like experience',/picture|cinema|image\s+quality|screen\s+quality/],['thin','extremely thin',/\bthin|thickness|credit\s+cards?/],['computer','extremely large, fast computers',/computer/]];
+const P2=[['dose','daily dose of entertainment',/dose|daily\s+entertainment|entertain/],['focal','attracts family to one focal point',/famil|focal|sponge|together|centrepiece|center\s*piece|centre\s+of/],['stable','stabilising influence in a fast-moving world',/stabili[sz]|stable|fast[\s-]*moving/],
+ ['newtv','new high-performance TVs all the time',/high[\s-]*performance|new\s+(tvs?|televisions?|models)|released/],['inter','more interactive and sharable experience',/interactive|shar(e)?able|sharing/]];
+function noteChk(key,own,other,ownName){
+  const raw=norm(A(key)).trim(),t=raw.toLowerCase(),w=wc(t);
+  if(!raw) return {ok:false,empty:true,msg:''};
+  if(/internet|connect/.test(t)&&own===P1) return {ok:false,msg:'This is the example given in the question – it cannot be repeated.'};
+  if(/(top[\s-]*quality\s+(digital\s+)?(content|entertainment)|access\s+(top|digital)|every\s+screen|24\s*hours)/.test(t)) return {ok:false,msg:'Careful: the text says EVERY screen can access top-quality content (para. 1) – this does not answer the heading.'};
+  const m=own.filter(p=>p[2].test(t)), mo=other.filter(p=>p[2].test(t));
+  if(w>8) return {ok:false,id:m[0]?m[0][0]:null,msg:`Too long (${w} words). Notes should be short – 8 words or fewer, not a copied sentence.`};
+  if(/[.!]$/.test(raw)&&w>5&&/\b(is|are|was|were|has|have)\b/.test(t)) {/* sentence-like but short: allow */}
+  if(!m.length&&mo.length) return {ok:false,msg:`This point belongs under the other heading.`};
+  if(!m.length) return {ok:false,msg:`This idea does not match a point in the text for “${ownName}”. Re-read the relevant paragraph.`};
+  return {ok:true,id:m[0][0],two:m.length>1,msg:m.length>1?`Valid point (${m[0][1]}) – but this note has two ideas. Write one idea per line.`:'Valid point: '+m[0][1]+'.'};
+}
+const H1N='Ways television has been transformed by technology', H2N='Reasons television is still popular';
+function notes(){
+  const res={};const used=new Set();let s1=0,s2=0;
+  R(0,4).forEach(k=>{const r=noteChk('t3a'+k,P1,P2,H1N);if(r.ok){if(used.has(r.id)){r.ok=false;r.msg='Repeated idea – you have already made this point. Find a different one.'}else{used.add(r.id);s1++}}res['a'+k]=r});
+  R(0,3).forEach(k=>{const r=noteChk('t3b'+k,P2,P1,H2N);if(r.ok){if(used.has(r.id)){r.ok=false;r.msg='Repeated idea – you have already made this point. Find a different one.'}else{used.add(r.id);s2++}}res['b'+k]=r});
+  return {res,s1,s2};
+}
+function chk3(){
+  const n=notes(),all=Object.values(n.res),filled=all.filter(r=>!r.empty).length,long=all.filter(r=>/Too long/.test(r.msg||'')).length,rep=all.filter(r=>/Repeated/.test(r.msg||'')).length;
+  const items=[[`Heading 1: valid, distinct points (${n.s1}/4)`,n.s1===4,4,n.s1],[`Heading 2: valid, distinct points (${n.s2}/3)`,n.s2===3,3,n.s2],
+   [long?`${long} note(s) longer than 8 words`:'Note form – every note 8 words or fewer',filled>0&&!long,0],[rep?`${rep} repeated idea(s)`:'No repeated ideas',filled>0&&!rep,0]];
+  return {items,score:n.s1+n.s2};
+}
+
+/* ---------- Task 4: adverbs ---------- */
+const TADV=['absolutely','badly','completely','incredibly','really','totally','unexpectedly','usually','very'];
+const A3=[
+ ['a','Elena thought the new café would be cheap, but …','adverb + adjective','expensive',['incredibly','really','very'],'it was incredibly expensive'],
+ ['b','Siphiwe usually plays well, but today he’s playing …','adverb + adverb','badly',['really','very','incredibly'],'really badly'],
+ ['c','… surprised to see that everything was …','adverb + adjective','dirty',['really','absolutely','very','incredibly','completely','totally'],'really dirty'],
+ ['d','The mountains … were …','adverb + adjective','stunning',['absolutely','really','incredibly','totally'],'absolutely stunning'],
+ ['e','… the walls were all … colours','adverb + adjective','different',['completely','totally','very','really','incredibly','absolutely'],'completely different'],
+ ['f','George … arrived …','adverb + adverb','unexpectedly',['very','really','incredibly','totally','completely'],'very unexpectedly'],
+ ['g','The film was much too long and was …','adverb + adjective','boring',['really','incredibly','absolutely','very','totally'],'really boring'],
+ ['h','Only Sayeed agreed with Fiona. Everyone else …','adverb + verb','disagreed',['completely','totally','really','absolutely'],'completely disagreed'],
+ ['i','… older people … to visit smaller shops','adverb + verb','prefer',['usually','really'],'usually prefer'],
+ ['j','Tutaleni tried to be independent, but his elder sister Nangula …','adverb + verb',"didn't care",['really','totally','completely','absolutely'],'really didn’t care']];
+const TW={adjective:['boring','different','dirty','expensive','stunning'],adverb:['badly','unexpectedly'],verb:["didn't care",'disagreed','prefer']};
+function a3(i){
+  const [l,stem,type,target,ok]=A3[i];const s=norm(A('t4a'+i)).toLowerCase().replace(/did not care/g,"didn't care").replace(/prefers|preferred/g,'prefer');
+  if(!s.trim())return {ok:false,empty:true,msg:''};
+  const sp=spellErrs(s);if(sp.length)return {ok:false,msg:'Spelling: '+sp.join(', ').replace(/<\/?b>/g,'')};
+  const ADV='('+TADV.join('|')+')', tg=target.replace("'","'");
+  const m=s.match(new RegExp('\\b'+ADV+'\\s+'+tg.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b'));
+  if(m){if(ok.includes(m[1]))return {ok:true,msg:`Correct: ${m[1]} + ${target} (${type}).`};
+    if(m[1]===target)return {ok:false,msg:'Use two different words.'};
+    return {ok:false,msg:`“${m[1]} ${target}” is not a natural combination here. Try another adverb from the table.`}}
+  const wt=type.split(' + ')[1];
+  const others=TW[wt].filter(x=>x!==target&&new RegExp('\\b'+ADV+'\\s+'+x.replace("'","'")+'\\b').test(s));
+  if(others.length)return {ok:false,msg:'Check the meaning of the sentence – that '+wt+' does not fit here.'};
+  if(new RegExp('\\b'+tg+'\\b').test(s))return {ok:false,msg:`Good word – now put an adverb from the table directly before “${target}”.`};
+  return {ok:false,msg:`Use the pattern ${type}, with words from the table (${wt}s: ${TW[wt].join(', ')}).`};
+}
+const ANY_ADV="(very|really|quite|too|so|rather|fairly|pretty|extremely|always|usually|often|never|sometimes|rarely|almost|nearly|well|fast|hard|[a-z]{3,}ly)";
+const NOT_LY=/^(family|friendly|lovely|ugly|silly|holy|reply|supply|apply|italy|july|jelly|belly|rely|fly|lonely|lively|likely|only|monthly|weekly|daily|early|elderly|costly|deadly|curly|hilly|smelly|chilly|bully|ally|rally|lily|jolly|melly)$/;
+const STOP=/^(the|a|an|to|and|or|but|of|in|on|at|for|with|my|your|his|her|our|their|it|i|we|you|he|she|they|that|this|is|are|was|were|be|been|not|much|many|more|most|good|than)$/;
+function advTokens(s){return (s.match(/[a-z']+/g)||[])}
+function isAdv(w){return /^(very|really|quite|too|so|rather|fairly|pretty|extremely|always|usually|often|never|sometimes|rarely|almost|nearly)$/.test(w)||(/ly$/.test(w)&&w.length>4&&!NOT_LY.test(w))||TADV.includes(w)}
+function isAdvAfter(w){return (/ly$/.test(w)&&w.length>4&&!NOT_LY.test(w))||/^(well|fast|hard|late|early|often|badly|soon|again)$/.test(w)}
+function a4(i){
+  const s=norm(A('t4o'+i)).toLowerCase(),ty=A('t4t'+i);
+  if(!s.trim())return {ok:false,empty:true,msg:''};
+  if(!ty)return {ok:false,msg:'Choose the combination type for this sentence.'};
+  const sp=spellErrs(s);if(sp.length)return {ok:false,msg:'Spelling: '+sp.join(', ').replace(/<\/?b>/g,'')};
+  if(wc(s)<6)return {ok:false,msg:'Write a complete sentence of at least 6 words.'};
+  const w=advTokens(s);let good=false;
+  for(let k=0;k<w.length-1;k++){const a=w[k],b=w[k+1];
+    if(ty==='adverb + adverb'&&isAdv(a)&&isAdvAfter(b)&&a!==b)good=true;
+    if(ty==='adverb + adjective'&&isAdv(a)&&!isAdvAfter(b)&&!STOP.test(b)&&!/^(didn't|don't|doesn't|disagreed|agree|agreed|like|liked|love|loved|prefer|preferred|watch|watched|play|played|use|used|enjoy|enjoyed|go|went|spend|spent)$/.test(b))good=true;
+    if(ty==='adverb + verb'){if(isAdv(a)&&!/^(very|quite|too|so|rather|fairly|pretty)$/.test(a)&&(/(ed|s)$/.test(b)||/^(didn't|don't|doesn't|can't|won't|prefer|like|love|watch|play|use|enjoy|go|spend|agree|disagree|care|stream|check|forget|need|want|help|work|study|finish|remember|know|believe|hate|think)$/.test(b))&&!isAdvAfter(b))good=true;
+      if(/(ed|s)$/.test(a)&&isAdvAfter(b)&&!isAdv(a))good=true}}
+  if(good)return {ok:true,msg:`Well done – your sentence contains an ${ty} combination.`};
+  return {ok:false,msg:{'adverb + adjective':'Add an adverb directly before an adjective, e.g. “The game was incredibly exciting.”','adverb + adverb':'Put an adverb before another adverb, e.g. “She types really quickly.”','adverb + verb':'Use an adverb with a verb, e.g. “I usually watch films at the weekend.” / “He completely forgot.”'}[ty]};
+}
+function chk4(){
+  let n3=0,n4=0;R(0,10).forEach(i=>{if(a3(i).ok)n3++});R(0,5).forEach(i=>{if(a4(i).ok)n4++});
+  const types=new Set(R(0,5).filter(i=>a4(i).ok).map(i=>A('t4t'+i)));
+  const all=R(0,10).map(i=>A('t4a'+i)).concat(R(0,5).map(i=>A('t4o'+i))).join(' \n ');
+  const sp=spellErrs(all);
+  const items=[[`Activity 3: correct combinations (${n3}/10)`,n3===10,10,n3],[`Activity 4: own sentences with a correct combination (${n4}/5)`,n4===5,5,n4],
+   [`All three combination types used in your own sentences (${types.size}/3)`,types.size===3,0],[sp.length?`-ly spelling mistakes found (${sp.length})`:'No -ly spelling mistakes',!sp.length&&wc(all)>0,0]];
+  return {items,errs:spellMsg(sp),score:n3+n4};
+}
+
+/* ---------- Task 5: class survey ---------- */
+const QT=['closed','open','multiple-choice'];
+const AUX=/^(do|does|did|are|is|am|was|were|have|has|had|can|could|will|would|should|shall|may|might|must|don't|doesn't|didn't|aren't|isn't|haven't|hasn't|can't|won't)\b/;
+const WH=/^(what|why|how|which|where|when|who|whose|whom|in\s+what|tell|describe|explain)\b/;
+function sq(i){
+  const raw=norm(A('t5q'+i)).trim(),t=raw.toLowerCase(),ty=A('t5y'+i);
+  if(!raw)return {ok:false,empty:true,msg:''};
+  if(!ty)return {ok:false,msg:'Label the question: closed, open or multiple-choice.'};
+  if(!raw.includes('?'))return {ok:false,msg:'A question needs a question mark (?).'};
+  if(wc(t)<4)return {ok:false,msg:'Write a full question (at least 4 words).'};
+  if(ty==='closed'){if(!AUX.test(t))return {ok:false,msg:'A closed (yes/no) question starts with an auxiliary: Do / Does / Did / Are / Is / Have / Can / Would…'};return {ok:true,msg:'Good closed question (answer: yes / no).'}}
+  if(ty==='open'){if(AUX.test(t))return {ok:false,msg:'This can be answered yes/no – an open question starts with What / Why / How / Which…'};if(!WH.test(t))return {ok:false,msg:'Start an open question with a question word: What / Why / How / Which / Where / When…'};return {ok:true,msg:'Good open question.'}}
+  const after=t.split('?').slice(1).join(' ');
+  const opts=(t.match(/(\(|\b)[a-d1-4][).]\s*\S/g)||[]).length, sl=(t.match(/\//g)||[]).length, ors=(t.match(/\bor\b/g)||[]).length, cm=(after.match(/,/g)||[]).length;
+  if(opts>=3||sl>=2||(ors>=1&&(cm>=1||sl>=1))||cm>=2)return {ok:true,msg:'Good multiple-choice question with answer options.'};
+  return {ok:false,msg:'Add at least three answer options, e.g. “…? a) 0–1 hours  b) 2–3 hours  c) more than 3 hours”.'};
+}
+function chk5(){
+  const r=R(0,8).map(sq),good=r.filter(x=>x.ok).length,cnt={};QT.forEach(q=>cnt[q]=R(0,8).filter(i=>r[i].ok&&A('t5y'+i)===q).length);
+  const f=norm(A('t5f')).toLowerCase(),w=wc(f);
+  const items=[['Survey topic',wc(A('t5topic'))>=3,1],[`Correctly formed questions (${good}/8)`,good===8,8,good],
+   [`At least 2 of each type – closed ${cnt.closed}, open ${cnt.open}, multiple-choice ${cnt['multiple-choice']}`,QT.every(q=>cnt[q]>=2),1],
+   [`Findings notes 60–80 words (${w})`,w>=60&&w<=80,1],
+   ['Findings give numbers or proportions (e.g. 15 out of 24, most, half, %)',/(\d|%|\b(most|half|majority|minority|nobody|no one|everyone|all|few|several|none|quarter|third)\b)/.test(f),1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 6: exam-style blog post / article ---------- */
+const RUB=[['c1','Content','I answered the question with a clear opinion',2],['c2','Content','I gave both advantages and disadvantages with examples',2],['c3','Content','My text is 120–160 words',1],['c4','Content','I wrote in a style that suits a blog / magazine reader',1],
+ ['l1','Language','I used a range of digital-entertainment vocabulary',2],['l2','Language','I used adverbs in different combinations (e.g. incredibly useful)',2],['l3','Language','I joined ideas with a range of linking words',2],['l4','Language','My spelling (including -ly words) and punctuation are mostly accurate',2],['l5','Language','I organised my text in clear paragraphs',1]];
+const LINK6=/\b(firstly|first of all|to begin with|secondly|thirdly|in addition|moreover|furthermore|also|finally|besides|however|on the other hand|although|whereas|for example|for instance|as a result|therefore|because|in conclusion|to sum up|overall|on the whole)\b/g;
+function chk6(){
+  const t=norm(A('t6txt')).toLowerCase(),W=wc(t),title=A('t6title').trim();
+  const links=new Set(t.match(LINK6)||[]),dv=new Set(t.match(DIGV)||[]);
+  const advs=new Set(advTokens(t).filter(x=>/ly$/.test(x)&&x.length>4&&!NOT_LY.test(x)));
+  const pos=/\b(advantages?|benefits?|positive|good\s+for|helps?|educat\w*|learn\w*|relax\w*|skills?|creative|creativity|connect\w*|stay\s+in\s+touch|fun)\b/.test(t);
+  const neg=/\b(disadvantages?|negative|bad\s+for|harm\w*|problems?|addict\w*|dangers?|dangerous|risks?|unhealthy|sleep|eyes?|lazy|waste|too\s+much)\b/.test(t);
+  const sp=spellErrs(t);
+  const items=[
+   ['An interesting title',wc(title)>=2,1],
+   [`Length 120–160 words (${W})`,W>=120&&W<=160,1],
+   ['Presents both sides (advantages and disadvantages)',pos&&neg,1],
+   ['Gives a clear opinion (In my opinion / I believe / I think…)',/\b(in\s+my\s+(opinion|view)|i\s+(strongly\s+|really\s+|honestly\s+)?(believe|think|feel)|personally|i'm\s+convinced|from\s+my\s+point\s+of\s+view)\b/.test(t),1],
+   [`At least 3 different linking words (${links.size})`+(links.size?': '+[...links].slice(0,6).join(', '):''),links.size>=3,1],
+   [`At least 3 different -ly adverbs (${advs.size})`+(advs.size?': '+[...advs].slice(0,6).join(', '):''),advs.size>=3,1],
+   [`At least 4 digital-entertainment words (${dv.size})`,dv.size>=4,1],
+   ['Engages the reader (a question or “you”) and ends with a conclusion',/\?|\byou\b/.test(t)&&/\b(in\s+conclusion|to\s+sum\s+up|overall|on\s+the\s+whole|all\s+in\s+all|to\s+conclude|in\s+short|so,\s+is)\b/.test(t),1]];
+  return {items,errs:spellMsg(sp),score:sum(items)};
+}
+function selfScore(){let c=0,l=0;RUB.forEach(r=>{if(st.a['rub_'+r[0]]){if(r[1]==='Content')c+=r[3];else l+=r[3]}});return [c,l]}
+
+/* ---------- task definitions ---------- */
+const TASKS=[
+ {id:1,title:'My digital life',icon:'📱',max:7,lesson:'Lesson 2.1 · Coursebook pp. 20–21',chk:chk1,done:()=>wc(A('t1txt'))>=40,words:()=>wc(A('t1txt')),
+  model:`I use three devices for entertainment: my phone, my laptop and our smart TV. On weekdays I spend about two hours online, mostly watching educational videos and chatting with my cousins after I finish my homework. At the weekend my screen time increases to four or five hours because I play video games with my brother and we stream a film together on Friday evening. My parents have some clear rules: I am not allowed to use my phone after nine o’clock on school nights, and I must switch it off during meals. I think these limits are completely fair.`},
+ {id:2,title:'Online event programme',icon:'🗓️',max:8,lesson:'Lesson 2.2 · Coursebook p. 21 (B5–B6)',chk:chk2,
+  done:()=>sched().timed.length>=4,words:()=>wc(A('t2title'))+wc(A('t2aud'))+R(0,6).reduce((s,k)=>s+wc(A('t2a'+k))+wc(A('t2r'+k)),0),
+  model:`<b>Title:</b> Digital Fun Friday – Live Online!<br><b>For:</b> teenagers aged 13–16 and their friends<br>4:00–4:20 Welcome quiz on digital entertainment – a fun way to get everyone talking.<br>4:20–5:00 Online gaming tournament (teams of four) – most teenagers love competitive games.<br>5:00–5:30 Live video call with a young app designer – it shows how to turn a hobby into a career.<br>5:30–6:15 Streaming premiere of a short science film – it entertains and educates at the same time.<br>6:15–6:45 Talent show: share your own short video – it lets teenagers be creative.<br>6:45–7:00 Prizes and goodbye – to thank everyone and finish on a positive note.`},
+ {id:3,title:'Exam-style notes',icon:'📝',max:7,lesson:'Lesson 2.5 · Text 2.2, Coursebook pp. 26–28',chk:chk3,
+  done:()=>R(0,4).filter(k=>A('t3a'+k).trim()).length+R(0,3).filter(k=>A('t3b'+k).trim()).length>=5,words:()=>R(0,4).reduce((s,k)=>s+wc(A('t3a'+k)),0)+R(0,3).reduce((s,k)=>s+wc(A('t3b'+k)),0),
+  model:`<b>${H1N}</b> (any four): curved screens / ‘wraparound’ view · high-quality sound systems · better viewing angles · amazing picture quality (like a cinema) · extremely thin (four credit cards) · extremely large, fast computers<br><b>${H2N}</b> (any three): daily dose of entertainment · attracts family to one focal point · stabilising influence in a fast-moving world · new high-performance TVs released all the time · more interactive and sharable viewing`},
+ {id:4,title:'Adverb combinations',icon:'🔤',max:15,lesson:'Lesson 2.6 · Language focus, Coursebook pp. 29–30',chk:chk4,
+  done:()=>R(0,10).filter(i=>A('t4a'+i).trim()).length>=7&&R(0,5).filter(i=>A('t4o'+i).trim()).length>=3,words:()=>R(0,10).reduce((s,i)=>s+wc(A('t4a'+i)),0)+R(0,5).reduce((s,i)=>s+wc(A('t4o'+i)),0),
+  model:'<b>Activity 3:</b> '+A3.map(x=>`${x[0]} ${x[5]}`).join(' · ')+`<br><b>Activity 4 (examples):</b> My new tablet is incredibly light. · My brother plays video games really well. · I usually watch the news with my father. · The final episode was absolutely amazing. · She answered the quiz questions very quickly.`},
+ {id:5,title:'Class survey',icon:'📊',max:12,lesson:'Lesson 2.7 · Project, Coursebook p. 31',chk:chk5,
+  done:()=>R(0,8).filter(i=>A('t5q'+i).trim()).length>=6&&wc(A('t5f'))>=20,words:()=>wc(A('t5topic'))+wc(A('t5f'))+R(0,8).reduce((s,i)=>s+wc(A('t5q'+i)),0),
+  model:`<b>Topic:</b> How digital entertainment has changed our free time<br>1 (closed) Do you have your own smartphone? · 2 (closed) Did you watch TV yesterday evening? · 3 (closed) Are you allowed to play games on school nights? · 4 (open) What is your favourite app, and why? · 5 (open) How has digital entertainment changed your weekends? · 6 (open) Why do you think adults limit screen time? · 7 (multiple-choice) How many hours a day do you spend online? a) less than 1 b) 1–3 c) more than 3 · 8 (multiple-choice) Which device do you use most? a) phone b) tablet c) laptop d) TV<br><b>Findings:</b> We asked 24 students. Twenty-one have their own smartphone, but only eight watched TV yesterday. Most students (15) spend one to three hours online a day, and the phone is the most popular device. Half said digital entertainment has made weekends less active. Nearly everyone agreed that adults limit screen time to protect sleep and school work. We will show the results in a bar chart.`},
+ {id:6,title:'Exam-style blog post',icon:'💻',max:8,lesson:'IGCSE Writing practice (blog post / article)',chk:chk6,done:()=>wc(A('t6txt'))>=60,words:()=>wc(A('t6txt'))+wc(A('t6title')),
+  model:`<b>Screens and teens: friend or enemy?</b><br><br>Is digital entertainment really good for teenagers? It is a question that many parents ask, and the answer is not completely simple.<br><br>Firstly, digital entertainment can be incredibly useful. Online videos teach us everything from science to cooking, and games can improve problem-solving skills. In addition, apps and video calls help us stay in touch with relatives who live far away.<br><br>However, there are also serious disadvantages. Many teenagers spend far too much time online, so they sleep badly and exercise less. Some content is extremely poor, and social media can easily become a waste of time.<br><br>In my opinion, digital entertainment is good for teenagers only when it is used sensibly. If we set clear limits and choose content carefully, screens can educate as well as entertain. Overall, the secret is balance. What do you think?`}
+];
+const TOTAL=TASKS.reduce((s,t)=>s+t.max,0);
+
+/* ---------- UI helpers ---------- */
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+function checklist(items){return '<ul class="chk">'+items.map(it=>{const part=!it[1]&&(typeof it[3]==='number'?it[3]>0:!!it[3]);const got=it[1]?it[2]:(typeof it[3]==='number'?it[3]:(it[3]?1:0));
+  return `<li class="${it[1]?'y':(part?'p':'n')}"><span class="ic">${it[1]?'✔':(part?'◐':'✘')}</span><span>${it[0]}</span>${it[2]?`<span class="pt">${got}/${it[2]}</span>`:''}</li>`}).join('')+'</ul>'}
+function ta(key,rows,ph,extra=''){return `<textarea data-k="${key}" rows="${rows}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} ${extra}>${esc(A(key))}</textarea>`}
+function inp(key,ph,style=''){return `<input type="text" data-k="${key}" value="${esc(A(key))}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} style="${style}" autocomplete="off">`}
+function sel(key,opts,ph,style=''){return `<select data-k="${key}" ${st.submitted?'disabled':''} style="${style}"><option value="">${ph}</option>${opts.map(o=>`<option ${A(key)===o?'selected':''}>${o}</option>`).join('')}</select>`}
+
+/* ---------- render ---------- */
+function renderTabs(){
+  $('#tabs').innerHTML=TASKS.map((t,i)=>`<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${t.id}. ${esc(t.title)}<span class="d">${t.done()?'✓':''}</span></button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{renderTask(+b.dataset.i);scrollTo({top:0,behavior:'smooth'})});
+  updBar();
+}
+function updBar(){const d=TASKS.filter(t=>t.done()).length;$('#ptxt').textContent=d+'/6 tasks';$('#progI').style.width=(d/6*100)+'%';
+  $('#wtot').textContent='✍ '+TASKS.reduce((s,t)=>s+t.words(),0)+' words';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const e=b.querySelector('.d');if(e)e.textContent=TASKS[i].done()?'✓':''})}
+function head(t,instr){return `<div class="sec-h"><h2>${t.icon} Task ${t.id} – ${esc(t.title)}</h2><span class="mk">${t.max} marks</span></div><p class="sec-i">${t.lesson}. ${instr}</p>`}
+function modelBox(t){return st.submitted&&showModel?`<div class="ans"><b>Model answer:</b><br>${t.model}</div>`:''}
+const fbDiv=k=>`<div class="fb" data-fb="${k}"></div>`;
+
+function body(i){
+  const t=TASKS[i];
+  if(i===0){
+    let h=head(t,'Write a paragraph of <b>80–100 words</b> about your digital life. Say which devices you use for entertainment, how much time you spend on screens on a weekday and at the weekend, and what limits you (or your parents) set – and why.');
+    h+=`<div class="q"><b>Plan first</b><div class="grid2" style="margin-top:8px"><div><label class="f">My devices</label>${inp('t1dev','e.g. phone, laptop, smart TV')}</div><div><label class="f">What I do on them</label>${inp('t1what','e.g. stream films, video calls, games')}</div>
+      <div><label class="f">Weekday screen time</label>${inp('t1wd','e.g. about 2 hours after homework')}</div><div><label class="f">Weekend screen time</label>${inp('t1we','e.g. 4–5 hours')}</div></div>
+      <div style="margin-top:10px"><label class="f">Limits and why</label>${inp('t1lim','e.g. no phone after 9 p.m. – to sleep well')}</div></div>
+      <div class="q"><label class="f">My digital life (80–100 words)</label>${ta('t1txt',8,'I use three devices for entertainment: …')}<div class="wc" data-wc="t1txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===1){
+    let h=head(t,'Plan a <b>three-hour online entertainment event</b> for teenagers and write the text for its poster programme. Give the event a title, say who it is for, and write a timed schedule with <b>at least four items</b>. Give a reason for each item.');
+    h+=`<div class="q"><div class="grid2"><div><label class="f">Event title</label>${inp('t2title','e.g. Digital Fun Friday – Live Online!')}</div><div><label class="f">Target audience</label>${inp('t2aud','e.g. teenagers aged 13–16')}</div></div>
+      <div class="keybox" style="margin-top:12px"><span>Write times like 4:00–4:30 or 4 p.m.–4.30 p.m.</span><span>The whole programme should last exactly 3 hours.</span></div>
+      <div class="row" style="font-weight:800;font-size:13.5px;color:var(--mut);flex-wrap:nowrap"><span style="flex:0 0 32px"></span><div style="flex:1;display:grid;grid-template-columns:1fr 1.6fr 2fr;gap:8px"><span>Time</span><span>Activity</span><span>Reason</span></div></div>`;
+    for(let k=0;k<6;k++)h+=`<div class="row" style="margin-bottom:8px;flex-wrap:nowrap"><span class="num">${k+1}</span><div style="flex:1;display:grid;grid-template-columns:1fr 1.6fr 2fr;gap:8px">${inp('t2t'+k,k===0?'4:00–4:20':'time')}${inp('t2a'+k,k===0?'Welcome quiz':'activity')}${inp('t2r'+k,k===0?'a fun way to get everyone talking':'reason')}</div></div>`;
+    h+=`<div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===2){
+    let h=head(t,'You read the article “What’s the point of television today?” (Text 2.2). Make short notes under each heading. Write <b>one idea per line</b>, in note form (8 words or fewer). Do not repeat the example.');
+    h+=`<div class="q"><div class="qh"><span class="qt">${H1N}</span><span class="qm">[4]</span></div><p class="where" style="margin:6px 0 10px">Example: can be connected to the internet</p>`;
+    for(let k=0;k<4;k++)h+=`<div style="margin-top:8px" data-nq="a${k}">${inp('t3a'+k,'• note '+(k+1))}${fbDiv('a'+k)}</div>`;
+    h+=`</div><div class="q"><div class="qh"><span class="qt">${H2N}</span><span class="qm">[3]</span></div>`;
+    for(let k=0;k<3;k++)h+=`<div style="margin-top:8px" data-nq="b${k}">${inp('t3b'+k,'• note '+(k+1))}${fbDiv('b'+k)}</div>`;
+    h+=`<div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===3){
+    let h=head(t,'<b>Activity 3:</b> complete sentences a–j with a combination from the table (open your Coursebook at p. 30 for the full sentences). Write the missing words or the whole sentence. <b>Activity 4:</b> write five sentences of your own using different combinations. Watch your <b>-ly</b> spelling!');
+    h+=`<div class="keybox"><span><b>Adverbs:</b> ${TADV.join(', ')}</span><span><b>Adjectives:</b> ${TW.adjective.join(', ')}</span><span><b>Verbs:</b> didn’t care, disagreed, prefer</span></div>`;
+    A3.forEach((x,k)=>{h+=`<div class="q" data-q4="a${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt">${esc(x[1])} <span class="where">(${x[2]})</span></span><span class="qm">[1]</span></div><div class="body">${inp('t4a'+k,'Write the missing words…')}${fbDiv('4a'+k)}</div></div>`});
+    h+=`<div class="sec-i" style="margin-top:18px;font-style:normal;font-weight:800;color:var(--teal-d)">Activity 4 – my own sentences</div>`;
+    for(let k=0;k<5;k++)h+=`<div class="q" data-q4="o${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${sel('t4t'+k,['adverb + adjective','adverb + adverb','adverb + verb'],'— choose the combination —','max-width:280px')}</span><span class="qm">[1]</span></div><div class="body">${inp('t4o'+k,'e.g. My new tablet is incredibly light.')}${fbDiv('4o'+k)}</div></div>`;
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===4){
+    let h=head(t,'Your group is preparing a class survey about digital activities. Choose a focus, then write <b>eight questions</b> and label each one. Include <b>at least two</b> of each type. After asking your classmates, write notes on your findings (<b>60–80 words</b>).');
+    h+=`<div class="keybox"><span><b>Closed:</b> yes/no – starts with Do / Are / Have / Can…</span><span><b>Open:</b> What / Why / How…?</span><span><b>Multiple-choice:</b> question + options a) b) c)</span></div>
+      <div class="q"><label class="f">Survey topic / focus</label>${inp('t5topic','e.g. How digital entertainment has changed our free time')}</div>`;
+    for(let k=0;k<8;k++)h+=`<div class="q" data-q5="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${sel('t5y'+k,QT,'— question type —','max-width:240px')}</span><span class="qm">[1]</span></div><div class="body">${inp('t5q'+k,k===6?'How many hours a day do you spend online? a) less than 1 b) 1–3 c) more than 3':'Write your question…')}${fbDiv('5'+k)}</div></div>`;
+    h+=`<div class="q"><label class="f">Notes on our findings (60–80 words)</label>${ta('t5f',6,'We asked 24 students. Most …')}<div class="wc" data-wc="t5f"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===5){
+    let h=head(t,'Your school’s online magazine has asked students to write a blog post / article with the title <b>“Is digital entertainment good for teenagers?”</b> Here are some comments from other students: <i>“Online videos teach me more than some lessons.”</i> &nbsp;<i>“We spend so much time on screens that we hardly sleep.”</i> Write the article for the magazine. The comments above may give you some ideas, but you should try to use some ideas of your own. Write <b>120–160 words</b>.');
+    h+=`<div class="q"><label class="f">Title</label>${inp('t6title','e.g. Screens and teens: friend or enemy?')}<label class="f" style="margin-top:12px">Your blog post / article</label>${ta('t6txt',14,'Is digital entertainment really good for teenagers? …')}<div class="wc" data-wc="t6txt"></div><div data-live></div></div>
+      <div class="q"><b>Self-assessment</b> <span class="where">– tick what is true about your article (Content /6, Language /9)</span>
+      <div class="rub">${RUB.map(r=>`<label class="rb"><input type="checkbox" data-rub="${r[0]}" ${st.a['rub_'+r[0]]?'checked':''} ${st.submitted?'disabled':''}><span><b>${r[1]}</b> · ${r[2]} <span class="where">(${r[3]})</span></span></label>`).join('')}</div>
+      <div class="note" data-self></div></div>`;
+    return h+modelBox(t);
+  }
+}
+function setFb(k,r,qsel){const A_=$('#qArea'),e=A_.querySelector(`[data-fb="${k}"]`);if(!e)return;const q=qsel?A_.querySelector(qsel):null;
+  if(r.empty){e.className='fb';e.innerHTML='';if(q)q.className='q';return}
+  const cls=r.ok?(r.two?'part':'ok'):'bad';e.className='fb '+cls;e.innerHTML=(r.ok?'✔ ':'✘ ')+esc(r.msg);if(q)q.className='q '+cls}
+function live(i){
+  const A_=$('#qArea');
+  A_.querySelectorAll('[data-wc]').forEach(e=>{const k=e.dataset.wc,w=wc(A(k));const rng={t1txt:[80,100],t5f:[60,80],t6txt:[120,160]}[k];
+    e.textContent=w+' words (aim for '+rng[0]+'–'+rng[1]+')';e.classList.toggle('over',w>rng[1])});
+  if(i===2){const n=notes();Object.entries(n.res).forEach(([k,r])=>setFb(k,r))}
+  if(i===3){R(0,10).forEach(k=>setFb('4a'+k,a3(k),`[data-q4="a${k}"]`));R(0,5).forEach(k=>setFb('4o'+k,a4(k),`[data-q4="o${k}"]`))}
+  if(i===4)R(0,8).forEach(k=>setFb('5'+k,sq(k),`[data-q5="${k}"]`));
+  const L=A_.querySelector('[data-live]');
+  if(L){const c=TASKS[i].chk();let h='<div class="livehd">Live checklist · '+c.score+'/'+TASKS[i].max+'</div>'+checklist(c.items);
+    if(c.errs&&c.errs.length)h+='<div class="warn">'+c.errs.map(x=>'⚠ '+x).join('<br>')+'</div>';L.innerHTML=h}
+  const sf=A_.querySelector('[data-self]');if(sf){const [c,l]=selfScore();sf.innerHTML=`Your self-assessment: <b>Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15</b>`}
+  updBar();
+}
+function renderTask(i){
+  st.cur=i;save();renderTabs();
+  const last=i===TASKS.length-1;
+  let h=body(i);
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${last?(st.submitted?'':`<button class="btn red" id="subB">Submit my writing ✓</button>`):`<button class="btn" id="nextB">Next task →</button>`}</div>`;
+  const A_=$('#qArea');A_.innerHTML=h;
+  A_.querySelectorAll('[data-k]').forEach(el=>{el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{st.a[el.dataset.k]=el.value;save();live(i)})});
+  A_.querySelectorAll('[data-rub]').forEach(el=>el.addEventListener('change',()=>{st.a['rub_'+el.dataset.rub]=el.checked;save();live(i)}));
+  live(i);
+  if($('#prevB'))$('#prevB').onclick=()=>{renderTask(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderTask(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit();
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+
+/* ---------- flow ---------- */
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved writing will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+function openTest(){$('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');$('#who').textContent='👤 '+st.name+' · '+st.cls;renderTask(st.cur||0)}
+async function submit(){
+  const left=TASKS.filter(t=>!t.done()).length;
+  const ok=await modal('Submit your writing?',left?`You have <b>${left}</b> task${left>1?'s':''} not finished. You cannot change your writing after you submit.`:'You have completed every task. You cannot change your writing after you submit.',{ok:'Yes, submit'});
+  if(!ok)return;
+  st.submitted=true;
+  const secs=TASKS.map(t=>Math.min(t.max,t.chk().score));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.floor((Date.now()-st.start)/1000),at:new Date().toLocaleString()};
+  save();showResults();
+}
+function grade(p){return p>=85?'Excellent – your writing includes almost every required feature.':p>=70?'Very good. Check the red items in the checklist to improve further.':p>=50?'Good effort. Review each task’s checklist and add the missing features.':'Keep going! Read the checklist under each task and try again with your teacher’s help.'}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resOut').textContent='out of '+TOTAL;$('#resGrade').textContent=p+'% of checklist features';$('#resMsg').textContent=grade(p);
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=TASKS.map((t,i)=>`<div class="br"><span>${t.id}. ${esc(t.title)}</span><span class="t"><i style="width:${r.secs[i]/t.max*100}%"></i></span><span class="s">${r.secs[i]}/${t.max}</span></div>`).join('');
+  $('#wcSum').innerHTML='<b>Words written:</b> '+TASKS.map(t=>`Task ${t.id}: ${t.words()}`).join(' · ')+' · <b>Total: '+TASKS.reduce((s,t)=>s+t.words(),0)+'</b>';
+  const [c,l]=selfScore();$('#selfBox').innerHTML=`<b>Blog post self-assessment:</b> Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15`;
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,[c,l]=selfScore(),mm=Math.floor(r.time/60),tk=ok=>ok?'✓':'✗';
+  let s=`IGCSE ESL Writing Studio – Unit 2 (Digital life)\nName: ${st.name}\nClass: ${st.cls}\nChecklist score: ${r.total}/${TOTAL} (${Math.round(r.total/TOTAL*100)}%)\n`+
+   TASKS.map((t,i)=>`Task ${t.id} ${t.title}: ${r.secs[i]}/${t.max} (${t.words()} words)`).join('\n')+
+   `\nBlog post self-assessment: Content ${c}/6, Language ${l}/9\nTime: ${mm} min · Submitted: ${r.at}\n`;
+  s+=`\n— Task 1: My digital life —\nDevices: ${A('t1dev')||'—'} | Activities: ${A('t1what')||'—'} | Weekday: ${A('t1wd')||'—'} | Weekend: ${A('t1we')||'—'} | Limits: ${A('t1lim')||'—'}\n\n${A('t1txt').trim()||'—'}`;
+  s+=`\n\n— Task 2: Online event programme —\nTitle: ${A('t2title')||'—'}\nFor: ${A('t2aud')||'—'}\n`+R(0,6).filter(k=>A('t2t'+k)||A('t2a'+k)).map(k=>`${A('t2t'+k)||'—'}  ${A('t2a'+k)||'—'} – ${A('t2r'+k)||'—'}`).join('\n');
+  const n=notes();
+  s+=`\n\n— Task 3: Notes on Text 2.2 —\n${H1N}:\n`+R(0,4).map(k=>`• ${A('t3a'+k).trim()||'—'} ${tk(n.res['a'+k].ok)}`).join('\n')+`\n${H2N}:\n`+R(0,3).map(k=>`• ${A('t3b'+k).trim()||'—'} ${tk(n.res['b'+k].ok)}`).join('\n');
+  s+='\n\n— Task 4: Adverbs —\nActivity 3:\n'+A3.map((x,k)=>`${x[0]} ${A('t4a'+k).trim()||'—'} ${tk(a3(k).ok)}`).join('\n')+'\nActivity 4:\n'+R(0,5).map(k=>`${k+1}. [${A('t4t'+k)||'—'}] ${A('t4o'+k).trim()||'—'} ${tk(a4(k).ok)}`).join('\n');
+  s+=`\n\n— Task 5: Class survey —\nTopic: ${A('t5topic')||'—'}\n`+R(0,8).map(k=>`${k+1}. [${A('t5y'+k)||'—'}] ${A('t5q'+k).trim()||'—'} ${tk(sq(k).ok)}`).join('\n')+`\nFindings: ${A('t5f').trim()||'—'}`;
+  s+=`\n\n— Task 6: Blog post / article —\n${A('t6title').trim()||'(no title)'}\n\n${A('t6txt').trim()||'—'}`;
+  return s;
+}
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderTask(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your writing will be cleared.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,a:{},start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function hsh(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await hsh(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderTask(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>
