@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relative Clauses Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a coursebook-style "language focus" page — navy header band, sticky score bar, one column of six colour-coded pronoun sections. */
+:root{
+  --bg:#f3f6f9; --paper:#ffffff; --ink:#152033; --muted:#5a6678; --line:#d9e0e8;
+  --navy:#1d2a6b; --teal:#0b8a8a; --sun:#f2c230; --good:#1f8a4c; --good-bg:#e6f4ec; --bad:#c23b3b; --bad-bg:#fbeaea;
+  --c-who:#1d6fd1; --c-whom:#7046c9; --c-which:#0b8a8a; --c-whose:#c2571a; --c-where:#2e8b3a; --c-when:#b8336a;
+  --chip-ink:#ffffff; --head-ink:#ffffff; --shadow:0 1px 2px rgba(21,32,51,.06),0 6px 18px rgba(21,32,51,.06);
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1420; --paper:#161e2d; --ink:#e7ecf3; --muted:#9aa6b8; --line:#2a3548;
+  --navy:#22306f; --teal:#2fb3b3; --sun:#f2c230; --good:#4cc47e; --good-bg:#16301f; --bad:#ef7a7a; --bad-bg:#3a1c1f;
+  --c-who:#5b9cf0; --c-whom:#a184ec; --c-which:#2fb3b3; --c-whose:#ef8a4f; --c-where:#5cc56a; --c-when:#ec6fa0;
+  --chip-ink:#0e1420; --head-ink:#ffffff; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1420; --paper:#161e2d; --ink:#e7ecf3; --muted:#9aa6b8; --line:#2a3548;
+  --navy:#22306f; --teal:#2fb3b3; --sun:#f2c230; --good:#4cc47e; --good-bg:#16301f; --bad:#ef7a7a; --bad-bg:#3a1c1f;
+  --c-who:#5b9cf0; --c-whom:#a184ec; --c-which:#2fb3b3; --c-whose:#ef8a4f; --c-where:#5cc56a; --c-when:#ec6fa0;
+  --chip-ink:#0e1420; --head-ink:#ffffff; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+/* Header band */
+.band{background:var(--navy);color:var(--head-ink)}
+.band .wrap{padding-block:28px 26px;display:grid;gap:14px}
+.school{display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.crest{width:34px;height:34px;border-radius:50%;background:var(--sun);color:var(--navy);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:14px;letter-spacing:0}
+.band h1{font-size:clamp(30px,6vw,46px);font-weight:800}
+.band h1 em{font-style:normal;color:var(--sun)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;opacity:.92}
+.meta b{font-weight:700}
+.idrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px}
+.idrow label{font-size:14px;opacity:.9}
+.idrow input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:8px 12px;color:var(--head-ink);min-width:0;width:min(320px,100%)}
+.idrow input::placeholder{color:rgba(255,255,255,.65)}
+
+/* Sticky score bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar .wrap{padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.score{font-family:var(--f-display);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track{flex:1 1 160px;height:10px;border-radius:99px;background:var(--line);overflow:hidden;min-width:120px}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--good));transition:width .35s}
+.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{font-family:var(--f-mono);font-size:13px;text-decoration:none;padding:4px 9px;border-radius:99px;background:var(--k);color:var(--chip-ink);white-space:nowrap}
+
+/* Intro / rules */
+.intro{padding-block:26px 8px;display:grid;gap:16px}
+.focus{background:var(--paper);border:2px solid var(--navy);border-radius:4px;box-shadow:var(--shadow)}
+.focus h2{background:var(--navy);color:var(--head-ink);font-size:16px;letter-spacing:.04em;text-transform:uppercase;padding:8px 14px}
+.focus .in{padding:14px 16px;display:grid;gap:10px}
+.focus p{margin:0}
+.ex{font-style:italic}
+.ex u{text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:3px}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.rule{border-left:5px solid var(--k);background:var(--bg);padding:8px 12px;border-radius:0 6px 6px 0}
+.rule b{font-family:var(--f-mono);color:var(--k)}
+.tip{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px dashed var(--teal);border-radius:8px;padding:12px 14px}
+.tip .dot{flex:none;width:26px;height:26px;border-radius:50%;background:var(--sun);color:var(--navy);display:grid;place-items:center;font-weight:800;font-family:var(--f-display)}
+.howto{display:flex;flex-wrap:wrap;gap:8px}
+.howto span{font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:4px 12px;color:var(--muted)}
+
+/* Sections */
+section.set{padding-block:26px 6px;scroll-margin-top:70px}
+.sethead{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:12px}
+.pron{font-family:var(--f-mono);font-size:22px;background:var(--k);color:var(--chip-ink);padding:4px 14px;border-radius:8px}
+.sethead h2{font-size:24px;flex:1 1 260px;min-width:0}
+.sethead .use{color:var(--muted);font-size:15px;flex-basis:100%}
+.setscore{font-family:var(--f-display);font-weight:700;font-variant-numeric:tabular-nums;color:var(--k)}
+.qlist{display:grid;gap:12px}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:10px}
+.q.ok{border-color:var(--good)} .q.no{border-color:var(--bad)}
+.qtop{display:flex;gap:10px;align-items:baseline}
+.num{flex:none;font-family:var(--f-mono);font-size:13px;color:var(--k);border:1.5px solid var(--k);border-radius:6px;padding:1px 7px}
+.kind{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stem{margin:0;font-size:18px}
+.gap{display:inline-block;min-width:70px;border-bottom:2px solid var(--k);text-align:center;font-weight:700;color:var(--k)}
+.src{display:grid;gap:2px;font-size:17px;padding-left:12px;border-left:3px solid var(--line)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.opts.long{grid-template-columns:1fr}
+.opt{text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:border-color .15s,transform .1s}
+.opt:hover:not(:disabled){border-color:var(--k)}
+.opt:active:not(:disabled){transform:scale(.99)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-bg);border-color:var(--good);font-weight:700}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad);text-decoration:line-through}
+.opts:not(.long) .opt{font-family:var(--f-mono);text-align:center}
+.typerow{display:flex;flex-wrap:wrap;gap:8px}
+.typerow input{flex:1 1 180px;min-width:0;border:1.5px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 12px;font-family:var(--f-mono)}
+.typerow input.right{border-color:var(--good);background:var(--good-bg)}
+.typerow input.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.btn{border:0;border-radius:10px;padding:10px 18px;background:var(--k,var(--teal));color:var(--chip-ink);font-weight:700;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:default}
+.fb{border-radius:8px;padding:9px 12px;font-size:15.5px}
+.fb.ok{background:var(--good-bg);color:var(--ink);border-left:4px solid var(--good)}
+.fb.no{background:var(--bad-bg);color:var(--ink);border-left:4px solid var(--bad)}
+.fb strong{font-family:var(--f-display)}
+
+/* Results */
+.results{padding-block:30px 40px}
+.card{background:var(--paper);border:2px solid var(--navy);border-radius:14px;box-shadow:var(--shadow);padding:20px;display:grid;gap:16px}
+.card h2{font-size:26px}
+.big{font-family:var(--f-display);font-weight:800;font-size:54px;line-height:1;font-variant-numeric:tabular-nums;color:var(--teal)}
+.grid6{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.mini{border:1.5px solid var(--k);border-radius:10px;padding:8px 10px;display:grid;gap:2px}
+.mini b{font-family:var(--f-mono);color:var(--k)}
+.mini span{font-variant-numeric:tabular-nums;font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{padding-block:18px 28px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){body{font-size:16px}.stem{font-size:17px}.jump{display:none}}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="wrap">
+    <div class="school"><span class="crest">LIS</span>London International Schools · IGCSE English as a Second Language</div>
+    <h1>Relative Clauses <em>Lab</em></h1>
+    <div class="meta"><span><b>Grade 9</b></span><span>Unit 12 · Organisations and volunteers</span><span>60 questions · 6 relative pronouns</span></div>
+    <div class="idrow">
+      <label for="studentName">Student name</label>
+      <input id="studentName" type="text" placeholder="Type your full name" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="score" id="totalScore">0 / 60</div>
+    <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+    <nav class="jump" id="jump" aria-label="Jump to section"></nav>
+  </div>
+</div>
+
+<main>
+  <div class="wrap intro">
+    <div class="focus">
+      <h2>Language focus: relative clauses</h2>
+      <div class="in">
+        <p>A relative clause gives more information about a person, thing, place or time. A <b>non-defining</b> relative clause adds <i>extra</i> information, so we put it between commas. If you remove it, the sentence still makes sense.</p>
+        <p class="ex">The World Scout Jamboree<u>, which is held every four years,</u> is designed for young people aged 14 to 17.</p>
+        <div class="rules" id="rules"></div>
+      </div>
+    </div>
+    <div class="tip"><span class="dot">!</span><div><b>Remember:</b> always use a comma before <i>who</i> or <i>which</i> in a non-defining clause, and <b>never</b> use <i>that</i> in a non-defining clause. Do not repeat the pronoun: <i>Omar, whose mother is a doctor,</i> — not <i>whose <s>his</s> mother</i>.</div></div>
+    <div class="howto"><span>Choose the pronoun</span><span>Type the pronoun</span><span>Combine the sentences</span><span>Marked instantly</span><span>Read the feedback</span></div>
+  </div>
+
+  <div id="sets"></div>
+
+  <div class="wrap results" id="results">
+    <div class="card">
+      <h2 id="resTitle">Your results</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end">
+        <div class="big" id="resPct">0%</div>
+        <div><div id="resLine" style="font-weight:700">0 of 60 correct · 0 answered</div><div id="resBand" style="color:var(--muted)">Answer the questions to see your band.</div></div>
+      </div>
+      <div class="grid6" id="resGrid"></div>
+      <div class="actions">
+        <button class="btn" id="toFirst" type="button" style="--k:var(--navy)">Go to first unanswered question</button>
+        <button class="btn ghost" id="resetBtn" type="button">Start again</button>
+      </div>
+      <div class="confirm" id="confirmBox" hidden>
+        <span>Clear all 60 answers?</span>
+        <button class="btn" id="yesReset" type="button" style="--k:var(--bad)">Yes, clear</button>
+        <button class="btn ghost" id="noReset" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>London International Schools · Grade 9 IGCSE ESL · Relative clauses</span><span>Mr. Jibber Ahmed Mohammed · English Language Trainer and Instructor</span></div></footer>
+
+<script>
+const SETS = [
+ {id:"who", pron:"who", title:"People — the subject of the clause", use:"Use who for people when the pronoun is the subject of the verb that follows.", rule:"people (subject)", ex:"My cousin, who volunteers at the hospital, …",
+  qs:[
+  {t:"mc", s:"Namono Alupo, ___ works for the Scout organisation, welcomed the visitors.", o:["who","which","whose","where"], a:"who", e:"Namono Alupo is a person and she is the subject of “works”, so we use who."},
+  {t:"mc", s:"My cousin, ___ volunteers at the hospital every weekend, wants to be a nurse.", o:["who","whom","which","when"], a:"who", e:"A person + subject of the verb “volunteers” → who. Whom is only for the object."},
+  {t:"mc", s:"The scout leader, ___ has worked with children for 20 years, organised the camp.", o:["which","who","whose","where"], a:"who", e:"The scout leader is a person who does the action (has worked) → who."},
+  {t:"mc", s:"Our head teacher, ___ started the charity club, gave a speech at assembly.", o:["whom","when","who","which"], a:"who", e:"Head teacher = person, and the pronoun is the subject of “started” → who."},
+  {t:"type", s:"Param Jaggi, ___ invented a device to reduce car pollution, was a teenager at the time.", a:["who"], e:"Param Jaggi is a person who did the action (invented) → who."},
+  {t:"type", s:"The volunteers, ___ came from twelve countries, cleaned the whole beach.", a:["who"], e:"Volunteers are people; they are the subject of “came” → who."},
+  {t:"type", s:"My grandmother, ___ is 80 years old, still helps at the food bank.", a:["who"], e:"A person + subject of “is” → who."},
+  {t:"comb", src:["Jim Douglas is a fundraiser.","He cycled across Africa."], o:["Jim Douglas, who cycled across Africa, is a fundraiser.","Jim Douglas who cycled across Africa, is a fundraiser.","Jim Douglas, which cycled across Africa, is a fundraiser.","Jim Douglas, who he cycled across Africa, is a fundraiser."], a:0, e:"Who replaces “he”, and the extra information goes between two commas. Do not keep “he”."},
+  {t:"comb", src:["Mariam won the award.","She raised money for the orphanage."], o:["Mariam, she raised money for the orphanage, won the award.","Mariam, who raised money for the orphanage, won the award.","Mariam, that raised money for the orphanage, won the award.","Mariam, whose raised money for the orphanage, won the award."], a:1, e:"Who replaces “she”. That is never used in a non-defining clause."},
+  {t:"comb", src:["The doctor treated the children for free.","He works for a charity."], o:["The doctor, which works for a charity, treated the children for free.","The doctor who works for a charity treated the children for free, he.","The doctor, who works for a charity, treated the children for free.","The doctor, whom works for a charity, treated the children for free."], a:2, e:"The doctor is a person and the subject of “works” → who, with commas on both sides."}
+ ]},
+ {id:"whom", pron:"whom", title:"People — the object, and after prepositions", use:"Use whom for people when the pronoun is the object of the verb, and always after a preposition (with whom, to whom, all of whom).", rule:"people (object / after a preposition)", ex:"Each group has two assistants, all of whom have experience.",
+  qs:[
+  {t:"mc", s:"The coach, ___ everyone respects, retired last year.", o:["whose","whom","which","where"], a:"whom", e:"“Everyone” is the subject; the coach is the object of “respects” → whom."},
+  {t:"mc", s:"Each group has a leader and two assistants, all of ___ have experience with children.", o:["them","who","whom","which"], a:"whom", e:"After a quantity word + of (all of, most of, none of) we use whom for people. “All of them” would make two sentences."},
+  {t:"mc", s:"The volunteers, most of ___ were students, worked without pay.", o:["whom","who","them","which"], a:"whom", e:"Most of + whom for people."},
+  {t:"mc", s:"Mr Saleh, to ___ I sent my application, replied very quickly.", o:["who","which","whom","whose"], a:"whom", e:"After a preposition (to) we must use whom, never who."},
+  {t:"type", s:"My best friend, with ___ I joined the club, has moved to Dubai.", a:["whom"], e:"Preposition “with” + person → whom.", hint:{who:"After a preposition (with) use whom, not who."}},
+  {t:"type", s:"The new members, none of ___ had camped before, were very excited.", a:["whom"], e:"None of + whom for people.", hint:{them:"“none of them” makes two sentences. Use whom to join them.",who:"After “of” use whom."}},
+  {t:"type", s:"The judges, among ___ was a famous scientist, chose the winning project.", a:["whom"], e:"Preposition “among” + person → whom.", hint:{who:"After a preposition (among) use whom."}},
+  {t:"comb", src:["The volunteers were thanked by the mayor.","I worked with them."], o:["The volunteers, with who I worked, were thanked by the mayor.","The volunteers, with whom I worked, were thanked by the mayor.","The volunteers, with which I worked, were thanked by the mayor.","The volunteers, whom I worked with them, were thanked by the mayor."], a:1, e:"With + whom replaces “with them”. Do not repeat “them”."},
+  {t:"comb", src:["The two teachers were very kind.","I spoke to both of them."], o:["The two teachers, both of them I spoke to, were very kind.","The two teachers, both of who I spoke to, were very kind.","The two teachers, both of whom I spoke to, were very kind.","The two teachers, both of which I spoke to, were very kind."], a:2, e:"Both of + whom for people."},
+  {t:"comb", src:["Dr Amal is a famous scientist.","Many students admire her."], o:["Dr Amal, whom many students admire, is a famous scientist.","Dr Amal, whom many students admire her, is a famous scientist.","Dr Amal, which many students admire, is a famous scientist.","Dr Amal whom many students admire is a famous scientist."], a:0, e:"Dr Amal is the object of “admire” → whom. Remove “her”, and use commas because her name already identifies her."}
+ ]},
+ {id:"which", pron:"which", title:"Things, animals and whole ideas", use:"Use which for things and animals. Which can also refer back to the whole idea of the main clause (…, which surprised everyone).", rule:"things, animals, whole idea", ex:"Cyprus, which is an island, …",
+  qs:[
+  {t:"mc", s:"The World Scout Jamboree, ___ is held every four years, is for young people aged 14 to 17.", o:["who","which","where","whose"], a:"which", e:"The Jamboree is an event (a thing) → which."},
+  {t:"mc", s:"Cyprus, ___ is an island in the Mediterranean, has many traditional villages.", o:["where","who","which","when"], a:"which", e:"Careful: Cyprus is a place, but the pronoun is the subject of “is”. A place as subject or object → which, not where."},
+  {t:"mc", s:"Our school bus, ___ is 15 years old, broke down again this morning.", o:["which","who","whom","where"], a:"which", e:"A bus is a thing → which."},
+  {t:"mc", s:"He arrived two hours late, ___ annoyed everyone.", o:["what","that","who","which"], a:"which", e:"Which refers to the whole idea (arriving late). “What” and “that” are wrong here."},
+  {t:"type", s:"The charity run, ___ took place on Friday, raised SAR 20,000.", a:["which"], e:"A charity run is an event (thing) → which.", hint:{that:"Never use that in a non-defining clause (between commas). Use which."}},
+  {t:"type", s:"My phone, ___ I bought last month, has stopped working.", a:["which"], e:"A phone is a thing → which.", hint:{that:"Never use that in a non-defining clause (between commas). Use which."}},
+  {t:"type", s:"The tandem bicycle sprint, ___ was the first event of the day, was very exciting.", a:["which"], e:"A sprint (race) is a thing → which.", hint:{that:"Never use that in a non-defining clause (between commas). Use which."}},
+  {t:"comb", src:["The museum is free on Fridays.","It opened in 2015."], o:["The museum, that opened in 2015, is free on Fridays.","The museum, who opened in 2015, is free on Fridays.","The museum, which it opened in 2015, is free on Fridays.","The museum, which opened in 2015, is free on Fridays."], a:3, e:"Which replaces “it”. Do not use that between commas."},
+  {t:"comb", src:["Our team won the final.","This surprised everyone."], o:["Our team won the final, which surprised everyone.","Our team won the final, what surprised everyone.","Our team won the final, that surprised everyone.","Our team won the final, who surprised everyone."], a:0, e:"Which refers to the whole idea “our team won the final”."},
+  {t:"comb", src:["Thank you for your email.","I have just received it."], o:["Thank you for your email, which I have just received it.","Thank you for your email, which I have just received.","Thank you for your email, that I have just received.","Thank you for your email, who I have just received."], a:1, e:"Comma + which, and remove “it”."}
+ ]},
+ {id:"whose", pron:"whose", title:"Possession — his, her, its, their", use:"Use whose to show possession. It replaces his, her, its or their, and is always followed by a noun (whose father, whose capital).", rule:"possession + noun", ex:"Ahmed, whose father is an engineer, …",
+  qs:[
+  {t:"mc", s:"Ahmed, ___ father is an engineer, wants to study physics.", o:["who","whose","who's","which"], a:"whose", e:"His father → whose father."},
+  {t:"mc", s:"The charity, ___ main aim is to help refugees, was founded in 1990.", o:["whose","which","who","where"], a:"whose", e:"Its main aim → whose main aim. Whose can be used for organisations and things too."},
+  {t:"mc", s:"Iceland, ___ capital is Reykjavik, is famous for its volcanoes.", o:["where","which","whose","when"], a:"whose", e:"Its capital → whose capital."},
+  {t:"mc", s:"My neighbour, ___ dog barks all night, has finally moved house.", o:["who's","who","whose","which"], a:"whose", e:"His dog → whose dog. “Who's” means “who is” — a very common spelling mistake."},
+  {t:"type", s:"Sara, ___ brother is in our class, won the art prize.", a:["whose"], e:"Her brother → whose brother.", hint:{"who's":"“Who's” means “who is”. For possession write whose.",who:"The noun “brother” belongs to Sara → whose."}},
+  {t:"type", s:"The organisation, ___ volunteers work in 50 countries, needs more donations.", a:["whose"], e:"Its volunteers → whose volunteers.", hint:{"who's":"“Who's” means “who is”. For possession write whose."}},
+  {t:"type", s:"The students, ___ projects were the best, will travel to Cyprus.", a:["whose"], e:"Their projects → whose projects.", hint:{"who's":"“Who's” means “who is”. For possession write whose."}},
+  {t:"comb", src:["Omar is my best friend.","His mother is a doctor."], o:["Omar, who his mother is a doctor, is my best friend.","Omar, who's mother is a doctor, is my best friend.","Omar, whose mother is a doctor, is my best friend.","Omar, whose his mother is a doctor, is my best friend."], a:2, e:"Whose replaces “his”. Never keep “his” after whose."},
+  {t:"comb", src:["The car belongs to my uncle.","Its engine is electric."], o:["The car, whose engine is electric, belongs to my uncle.","The car, which its engine is electric, belongs to my uncle.","The car, whose its engine is electric, belongs to my uncle.","The car, who engine is electric, belongs to my uncle."], a:0, e:"Whose replaces “its”."},
+  {t:"comb", src:["Layla gave a great speech.","Her project won first prize."], o:["Layla, who her project won first prize, gave a great speech.","Layla, whom project won first prize, gave a great speech.","Layla, which project won first prize, gave a great speech.","Layla, whose project won first prize, gave a great speech."], a:3, e:"Whose replaces “her”."}
+ ]},
+ {id:"where", pron:"where", title:"Places — where something happens", use:"Use where for places when the clause has its own subject and verb (where my uncle works). If the place is the subject or the object, use which.", rule:"places (= in/at that place)", ex:"Madinah, where the hotel is located, …",
+  qs:[
+  {t:"mc", s:"Kampala, ___ Namono's studio is based, is the capital of Uganda.", o:["where","which","who","when"], a:"where", e:"Her studio is based in Kampala → where (= in that place)."},
+  {t:"mc", s:"We visited the old village, ___ my grandfather was born.", o:["which","where","when","whose"], a:"where", e:"My grandfather was born in that village → where."},
+  {t:"mc", s:"The camp, ___ we stayed for a week, was next to a lake.", o:["when","who","where","whom"], a:"where", e:"We stayed at the camp → where."},
+  {t:"mc", s:"Riyadh, ___ is the capital of Saudi Arabia, is growing very fast.", o:["where","when","who","which"], a:"which", e:"Trap! Riyadh is a place, but it is the subject of “is”. When the place is the subject → which."},
+  {t:"type", s:"The library, ___ students can study quietly, opens at 7 a.m.", a:["where"], e:"Students study in the library → where.", hint:{which:"Which needs to be the subject or object. Here “students” is the subject — use where (= in the library)."}},
+  {t:"type", s:"Madinah, ___ the hotel is located, welcomes millions of visitors every year.", a:["where"], e:"The hotel is located in Madinah → where.", hint:{which:"The clause already has a subject (the hotel). Use where (= in Madinah)."}},
+  {t:"type", s:"The beach, ___ the volunteers collected rubbish, is now clean.", a:["where"], e:"The volunteers collected rubbish on the beach → where.", hint:{which:"The clause has its own subject and object. Use where (= on the beach)."}},
+  {t:"comb", src:["Iceland is a cold country.","My uncle works there."], o:["Iceland, where my uncle works there, is a cold country.","Iceland, where my uncle works, is a cold country.","Iceland, which my uncle works, is a cold country.","Iceland, when my uncle works, is a cold country."], a:1, e:"Where replaces “there”. Do not keep “there”."},
+  {t:"comb", src:["The stadium was full.","The final was played there."], o:["The stadium, which the final was played, was full.","The stadium, where was played the final, was full.","The stadium, where the final was played, was full.","The stadium, that the final was played there, was full."], a:2, e:"Where replaces “there”, and the word order stays normal: where + subject + verb."},
+  {t:"comb", src:["Cyprus is beautiful.","We visited it last summer."], o:["Cyprus, where we visited last summer, is beautiful.","Cyprus, which we visited last summer, is beautiful.","Cyprus, where we visited it last summer, is beautiful.","Cyprus, who we visited last summer, is beautiful."], a:1, e:"Trap! “Visited it” — Cyprus is the object of visited, so we use which, not where."}
+ ]},
+ {id:"when", pron:"when", title:"Times — days, months, years, periods", use:"Use when for times when the clause has its own subject and verb. If the time word is the subject (Saturday, which is my favourite day), use which.", rule:"times (= at/in that time)", ex:"There is a programme from September to June, when members meet …",
+  qs:[
+  {t:"mc", s:"There is a programme of events from September to June, ___ members meet every Saturday afternoon.", o:["when","where","which","who"], a:"when", e:"Members meet during that time → when."},
+  {t:"mc", s:"In 2022, ___ I was in Grade 6, I joined the Scouts.", o:["which","where","when","whose"], a:"when", e:"I was in Grade 6 in 2022 → when."},
+  {t:"mc", s:"Ramadan, ___ many people volunteer at food banks, is a special month.", o:["where","when","who","whom"], a:"when", e:"Many people volunteer during Ramadan → when."},
+  {t:"mc", s:"Saturday, ___ is my favourite day, is when we play football.", o:["when","where","which","who"], a:"which", e:"Trap! Saturday is the subject of “is”. A time word as subject → which."},
+  {t:"type", s:"I will never forget 5 May 2024, ___ we won the national cup.", a:["when"], e:"We won the cup on that date → when.", hint:{which:"The clause has its own subject (we). Use when (= on that day)."}},
+  {t:"type", s:"The summer holidays, ___ the camp is held, last ten weeks.", a:["when"], e:"The camp is held during the summer holidays → when.", hint:{which:"The clause has its own subject (the camp). Use when."}},
+  {t:"type", s:"At 6 a.m., ___ the sun rises, the scouts start their walk.", a:["when"], e:"The sun rises at 6 a.m. → when.", hint:{which:"The clause has its own subject (the sun). Use when."}},
+  {t:"comb", src:["The concert is on Friday.","Most people are free then."], o:["The concert is on Friday, when most people are free then.","The concert is on Friday, which most people are free.","The concert is on Friday, where most people are free.","The concert is on Friday, when most people are free."], a:3, e:"When replaces “then”. Do not keep “then”."},
+  {t:"comb", src:["My father was born in 1975.","There were no mobile phones then."], o:["My father was born in 1975, when there were no mobile phones.","My father was born in 1975, where there were no mobile phones.","My father was born in 1975, which there were no mobile phones.","My father was born in 1975, when there were no mobile phones then."], a:0, e:"When replaces “then” for a year."},
+  {t:"comb", src:["Winter is my favourite season.","I go camping in the desert then."], o:["Winter, which I go camping in the desert, is my favourite season.","Winter, when I go camping in the desert, is my favourite season.","Winter, where I go camping in the desert, is my favourite season.","Winter when I go camping in the desert then, is my favourite season."], a:1, e:"When replaces “then”, and the clause goes between commas."}
+ ]}
+];
+
+const STORE = "lis-g9-relative-clauses-v1";
+let state = {name:"", ans:{}};
+try { const s = JSON.parse(localStorage.getItem(STORE) || "null"); if (s && s.ans) state = s; } catch(e) {}
+const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e) {} };
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => s.trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?]+$/,"");
+function seeded(key){ let h=0; for (const c of key) h=(h*31+c.charCodeAt(0))>>>0; return () => (h=(h*1664525+1013904223)>>>0)/4294967296; }
+function shuffle(arr, key){ const r=seeded(key), a=arr.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+const kVar = id => `var(--c-${id})`;
+
+// Rules + jump links
+document.getElementById("rules").innerHTML = SETS.map(s => `<div class="rule" style="--k:${kVar(s.id)}"><b>${s.pron}</b> — ${s.rule}<br><span class="ex">${esc(s.ex)}</span></div>`).join("");
+document.getElementById("jump").innerHTML = SETS.map(s => `<a href="#set-${s.id}" style="--k:${kVar(s.id)}">${s.pron}</a>`).join("");
+
+// Build sections
+let n = 0;
+const holder = document.getElementById("sets");
+SETS.forEach((set, si) => {
+  const sec = document.createElement("section");
+  sec.className = "set"; sec.id = "set-" + set.id; sec.style.setProperty("--k", kVar(set.id));
+  sec.innerHTML = `<div class="wrap"><div class="sethead"><span class="pron">${set.pron}</span><h2>Part ${si+1} · ${esc(set.title)}</h2><span class="setscore" id="ss-${set.id}">0 / 10</span><span class="use">${esc(set.use)}</span></div><div class="qlist"></div></div>`;
+  const list = sec.querySelector(".qlist");
+  set.qs.forEach((q, qi) => {
+    n++; const id = `${set.id}-${qi}`; q.id = id; q.n = n; q.set = set.id;
+    const el = document.createElement("div"); el.className = "q"; el.id = "q-" + id;
+    const kind = q.t === "mc" ? "Choose the correct pronoun" : q.t === "type" ? "Type the missing pronoun" : "Choose the best combined sentence";
+    let body = "";
+    if (q.t === "comb") {
+      body = `<div class="src">${q.src.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`;
+      const order = shuffle(q.o.map((t,i)=>({t,i})), id);
+      body += `<div class="opts long">${order.map(o=>`<button class="opt" type="button" data-i="${o.i}">${esc(o.t)}</button>`).join("")}</div>`;
+    } else {
+      const stem = esc(q.s).replace("___", `<span class="gap" id="g-${id}">&nbsp;?&nbsp;</span>`);
+      body = `<p class="stem">${stem}</p>`;
+      if (q.t === "mc") {
+        body += `<div class="opts">${shuffle(q.o, id).map(o=>`<button class="opt" type="button" data-v="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;
+      } else {
+        body += `<div class="typerow"><input id="in-${id}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Question ${n} answer" placeholder="Type one word"><button class="btn" type="button" id="ck-${id}">Check</button></div>`;
+      }
+    }
+    el.innerHTML = `<div class="qtop"><span class="num">Q${n}</span><span class="kind">${kind}</span></div>${body}<div class="fb" id="fb-${id}" hidden></div>`;
+    list.appendChild(el);
+    if (q.t === "type") {
+      const inp = el.querySelector("input"), btn = el.querySelector("button");
+      const go = () => { if (inp.value.trim()) answer(q, inp.value); };
+      btn.addEventListener("click", go);
+      inp.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+    } else {
+      el.querySelectorAll(".opt").forEach(b => b.addEventListener("click", () => answer(q, q.t === "mc" ? b.dataset.v : +b.dataset.i)));
+    }
+  });
+  holder.appendChild(sec);
+});
+const ALL = SETS.flatMap(s => s.qs);
+
+function correctOf(q){ return q.t === "type" ? q.a.includes(norm(String(q.given))) : q.given === q.a; }
+function rightText(q){ return q.t === "comb" ? q.o[q.a] : q.t === "type" ? q.a[0] : q.a; }
+
+function paint(q){
+  const el = document.getElementById("q-" + q.id), fb = document.getElementById("fb-" + q.id);
+  const v = state.ans[q.id]; if (v === undefined) return;
+  q.given = v; const ok = correctOf(q);
+  el.classList.toggle("ok", ok); el.classList.toggle("no", !ok);
+  if (q.t === "type") {
+    const inp = document.getElementById("in-" + q.id);
+    inp.value = v; inp.disabled = true; inp.classList.add(ok ? "right" : "wrong");
+    document.getElementById("ck-" + q.id).disabled = true;
+  } else {
+    el.querySelectorAll(".opt").forEach(b => {
+      const val = q.t === "mc" ? b.dataset.v : +b.dataset.i;
+      b.disabled = true;
+      if (val === q.a) b.classList.add("right");
+      else if (val === v) b.classList.add("wrong");
+    });
+  }
+  const g = document.getElementById("g-" + q.id); if (g) g.textContent = rightText(q);
+  let extra = "";
+  if (!ok && q.t === "type" && q.hint) { const h = q.hint[norm(String(v))]; if (h) extra = " " + h; }
+  fb.hidden = false; fb.className = "fb " + (ok ? "ok" : "no");
+  fb.innerHTML = ok ? `<strong>Correct!</strong> ${esc(q.e)}` : `<strong>Not quite.</strong> The answer is <b>${esc(rightText(q))}</b>.${esc(extra)} ${esc(q.e)}`;
+}
+
+function answer(q, v){
+  if (state.ans[q.id] !== undefined) return;
+  state.ans[q.id] = v; save(); paint(q); tally();
+}
+
+const BANDS = [[90,"Excellent — you have mastered relative clauses."],[75,"Very good — review the questions you missed."],[60,"Good — read the rules again for the parts in red."],[0,"Keep practising — reread the language focus box, then try again."]];
+function tally(){
+  let total = 0, done = 0;
+  const per = SETS.map(s => { let c=0,d=0; s.qs.forEach(q => { if (state.ans[q.id] !== undefined){ d++; q.given = state.ans[q.id]; if (correctOf(q)) c++; } }); total+=c; done+=d; document.getElementById("ss-"+s.id).textContent = `${c} / 10`; return {s,c,d}; });
+  document.getElementById("totalScore").textContent = `${total} / 60`;
+  document.getElementById("fill").style.width = (done/60*100) + "%";
+  const pct = done ? Math.round(total/60*100) : 0;
+  document.getElementById("resPct").textContent = pct + "%";
+  document.getElementById("resLine").textContent = `${total} of 60 correct · ${done} answered`;
+  const name = state.name.trim();
+  document.getElementById("resTitle").textContent = name ? `Results for ${name}` : "Your results";
+  document.getElementById("resBand").textContent = done === 60 ? BANDS.find(b => pct >= b[0])[1] : done ? `${60-done} questions left to answer.` : "Answer the questions to see your band.";
+  document.getElementById("resGrid").innerHTML = per.map(p => `<div class="mini" style="--k:${kVar(p.s.id)}"><b>${p.s.pron}</b><span>${p.c} / 10</span><small style="color:var(--muted)">${p.d} answered</small></div>`).join("");
+}
+
+const nameIn = document.getElementById("studentName");
+nameIn.value = state.name || "";
+nameIn.addEventListener("input", () => { state.name = nameIn.value; save(); tally(); });
+
+document.getElementById("toFirst").addEventListener("click", () => {
+  const q = ALL.find(q => state.ans[q.id] === undefined);
+  const el = q ? document.getElementById("q-" + q.id) : document.getElementById("set-who");
+  el.scrollIntoView({behavior:"smooth", block:"center"});
+  if (q && q.t === "type") setTimeout(() => document.getElementById("in-" + q.id).focus(), 400);
+});
+const box = document.getElementById("confirmBox");
+document.getElementById("resetBtn").addEventListener("click", () => box.hidden = false);
+document.getElementById("noReset").addEventListener("click", () => box.hidden = true);
+document.getElementById("yesReset").addEventListener("click", () => {
+  state.ans = {}; save(); box.hidden = true;
+  ALL.forEach(q => {
+    const el = document.getElementById("q-" + q.id); el.classList.remove("ok","no");
+    document.getElementById("fb-" + q.id).hidden = true;
+    const g = document.getElementById("g-" + q.id); if (g) g.innerHTML = "&nbsp;?&nbsp;";
+    if (q.t === "type") { const i = document.getElementById("in-" + q.id); i.value=""; i.disabled=false; i.className=""; document.getElementById("ck-" + q.id).disabled=false; }
+    else el.querySelectorAll(".opt").forEach(b => { b.disabled=false; b.classList.remove("right","wrong"); });
+  });
+  tally(); document.getElementById("set-who").scrollIntoView({behavior:"smooth"});
+});
+
+ALL.forEach(paint); tally();
+</script>
+</body>
+</html>
