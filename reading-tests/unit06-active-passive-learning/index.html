@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Reading – Unit 6: Active or Passive Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Reading Comprehension: Active or Passive Learning?</h1>
+  <p>Unit 6: Learning and study skills · Text 6.1 “Active or passive learning: Which do you prefer?”</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">40 questions</span><span class="chip">44 marks</span><span class="chip">⏱ 40 minutes</span><span class="chip">5 question types</span><span class="chip">+ summary task</span></div>
+    <ul class="ins">
+      <li>Read <b>Text 6.1</b> in your Coursebook (pages 79–80) carefully first. Keep it open while you answer.</li>
+      <li>Answer <b>all</b> questions. Use information from the text only.</li>
+      <li>Spelling counts in the vocabulary section. Keep short answers brief.</li>
+      <li>Your answers are saved on this device while you work. Press <b>Submit</b> when you finish to see your score.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 9A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start the test →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/40</span><span class="timer" id="timer">40:00</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your result</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm">out of 44</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by section</h3><div class="brk" id="brk"></div>
+    <p class="note">Short answers and notes are checked automatically for key words. Your teacher may adjust these marks after reading your answers.</p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your result to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams).</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="6" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const DATA = JSON.parse(decodeURIComponent(escape(atob("W3siaWQiOiAiQSIsICJ0aXRsZSI6ICJHYXAtZmlsbDogdm9jYWJ1bGFyeSBmcm9tIHRoZSBhcnRpY2xlIiwgImljb24iOiAi8J+nqSIsICJza2lsbCI6ICJWb2NhYnVsYXJ5ICYgd29yZCBjbGFzcyIsICJpbnN0ciI6ICJDb3Vyc2Vib29rIEFjdGl2aXR5IEM1LiBDaG9vc2UgdGhlIHdvcmQgZnJvbSBBY3Rpdml0eSBDNCAoYWJzb3JiLCBjb25maWRlbmNlLCBjdXJyZW50LCBkaWxlbW1hLCBkcmFtYXRpY2FsbHksIGZvcnR1bmF0ZSwgaWdub3JlLCBwcm9jZXNzLCByZWZsZWN0aW5nLCBzdHJ1Z2dsZSkgdGhhdCBjb3JyZWN0bHkgY29tcGxldGVzIGVhY2ggZ2FwIChhKeKAkyhqKSBpbiBUZXh0IDYuMS4iLCAicXMiOiBbeyJ0IjogIm1jcSIsICJxIjogIkdhcCAoYSksIHBhcmFncmFwaCAxOiDigJxJZiB5b3UgYXJlIGZpbmRpbmcgaXQgZGlmZmljdWx0IHRvIGFuc3dlciB0aGlzIHdpdGggYW55IF9fX19fXywgdHJ5IHRoZSBzZWNvbmQgcXVlc3Rpb27igKbigJ0iLCAibyI6IFsicHJvY2VzcyIsICJjb25maWRlbmNlIiwgInN0cnVnZ2xlIiwgImN1cnJlbnQiXSwgImEiOiAxLCAibiI6ICLigJx3aXRoIGFueSBjb25maWRlbmNl4oCdID0gd2l0aCBhbnkgY2VydGFpbnR5IChub3VuIGFmdGVyIOKAmGFueeKAmSkuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJHYXAgKGIpLCBwYXJhZ3JhcGggMTog4oCcSWYgbGlrZSBtb3N0IHBlb3BsZSB5b3UgX19fX19fIHRvIHJlY2FsbCB0aGUgdGhpbmdzIHRoYXQgeW914oCZdmUgbGVhcm504oCm4oCdIiwgIm8iOiBbInN0cnVnZ2xlIiwgImFic29yYiIsICJpZ25vcmUiLCAicmVmbGVjdGluZyJdLCAiYSI6IDAsICJuIjogIuKAnHN0cnVnZ2xlIHRvIHJlY2FsbOKAnSA9IHRyeSBoYXJkIHRvIHJlbWVtYmVyICh2ZXJiIGFmdGVyIHRoZSBzdWJqZWN0IOKAmHlvdeKAmSkuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJHYXAgKGMpLCBwYXJhZ3JhcGggMTog4oCc4oCmeW91IGFyZSBmYWNpbmcgdGhlIF9fX19fXyBvZiB0aGUgaW5mb3JtYXRpb24gYWdlLuKAnSIsICJvIjogWyJjb25maWRlbmNlIiwgInByb2Nlc3MiLCAiZGlsZW1tYSIsICJmb3J0dW5hdGUiXSwgImEiOiAyLCAibiI6ICLigJx0aGUgZGlsZW1tYSBvZiB0aGUgaW5mb3JtYXRpb24gYWdl4oCdID0gYSBzZXJpb3VzIHByb2JsZW0gKG5vdW4gYWZ0ZXIg4oCYdGhl4oCZKS4ifSwgeyJ0IjogIm1jcSIsICJxIjogIkdhcCAoZCksIHBhcmFncmFwaCAxOiDigJxXZSBhcmUgX19fX19fIHRvIGJlIGFibGUgdG8gYWNjZXNzIGluZm9ybWF0aW9uIGFueSB0aW1lLCBhbnl3aGVyZeKApuKAnSIsICJvIjogWyJjdXJyZW50IiwgImZvcnR1bmF0ZSIsICJkcmFtYXRpY2FsbHkiLCAic3RydWdnbGUiXSwgImEiOiAxLCAibiI6ICLigJxXZSBhcmUgZm9ydHVuYXRlIHRv4oCm4oCdID0gd2UgYXJlIGx1Y2t5IChhZGplY3RpdmUgYWZ0ZXIg4oCYYXJl4oCZKS4ifSwgeyJ0IjogIm1jcSIsICJxIjogIkdhcCAoZSksIHBhcmFncmFwaCAyOiDigJxBY2NvcmRpbmcgdG8gX19fX19fIHJlc2VhcmNoLCB3ZSBjb25zdW1lIGluZm9ybWF0aW9uIGVxdWl2YWxlbnQgdG8gMTc0IG5ld3NwYXBlcnMgZXZlcnkgc2luZ2xlIGRheS7igJ0iLCAibyI6IFsiY3VycmVudCIsICJmb3J0dW5hdGUiLCAiZGlsZW1tYSIsICJyZWZsZWN0aW5nIl0sICJhIjogMCwgIm4iOiAi4oCcY3VycmVudCByZXNlYXJjaOKAnSA9IHJlc2VhcmNoIGF0IHRoaXMgdGltZSAoYWRqZWN0aXZlIGJlZm9yZSBhIG5vdW4pLiJ9LCB7InQiOiAibWNxIiwgInEiOiAiR2FwIChmKSwgcGFyYWdyYXBoIDI6IOKAnFdoaWxlIGV2ZXJ5b25lIGlzIGRpZmZlcmVudCBpbiB0aGUgd2F5IHRoYXQgdGhleSBfX19fX18gaW5mb3JtYXRpb27igKbigJ0iLCAibyI6IFsiaWdub3JlIiwgInN0cnVnZ2xlIiwgInByb2Nlc3MiLCAiZHJhbWF0aWNhbGx5Il0sICJhIjogMiwgIm4iOiAi4oCccHJvY2VzcyBpbmZvcm1hdGlvbuKAnSA9IHBlcmZvcm0gYSBzZXJpZXMgb2YgYWN0aW9ucyBvbiBpdCAodmVyYiBhZnRlciDigJh0aGV54oCZKS4ifSwgeyJ0IjogIm1jcSIsICJxIjogIkdhcCAoZyksIHBhcmFncmFwaCAyOiDigJzigKZzaW5jZSBvdXIgYnJhaW5zIGNhbm5vdCBfX19fX18gc3VjaCBhIGh1Z2UgYW1vdW50IG9mIGluZm9ybWF0aW9uIGluIHN1Y2ggYSBzaG9ydCBwZXJpb2Qgb2YgdGltZS7igJ0iLCAibyI6IFsicmVmbGVjdGluZyIsICJhYnNvcmIiLCAiY29uZmlkZW5jZSIsICJjdXJyZW50Il0sICJhIjogMSwgIm4iOiAi4oCcY2Fubm90IGFic29yYuKAnSA9IGNhbm5vdCB0YWtlIGluIG9yIHVuZGVyc3RhbmQgKHZlcmIgYWZ0ZXIg4oCYY2Fubm904oCZKS4ifSwgeyJ0IjogIm1jcSIsICJxIjogIkdhcCAoaCksIHBhcmFncmFwaCAzOiDigJxVbmZvcnR1bmF0ZWx5LCBwYXNzaXZlIGxlYXJuaW5nIGFjdHVhbGx5IF9fX19fXyByZWR1Y2VzIG91ciB1bmRlcnN0YW5kaW5nIG9mIHdoYXQgd2UgdGFrZSBpbuKApuKAnSIsICJvIjogWyJmb3J0dW5hdGUiLCAiZHJhbWF0aWNhbGx5IiwgImN1cnJlbnQiLCAiZGlsZW1tYSJdLCAiYSI6IDEsICJuIjogIuKAnGRyYW1hdGljYWxseSByZWR1Y2Vz4oCdID0gZ3JlYXRseSByZWR1Y2VzIChhZHZlcmIgYmVmb3JlIGEgdmVyYiDigJMgcm9vdCDigJhkcmFtYeKAmSArIHN1ZmZpeCDigJgtbHnigJkpLiJ9LCB7InQiOiAibWNxIiwgInEiOiAiR2FwIChpKSwgcGFyYWdyYXBoIDM6IOKAnOKApm91ciBicmFpbiB3aWxsIGZvcmdldCBvciBfX19fX18gbW9zdCBvZiB0aGUgaW5mb3JtYXRpb24gYmVjYXVzZSBpdCBkb2VzbuKAmXQgcmVjb2duaXNlIHRoYXQgaXQgaGFzIGFueSB2YWx1ZS7igJ0iLCAibyI6IFsiYWJzb3JiIiwgInByb2Nlc3MiLCAiaWdub3JlIiwgInN0cnVnZ2xlIl0sICJhIjogMiwgIm4iOiAi4oCcZm9yZ2V0IG9yIGlnbm9yZeKAnSA9IHNob3cgbm8gaW50ZXJlc3QgaW4gdGhlIGluZm9ybWF0aW9uICh2ZXJiIGFmdGVyIOKAmHdpbGzigJkpLiJ9LCB7InQiOiAibWNxIiwgInEiOiAiR2FwIChqKSwgcGFyYWdyYXBoIDU6IOKAnOKApm9ic2VydmluZyBhbmQgZXhwZXJpZW5jaW5nIHRoZSB0aGluZ3MgYXJvdW5kIHlvdSBhbmQgdGhlbiBfX19fX18gb24gdGhlIGV4cGVyaWVuY2UgdG8gaW1wcm92ZSBib3RoIHBlcmZvcm1hbmNlIGFuZCB1bmRlcnN0YW5kaW5nLuKAnSIsICJvIjogWyJyZWZsZWN0aW5nIiwgInN0cnVnZ2xlIiwgInByb2Nlc3MiLCAiY29uZmlkZW5jZSJdLCAiYSI6IDAsICJuIjogIuKAnHJlZmxlY3Rpbmcgb24gdGhlIGV4cGVyaWVuY2XigJ0gPSB0aGlua2luZyBjYXJlZnVsbHkgYWJvdXQgaXQgKC1pbmcgZm9ybSBhZnRlciDigJh0aGVu4oCZLCBwYXJhbGxlbCB3aXRoIG9ic2VydmluZyAvIGV4cGVyaWVuY2luZykuIn1dfSwgeyJpZCI6ICJCIiwgInRpdGxlIjogIlBhcmFncmFwaCBoZWFkaW5ncyIsICJpY29uIjogIvCfl4LvuI8iLCAic2tpbGwiOiAiR2lzdCAmIG1haW4gaWRlYXMiLCAiaW5zdHIiOiAiQ291cnNlYm9vayBBY3Rpdml0eSBDNi4gTWF0Y2ggcGFyYWdyYXBocyAx4oCTNiB3aXRoIGhlYWRpbmdzIGHigJNnLiBUaGVyZSBpcyBPTkUgZXh0cmEgaGVhZGluZyB0aGF0IHlvdSBkbyBub3QgbmVlZC4iLCAia2V5IjogWyJhIOKAkyBUb28gbXVjaCBpbmZvcm1hdGlvbiIsICJiIOKAkyBFeHBlcmllbmNlIHRoZSB3b3JsZCIsICJjIOKAkyBNYWtlIHRoZSByaWdodCBjaG9pY2VzIiwgImQg4oCTIEhvdyBjaGlsZHJlbiBsZWFybiIsICJlIOKAkyBFbmdhZ2luZyB3aXRoIGxlYXJuaW5nIiwgImYg4oCTIFRoZSB3b3JzdCB3YXkgdG8gbGVhcm4iLCAiZyDigJMgVHdvIGltcG9ydGFudCBxdWVzdGlvbnMiXSwgInFzIjogW3sidCI6ICJtYXRjaCIsICJxIjogIlBhcmFncmFwaCAxIiwgImEiOiAiZyIsICJuIjogIlRoZSBwYXJhZ3JhcGggb3BlbnMgd2l0aCB0d28gcXVlc3Rpb25zOiDigJxXaGF0IGRpZCB5b3UgbGVhcm4geWVzdGVyZGF5P+KAnSBhbmQg4oCcV2hhdCBoYXZlIHlvdSBsZWFybnQgdG9kYXk/4oCdIn0sIHsidCI6ICJtYXRjaCIsICJxIjogIlBhcmFncmFwaCAyIiwgImEiOiAiYSIsICJuIjogIkluZm9ybWF0aW9uIGVxdWl2YWxlbnQgdG8gMTc0IG5ld3NwYXBlcnMgYSBkYXkg4oCTIOKAnGluZm9ybWF0aW9uIG92ZXJsb2Fk4oCdLiJ9LCB7InQiOiAibWF0Y2giLCAicSI6ICJQYXJhZ3JhcGggMyIsICJhIjogImYiLCAibiI6ICJQYXNzaXZlIGxlYXJuaW5nIOKAnGRyYW1hdGljYWxseSByZWR1Y2VzIG91ciB1bmRlcnN0YW5kaW5n4oCdIOKAkyBhIGxhcmdlIHBhcnQgb2YgbGVhcm5pbmcgZ29lcyB0byB3YXN0ZS4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiUGFyYWdyYXBoIDQiLCAiYSI6ICJlIiwgIm4iOiAiQWN0aXZlIGxlYXJuaW5nOiDigJxlbmdhZ2luZyBpbiB0YXNrc+KAnSB3aGlsZSByZWFkaW5nLCBsaXN0ZW5pbmcgb3Igd2F0Y2hpbmcuIn0sIHsidCI6ICJtYXRjaCIsICJxIjogIlBhcmFncmFwaCA1IiwgImEiOiAiYiIsICJuIjogIkV4cGVyaWVudGlhbCBsZWFybmluZyA9IOKAnGdvaW5nIG91dCBpbnRvIHRoZSByZWFsIHdvcmxkLCBvYnNlcnZpbmcgYW5kIGV4cGVyaWVuY2luZ+KAnS4ifSwgeyJ0IjogIm1hdGNoIiwgInEiOiAiUGFyYWdyYXBoIDYiLCAiYSI6ICJjIiwgIm4iOiAi4oCcQ2hvb3NlIHRoZSBhcHByb2FjaCB0aGF0IHdvcmtzIGJlc3QgZm9yIHlvdXIgb3duIG5lZWRz4oCmIFRoZSB0cmljayBpcyB0byBjaG9vc2UgdGhlIG9uZSB0aGF0IHdpbGwgbGVhZCB0byB1bmRlcnN0YW5kaW5nIGFuZCBzdWNjZXNzLuKAnSBFeHRyYSBoZWFkaW5nOiBkIChjaGlsZHJlbiBhcmUgbWVudGlvbmVkIG9ubHkgYnJpZWZseSBpbiBwYXJhZ3JhcGggNSkuIn1dfSwgeyJpZCI6ICJDIiwgInRpdGxlIjogIlRydWUsIEZhbHNlIG9yIE5vdCBHaXZlbiIsICJpY29uIjogIuKalu+4jyIsICJza2lsbCI6ICJVbmRlcnN0YW5kaW5nIGRldGFpbCIsICJpbnN0ciI6ICJRdWVzdGlvbnMgMeKAkzYgYXJlIENvdXJzZWJvb2sgQWN0aXZpdHkgQzcuIENob29zZSBUUlVFIGlmIHRoZSBzdGF0ZW1lbnQgYWdyZWVzIHdpdGggdGhlIHRleHQsIEZBTFNFIGlmIGl0IGNvbnRyYWRpY3RzIHRoZSB0ZXh0LCBvciBOT1QgR0lWRU4gaWYgdGhlcmUgaXMgbm8gaW5mb3JtYXRpb24gYWJvdXQgaXQuIiwgInFzIjogW3sidCI6ICJ0ZiIsICJxIjogIk1vc3QgcGVvcGxlIGNhbiBlYXNpbHkgcmVtZW1iZXIgdGhlIHRoaW5ncyB0aGV5IGhhdmUgbGVhcm50LiIsICJhIjogIkYiLCAibiI6ICJNb3N0IHBlb3BsZSDigJxzdHJ1Z2dsZSB0byByZWNhbGwgdGhlIHRoaW5ncyB0aGF0IHlvdeKAmXZlIGxlYXJudOKAnSAocGFyYWdyYXBoIDEpLiJ9LCB7InQiOiAidGYiLCAicSI6ICJJbmZvcm1hdGlvbiBvdmVybG9hZCBoZWxwcyB1cyB0byBsZWFybiBtb3JlIHF1aWNrbHkuIiwgImEiOiAiRiIsICJuIjogIkl0IOKAnGxpbWl0cyBvdXIgY2FwYWNpdHkgZm9yIGxlYXJuaW5n4oCdIOKAkyBvdXIgYnJhaW5zIGNhbm5vdCBhYnNvcmIgc28gbXVjaCBpbmZvcm1hdGlvbiBzbyBxdWlja2x5IChwYXJhZ3JhcGggMikuIn0sIHsidCI6ICJ0ZiIsICJxIjogIlBhc3NpdmUgbGVhcm5pbmcgaXMgbm90IHRoZSBiZXN0IGFwcHJvYWNoLiIsICJhIjogIlQiLCAibiI6ICJQYXNzaXZlIGxlYXJuaW5nIOKAnGRyYW1hdGljYWxseSByZWR1Y2VzIG91ciB1bmRlcnN0YW5kaW5n4oCdLCBzbyBhIGxhcmdlIHBhcnQgb2YgbGVhcm5pbmcgZ29lcyB0byB3YXN0ZSAocGFyYWdyYXBoIDMpLiJ9LCB7InQiOiAidGYiLCAicSI6ICJBY3RpdmUgbGVhcm5pbmcgcmVxdWlyZXMgeW91IHRvIGRvIHNvbWV0aGluZy4iLCAiYSI6ICJUIiwgIm4iOiAi4oCc4oCmd2UgYXJlIGRvaW5nIHNvbWV0aGluZyB3aXRoIHRoZSBpbmZvcm1hdGlvbiB3ZSByZWNlaXZlIGFuZCB0aGVuIGdldHRpbmcgZmVlZGJhY2vigJ0gKHBhcmFncmFwaCA0KS4ifSwgeyJ0IjogInRmIiwgInEiOiAiUmlzayBpcyBub3QgcGFydCBvZiBsZWFybmluZyBtb3JlIGVmZmljaWVudGx5LiIsICJhIjogIkYiLCAibiI6ICLigJxJZiB5b3UgYXJlIHByZXBhcmVkIHRvIGVuZ2FnZSB3aXRoIGluZm9ybWF0aW9uIGFuZCBmYWNlIGNoYWxsZW5nZXMsIHlvdSBiZWNvbWUgc21hcnRlcuKAnSAocGFyYWdyYXBoIDUpLiJ9LCB7InQiOiAidGYiLCAicSI6ICJFdmVyeSBsZWFybmVyIHNob3VsZCB0YWtlIHRoZSBzYW1lIGxlYXJuaW5nIGFwcHJvYWNoLiIsICJhIjogIkYiLCAibiI6ICLigJxZb3UgY2FuIGNob29zZSB0aGUgYXBwcm9hY2ggdGhhdCB3b3JrcyBiZXN0IGZvciB5b3VyIG93biBuZWVkc+KApiB0aGVyZSBpcyBubyByaWdodCBvciB3cm9uZ+KAnSAocGFyYWdyYXBoIDYpLiJ9LCB7InQiOiAidGYiLCAicSI6ICJUZWNobm9sb2d5IGNoYW5nZXMgbW9yZSBxdWlja2x5IHRoYW4gdGhlIGh1bWFuIGJvZHkgY2FuIGFkYXB0LiIsICJhIjogIlQiLCAibiI6ICLigJxUaGUgaHVtYW4gYm9keSB0YWtlcyBmYXIgbG9uZ2VyIHRvIGFkYXB0IGFuZCBjaGFuZ2UgdGhhbiB0ZWNobm9sb2d5IGRvZXPigJ0gKHBhcmFncmFwaCAyKS4ifSwgeyJ0IjogInRmIiwgInEiOiAiTW9zdCBzdHVkZW50cyBwcmVmZXIgYWN0aXZlIGxlYXJuaW5nIHRvIHBhc3NpdmUgbGVhcm5pbmcuIiwgImEiOiAiTkciLCAibiI6ICJUaGUgYXJ0aWNsZSBkb2VzIG5vdCBzYXkgd2hpY2ggdHlwZSBvZiBsZWFybmluZyBtb3N0IHN0dWRlbnRzIHByZWZlciDigJMgaXQgYXNrcyB0aGUgcmVhZGVyIHdoaWNoIHRoZXkgdGhpbmsgaXMgYmVzdC4ifV19LCB7ImlkIjogIkQiLCAidGl0bGUiOiAiU2hvcnQtYW5zd2VyIHF1ZXN0aW9ucyIsICJpY29uIjogIuKcje+4jyIsICJza2lsbCI6ICJMb2NhdGluZyBzcGVjaWZpYyBkZXRhaWxzIiwgImluc3RyIjogIkFuc3dlciBlYWNoIHF1ZXN0aW9uIGJyaWVmbHksIHVzaW5nIGluZm9ybWF0aW9uIGZyb20gdGhlIHRleHQuIiwgInFzIjogW3sidCI6ICJzaG9ydCIsICJxIjogIldoYXQgYXJlIHRoZSB0d28gcXVlc3Rpb25zIHRoZSB3cml0ZXIgYXNrcyBhdCB0aGUgc3RhcnQgb2YgdGhlIGFydGljbGU/ICgyIG1hcmtzKSIsICJtIjogMiwgInB0cyI6IFsieWVzdGVyZGF5IiwgInRvZGF5Il0sICJhIjogIldoYXQgZGlkIHlvdSBsZWFybiB5ZXN0ZXJkYXk/IGFuZCBXaGF0IGhhdmUgeW91IGxlYXJudCB0b2RheT8iLCAibiI6ICIxIG1hcmsgZm9yIGVhY2ggcXVlc3Rpb24uIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIkFjY29yZGluZyB0byBjdXJyZW50IHJlc2VhcmNoLCBob3cgbXVjaCBpbmZvcm1hdGlvbiBkbyB3ZSBjb25zdW1lIGV2ZXJ5IGRheT8iLCAibSI6IDEsICJwdHMiOiBbIjE3NHxvbmUgaHVuZHJlZCAoYW5kICk/c2V2ZW50eS4/Zm91ciJdLCAiYSI6ICJJbmZvcm1hdGlvbiBlcXVpdmFsZW50IHRvIDE3NCBuZXdzcGFwZXJzLiIsICJuIjogIlBhcmFncmFwaCAyLiIsICJyZWplY3QiOiAiNjMifSwgeyJ0IjogInNob3J0IiwgInEiOiAiSG93IG1hbnkgbmV3c3BhcGVycyBpcyB0aGlzIGVxdWFsIHRvIGluIGEgeWVhcj8iLCAibSI6IDEsICJwdHMiOiBbIjYzWyAsLl0/MDAwfHNpeHR5Lj90aHJlZSB0aG91c2FuZCJdLCAiYSI6ICJNb3JlIHRoYW4gNjMgMDAwIG5ld3NwYXBlcnMuIiwgIm4iOiAiUGFyYWdyYXBoIDIuIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIldoeSBkb2VzIGluZm9ybWF0aW9uIG92ZXJsb2FkIGxpbWl0IG91ciBjYXBhY2l0eSBmb3IgbGVhcm5pbmc/IiwgIm0iOiAxLCAicHRzIjogWyIoYnJhaW58bWluZClzPy57MCw0MH0oY2Fubm90fGNhbid0fGNhbiBub3R8dW5hYmxlfG5vdCBhYmxlfGFyZSBub3QgYWJsZXxpc24ndCBhYmxlfGFyZW4ndCBhYmxlKSIsICIoaHVnZXxsYXJnZXxiaWd8Z3JlYXR8dG9vIG11Y2gpLnswLDQwfShzaG9ydHxsaXR0bGV8c21hbGwpLnswLDEwfSh0aW1lfHBlcmlvZCkiXSwgImEiOiAiQmVjYXVzZSBvdXIgYnJhaW5zIGNhbm5vdCBhYnNvcmIgc3VjaCBhIGh1Z2UgYW1vdW50IG9mIGluZm9ybWF0aW9uIGluIHN1Y2ggYSBzaG9ydCBwZXJpb2Qgb2YgdGltZS4iLCAibiI6ICJQYXJhZ3JhcGggMi4ifSwgeyJ0IjogInNob3J0IiwgInEiOiAiR2l2ZSBUV08gd2F5cyBpbiB3aGljaCBwYXNzaXZlIGxlYXJuZXJzIHRha2UgaW4gaW5mb3JtYXRpb24uICgyIG1hcmtzKSIsICJtIjogMiwgInB0cyI6IFsicmVhZCIsICJsaXN0ZW4iLCAid2F0Y2giXSwgImEiOiAiQnkgcmVhZGluZywgbGlzdGVuaW5nIG9yIHdhdGNoaW5nIHNvbWV0aGluZyAoYW55IHR3bykuIiwgIm4iOiAiUGFyYWdyYXBoIDMuIn0sIHsidCI6ICJzaG9ydCIsICJxIjogIldoeSBkb2VzIG91ciBicmFpbiBmb3JnZXQgb3IgaWdub3JlIG1vc3QgaW5mb3JtYXRpb24gd2hlbiBldmVyeXRoaW5nIGlzIGp1c3QgYSBjbGljayBhd2F5PyIsICJtIjogMSwgInB0cyI6IFsidmFsdWV8dmFsdWFibGV8d29ydGh8aW1wb3J0YW50fHVzZWZ1bCJdLCAiYSI6ICJCZWNhdXNlIGl0IGRvZXNu4oCZdCByZWNvZ25pc2UgdGhhdCB0aGUgaW5mb3JtYXRpb24gaGFzIGFueSB2YWx1ZS4iLCAibiI6ICJQYXJhZ3JhcGggMy4ifSwgeyJ0IjogInNob3J0IiwgInEiOiAiR2l2ZSBUV08gZXhhbXBsZXMgb2YgdGFza3MgdGhhdCBhcmUgcGFydCBvZiBhY3RpdmUgbGVhcm5pbmcuICgyIG1hcmtzKSIsICJtIjogMiwgInB0cyI6IFsibm90ZSIsICJtYXRjaCIsICJkaWFncmFtIl0sICJhIjogIk5vdGUtdGFraW5nLCBtYXRjaGluZyBpZGVhcywgY29tcGxldGluZyBhIGRpYWdyYW0gKGFueSB0d28pLiIsICJuIjogIlBhcmFncmFwaCA0LiJ9LCB7InQiOiAic2hvcnQiLCAicSI6ICJXaGF0IGRvZXMgZXhwZXJpZW50aWFsIGxlYXJuaW5nIGludm9sdmU/IEdpdmUgVFdPIGRldGFpbHMuICgyIG1hcmtzKSIsICJtIjogMiwgInB0cyI6IFsicmVhbCB3b3JsZHxnbyhpbmcpPyBvdXR8d29ybGQgYXJvdW5kfHRoaW5ncyBhcm91bmR8b2JzZXJ2fGV4cGVyaWVuYyIsICJyZWZsZWN0fHRoaW5rKGluZyk/LnswLDE1fShhYm91dHxvbnxiYWNrKXxpbXByb3ZlIl0sICJhIjogIkdvaW5nIG91dCBpbnRvIHRoZSByZWFsIHdvcmxkLCBvYnNlcnZpbmcgYW5kIGV4cGVyaWVuY2luZyB0aGluZ3MsIGFuZCB0aGVuIHJlZmxlY3Rpbmcgb24gdGhlIGV4cGVyaWVuY2UgdG8gaW1wcm92ZSBwZXJmb3JtYW5jZSBhbmQgdW5kZXJzdGFuZGluZy4iLCAibiI6ICJQYXJhZ3JhcGggNS4ifV19LCB7ImlkIjogIkUiLCAidGl0bGUiOiAiTXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyIsICJpY29uIjogIvCflJgiLCAic2tpbGwiOiAiR2lzdCwgaW5mZXJlbmNlICYgbWVhbmluZyIsICJpbnN0ciI6ICJDaG9vc2UgdGhlIGNvcnJlY3QgYW5zd2VyOiBBLCBCLCBDIG9yIEQuIiwgInFzIjogW3sidCI6ICJtY3EiLCAicSI6ICJXaGF0IGlzIHRoZSBtYWluIHB1cnBvc2Ugb2YgdGhlIGFydGljbGU/IiwgIm8iOiBbIlRvIGFkdmVydGlzZSBhbiBvbmxpbmUgbGVhcm5pbmcgY291cnNlIiwgIlRvIGVuY291cmFnZSByZWFkZXJzIHRvIHRoaW5rIGFib3V0IGhvdyB0aGV5IGxlYXJuIGFuZCB0byBiZWNvbWUgYWN0aXZlIGxlYXJuZXJzIiwgIlRvIGV4cGxhaW4gaG93IG5ld3NwYXBlcnMgYXJlIHByb2R1Y2VkIiwgIlRvIGNvbXBhcmUgdGhlIGxlYXJuaW5nIG9mIGNoaWxkcmVuIGFuZCBhZHVsdHMiXSwgImEiOiAxLCAibiI6ICJUaGUgd3JpdGVyIGRlc2NyaWJlcyB0aGUgcHJvYmxlbXMgb2YgcGFzc2l2ZSBsZWFybmluZyBhbmQgcmVjb21tZW5kcyBhY3RpdmUgbGVhcm5pbmcuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJXaGF0IGlzIOKAnHRoZSBkaWxlbW1hIG9mIHRoZSBpbmZvcm1hdGlvbiBhZ2XigJ0gKHBhcmFncmFwaCAxKT8iLCAibyI6IFsiSW5mb3JtYXRpb24gaXMgdG9vIGV4cGVuc2l2ZSB0byBhY2Nlc3MiLCAiUGVvcGxlIGNhbm5vdCBmaW5kIGluZm9ybWF0aW9uIHdoZW4gdGhleSBuZWVkIGl0IiwgIldlIGNhbiBhY2Nlc3MgaW5mb3JtYXRpb24gYW55d2hlcmUsIGJ1dCB3ZSBzdHJ1Z2dsZSB0byByZW1lbWJlciB3aGF0IHdlIGhhdmUgbGVhcm50IiwgIk5ld3NwYXBlcnMgYXJlIGRpc2FwcGVhcmluZyBiZWNhdXNlIG9mIHRlY2hub2xvZ3kiXSwgImEiOiAyLCAibiI6ICJXZSBhcmUgZm9ydHVuYXRlIHRvIGFjY2VzcyBpbmZvcm1hdGlvbiBhbnkgdGltZSwgYnV0IG1vc3QgcGVvcGxlIHN0cnVnZ2xlIHRvIHJlY2FsbCB3aGF0IHRoZXkgaGF2ZSBsZWFybnQuIn0sIHsidCI6ICJtY3EiLCAicSI6ICJXaHkgYXJlIG91ciBicmFpbnMg4oCcY29uc3RhbnRseSB0cnlpbmcgdG8gY2F0Y2ggdXDigJ0gKHBhcmFncmFwaCAyKT8iLCAibyI6IFsiQmVjYXVzZSB0aGUgYm9keSBhZGFwdHMgYW5kIGNoYW5nZXMgZmFyIG1vcmUgc2xvd2x5IHRoYW4gdGVjaG5vbG9neSIsICJCZWNhdXNlIHdlIGRvIG5vdCByZWFkIGVub3VnaCBuZXdzcGFwZXJzIiwgIkJlY2F1c2Ugd2UgZG8gbm90IHNsZWVwIGVub3VnaCIsICJCZWNhdXNlIHRoZSBicmFpbiBzdG9wcyBncm93aW5nIGFmdGVyIGNoaWxkaG9vZCJdLCAiYSI6IDAsICJuIjogIuKAnFRoZSBodW1hbiBib2R5IHRha2VzIGZhciBsb25nZXIgdG8gYWRhcHQgYW5kIGNoYW5nZSB0aGFuIHRlY2hub2xvZ3kgZG9lcy7igJ0ifSwgeyJ0IjogIm1jcSIsICJxIjogIldoYXQgZG9lcyB0aGUgd3JpdGVyIG1lYW4gYnkg4oCcYSBmYWtlIGNvbmZpZGVuY2XigJ0gKHBhcmFncmFwaCAzKT8iLCAibyI6IFsiQmVpbmcgdG9vIHNoeSB0byBhc2sgcXVlc3Rpb25zIiwgIkZlZWxpbmcgdGhhdCB3ZSBrbm93IHRoaW5ncyB0aGF0IHdlIGNhbm5vdCBhY3R1YWxseSByZW1lbWJlciIsICJQcmV0ZW5kaW5nIHRvIGJlIGNvbmZpZGVudCBpbiBmcm9udCBvZiBhIHRlYWNoZXIiLCAiVHJ1c3RpbmcgaW5mb3JtYXRpb24gZnJvbSB0aGUgaW50ZXJuZXQgdG9vIG11Y2giXSwgImEiOiAxLCAibiI6ICLigJxXZSBkZXZlbG9wIGEgZmFrZSBjb25maWRlbmNlIGJhc2VkIG9uIGluZm9ybWF0aW9uIHRoYXQgd2UgY2Fu4oCZdCBldmVuIHJlY2FsbC7igJ0ifSwgeyJ0IjogIm1jcSIsICJxIjogIldoYXQgaXMgdGhlIHdyaXRlcuKAmXMgdmlldyBpbiBwYXJhZ3JhcGggNj8iLCAibyI6IFsiRnJpZW5kcyBzaG91bGQgYWx3YXlzIHVzZSB0aGUgc2FtZSBhcHByb2FjaCIsICJUaGVyZSBpcyBvbmx5IG9uZSBjb3JyZWN0IGFwcHJvYWNoIGZvciBlYWNoIHRhc2siLCAiTGVhcm5lcnMgc2hvdWxkIGNob29zZSB0aGUgYXBwcm9hY2ggdGhhdCBsZWFkcyB0byB0aGVpciBvd24gdW5kZXJzdGFuZGluZyBhbmQgc3VjY2VzcyIsICJUZWFjaGVycyBzaG91bGQgY2hvb3NlIHRoZSBhcHByb2FjaCBmb3IgdGhlaXIgc3R1ZGVudHMiXSwgImEiOiAyLCAibiI6ICLigJxUaGVyZSBpcyBubyByaWdodCBvciB3cm9uZy4gVGhlIHRyaWNrIGlzIHRvIGNob29zZSB0aGUgb25lIHRoYXQgd2lsbCBsZWFkIHRvIHVuZGVyc3RhbmRpbmcgYW5kIHN1Y2Nlc3MgZm9yIHlvdS7igJ0ifV19LCB7ImlkIjogIkYiLCAidGl0bGUiOiAiVm9jYWJ1bGFyeSBpbiBjb250ZXh0IiwgImljb24iOiAi8J+UpCIsICJza2lsbCI6ICJXb3JkIG1lYW5pbmcgZnJvbSBjb250ZXh0IiwgImluc3RyIjogIkZpbmQgT05FIHdvcmQgaW4gdGhlIHRleHQgdGhhdCBoYXMgdGhlIHNhbWUgbWVhbmluZy4gVGhlIHBhcmFncmFwaCBpcyBnaXZlbiBpbiBicmFja2V0cy4iLCAicXMiOiBbeyJ0IjogInZvY2FiIiwgInEiOiAidG8gcmVtZW1iZXIiLCAid2hlcmUiOiAicGFyYWdyYXBoIDEiLCAiYSI6ICJyZWNhbGwiLCAiYWx0IjogW10sICJuIjogIuKAnOKApnlvdSBzdHJ1Z2dsZSB0byByZWNhbGwgdGhlIHRoaW5ncyB0aGF0IHlvdeKAmXZlIGxlYXJudC7igJ0ifSwgeyJ0IjogInZvY2FiIiwgInEiOiAidG8gY2hhbmdlIGluIG9yZGVyIHRvIHN1aXQgbmV3IGNvbmRpdGlvbnMiLCAid2hlcmUiOiAicGFyYWdyYXBoIDIiLCAiYSI6ICJhZGFwdCIsICJhbHQiOiBbXSwgIm4iOiAi4oCcVGhlIGh1bWFuIGJvZHkgdGFrZXMgZmFyIGxvbmdlciB0byBhZGFwdCBhbmQgY2hhbmdlIHRoYW4gdGVjaG5vbG9neSBkb2VzLuKAnSJ9LCB7InQiOiAidm9jYWIiLCAicSI6ICJ0aGUgYW1vdW50IHRoYXQgc29tZW9uZSBpcyBhYmxlIHRvIGRvIG9yIGhvbGQiLCAid2hlcmUiOiAicGFyYWdyYXBoIDIiLCAiYSI6ICJjYXBhY2l0eSIsICJhbHQiOiBbXSwgIm4iOiAi4oCcVGhpcyBsaW1pdHMgb3VyIGNhcGFjaXR5IGZvciBsZWFybmluZ+KApuKAnSJ9XX1d"))));
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const TOTAL = 44, NQ = 40, TIME = 40*60, KEY = 'igcse-u06-activepassive-v1';
+const $ = s => document.querySelector(s);
+let st = {name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0};
+let showModel = false, tick = null;
+const norm = s => (s||'').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/\s+/g,' ').trim();
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.ans)return s}catch(e){}return null}
+
+// flatten questions
+const Q=[];DATA.forEach((s,si)=>s.qs.forEach(q=>{q.sec=si;q.note=q.n;q.n=Q.length+1;q.max=q.m||1;Q.push(q)}));
+const secMax=DATA.map(s=>s.qs.reduce((a,q)=>a+(q.m||1),0));
+
+function mark(q){
+  const v=st.ans[q.n];
+  if(v===undefined||v===''||v===null)return 0;
+  if(q.t==='tf'||q.t==='match')return v===q.a?1:0;
+  if(q.t==='mcq')return v===q.a?1:0;
+  const x=norm(v);
+  if(q.t==='vocab'){const w=x.replace(/[^a-z]/g,'');return [q.a,...(q.alt||[])].includes(w)?1:0}
+  if(q.reject&&new RegExp(q.reject,'i').test(x))return 0;
+  let p=0;q.pts.forEach(r=>{if(new RegExp(r,'i').test(x))p++});
+  return Math.min(p,q.max);
+}
+function answered(q){const v=st.ans[q.n];return v!==undefined&&v!==null&&String(v).trim()!==''}
+
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+
+// ---------- start ----------
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved answers will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',ans:{},summary:'',start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+
+function openTest(){
+  $('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');
+  $('#who').textContent='👤 '+st.name+' · '+st.cls;
+  renderTabs();renderSection(st.cur||0);startTimer();
+}
+function startTimer(){
+  clearInterval(tick);
+  const upd=()=>{
+    if(st.submitted){$('#timer').textContent='Submitted';return}
+    const left=TIME-Math.floor((Date.now()-st.start)/1000);
+    if(left<=0){$('#timer').textContent='00:00';clearInterval(tick);toast('Time is up – your answers have been submitted.');submit(true);return}
+    const m=Math.floor(left/60),s=left%60;$('#timer').textContent='⏱ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    $('#timer').classList.toggle('low',left<300);
+  };upd();tick=setInterval(upd,1000);
+}
+function renderTabs(){
+  const sections=[...DATA.map(s=>s.id+'. '+s.title),'G. Summary'];
+  $('#tabs').innerHTML=sections.map((t,i)=>{
+    let d='';if(i<DATA.length){const qs=DATA[i].qs;const a=qs.filter(q=>answered(q)).length;d=`<span class="d">${a}/${qs.length}</span>`}
+    else d=st.summary.trim()?'<span class="d">✓</span>':'';
+    return `<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${esc(t)}${d}</button>`}).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>renderSection(+b.dataset.i));
+  const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+}
+function qHTML(q){
+  const v=st.ans[q.n],rev=st.submitted,dis=rev?'disabled':'';
+  let body='';
+  if(q.t==='mcq'){body='<div class="opts">'+q.o.map((o,i)=>{let c='';if(rev){if(i===q.a&&showModel)c='right';if(v===i)c=(i===q.a?'right':'wrong')}else if(v===i)c='sel';
+    return `<button class="opt ${c}" data-v="${i}" ${dis}><span class="L">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`}).join('')+'</div>'}
+  else if(q.t==='tf'){body='<div class="tfrow">'+[['T','TRUE'],['F','FALSE'],['NG','NOT GIVEN']].map(([k,l])=>{let c='';if(rev){if(v===k)c=(k===q.a?'right':'wrong');else if(showModel&&k===q.a)c='right'}else if(v===k)c='sel';
+    return `<button class="tf ${c}" data-v="${k}" ${dis}>${l}</button>`}).join('')+'</div>'}
+  else if(q.t==='match'){body=`<select data-in ${dis} style="max-width:320px"><option value="">— choose a letter —</option>${DATA[q.sec].key.map(k=>`<option value="${k[0]}" ${v===k[0]?'selected':''}>${esc(k)}</option>`).join('')}</select>`}
+  else if(q.t==='vocab'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="One word from the text" style="max-width:320px" autocomplete="off" autocapitalize="off" spellcheck="false">`}
+  else if(q.t==='notes'){body=`<input type="text" data-in ${dis} value="${esc(v||'')}" placeholder="Maximum six words" autocomplete="off"><div class="wc" data-wc></div>`}
+  else{body=`<textarea data-in ${dis} rows="${q.m>=3?3:2}" placeholder="Write your answer here">${esc(v||'')}</textarea>`}
+  let fb='';
+  if(rev){const g=mark(q);const cls=g===q.max?'ok':g>0?'part':'bad';
+    fb=`<div class="fb ${cls}">${cls==='ok'?'✔ Correct':cls==='part'?'◐ Partly correct':'✘ '+(answered(q)?'Incorrect':'Not answered')} · ${g}/${q.max} mark${q.max>1?'s':''}</div>`;
+    if(showModel){const a=q.t==='mcq'?'ABCD'[q.a]+' – '+q.o[q.a]:q.t==='tf'?({T:'TRUE',F:'FALSE',NG:'NOT GIVEN'})[q.a]:q.a;
+      fb+=`<div class="ans"><b>Model answer:</b> ${esc(a)}${q.note?`<span class="n">${esc(q.note)}</span>`:''}</div>`}}
+  const qtext=q.t==='vocab'?`Find a word that means <b>“${esc(q.q)}”</b> <span class="where">(${esc(q.where)})</span>`:esc(q.q);
+  const st_=rev?(mark(q)===q.max?'ok':mark(q)>0?'part':'bad'):(answered(q)?'done':'');
+  return `<div class="q ${st_}" data-n="${q.n}"><div class="qh"><span class="num">${q.n}</span><span class="qt">${qtext}</span><span class="qm">[${q.max}]</span></div><div class="body">${body}${fb}</div></div>`;
+}
+function renderSection(i){
+  st.cur=i;save();renderTabs();
+  const A=$('#qArea');let h='';
+  if(i<DATA.length){const s=DATA[i];
+    h+=`<div class="sec-h"><h2>${s.icon} Section ${s.id} – ${esc(s.title)}</h2><span class="mk">${secMax[i]} marks</span></div><p class="sec-i">${esc(s.instr)}</p>`;
+    if(s.key)h+=`<div class="keybox">${s.key.map(esc).join('<span style="opacity:.4">|</span>')}</div>`;
+    h+=s.qs.map(qHTML).join('');
+  } else {
+    h+=`<div class="sec-h"><h2>📄 Section G – Summary (extension)</h2><span class="mk">teacher-marked</span></div>
+    <p class="sec-i">Explain the differences between active and passive learning. Write about 60–80 words, using your own words as far as possible.</p>
+    <div class="q"><textarea id="sumIn" rows="9" ${st.submitted?'disabled':''} placeholder="Start your summary here…">${esc(st.summary)}</textarea><div class="wc" id="sumWc"></div>
+    ${st.submitted&&showModel?`<div class="ans"><b>Model answer:</b> Passive learners simply take in information by reading, listening or watching, but they do nothing with it and get no feedback. It needs little effort, yet it greatly reduces understanding, so much of what we learn is forgotten and we feel confident without real knowledge. Active learners, on the other hand, take part in tasks such as note-taking, matching ideas or completing diagrams, use the information and receive feedback, which leads to deeper understanding.<span class="n">Content: up to 4 marks (1 per relevant point – passive: only reading/listening/watching; no tasks or feedback, little effort; reduces understanding / information forgotten / fake confidence; active: doing tasks with the information; getting feedback / better understanding; experiential learning and reflection). Language: up to 2 marks.</span></div>`:''}</div>`;
+  }
+  const last=i===DATA.length;
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${
+    st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${
+    last?(st.submitted?'':`<button class="btn red" id="subB">Submit my answers ✓</button>`):`<button class="btn" id="nextB">Next section →</button>`}</div>`;
+  A.innerHTML=h;
+  A.querySelectorAll('.q[data-n]').forEach(el=>{
+    const n=+el.dataset.n;
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+    el.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});
+    const inp=el.querySelector('[data-in]');
+    if(inp){const wc=el.querySelector('[data-wc]');
+      const wcu=()=>{if(!wc)return;const w=inp.value.trim()?inp.value.trim().split(/\s+/).length:0;wc.textContent=w+' / 6 words';wc.classList.toggle('over',w>6)};wcu();
+      inp.addEventListener(inp.tagName==='SELECT'?'change':'input',()=>{st.ans[n]=inp.value;save();wcu();el.classList.toggle('done',answered(Q[n-1]));renderTabsLite()})}
+  });
+  const si=$('#sumIn');if(si){const u=()=>{const w=si.value.trim()?si.value.trim().split(/\s+/).length:0;$('#sumWc').textContent=w+' words (aim for 60–80)';$('#sumWc').classList.toggle('over',w>80)};u();
+    si.oninput=()=>{st.summary=si.value;save();u();renderTabsLite()}}
+  if($('#prevB'))$('#prevB').onclick=()=>{renderSection(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderSection(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit(false);
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+function renderTabsLite(){const a=Q.filter(answered).length;$('#ptxt').textContent=a+'/'+NQ+' answered';$('#progI').style.width=(a/NQ*100)+'%';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const d=b.querySelector('.d');if(i<DATA.length){const qs=DATA[i].qs;const t=qs.filter(answered).length+'/'+qs.length;if(d)d.textContent=t}})}
+function refreshQ(n){const el=document.querySelector(`.q[data-n="${n}"]`);const tmp=document.createElement('div');tmp.innerHTML=qHTML(Q[n-1]);el.replaceWith(tmp.firstElementChild);
+  const ne=document.querySelector(`.q[data-n="${n}"]`);ne.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.ans[n]=+b.dataset.v;save();refreshQ(n)});
+  ne.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{st.ans[n]=b.dataset.v;save();refreshQ(n)});renderTabsLite()}
+
+async function submit(auto){
+  if(!auto){const left=NQ-Q.filter(answered).length;
+    const ok=await modal('Submit your answers?',left?`You have <b>${left}</b> unanswered question${left>1?'s':''}. You cannot change your answers after you submit.`:'You have answered every question. You cannot change your answers after you submit.',{ok:'Yes, submit'});
+    if(!ok)return}
+  st.submitted=true;
+  const secs=DATA.map((s,i)=>s.qs.reduce((a,q)=>a+mark(q),0));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.min(TIME,Math.floor((Date.now()-st.start)/1000)),at:new Date().toLocaleString()};
+  save();clearInterval(tick);showResults();
+}
+function grade(p){return p>=90?['A*','Outstanding work! You read the text with great accuracy.']:p>=80?['A','Excellent – a very strong performance.']:p>=70?['B','Very good. Review the questions you missed to reach the top grade.']:p>=60?['C','Good effort. Check details carefully and read each question twice.']:p>=50?['D','Fair. Go back to the text and review your incorrect answers.']:p>=40?['E','Keep practising – focus on finding exact details in the text.']:['U','Don’t give up! Re-read the text with your teacher’s help and try again.']}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100),[g,m]=grade(p);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resGrade').textContent=p+'%  ·  Indicative grade '+g;$('#resMsg').textContent=m;
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=DATA.map((s,i)=>`<div class="br"><span>${s.id}. ${esc(s.title)}</span><span class="t"><i style="width:${r.secs[i]/secMax[i]*100}%"></i></span><span class="s">${r.secs[i]}/${secMax[i]}</span></div>`).join('');
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,mm=Math.floor(r.time/60);
+  const line=Q.map(q=>{const g=mark(q);return q.n+(g===q.max?'✓':g>0?'½':'✗')}).join(' ');
+  return `IGCSE ESL Reading – Unit 6 (active or passive learning)\nName: ${st.name}\nClass: ${st.cls}\nScore: ${r.total}/44 (${Math.round(r.total/TOTAL*100)}%)\n`+
+  DATA.map((s,i)=>`Section ${s.id} ${s.title}: ${r.secs[i]}/${secMax[i]}`).join('\n')+
+  `\nTime taken: ${mm} min · Submitted: ${r.at}\n\nQuestion by question:\n${line}\n\nShort answers:\n`+
+  Q.filter(q=>['short','notes','vocab'].includes(q.t)).map(q=>`${q.n}. ${(st.ans[q.n]||'—').toString().trim()}`).join('\n')+
+  `\n\nSummary (${st.summary.trim()?st.summary.trim().split(/\s+/).length:0} words):\n${st.summary.trim()||'—'}`;
+}
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderSection(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your answers will be cleared and the timer will restart.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,ans:{},summary:'',start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function h(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await h(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderSection(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
+</html>

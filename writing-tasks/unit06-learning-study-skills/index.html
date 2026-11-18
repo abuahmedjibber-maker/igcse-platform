@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Writing Studio – Unit 6: Learning and study skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+.chk{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.chk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff}
+.chk li .ic{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;background:var(--bad)}
+.chk li.y{border-color:var(--ok);background:var(--ok-l)} .chk li.y .ic{background:var(--ok)}
+.chk li.p{border-color:var(--part);background:var(--part-l)} .chk li.p .ic{background:var(--part)}
+.chk li .pt{margin-left:auto;font-weight:800;color:var(--mut);white-space:nowrap}
+.livehd{margin-top:14px;font-weight:800;color:var(--teal-d);font-size:14.5px}
+.warn{margin-top:10px;background:var(--part-l);border-left:4px solid var(--part);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600}
+.wchip{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-weight:800;background:#fff;color:var(--mut);margin-left:4px}
+.wchip.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.rub{display:grid;gap:6px;margin-top:10px} .rb{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.rb input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal)}
+.q .num{flex:0 0 32px}
+textarea{resize:vertical;line-height:1.55}
+.q > .keybox{margin-top:0}
+@media(max-width:600px){.q .row div[style*="grid-template-columns"]{grid-template-columns:1fr!important}}
+@media(max-width:600px){.q div[style*="repeat(5,1fr)"]{grid-template-columns:1fr 1fr!important}.q div[style*="grid-template-columns:1fr 1fr;gap:8px"]{grid-template-columns:1fr!important}}
+</style>
+
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Writing Studio: Learning and study skills</h1>
+  <p>Unit 6 · Grade 8 · Interactive writing tasks</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">6 writing tasks</span><span class="chip">100 checklist marks</span><span class="chip">✍ live feedback</span><span class="chip">+ self-assessment</span></div>
+    <ul class="ins">
+      <li>Complete the tasks in order. Each one practises a skill from <b>Unit 6</b> of your Coursebook (pages 76–89).</li>
+      <li>As you type, the <b>live checklist</b> under each task turns green when you include what is needed. Use it to improve your writing.</li>
+      <li>Your writing is saved on this device while you work. Press <b>Submit</b> when you finish.</li>
+      <li>The checklist score is a guide only – your teacher will read your work and give the final mark.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 8A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start writing →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TASKS -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/6 tasks</span><span class="timer" id="wtot">✍ 0 words</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your writing checklist score</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm" id="resOut">out of 100</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by task</h3><div class="brk" id="brk"></div>
+    <div id="wcSum" class="note"></div>
+    <div id="selfBox" class="note"></div>
+    <p class="note">The checklist score shows how many of the required features your writing includes. <b>Your teacher will read your work and give the final mark.</b></p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your work to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams). All your writing is included.</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="8" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const KEY = 'igcse-u06-writing-v1';
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => (s||'').replace(/[‘’`´]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,'-');
+const wc = s => { s=(s||'').trim(); return s ? s.split(/\s+/).length : 0; };
+let st = {name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0};
+let showModel = false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.a)return s}catch(e){}return null}
+const A = k => st.a[k] || '';
+const got = it => it[1]?it[2]:(typeof it[3]==='number'?it[3]:(it[3]&&it[2]>1?1:0));
+const sum = items => items.reduce((s,it)=>s+got(it),0);
+const R = (a,b) => [...Array(b-a).keys()].map(x=>x+a);
+
+
+/* ---------- shared word lists ---------- */
+const LK={
+ 'Sequence':['first of all','to begin with','firstly','secondly','thirdly','after that','afterwards','in addition','moreover','furthermore','besides','finally','lastly','to sum up','in conclusion','as well as','also','then','next','first'],
+ 'Contrast / comparison':['on the other hand','in spite of','in contrast','even though','compared with','compared to','nevertheless','nonetheless','however','although','whereas','despite','similarly','likewise','unlike','though','while','but','yet'],
+ 'Cause / effect':['as a result','for this reason','because of','that is why','due to','consequently','therefore','because','since','thus','so','as']};
+const LCAT=Object.keys(LK);
+function links(t){
+  const out={};let s=' '+t+' ';
+  LCAT.forEach(c=>out[c]=new Set());
+  const all=[];LCAT.forEach(c=>LK[c].forEach(w=>all.push([w,c])));all.sort((a,b)=>b[0].length-a[0].length);
+  all.forEach(([w,c])=>{const re=new RegExp('\\b'+w.replace(/ /g,'\\s+')+'\\b','g');if(re.test(s)){out[c].add(w);s=s.replace(re,' ## ')}});
+  return out;
+}
+const linkCount = L => LCAT.reduce((n,c)=>n+L[c].size,0);
+const REG_BAD=/\b(lol|omg|u|ur|gonna|wanna|gotta|kinda|dunno|ya|cuz|coz|stupid|rubbish|sucks)\b|!!|\?\?/;
+const paras = raw => (raw||'').split(/\n\s*\n|\n/).map(x=>x.trim()).filter(x=>wc(x)>=5);
+const sents = raw => norm(raw).split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean);
+const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
+
+/* ---------- unit word lists ---------- */
+const REASON=/\b(because|as|since|so|that's\s+why|the\s+reason|this\s+(helps|means|makes)|which\s+(helps|means|makes)|it\s+helps|helps\s+me)\b/;
+const lc_ = s => norm(s).toLowerCase();
+const nrm = s => norm(s).toLowerCase().replace(/\s+/g,' ').trim().replace(/[.!?]+$/,'').trim();
+const C4W=[['absorb',/\babsorb(s|ed|ing)?\b/],['confidence',/\bconfiden(ce|t|tly)\b/],['current',/\bcurrent(ly)?\b/],['dilemma',/\bdilemmas?\b/],['dramatically',/\bdramatic(ally)?\b/],['fortunate',/\b(un)?fortunate(ly)?\b/],['ignore',/\bignor(e|es|ed|ing)\b/],['process',/\bprocess(es|ed|ing)?\b/],['reflecting',/\breflect(s|ed|ing|ion)?\b/],['struggle',/\bstruggl(e|es|ed|ing)\b/]];
+const UNITV=/\b(absorb\w*|confiden\w*|current(ly)?|dilemmas?|dramatic(ally)?|fortunate(ly)?|ignor\w+|process(es|ed|ing)?|reflect\w*|struggl\w+|overload|engag\w+|feedback|passive(ly)?|active(ly)?|experiential|challeng\w*|risks?|curiosity|curious|knowledge|effort|techniques?|approach(es)?|memory|memoris\w+|memoriz\w+|revis\w+|concentrat\w+|focus\w*|independent(ly)?|note-taking|notes|participat\w+|success(ful)?|fail(ure|ing)?|mistakes?)\b/g;
+const unitv = t => new Set((t.match(UNITV)||[]));
+const TOOLS=/\b(sticky\s+notes?|mind[\s-]maps?|diagrams?|spider\s+diagrams?|flowcharts?|librar(y|ies)|group\s+study|study\s+groups?|notepads?|notebooks?|pen\s+and\s+paper|paper\s+and\s+pen|a\s+pen|highlighters?|flash\s?cards?|textbooks?|tablets?|laptops?)\b/g;
+
+/* ---------- Task 1: quotations and approaches (B2–B5) ---------- */
+const QUO=[['1','Winston Churchill','I’m always ready to learn although I don’t always like being taught.'],['2','Estée Lauder','I didn’t get there by wishing for it or hoping for it, but by working for it.'],['3','Richard Branson','You don’t learn to walk by following rules. You learn by doing, and by falling over.'],['4','Malala Yousafzai','The content of a book holds the power of education and it is with this power that we can shape our future and change lives.'],['5','Louisa May Alcott','I’m not afraid of storms, for I’m learning to sail my ship.'],['6','Nelson Mandela','Education is the most powerful weapon you can use to change the world.'],['7','Benjamin Franklin','Tell me and I forget, teach me and I may remember, involve me and I learn.'],['8','Dorothy Parker','The cure for boredom is curiosity. There is no cure for curiosity.']];
+const QOPT=QUO.map(q=>q[0]+' '+q[1]);
+const APPR=[['a','Do not be anxious about challenges.',5,'Which person is “not afraid of storms”? A storm is a challenge.'],
+ ['b','Be open to learning.',1,'Which person is “always ready to learn”?'],
+ ['c','Learn by doing.',7,'Which person says “involve me and I learn”? Being involved = doing.'],
+ ['d','Learn from making mistakes.',3,'Which person talks about “falling over”? Falling over = making mistakes.'],
+ ['e','Read to increase your knowledge.',4,'Which person talks about “the content of a book”?'],
+ ['f','Study hard for success.',2,'Which person got there “by working for it”?'],
+ ['g','Use knowledge to change things.',6,'Which person says education can “change the world”?'],
+ ['h','Ask questions.',8,'Which person talks about “curiosity”? Curious people ask questions.']];
+function b3(k){const [l,a,ans,clue]=APPR[k],v=A('t1m'+k);if(!v)return {ok:false,empty:true,msg:''};
+  const n=+v.split(' ')[0];if(n===ans)return {ok:true,msg:'Correct – quotation '+n+' ('+QUO[n-1][1]+').'};
+  const dup=APPR.some((x,j)=>j!==k&&A('t1m'+j)===v&&x[2]===n);
+  if(k===2&&n===3)return {ok:false,msg:'Branson does say “learn by doing”, but his quotation fits d better (falling over = mistakes). '+clue};
+  return {ok:false,msg:(dup?'You have already used this quotation correctly for another approach. ':'Not quite. ')+clue}}
+const APPOPT=APPR.map(x=>x[0]+' '+x[1].replace(/\.$/,''));
+const TOP5=()=>R(0,5).map(k=>A('t1t'+k));
+const APPW=[/\b(challeng\w*|anxious|afraid|difficult\w*|storms?)\b/,/\b(open\s+to|ready\s+to\s+learn|new\s+things|open[\s-]minded)\b/,/\b(by\s+doing|doing\s+things|do\s+things|practi[sc](e|ing)|hands-on|involved?|experiments?|projects?)\b/,/\b(mistakes?|errors?|falling\s+over|fail\w*)\b/,/\b(read(ing)?|books?|novels?|articles?)\b/,/\b(study(ing)?\s+hard|work(ing)?\s+hard|hard\s+work|effort|revis\w+)\b/,/\b(change\s+(things|the\s+world|lives|my\s+community)|help\s+(other\s+)?people|make\s+a\s+difference)\b/,/\b(ask(ing)?\s+(\w+\s+)?questions?|questions|curio\w+)\b/];
+const anyAppr = s => APPW.some(r=>r.test(s));
+const NEG=/\b(don't|do\s+not|never|rarely|hardly\s+ever|not\s+often|isn't|am\s+not|'m\s+not|doesn't|seldom)\b/;
+const PEOPLEQ=/\b(churchill|lauder|branson|malala|yousafzai|alcott|mandela|franklin|parker|quotations?|quotes?)\b/;
+const OTHERT=/\b(sticky\s+notes?|music|mind[\s-]maps?|flash\s?cards?|highlight\w*|diagrams?|note-taking|taking\s+notes|make\s+notes|notes|summar\w+|colou?rs?|lists?|quiz\w*|group\s+study|study\s+groups?|librar(y|ies)|timetables?|schedules?|record\w*|apps?|videos?|podcasts?|teach(ing)?\s+(my\s+)?(friends?|brother|sister|someone))\b/;
+function chk1(){
+  const n=R(0,8).filter(k=>b3(k).ok).length,v=TOP5().filter(Boolean),u=new Set(v).size;
+  const raw=A('t1txt'),t=lc_(raw),w=wc(t),S=sents(raw).map(x=>x.toLowerCase());
+  const use=S.some(s=>/\b(i|we)\s+((always|usually|often|sometimes|also|really|regularly)\s+)?(use|try|like|prefer|learn|read|ask|study|practi[sc]e|work|enjoy|love)\b/.test(s)&&anyAppr(s)&&!NEG.test(s));
+  const dont=S.some(s=>NEG.test(s)&&(anyAppr(s)||/\b(approach|technique|method)\w*\b/.test(s))&&/\b(i|me|my)\b/.test(s));
+  const oth=OTHERT.test(t);
+  const top=/\b(number\s+one|my\s+(top|first|favourite|main|most\s+important|best)|most\s+important|most\s+useful)\b/.test(t)&&REASON.test(t);
+  const agr=S.some((s,j)=>/\b(agree|like|love)\b/.test(s)&&!/\b(disagree|don't\s+agree|do\s+not\s+agree)\b/.test(s)&&PEOPLEQ.test(s)&&(REASON.test(s)||REASON.test(S[j+1]||'')));
+  const dis=S.some(s=>/\b(disagree|don't\s+(really\s+)?agree|do\s+not\s+(really\s+)?agree|not\s+sure\s+(about|that|i)|i'm\s+not\s+convinced)\b/.test(s)&&PEOPLEQ.test(s));
+  const L=links(t),lk=linkCount(L);
+  const items=[[`B3: quotations matched to the approaches (${n}/8)`,n===8,8,n],
+   [`B5: top five approaches chosen, no repeats (${u}/5)`,u===5&&v.length===5,2,u>=3?1:0],
+   [`Length 80–100 words (${w})`,w>=80&&w<=100,1],
+   ['B4a: approaches you use (I always … / I use …)',use,1],
+   ['B4a: an approach you don’t use (I don’t … / I never …)',dont,1],
+   ['B4b: other techniques (sticky notes, music, mind maps, flashcards …)',oth,1],
+   ['B5: your number-one approach and why (My most important … because …)',top,1],
+   ['B2: a quotation you agree with (name the person) + a reason',agr,1],
+   ['B2: a quotation you disagree with (name the person)',dis,1],
+   [`Linking devices (${lk}) – aim for 2+`+(lk?': '+LCAT.flatMap(c=>[...L[c]]).slice(0,5).join(', '):''),lk>=2,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 2: Text 6.1 vocabulary + past simple / present perfect ---------- */
+const c4in = t => C4W.filter(x=>x[1].test(t)).map(x=>x[0]);
+function voc(i){const raw=norm(A('t2v'+i)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(raw)<7)return {ok:false,msg:'Write a full sentence of at least 7 words.'};
+  const u=c4in(t);if(!u.length)return {ok:false,msg:'Use one of the ten C4 words (absorb, confidence, current …).'};
+  const prev=new Set(R(0,i).flatMap(j=>voc(j).ok?c4in(lc_(A('t2v'+j))):[]));const fresh=u.filter(w=>!prev.has(w));
+  if(!fresh.length)return {ok:false,msg:`You have already used “${u.join(', ')}” – choose a different C4 word.`};
+  if(/\b(am|is|are|was|were|'m|'re)\s+(struggle|absorb|ignore|process|reflect)\b/.test(t))return {ok:false,msg:'After am / is / are / was use the -ing form: I am struggling …'};
+  if(/\b(very|so|more|less|quite|really)\s+confidence\b|\bfeel\s+confidence\b/.test(t))return {ok:false,msg:'Use the adjective here: confident (I feel very confident …). Confidence is a noun.'};
+  if(/\b(a|the)\s+dramatically\b|\bdramatically\s+(change|improvement|increase)\b(?!d)/.test(t)&&/\bthe\s+dramatically\b/.test(t))return {ok:false,msg:'Dramatically is an adverb – it describes a verb (… improved dramatically).'};
+  if(!/\b(i|my|me|we|our|us|myself)\b/.test(t))return {ok:false,msg:'Write about your own learning – use I / my / we.'};
+  if(!/[.!?]$/.test(raw))return {ok:false,msg:'End your sentence with a full stop.'};
+  return {ok:true,msg:`Good – “${fresh[0]}” used about your own learning.`}}
+const PAST_M=/\b(ago|yesterday|last\s+(night|week|year|month|term|summer|weekend|monday|time)|in\s+(19|20)\d\d|when\s+i\s+was)\b/;
+const PP_M=/\b(since|for\s+(two|three|four|five|six|many|several|\d+|a\s+(long|few))|yet|already|ever|never|just|so\s+far)\b/;
+const HAVEPP=/\b(have|has|'ve|'s|haven't|hasn't)\s+(not\s+|never\s+|already\s+|just\s+|ever\s+)?(been|had|done|gone|known|learnt|learned|seen|taken|given|written|read|made|got|[a-z]+ed)\b/;
+const TF=[ // [prompt, accepted regexes, kind:'pp'|'ps', source]
+ ['The school has opened 20 years ago.',[/^the school (opened|was opened) 20 years ago$/],'ps','Language tip'],
+ ['She had that car since 2021.',[/^she( has|'s) had that car since 2021$/],'pp','Language tip'],
+ ['I have finished my homework yesterday.',[/^i finished my homework yesterday$/],'ps','practice'],
+ ['We know our English teacher for three years.',[/^we( have|'ve) known our english teacher for three years$/],'pp','practice'],
+ ['Did you ever use a mind map?',[/^have you ever used a mind map\??$/],'pp','practice'],
+ ['I learnt already ten new words this week.',[/^i( have|'ve) already (learnt|learned) ten new words this week$/,/^i( have|'ve) (learnt|learned) ten new words (already )?this week( already)?$/],'pp','practice']];
+const TG=[['Two weeks ago, our class ____ (visit) the science museum.',/^visited$/,'ps','visited'],
+ ['I ____ (not finish) my project yet.',/^(haven't|have not) finished$/,'pp','haven’t finished'],
+ ['My sister ____ (study) English since 2020.',/^(has|'s) (studied|been studying)$/,'pp','has studied'],
+ ['Last night I ____ (watch) a video about study skills.',/^watched$/,'ps','watched'],
+ ['We ____ (never / try) experiential learning before.',/^(have|'ve) never tried$/,'pp','have never tried'],
+ ['Yesterday Ms Huda ____ (give) us feedback on our essays.',/^gave$/,'ps','gave']];
+function tenseDiag(prompt,ans,kind){const p=lc_(prompt),a=' '+ans+' ';
+  const hasPP=HAVEPP.test(a)||/\b(have|has|'ve)\b/.test(a);
+  if(kind==='ps'&&hasPP){const m=(p.match(PAST_M)||[''])[0];return `“${m}” is a finished time in the past → use the past simple, not have/has + past participle.`}
+  if(kind==='pp'&&!hasPP){const m=(p.match(PP_M)||[''])[0];return `${m?'“'+m+'” → ':''}use the present perfect: have / has + past participle.`}
+  if(/\b(studyed|finishd|tryed|learnd|knowed|gived|watchd|visitted)\b/.test(a))return 'Check the spelling of the past form / past participle.';
+  if(/\b(have|has)\s+(know|study|try|finish|learn|use|give|watch)\b/.test(a))return 'After have / has use the past participle (known, studied, tried …).';
+  return null}
+function tf(k){const [bad,acc,kind,src]=TF[k],raw=norm(A('t2f'+k)).trim();if(!raw)return {ok:false,empty:true,msg:''};
+  const t=nrm(raw);if(acc.some(r=>r.test(t))){if(!/[.?!]$/.test(raw))return {ok:false,msg:'Correct tense – now finish the sentence with the right punctuation.'};return {ok:true,msg:kind==='ps'?'Correct – finished past time → past simple.':'Correct – present perfect (have/has + past participle).'}}
+  if(t===nrm(bad))return {ok:false,msg:'This is the incorrect sentence – change the verb.'};
+  return {ok:false,msg:tenseDiag(bad,t,kind)||'Not quite – change only the verb form and keep the other words.'}}
+function tg(k){const [p,acc,kind]=TG[k],raw=norm(A('t2g'+k)).trim();if(!raw)return {ok:false,empty:true,msg:''};
+  const t=nrm(raw);if(acc.test(t))return {ok:true,msg:kind==='ps'?'Correct – past simple with a finished time.':'Correct – present perfect.'};
+  if(t.split(' ').length>4)return {ok:false,msg:'Write only the missing verb form.'};
+  return {ok:false,msg:tenseDiag(p,t,kind)||'Not quite – check the time marker in the sentence.'}}
+const PASTV=/\b(learnt|learned|studied|read|wrote|did|went|saw|watched|practised|practiced|found|discovered|made|had|was|were|listened|revised|memorised|memorized|understood|took|heard|spent|got|finished|completed|used|tried|played|worked|visited|forgot|taught|explained)\b/;
+function qq(k){const raw=norm(A('t2q'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(raw)<6)return {ok:false,msg:'Answer in a full sentence (at least 6 words).'};
+  if(k===0){if(HAVEPP.test(t)&&/\b(have|has|'ve)\b/.test(t))return {ok:false,msg:'Yesterday is finished → past simple (Yesterday I learnt …), not the present perfect.'};
+    if(!/\byesterday\b/.test(t))return {ok:false,msg:'Include the time marker “yesterday”.'};
+    if(!PASTV.test(t))return {ok:false,msg:'Use a past simple verb (learnt / studied / read …).'};return {ok:true,msg:'Correct – past simple with “yesterday”.'}}
+  if(/\b(yesterday|ago|last\s+\w+)\b/.test(t))return {ok:false,msg:'Today is not finished – don’t use yesterday / ago / last … here.'};
+  if(!/\b(have|has|'ve)\s+(\w+\s+)?(learnt|learned|discovered|found|understood|read|practised|practiced|studied|revised|memorised|memorized|written|seen|heard|done|improved)\b/.test(t))return {ok:false,msg:'Use the present perfect: Today I have learnt …'};
+  return {ok:true,msg:'Correct – present perfect for today (an unfinished time).'}}
+function chk2(){
+  const nv=R(0,5).filter(i=>voc(i).ok).length,nt=R(0,6).filter(k=>tf(k).ok).length+R(0,6).filter(k=>tg(k).ok).length,nq=[0,1].filter(k=>qq(k).ok).length;
+  const raw=A('t2txt'),t=lc_(raw),w=wc(t),S=sents(raw).map(x=>x.toLowerCase());
+  const most=/\b(active|passive)\b/.test(t)&&/\b(most|mostly|more|mainly|usually|often|experienced|prefer)\b/.test(t);
+  const why=S.some(s=>/\b(active|passive|learn\w*|teachers?|lessons?|subjects?)\b/.test(s)&&REASON.test(s));
+  const onl=S.some((s,j)=>/\b(online|internet|computer|e-learning|digital|videos?|apps?|tablet|laptop)\b/.test(s)&&(/\b(active|passive)\b/.test(s)||/\b(active|passive)\b/.test(S[j+1]||''))&&(REASON.test(s)||REASON.test(S[j+1]||'')));
+  const pp=/\b(i|we|teachers|my\s+\w+|they|it)\s+(have|has|'ve)\s+(\w+\s+)?(experienced|had|learnt|learned|found|noticed|used|studied|been|done|seen|faced|tried|discovered)\b/.test(t);
+  const ps=PASTV.test(t)&&/\b(ago|yesterday|last\s+(year|term|week|month|summer)|when\s+i\s+was|in\s+(grade|year)\s+\d|in\s+(19|20)\d\d)\b/.test(t);
+  const v=new Set([...c4in(t),...((t.match(/\b(overload|engag\w+|feedback|equivalent|stagnat\w+|fake|experiential)\b/g))||[])]);
+  const items=[[`C4: Text 6.1 words used in your own sentences (${nv}/5)`,nv===5,5,nv],
+   [`Language tip: past simple / present perfect corrections and gaps (${nt}/12)`,nt===12,6,Math.floor(nt/2)],
+   [`Text 6.1 questions answered with the right tense (${nq}/2)`,nq===2,2,nq],
+   [`Length 80–100 words (${w})`,w>=80&&w<=100,1],
+   ['C8a: which type of learning you have experienced most (active / passive)',most,1],
+   ['C8a: why – a reason about teachers, subjects or lessons',why,1],
+   ['C8b: learning online – active or passive, and why',onl,1],
+   ['Present perfect for experience (I have experienced / have had / have learnt …)',pp,1],
+   ['Past simple with a finished time (last year / when I was … / two years ago)',ps,1],
+   [`Words from Text 6.1 (${v.size}) – aim for 2+`+(v.size?': '+[...v].slice(0,5).join(', '):''),v.size>=2,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 3: D7–D9 ---------- */
+const PPL=[['Ahmed Al Abri','Ahmed',/\b(teachers?\s+(were\s+)?in\s+control|control|independent\w*|told|family|relatives?|librar(y|ies)|internet|invented|regrets?|university|working\s+life|career|asked\s+(someone|people|family)|miss\s+something|school\s+days|old\s+days|in\s+those\s+days|without\s+(much\s+)?active)\b/],
+ ['Giusy Manago','Giusy',/\b(ballet|danc\w+|confidence|italy|risks?|challenges?|afraid|failing|struggle|hands\s+dirty|participat\w+|studio|professional|watch\w*|television|tv|online|reflect\w*|perform\w*|teach\w*|students?|effort)\b/],
+ ['Zhang Wei','Zhang',/\b(old-fashioned|notes?|note-taking|notepad|pen|paper|phones?|tablets?|keyboards?|digital|devices?|hands?|brain|memory|power|cables?|bank\s+loan|write|writ\w+|handwrit\w+|coordinat\w+|think\s+and\s+create)\b/],
+ ['Asya Korkmaz','Asya',/\b(pressure|challenged|challenges?|fail\w*|scientists?|85|eighty-five|per\s*cent|percent|%|boredom|bored|easy|difficult|discouraged|pick\w*\s+(herself|themselves|yourself)\s+up|tr(y|ies)\s+again|risks?|succeed\w*|success\w*)\b/]];
+function d7(k){const raw=norm(A('t3q'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(!/^which\s+person\b/.test(t))return {ok:false,msg:'Start with “Which person …”.'};
+  if(!/\?$/.test(raw))return {ok:false,msg:'A question needs a question mark (?).'};
+  if(wc(raw)<4)return {ok:false,msg:'Make your question longer – add a detail from the text.'};
+  if(/^which\s+person\s+(does|do|did)\s+(?!not\b|n't\b)[a-z]+/.test(t)&&!/^which\s+person\s+(does|did)n't/.test(t))return {ok:false,msg:'“Which person” is the subject – don’t add does/did: Which person teaches …? / Which person thinks …?'};
+  const nm=PPL[k];if(new RegExp('\\b('+nm[1].toLowerCase()+'|'+nm[0].split(' ')[1].toLowerCase()+')\\b').test(t))return {ok:false,msg:'Don’t give away the answer – remove the person’s name.'};
+  if(!nm[2].test(t))return {ok:false,msg:`Use a detail from ${nm[1]}’s text so that the answer is ${nm[1]}.`};
+  return {ok:true,msg:`Good question – the answer is ${nm[1]}.`}}
+function chk3(){
+  const n=R(0,4).filter(k=>d7(k).ok).length,p=A('t3who'),pi=PPL.findIndex(x=>x[0]===p),d8=lc_(A('t3agree'));
+  const ag=pi>=0&&/\b(agree|share|like|support|same\s+(opinion|view|idea))\b/.test(d8)&&!/\b(disagree)\b/.test(d8)&&wc(d8)>=15;
+  const det=pi>=0&&PPL[pi][2].test(d8)&&REASON.test(d8);
+  const raw=A('t3txt'),t=lc_(raw),w=wc(t);
+  const typ=/\b(active|passive|visual|hands-on|practical|independent|experiential|organi[sz]ed|curious|confident|old-fashioned|social|quiet|careful|hard-working|slow|fast|digital)\s+(learner|student|person|type)\b|\bi\s+learn\s+(best|better|most|more)\b|\b(sort|kind|type)\s+of\s+learner\b|\blearner\b/.test(t);
+  const tm=/\b(mornings?|afternoons?|evenings?|nights?|after\s+(school|fajr|dinner|lunch|maghrib|isha|asr|prayers?)|before\s+(school|bed|breakfast|dinner|lunch)|early|late|o'clock|\d{1,2}\s*(am|pm|a\.m\.|p\.m\.)|weekends?|time\s+of\s+day|bedtime)\b/.test(t);
+  const al=/\b(alone|on\s+my\s+own|by\s+myself|independently|with\s+(my\s+)?(friends?|classmates?|others|other\s+people|a\s+partner|partners?|brothers?|sisters?|cousins?|a\s+group|family)|in\s+(a\s+)?groups?|group\s+(study|work)|study\s+groups?|in\s+pairs|together)\b/.test(t);
+  const tools=new Set((t.match(TOOLS)||[]).map(x=>x.replace(/\s+/g,' '))),v=unitv(t),rs=(t.match(/\b(because|as|since|so|that's\s+why|this\s+helps|which\s+helps|it\s+helps|helps\s+me)\b/g)||[]).length,L=links(t),lk=linkCount(L);
+  const items=[[`D7: “Which person …?” questions, one for each text (${n}/4)`,n===4,4,n],
+   ['D8: the person you most agree with (I agree with …)',ag,1],['D8: exactly what you agree with – a detail from their text + why',det,1],
+   [`Length 80–100 words (${w})`,w>=80&&w<=100,1],
+   ['What sort of learner you are (I am an active / visual learner …)',typ,1],
+   ['What time of day you prefer to study',tm,1],
+   ['Whether you work alone or with others',al,1],
+   [`Learning tools from D1 (${tools.size})`+(tools.size?': '+[...tools].slice(0,4).join(', '):''),tools.size>=1,1],
+   [`Unit vocabulary (${v.size}) – aim for 3+`+(v.size?': '+[...v].slice(0,6).join(', '):''),v.size>=3,2,v.size>=1?1:0],
+   [`Reasons (because / so / this helps me …) (${rs}) – aim for 2+`,rs>=2,2,rs>=1?1:0],
+   [`Linking devices (${lk}) – aim for 2+`,lk>=2,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 4: zero and first conditionals ---------- */
+const ACT1C=[['a','If everything is just a click away, our brain will forget or ignore most of the information.',['if everything is just a click away'],['our brain will forget or ignore most of the information']],
+ ['b','In my opinion, you can’t miss something if you have never had it.',['if you have never had it'],["you can't miss something","in my opinion, you can't miss something","in my opinion you can't miss something"]],
+ ['c','Success will definitely not come their way if they aren’t prepared to make an effort outside the dance studio.',["if they aren't prepared to make an effort outside the dance studio","if they are not prepared to make an effort outside the dance studio"],['success will definitely not come their way']]];
+const cl = s => nrm(s).replace(/[.,!?]+$/,'').trim();
+function a1(k){const [l,s,ifs,ms]=ACT1C[k],i=cl(A('t4c'+k+'i')),m=cl(A('t4c'+k+'m'));if(!i&&!m)return {ok:false,empty:true,msg:''};
+  if(ms.includes(i)&&ifs.includes(m))return {ok:false,msg:'You have swapped them – the ‘if’ clause is the part that begins with if.'};
+  const io=ifs.includes(i),mo=ms.includes(m);
+  if(io&&mo)return {ok:true,msg:'Correct – both clauses identified.'};
+  if(!i||!m)return {ok:false,msg:'Write both clauses.'};
+  if(!io)return {ok:false,msg:i.startsWith('if')?'Copy the whole ‘if’ clause, exactly as in the sentence.':'The ‘if’ clause must begin with the word if.'};
+  return {ok:false,msg:'Copy the whole main clause exactly (without the ‘if’ clause).'}}
+const TNS=['present simple','present continuous','present perfect','imperative','will + infinitive','modal + infinitive'];
+const ACT3=[['a','If I get lost, I ask for directions.','Zero',0,0],['b','If you don’t help me, this will take much longer.','First',0,4],['c','If I’m struggling with a problem, I try to get help.','Zero',1,0],['d','If Mario is still not feeling well, he may not join us.','First',1,5],['e','Don’t disturb me if I’m studying!','Zero',1,3],['f','I think it’s easier to study if I’ve had something to eat.','Zero',2,0],['g','If we don’t hurry we might miss the bus.','First',0,5],['h','I will meet you later if I finish my essay.','First',0,4]];
+function a3(k){const [l,s,ty,ti,tm]=ACT3[k],y=A('t4t'+k),i=A('t4i'+k),m=A('t4m'+k);if(!y&&!i&&!m)return {ok:false,empty:true,msg:''};
+  if(y&&y!==ty)return {ok:false,msg:'Look at the main clause: will / may / might + infinitive → first; present tense or imperative → zero.'};
+  if(!y||!i||!m)return {ok:false,msg:(y?'Type correct. ':'')+'Now choose the tense of both clauses.'};
+  if(i!==TNS[ti])return {ok:false,msg:'Type correct – check the tense in the ‘if’ clause again (look at the verb after if).'};
+  if(m!==TNS[tm])return {ok:false,msg:'Type correct – check the tense in the main clause again.'};
+  return {ok:true,msg:`Correct – ${ty.toLowerCase()} conditional: ${TNS[ti]} + ${TNS[tm]}.`}}
+const MODAL=/\b(will|'ll|won't|wont|can|can't|cannot|may|might|must|should|could)\b/;
+const PASTX=/\b(was|were|went|did|didn't|got\s+lost|lost\s+my)\b/;
+function parseCond(raw){ // returns {order,ifc,main,err}
+  const r=norm(raw).trim(),t=r.toLowerCase().replace(/[.!]+$/,'');
+  if(/^if\b/.test(t)){const c=t.indexOf(',');if(c<0)return {order:'if',err:'When the ‘if’ clause comes first, put a comma after it.'};
+    return {order:'if',ifc:t.slice(0,c).trim(),main:t.slice(c+1).trim()}}
+  const m=t.match(/^(.*?)(,?)\s+if\s+(.*)$/);if(!m)return {order:null,err:'Add an ‘if’ clause (… if I …).'};
+  if(m[2])return {order:'main',err:'When the ‘if’ clause comes second, don’t put a comma before if.'};
+  return {order:'main',ifc:'if '+m[3].trim(),main:m[1].trim()}}
+function condCheck(raw,need){ // need: {order?, type?:'zero'|'first'|'modal'} → {ok,msg,type}
+  const r=norm(raw).trim();if(!r)return {ok:false,empty:true,msg:''};
+  if(!/[.!]$/.test(r))return {ok:false,msg:'End your sentence with a full stop.'};
+  if(!/^[A-Z]/.test(r))return {ok:false,msg:'Start your sentence with a capital letter.'};
+  const p=parseCond(r);if(p.err)return {ok:false,msg:p.err};
+  if(need.order&&p.order!==need.order)return {ok:false,msg:need.order==='if'?'Put the ‘if’ clause first this time.':'Put the main clause first and the ‘if’ clause second.'};
+  if(/\b(will|'ll|would|won't)\b/.test(p.ifc))return {ok:false,msg:'Don’t use will / would in the ‘if’ clause – use a present tense: If I study …'};
+  if(/\bwould\b/.test(p.main))return {ok:false,msg:'Would is for the second conditional – use will, a modal or the present.'};
+  if(PASTX.test(p.ifc+' '+p.main))return {ok:false,msg:'Zero and first conditionals use present time – don’t use the past.'};
+  if(wc(p.ifc)<3||wc(p.main)<2)return {ok:false,msg:'Both clauses need a subject and a verb.'};
+  if(/\b(will|can|may|might|must|should)\s+(to\s+|[a-z]+(ed|s)\b)/.test(p.main)&&!/\b(will|can|may|might|must|should)\s+(miss|pass|focus|discuss|guess|access|process|stress|express|need|feed|succeed|proceed|bless)\b/.test(p.main))return {ok:false,msg:'After will / a modal use the base form: will learn, may remember (not will to learn / will learned).'};
+  const type=/\b(will|'ll|won't|wont)\b/.test(p.main)?'first':MODAL.test(p.main)?'modal':'zero';
+  if(need.type==='zero'&&type!=='zero')return {ok:false,msg:'This is a first conditional – for the zero conditional use the present in both clauses (or an imperative).'};
+  if(need.type==='first'&&type!=='first')return {ok:false,msg:'For the first conditional use will / won’t + infinitive in the main clause.'};
+  if(need.type==='modal'&&type!=='modal')return {ok:false,msg:'Use a modal verb (may / might / can) + infinitive in the main clause.'};
+  return {ok:true,type,msg:{zero:'Correct – zero conditional',first:'Correct – first conditional (will)',modal:'Correct – first conditional with a modal'}[type]+(p.order==='if'?', comma after the ‘if’ clause.':', no comma needed.')}}
+const ACT4=[['a','If you don’t use a tablet or a laptop'],['b','I won’t bother to go to the library'],['c','If I lose my memory stick'],['d','If I show my students what they need to do'],['e','My teacher will encourage me more'],['f','Maria helps me with my homework'],['g','If you are happy to take more risks'],['h','If you follow the rules'],['i','I may remember']];
+function a4(k){const [l,stem]=ACT4[k],raw=norm(A('t4a'+k)).trim();if(!raw)return {ok:false,empty:true,msg:''};
+  const s=lc_(stem);if(!raw.toLowerCase().startsWith(s))return {ok:false,msg:`Copy the beginning exactly: “${stem} …”, then complete the sentence.`};
+  if(wc(raw)<=wc(stem)+1)return {ok:false,msg:'Complete the idea with a full clause.'};
+  return condCheck(raw,{order:/^if/i.test(stem)?'if':'main'})}
+const OWN4=[['Zero conditional – ‘if’ clause first',{type:'zero',order:'if'},'e.g. If I study in the morning, I remember more.'],
+ ['Zero conditional – ‘if’ clause second',{type:'zero',order:'main'},'e.g. I always make a mind map if a topic is difficult.'],
+ ['First conditional (will) – ‘if’ clause first',{type:'first',order:'if'},'e.g. If you revise a little every day, you will feel more confident.'],
+ ['First conditional (will / won’t) – ‘if’ clause second',{type:'first',order:'main'},'e.g. You won’t forget new words if you write them on sticky notes.'],
+ ['First conditional with a modal (may / might / can) – either order',{type:'modal'},'e.g. If you study with music, you might lose concentration.']];
+const STUDY=/\b(stud\w*|learn\w*|revis\w*|homework|exams?|tests?|notes?|teachers?|class(es)?|lessons?|remember|memor\w*|read\w*|words?|vocabulary|librar\w*|school|subjects?|understand\w*|concentrat\w*|focus\w*|mind\s+maps?|sticky\s+notes?|marks?|grades?|questions?|music|forget|knowledge|practi[sc]e|mistakes?)\b/;
+function own4(k){const raw=A('t4o'+k);const r=condCheck(raw,OWN4[k][1]);if(!r.ok)return r;
+  if(!STUDY.test(lc_(raw)))return {ok:false,msg:'Make it study advice – mention studying, revising, homework, notes …'};
+  const prev=R(0,k).map(j=>nrm(A('t4o'+j)));if(prev.includes(nrm(raw)))return {ok:false,msg:'Write a different sentence.'};return r}
+function chk4(){
+  const n1=R(0,3).filter(k=>a1(k).ok).length,n3=R(0,8).filter(k=>a3(k).ok).length,n4=R(0,9).filter(k=>a4(k).ok).length,n5=R(0,5).filter(k=>own4(k).ok).length;
+  const items=[[`Activity 1: ‘if’ clause and main clause identified (${n1}/3)`,n1===3,3,n1],
+   [`Activity 3: zero or first + tenses (${n3}/8)`,n3===8,4,Math.floor(n3/2)],
+   [`Activity 4: ideas completed with correct structure and commas (${n4}/9)`,n4===9,9,n4],
+   [`My own study-advice conditionals (${n5}/5)`,n5===5,5,n5]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 5: Project – interviews about learning ---------- */
+const QSTART=/^(what|how|when|where|why|which|who|whose|do|does|did|are|is|am|have|has|can|could|would|will|should)\b/;
+function q5(k){const raw=norm(A('t5q'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(!/\?$/.test(raw))return {ok:false,msg:'End your question with a question mark (?).'};
+  if(wc(raw)<4)return {ok:false,msg:'Make your question longer and clearer.'};
+  if(!QSTART.test(t))return {ok:false,msg:'Start with a question word (What, How, When …) or an auxiliary (Do, Does, Are, Have …).'};
+  if(/^(what|how|when|where|why|which\s+\w+|how\s+often|how\s+much|how\s+many)\s+(you|he|she|they|we|your\s+\w+)\s+(?!are|is|were|was|do|does|did|have|has|can|will|should)/.test(t))return {ok:false,msg:'Add an auxiliary: What do you …? / How do you …?'};
+  let m=t.match(/^(do|does|did)\s+(you|he|she|they|we|your\s+\w+)\s+(?:usually\s+|ever\s+|often\s+|always\s+|sometimes\s+)?([a-z]+)/);
+  if(m){const v=m[3];if(m[1]==='did'&&/ed$/.test(v)&&!/^(need|feed|seed)$/.test(v))return {ok:false,msg:'After did use the base form: Did you use …?'};
+    if(/s$/.test(v)&&!/^(focus|discuss|miss|pass|guess|access|process|stress|express|revis)/.test(v)&&v.length>3&&m[1]!=='does')return {ok:false,msg:'After do / does use the base form of the verb.'};
+    if(m[1]==='does'&&/[^s]s$/.test(v)&&!/^(focus|discuss|miss|pass|guess|access|process|stress|express)$/.test(v))return {ok:false,msg:'After does use the base form: Does she use …? (not uses).'}}
+  if(R(0,k).some(j=>nrm(A('t5q'+j))===nrm(raw)))return {ok:false,msg:'You have already asked this question.'};
+  return {ok:true,msg:/^(do|does|did|are|is|have|has|can|could|would|will|should)\b/.test(t)?'Correct question form (yes/no question – a follow-up “Why?” will get more detail).':'Correct open question.'}}
+const NM5=k=>norm(A('t5n'+k)).trim();
+function p5(k){const raw=norm(A('t5p'+k)).trim(),t=raw.toLowerCase(),w=wc(raw),nm=NM5(k);if(!raw)return {ok:false,empty:true,msg:''};
+  if(w>80)return {ok:false,msg:`Too long: ${w} words – the maximum is 80.`};
+  if(w<30)return {ok:false,msg:`${w} words – write at least 30 so the synopsis is useful.`};
+  if(!nm)return {ok:false,msg:'Write this person’s name in the box above.'};
+  if(!t.includes(nm.toLowerCase().split(/\s+/)[0]))return {ok:false,msg:`Mention ${nm} by name in the paragraph.`};
+  if(!/\b(he|she|his|her|him)\b/.test(t))return {ok:false,msg:'Write in the third person (he / she / his / her).'};
+  if(!/\b(says?|said|told|explained|thinks|believes|prefers|likes|loves|uses|finds|feels|admits|according\s+to|revises|studies|does|keeps|writes|reads|listens)\b/.test(t))return {ok:false,msg:'Report what the person told you (She says … / He explained that … / She prefers …).'};
+  if(!/[.!]$/.test(raw)||!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter and end with a full stop.'};
+  return {ok:true,msg:`Good synopsis (${w} words).`}}
+function chk5(){
+  const n=R(0,6).filter(k=>q5(k).ok).length,qs=R(0,6).map(k=>lc_(A('t5q'+k))).join(' ');
+  const top=[/\bhomework\b/,/\b(remember|memor\w+|forget)\b/,/\b(notepad|notebook|paper|pen|digital|device|phone|tablet|laptop|computer|app)\b/,/\b(unusual|different|special|strange|secret|tricks?|techniques?|habits?)\b/].filter(r=>r.test(qs)).length;
+  const np=R(0,4).filter(k=>p5(k).ok).length,all=R(0,4).map(k=>lc_(A('t5p'+k))).join(' ');
+  const unu=/\b(unusual|surprising(ly)?|interesting(ly)?|strange|unique|instead\s+of|different\s+from|special|creative|clever|original)\b/.test(all);
+  const pun=R(0,4).every(k=>{const r=norm(A('t5p'+k)).trim();return r&&/^[A-Z]/.test(r)&&/[.!]$/.test(r)&&!/\s[,.]/.test(r)&&!/\bi\b/.test(r)});
+  const items=[[`Interview questions correctly formed (${n}/6) – write 4–6`,n>=4,3,Math.min(2,Math.max(0,n-1))],
+   [`Questions cover the focus areas – homework, remembering, notepad or device, anything unusual (${top}/4)`,top>=3,1],
+   [`Synopsis paragraphs: 30–80 words, name, third person, reported information (${np}/4)`,np===4,4,np],
+   ['Highlights something unusual or interesting a classmate does',unu,1],
+   ['Accurate punctuation and capitals in all four paragraphs (capital I, full stops)',pun,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 6: Exam-style article (enhancement) ---------- */
+const RUB=[['c1','Content','I described how students at my school usually study',2],['c2','Content','I explained whether listening to music while studying is a good idea, with reasons',2],['c3','Content','I suggested two techniques that help students learn more effectively',1],['c4','Content','My article has a title, speaks to the magazine’s readers and is neutral / semi-formal',1],
+ ['l1','Language','I organised my article clearly: title, introduction, paragraphs and a conclusion',2],['l2','Language','I used a range of vocabulary from the unit (absorb, confidence, active learning, feedback …)',2],['l3','Language','I used zero / first conditionals and tenses accurately',1],['l4','Language','I used a variety of linking devices',2],['l5','Language','My spelling, grammar and punctuation are mostly accurate; 120–160 words',2]];
+const TECH=/\b(mind[\s-]maps?|sticky\s+notes?|flash\s?cards?|diagrams?|spider\s+diagrams?|note-taking|taking\s+notes|make\s+notes|making\s+notes|handwritten\s+notes|notes\s+by\s+hand|summar\w+|highlight\w*|group\s+study|study\s+(groups?|with\s+(a\s+)?(friends?|classmates?|partners?))|teach(ing)?\s+(it\s+to\s+)?(someone|others|a\s+friend|your\s+friends?)|past\s+papers|practice\s+tests?|self-test\w*|test(ing)?\s+yourself|quiz(zing)?\s+yourself|timetables?|schedules?|short\s+breaks|regular\s+breaks|take\s+breaks|revis(e|ing)\s+(a\s+little|regularly|every\s+day)|active\s+learning|experiential\s+learning|librar(y|ies))\b/g;
+function chk6(){
+  const raw=A('t6txt'),r=norm(raw),t=r.toLowerCase(),W=wc(t),lines=r.trim().split('\n').map(x=>x.trim()).filter(Boolean);
+  const title=lines.length>1&&wc(lines[0])>=2&&wc(lines[0])<=10&&!/[.,]$/.test(lines[0]);
+  const P=paras(lines.slice(title?1:0).join('\n')),S=sents(raw).map(x=>x.toLowerCase());
+  const how=/\b(students?|classmates?|pupils|most\s+of\s+us|many\s+of\s+us|teenagers|we)\b/.test(t)&&/\b(usually|often|normally|tend\s+to|most|many|majority|typically|generally|always)\b/.test(t)&&/\b(stud(y|ies|ying)|revis\w+|homework|learn\w*|exams?)\b/.test(t)&&/\b(at\s+(my|our)\s+school|in\s+(my|our)\s+(school|class)|our\s+school|my\s+school|students\s+here|classmates)\b/.test(t);
+  const mu=S.filter(s=>/\bmusic\b/.test(s));
+  const op=mu.some(s=>/\b(i\s+(think|believe|feel|doubt)|in\s+my\s+(opinion|view)|personally|(is|isn't|is\s+not)\s+(a\s+)?(good|bad|great|terrible)\s+idea|i'm\s+not\s+sure|i\s+am\s+not\s+sure|it\s+depends)\b/.test(s));
+  const opr=S.some((s,j)=>/\bmusic\b/.test(s)&&(REASON.test(s)||REASON.test(S[j+1]||'')||/\b(distract\w*|concentrat\w*|focus\w*|relax\w*|calm\w*|lyrics|quiet|silence|noise)\b/.test(s)));
+  const tech=new Set((t.match(TECH)||[]).map(x=>x.replace(/\s+/g,' ').replace(/s$/,'')));
+  const sug=/\b(you\s+should|students\s+should|we\s+should|you\s+could|try\s+(to\s+)?\w+|i\s+(recommend|suggest)|why\s+not|it's\s+a\s+good\s+idea|it\s+is\s+a\s+good\s+idea|make\s+sure|don't\s+forget)\b/.test(t);
+  const com=/\b(helps?\s+(me\s+|you\s+|them\s+)?focus|do\s+something\s+with\s+the\s+information|some\s+(students|people|classmates)\s+(say|think|believe|claim|feel)|one\s+student|as\s+one|others?\s+(say|think|believe|feel))\b/.test(t);
+  const cond=S.some(s=>/\bif\b/.test(s)&&condCheck(cap(s.replace(/[!?]$/,'.')).replace(/([^.])$/,'$1.'),{}).ok);
+  const v=unitv(t),L=links(t),lk=linkCount(L);
+  const rq=/\?/.test(t)||/\b(you|your)\b/.test(t);
+  const concl=P.length>=2&&/\b(in\s+conclusion|to\s+sum\s+up|overall|all\s+in\s+all|to\s+conclude|finally|in\s+short|so,|the\s+best\s+way|remember)\b/.test(P[P.length-1].toLowerCase());
+  const reg=!REG_BAD.test(t)&&(t.match(/!/g)||[]).length<=1;
+  const items=[
+   ['A short title on the first line (no full stop)',title,1],
+   [`Length 120–160 words (${W})`,W>=120&&W<=160,1],
+   [`Organised in paragraphs (${P.length}) – press Enter between paragraphs`,P.length>=3,1],
+   ['Point 1: how students at your school usually study',how,1],
+   ['Point 2: your opinion on listening to music while studying',op,1],
+   ['Point 2: a reason for your view (it helps / it distracts … because …)',opr,1],
+   [`Point 3: two study techniques suggested (${tech.size})`+(tech.size?': '+[...tech].slice(0,4).join(', '):''),tech.size>=2,1,tech.size===1],
+   ['Point 3: suggestion language (You should … / Try … / I recommend …)',sug,1],
+   ['Uses or responds to the comments (helps me focus / do something with the information)',com,1],
+   ['A correct zero or first conditional (If you …, you will …)',cond,1],
+   [`Unit vocabulary (${v.size}) – aim for 4+`+(v.size?': '+[...v].slice(0,6).join(', '):''),v.size>=4,1],
+   [`Linking devices – 4+ from at least two categories (${lk})`+(lk?': '+LCAT.flatMap(c=>[...L[c]]).slice(0,7).join(', '):''),lk>=4&&LCAT.filter(c=>L[c].size).length>=2,1],
+   ['Speaks to the readers (you / your / a question)',rq,1],
+   ['A concluding paragraph (In conclusion / Overall / To sum up …)',concl,1],
+   ['Neutral, semi-formal register: no slang, max. one “!”',reg&&W>20,1]];
+  return {items,score:sum(items)};
+}
+function selfScore(){let c=0,l=0;RUB.forEach(r=>{if(st.a['rub_'+r[0]]){if(r[1]==='Content')c+=r[3];else l+=r[3]}});return [c,l]}
+
+/* ---------- task definitions ---------- */
+const TASKS=[
+ {id:1,title:'Quotations and approaches',icon:'💬',max:18,lesson:'Lesson 6.1 · B2–B5, Coursebook pp. 76–78',chk:chk1,
+  done:()=>R(0,8).filter(k=>A('t1m'+k)).length>=6&&TOP5().filter(Boolean).length>=3&&wc(A('t1txt'))>=50,
+  words:()=>wc(A('t1txt')),
+  model:`<b>B3:</b> a 5 (Alcott – not afraid of storms) · b 1 (Churchill – always ready to learn) · c 7 (Franklin – involve me and I learn) · d 3 (Branson – falling over) · e 4 (Malala – the content of a book) · f 2 (Lauder – working for it) · g 6 (Mandela – change the world) · h 8 (Parker – curiosity)<br><b>B5 (example):</b> 1 Ask questions · 2 Study hard for success · 3 Learn by doing · 4 Read to increase your knowledge · 5 Learn from making mistakes<br><b>Paragraph (example):</b> My most important approach is asking questions, because curiosity helps me understand new topics. I always read before a test and I try to learn by doing experiments in science. However, I don’t learn from my mistakes enough, so I want to change this. I also use sticky notes and mind maps to remember new words. I agree with Benjamin Franklin because I learn best when I am involved. On the other hand, I disagree with Richard Branson that we don’t learn by following rules – rules can help us.`},
+ {id:2,title:'Active or passive learning',icon:'📖',max:20,lesson:'Lessons 6.2–6.3 · C4, Language tip & C8, Coursebook pp. 78–81',chk:chk2,
+  done:()=>R(0,5).filter(i=>A('t2v'+i).trim()).length>=3&&R(0,6).filter(k=>A('t2f'+k).trim()).length>=3&&wc(A('t2txt'))>=50,
+  words:()=>R(0,5).reduce((s,i)=>s+wc(A('t2v'+i)),0)+[0,1].reduce((s,k)=>s+wc(A('t2q'+k)),0)+wc(A('t2txt')),
+  model:`<b>C4 sentences (examples):</b> I absorb new words more quickly when I write them down. · My confidence in English has grown this year. · My current project is about renewable energy. · I sometimes struggle to remember dates in history. · Reflecting on my mistakes helps me improve my essays.<br><b>Language tip:</b> 1 The school opened 20 years ago. · 2 She has had that car since 2021. · 3 I finished my homework yesterday. · 4 We have known our English teacher for three years. · 5 Have you ever used a mind map? · 6 I have already learnt ten new words this week. <b>Gaps:</b> visited · haven’t finished · has studied / has been studying · watched · have never tried · gave<br><b>Text 6.1 questions:</b> Yesterday I learnt how to use the first conditional. · Today I have learnt the difference between active and passive learning.<br><b>C8 paragraph:</b> I have experienced passive learning most, because in many lessons we just listen to the teacher and copy notes. However, it varies with different subjects. Last year our science teacher gave us experiments every week, so I absorbed the information much better and got useful feedback. In my opinion, learning online is usually passive, because we watch videos without doing anything with the information. It can be active if we take notes or complete quizzes, but there is a danger of information overload. I have learnt that I need to engage with tasks to remember things.`},
+ {id:3,title:'My approach to learning',icon:'🧠',max:16,lesson:'Lesson 6.6 · D7–D9, Coursebook p. 84 (Text 6.2, pp. 82–83)',chk:chk3,
+  done:()=>R(0,4).filter(k=>A('t3q'+k).trim()).length>=3&&wc(A('t3txt'))>=50,
+  words:()=>R(0,4).reduce((s,k)=>s+wc(A('t3q'+k)),0)+wc(A('t3agree'))+wc(A('t3txt')),
+  model:`<b>D7 (examples):</b> Which person was taught mainly by being told things? (Ahmed) · Which person teaches dance? (Giusy) · Which person thinks writing by hand makes the brain more active? (Zhang) · Which person often feels pressure to succeed? (Asya)<br><b>D8 (example):</b> I most agree with Asya. I agree that it is good to fail sometimes, because when I make mistakes in maths I remember the correct method better. Her idea about succeeding around 85% of the time makes sense to me.<br><b>D9 paragraph:</b> I am an active learner, because I need to do something with information before I can absorb it. I prefer to study in the early morning after Fajr, as my mind is fresh and the house is quiet. I usually work alone when I revise, but I like group study before exams because my friends explain things I struggle with. My favourite tools are mind maps and sticky notes, which help me remember key words. I also check my mistakes and reflect on my teacher’s feedback, so my confidence grows.`},
+ {id:4,title:'Zero and first conditionals',icon:'🔀',max:21,lesson:'Lesson 6.7 · Language focus Activities 1–4, Coursebook pp. 84–85',chk:chk4,
+  done:()=>R(0,8).filter(k=>A('t4t'+k)).length>=6&&R(0,9).filter(k=>A('t4a'+k).trim()).length>=5&&R(0,5).filter(k=>A('t4o'+k).trim()).length>=3,
+  words:()=>R(0,9).reduce((s,k)=>s+wc(A('t4a'+k)),0)+R(0,5).reduce((s,k)=>s+wc(A('t4o'+k)),0),
+  model:`<b>Activity 1:</b> a ‘if’ clause: <i>If everything is just a click away</i> | main: <i>our brain will forget or ignore most of the information</i> · b main: <i>(In my opinion,) you can’t miss something</i> | ‘if’: <i>if you have never had it</i> · c main: <i>Success will definitely not come their way</i> | ‘if’: <i>if they aren’t prepared to make an effort outside the dance studio</i><br><b>Activity 3:</b> a zero – present simple + present simple · b first – present simple + will · c zero – present continuous + present simple · d first – present continuous + modal (may) · e zero – present continuous (‘if’) + imperative (main) · f zero – present perfect (‘if’) + present simple (main) · g first – present simple + modal (might) · h first – present simple (‘if’) + will (main); no comma because the ‘if’ clause is second<br><b>Activity 4 (examples):</b> a If you don’t use a tablet or a laptop, you won’t get distracted by social media. · b I won’t bother to go to the library if I can find the information online. · c If I lose my memory stick, I will have to do my project again. · d If I show my students what they need to do, they will learn more quickly. · e My teacher will encourage me more if I take more risks with my learning. · f Maria helps me with my homework if I don’t understand something. · g If you are happy to take more risks, you will learn faster. · h If you follow the rules, you won’t get into trouble. · i I may remember the new words if I write them on sticky notes.<br><b>Own sentences (examples):</b> If I study in the morning, I remember more. · I always make a mind map if a topic is difficult. · If you revise a little every day, you will feel more confident. · You won’t forget new words if you write them on sticky notes. · If you study with loud music, you might lose concentration.`},
+ {id:5,title:'Project: Interviews',icon:'🎤',max:10,lesson:'Lesson 6.8 · Project: Conduct interviews about learning, Coursebook p. 86',chk:chk5,
+  done:()=>R(0,6).filter(k=>A('t5q'+k).trim()).length>=4&&R(0,4).filter(k=>wc(A('t5p'+k))>=20).length>=3,
+  words:()=>R(0,6).reduce((s,k)=>s+wc(A('t5q'+k)),0)+R(0,4).reduce((s,k)=>s+wc(A('t5p'+k)),0),
+  model:`<b>Questions (examples):</b> 1 How do you usually do your homework? · 2 What do you do to help you remember new information? · 3 Do you prefer a notepad or a digital device for your notes? Why? · 4 What time of day do you study best? · 5 Do you study alone or with other people? · 6 Is there anything unusual that you do to help you learn?<br><b>Synopsis (example):</b> Layla always does her homework at the kitchen table straight after school, because she says she concentrates better before she gets tired. To remember new information, she records herself reading her notes and listens to them on the way to school. She prefers a notepad to a tablet, as writing by hand helps her remember. Surprisingly, she teaches each new topic to her younger sister to check that she really understands it.`},
+ {id:6,title:'Exam-style article',icon:'📰',max:15,lesson:'Lesson 6.10 · Enhancement task – exam-style writing (the unit’s exam-style question is Reading)',chk:chk6,done:()=>wc(A('t6txt'))>=60,words:()=>wc(A('t6txt')),
+  model:`How to Study Smarter<br><br>At our school, most students usually study at home in the evening, and many of us simply read our notes again and again. However, this is passive learning, so we often forget the information quickly.<br><br>Some students say, “I always study with music – it helps me focus.” In my opinion, soft music without words can help you relax, but songs with lyrics are a bad idea because they distract your brain.<br><br>So what should you do instead? First, try making mind maps. If you organise ideas in a diagram, you will absorb them more easily. Secondly, I recommend testing yourself with flashcards, as this gives you instant feedback. As another student says, we learn best when we actually do something with the information.<br><br>Overall, active techniques will build your confidence. Why not try them before your next exam?`}
+];
+
+
+const TOTAL=TASKS.reduce((s,t)=>s+t.max,0);
+
+/* ---------- UI helpers ---------- */
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+function checklist(items){return '<ul class="chk">'+items.map(it=>{const part=!it[1]&&(typeof it[3]==='number'?it[3]>0:!!it[3]);const g=got(it);
+  return `<li class="${it[1]?'y':(part?'p':'n')}"><span class="ic">${it[1]?'✔':(part?'◐':'✘')}</span><span>${it[0]}</span>${it[2]?`<span class="pt">${g}/${it[2]}</span>`:''}</li>`}).join('')+'</ul>'}
+function ta(key,rows,ph,extra=''){return `<textarea data-k="${key}" rows="${rows}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} ${extra}>${esc(A(key))}</textarea>`}
+function inp(key,ph,style=''){return `<input type="text" data-k="${key}" value="${esc(A(key))}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} style="${style}" autocomplete="off">`}
+function sel(key,opts,ph,style=''){return `<select data-k="${key}" ${st.submitted?'disabled':''} style="${style}"><option value="">${ph}</option>${opts.map(o=>`<option ${A(key)===o?'selected':''}>${o}</option>`).join('')}</select>`}
+
+/* ---------- render ---------- */
+function renderTabs(){
+  $('#tabs').innerHTML=TASKS.map((t,i)=>`<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${t.id}. ${esc(t.title)}<span class="d">${t.done()?'✓':''}</span></button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{renderTask(+b.dataset.i);scrollTo({top:0,behavior:'smooth'})});
+  updBar();
+}
+function updBar(){const d=TASKS.filter(t=>t.done()).length;$('#ptxt').textContent=d+'/6 tasks';$('#progI').style.width=(d/6*100)+'%';
+  $('#wtot').textContent='✍ '+TASKS.reduce((s,t)=>s+t.words(),0)+' words';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const e=b.querySelector('.d');if(e)e.textContent=TASKS[i].done()?'✓':''})}
+function head(t,instr){return `<div class="sec-h"><h2>${t.icon} Task ${t.id} – ${esc(t.title)}</h2><span class="mk">${t.max} marks</span></div><p class="sec-i">${t.lesson}. ${instr}</p>`}
+function modelBox(t){return st.submitted&&showModel?`<div class="ans"><b>Model answer:</b><br>${t.model}</div>`:''}
+const fbDiv=k=>`<div class="fb" data-fb="${k}"></div>`;
+
+
+function pick(key,opts,small=false){return `<div class="tfrow" data-pkw="${key}">${opts.map(o=>`<button type="button" class="tf ${A(key)===o?'sel':''}" data-pk="${key}" data-pv="${esc(o)}" ${st.submitted?'disabled':''} style="${small?'min-width:0;padding:7px 11px;font-size:14px':''}">${esc(o)}</button>`).join('')}</div>`}
+
+
+function tog(key,opts,allowed){const s=(A(key)||'').split('|');return `<div class="tfrow">${opts.map(o=>`<button type="button" class="tf ${s.includes(o)?'sel':''}" data-tg="${key}" data-tv="${esc(o)}" ${st.submitted?'disabled':''} style="min-width:0;padding:7px 11px;font-size:14px">${esc(o)}</button>`).join('')}</div>`}
+const subh = t => `<div class="sec-i" style="margin-top:18px;font-style:normal;font-weight:800;color:var(--teal-d)">${t}</div>`;
+
+function body(i){
+  const t=TASKS[i];
+  if(i===0){
+    let h=head(t,'<b>B2/B3:</b> read the eight quotations about learning. Match each approach to learning (a–h) with the quotation that it summarises. <b>B5:</b> choose your <b>top five</b> approaches, in order. Then write a paragraph of <b>80–100 words</b> (B4 + B2): Which approaches do you use? Which <b>don’t</b> you use? What other techniques help you (sticky notes, music while studying …)? Which quotation do you <b>agree</b> with most, and which do you <b>disagree</b> with – and why?');
+    h+=`<div class="q" style="padding:12px 16px"><b>B2 – The quotations</b><ol style="margin:8px 0 0;padding-left:22px;font-size:15px">${QUO.map(q=>`<li style="margin:4px 0"><i>‘${esc(q[2])}’</i> <span class="where">– ${q[1]}</span></li>`).join('')}</ol></div>`;
+    h+=subh('B3 – Match each approach to a quotation');
+    APPR.forEach((x,k)=>{h+=`<div class="q" data-q1m="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt">${esc(x[1])}</span><span class="qm">[1]</span></div><div class="body">${sel('t1m'+k,QOPT,'— choose the quotation —','max-width:320px')}${fbDiv('1m'+k)}</div></div>`});
+    h+=`<div class="sec-i" style="margin-top:10px">💡 <b>Reflection:</b> which words in each approach summarise or paraphrase the quotation (e.g. <i>storms</i> → <i>challenges</i>)? This skill helps you with matching tasks in the exam.</div>`;
+    h+=`${subh('B5 – My top five approaches to learning')}<div class="q"><div style="display:grid;gap:8px">${R(0,5).map(k=>`<div style="display:flex;gap:10px;align-items:center"><span class="num">${k+1}</span>${sel('t1t'+k,APPOPT,'— choose an approach —','max-width:420px')}</div>`).join('')}</div><div class="warn hidden" data-topw></div></div>
+      ${subh('B4 + B2 – My paragraph')}<div class="q"><label class="f">My approaches to learning (80–100 words)</label>${ta('t1txt',9,'My most important approach is … because … I always … but I don’t … I agree with … because …')}<div class="wc" data-wc="t1txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===1){
+    let h=head(t,'<b>C4:</b> write <b>five sentences about your own learning</b>, each with a <b>different</b> word from Text 6.1. <b>Language tip:</b> correct the sentences and complete the gaps – <b>past simple</b> for a finished time (<i>yesterday, ago, last week</i>); <b>present perfect</b> when the time is not stated or the action continues (<i>since, for, already, ever, yet</i>). Answer the two questions from the start of Text 6.1. Then write a paragraph of <b>80–100 words</b> answering <b>C8</b>: Which type of learning have you experienced most – active or passive? Would you describe learning online as active or passive? Why?');
+    h+=`${subh('C4 – Text 6.1 words in my own sentences')}<div class="keybox" data-c4chips></div>`;
+    for(let k=0;k<5;k++)h+=`<div class="q" data-q2v="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t2v'+k,['e.g. I absorb new words more quickly when I write them down.','e.g. My confidence in English has grown this year.','Write your sentence…','Write your sentence…','Write your sentence…'][k])}</span><span class="qm">[1]</span></div>${fbDiv('2v'+k)}</div>`;
+    h+=`${subh('Language tip – Past simple or present perfect?')}<div class="keybox"><span>✘ <i>The school <u>has opened</u> 20 years ago.</i> → ✔ <i>The school <u>opened</u> 20 years ago.</i></span><span>✘ <i>She <u>had</u> that car since 2021.</i> → ✔ <i>She <u>has had</u> that car since 2021.</i></span></div>
+      <div class="keybox" style="background:#fff"><span><b>Past simple:</b> yesterday · … ago · last night / week / year · in 2020 · when I was …</span><span><b>Present perfect:</b> since · for · already · ever · never · yet · just · today / this week</span></div>`;
+    TF.forEach((x,k)=>{h+=`<div class="q" data-q2f="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">✘ <i>${esc(x[0])}</i> <span class="where">(${x[3]==='practice'?'practice':'Language tip, p. 80'})</span></span><span class="qm">[½]</span></div><div class="body">${inp('t2f'+k,'Write the correct sentence…')}${fbDiv('2f'+k)}</div></div>`});
+    h+=`<div class="sec-i" style="font-style:normal">Write the correct form of the verb in brackets.</div>`;
+    TG.forEach((x,k)=>{h+=`<div class="q" data-q2g="${k}"><div class="qh"><span class="num">${k+7}</span><span class="qt">${esc(x[0])}</span><span class="qm">[½]</span></div><div class="body">${inp('t2g'+k,'verb form…','max-width:280px')}${fbDiv('2g'+k)}</div></div>`});
+    h+=subh('Text 6.1 – Answer the two questions in full sentences');
+    ['What did you learn yesterday?','What have you learnt today?'].forEach((q,k)=>{h+=`<div class="q" data-q2q="${k}"><div class="qh"><span class="num">${'ab'[k]}</span><span class="qt"><i>${q}</i></span><span class="qm">[1]</span></div><div class="body">${inp('t2q'+k,['Yesterday I learnt …','Today I have learnt …'][k])}${fbDiv('2q'+k)}</div></div>`});
+    h+=`${subh('C8 – My paragraph')}<div class="q"><label class="f">Active or passive learning? (80–100 words)</label>${ta('t2txt',9,'I have experienced … learning most, because … Last year … In my opinion, learning online is …')}<div class="wc" data-wc="t2txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===2){
+    let h=head(t,'Look again at Text 6.2, the journalist’s report about <b>Ahmed Al Abri, Giusy Manago, Zhang Wei and Asya Korkmaz</b>. <b>D7:</b> write one more <i>Which person … ?</i> question for each text – the answer must be that person. <b>D8:</b> which of the four people do you most agree with? What exactly do you agree with? <b>D9:</b> write a short paragraph (<b>80–100 words</b>) about your own approach to learning. Think about: what sort of learner you are · what time of day you prefer to study · whether you like to work alone or with others. Use vocabulary and ideas from the unit and the learning tools from D1.');
+    h+=`<div class="keybox"><span><b>D1 learning tools:</b> sticky notes · mind maps · diagrams · the library · group study · notepad and pen · textbook and notebook</span></div>${subh('D7 – One “Which person …?” question for each text')}`;
+    PPL.forEach((x,k)=>{h+=`<div class="q" data-q3q="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">Answer: <b>${x[0]}</b></span><span class="qm">[1]</span></div><div class="body">${inp('t3q'+k,['e.g. Which person was taught mainly by being told things?','e.g. Which person teaches dance?','Which person …?','Which person …?'][k])}${fbDiv('3q'+k)}</div></div>`});
+    h+=`${subh('D8 – The person I most agree with')}<div class="q"><label class="f">I most agree with …</label>${pick('t3who',PPL.map(x=>x[0]),true)}<label class="f" style="margin-top:12px">What exactly I agree with, and why (2–3 sentences)</label>${ta('t3agree',3,'I agree with … that … because …')}</div>
+      ${subh('D9 – My approach to learning')}<div class="q"><label class="f">My paragraph (80–100 words)</label>${ta('t3txt',9,'I am a(n) … learner, because … I prefer to study in the … I usually work …')}<div class="wc" data-wc="t3txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===3){
+    let h=head(t,'The zero and first conditionals describe real or possible events: <i>if A happens, then B happens</i>. <b>Activity 1:</b> copy the ‘if’ clause and the main clause. <b>Activity 3:</b> zero or first conditional? Which tenses are used? <b>Activity 4:</b> complete the ideas to make zero or first conditional sentences – write the <b>whole sentence</b> and check the comma. Then write <b>five sentences of your own</b> giving <b>study advice</b>.');
+    h+=`<div class="keybox"><span><b>Zero:</b> If + present, present / imperative – <i>If I get lost, I ask for directions.</i></span><span><b>First:</b> If + present, will / modal + infinitive – <i>If you don’t help me, this will take much longer.</i></span><span><b>Comma rule:</b> ‘if’ clause first → comma · ‘if’ clause second → no comma.</span></div>${subh('Activity 1 – Identify the clauses')}`;
+    ACT1C.forEach((x,k)=>{h+=`<div class="q" data-q4c="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])}</i></span><span class="qm">[1]</span></div><div class="body"><div class="grid2"><div><label class="f">‘if’ clause</label>${inp('t4c'+k+'i','if …')}</div><div><label class="f">main clause</label>${inp('t4c'+k+'m','main clause …')}</div></div>${fbDiv('4c'+k)}</div></div>`});
+    h+=subh('Activity 3 – Zero or first? Which tenses?');
+    ACT3.forEach((x,k)=>{h+=`<div class="q" data-q4t="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])}</i></span><span class="qm">[½]</span></div><div class="body">${pick('t4t'+k,['Zero','First'],true)}<div class="grid2" style="margin-top:8px"><div><label class="f">‘if’ clause tense</label>${sel('t4i'+k,TNS,'— choose —')}</div><div><label class="f">main clause tense</label>${sel('t4m'+k,TNS,'— choose —')}</div></div>${fbDiv('4t'+k)}</div></div>`});
+    h+=subh('Activity 4 – Complete the ideas (write the whole sentence)');
+    ACT4.forEach((x,k)=>{h+=`<div class="q" data-q4a="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])} …</i></span><span class="qm">[1]</span></div><div class="body">${inp('t4a'+k,x[1]+' …')}${fbDiv('4a'+k)}</div></div>`});
+    h+=subh('My own conditional sentences – study advice');
+    OWN4.forEach((x,k)=>{h+=`<div class="q" data-q4o="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${x[0]}</span><span class="qm">[1]</span></div><div class="body">${inp('t4o'+k,x[2])}${fbDiv('4o'+k)}</div></div>`});
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===4){
+    let h=head(t,'<b>Project:</b> with a partner, interview <b>four</b> classmates or friends about the approaches they use when learning – focus on anything <b>unusual</b> they do. <b>Step 1–2:</b> agree what you want to find out (how they do their homework, what helps them remember things, notepad or digital device …) and design a <b>maximum of six questions</b>. <b>Step 3–5:</b> carry out the interviews, keep notes, then write <b>four separate synopsis paragraphs</b> – one about each person, <b>maximum 80 words</b> each.');
+    h+=subh('Step 2 – My interview questions (maximum six)');
+    R(0,6).forEach(k=>{h+=`<div class="q" data-q5q="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t5q'+k,['e.g. How do you usually do your homework?','e.g. What do you do to help you remember new information?','Question 3…','Question 4…','Question 5 (optional)…','Question 6 (optional)…'][k])}</span></div>${fbDiv('5q'+k)}</div>`});
+    h+=subh('Steps 4–5 – Four synopsis paragraphs (max. 80 words each)');
+    R(0,4).forEach(k=>{h+=`<div class="q" data-q5p="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt"><label class="f">Interviewee ${k+1} – name</label>${inp('t5n'+k,['e.g. Layla','e.g. Omar','Name…','Name…'][k],'max-width:280px')}</span></div><div class="body">${ta('t5p'+k,5,k?'Write your synopsis…':'Layla always does her homework … She says that …')}<div class="wc" data-wc="t5p${k}"></div>${fbDiv('5p'+k)}</div></div>`});
+    h+=`<div class="q"><div data-live></div><p class="note">Evaluation (step 5): Did the writers communicate their ideas/opinions clearly, accurately and effectively · use a range of grammatical structures and vocabulary accurately and effectively · use accurate punctuation and spelling · use an appropriate tone, style and format?</p></div>`;
+    return h+modelBox(t);
+  }
+  if(i===5){
+    let h=head(t,'<b>Exam-style question (enhancement task).</b> Your school magazine is running a series on study skills. Write an <b>article</b> for the magazine about <b>the best ways to study</b>. In your article you should: <b>·</b> describe how students at your school usually study <b>·</b> explain whether you think listening to music while studying is a good idea <b>·</b> suggest <b>two</b> techniques that help students learn more effectively. Here are some comments from students at your school: <i>“I always study with music – it helps me focus.”</i> <i>“I learn best when I actually do something with the information.”</i> The comments above may give you some ideas, and you should try to use some ideas of your own. Write about <b>120 to 160 words</b>. <i>You will receive up to 6 marks for the content of your article, and up to 9 marks for the language used. [Total: 15]</i>');
+    h+=`<div class="keybox"><span>⭐ Enhancement task – extra exam practice (the unit’s printed exam-style question is Reading).</span><span>✍ Writing tip: an article for a school magazine needs a title, a neutral / semi-formal style and a direct link to the readers. Cover all three bullet points and plan briefly before you write.</span></div>
+      <div class="q"><label class="f">Your article (title on the first line; press Enter between paragraphs)</label>${ta('t6txt',16,'Title\n\nAt our school, most students …')}<div class="wc" data-wc="t6txt"></div><div data-live></div></div>
+      <div class="q"><b>Self-assessment</b> <span class="where">– tick what is true about your article (Content /6, Language /9)</span>
+      <div class="rub">${RUB.map(r=>`<label class="rb"><input type="checkbox" data-rub="${r[0]}" ${st.a['rub_'+r[0]]?'checked':''} ${st.submitted?'disabled':''}><span><b>${r[1]}</b> · ${r[2]} <span class="where">(${r[3]})</span></span></label>`).join('')}</div>
+      <div class="note" data-self></div></div>`;
+    return h+modelBox(t);
+  }
+}
+
+
+function setFb(k,r,qsel){const A_=$('#qArea'),e=A_.querySelector(`[data-fb="${k}"]`);if(!e)return;const q=qsel?A_.querySelector(qsel):null;
+  if(r.empty||r.ex){e.className='fb';e.innerHTML='';if(q&&q.classList.contains('q'))q.className='q';else if(q)q.style.borderColor='';return}
+  const cls=r.ok?(r.two?'part':'ok'):'bad';e.className='fb '+cls;e.innerHTML=(r.ok?'✔ ':'✘ ')+esc(r.msg);
+  if(q){if(q.classList.contains('q'))q.className='q '+cls;else q.style.borderColor=`var(--${cls==='ok'?'ok':cls==='part'?'part':'bad'})`}}
+function live(i){
+  const A_=$('#qArea');
+  A_.querySelectorAll('[data-wc]').forEach(e=>{const k=e.dataset.wc,w=wc(A(k));const rng=/^t5p/.test(k)?[30,80]:{t1txt:[80,100],t2txt:[80,100],t3txt:[80,100],t6txt:[120,160]}[k];
+    e.textContent=w+' words '+(/^t5p/.test(k)?'(maximum 80)':'(aim for '+rng[0]+'–'+rng[1]+')');e.classList.toggle('over',w>rng[1])});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.classList.toggle('sel',A(b.dataset.pk)===b.dataset.pv));
+  if(i===0){R(0,8).forEach(k=>setFb('1m'+k,b3(k),`[data-q1m="${k}"]`));
+    const tw=A_.querySelector('[data-topw]');if(tw){const v=TOP5().filter(Boolean),d=[...new Set(v.filter((x,j)=>v.indexOf(x)!==j))];
+      tw.classList.toggle('hidden',!d.length);tw.innerHTML=d.length?'⚠ Choose each approach only once – <b>'+esc(d.join(', '))+'</b> is repeated.':''}}
+  if(i===1){R(0,5).forEach(k=>setFb('2v'+k,voc(k),`[data-q2v="${k}"]`));R(0,6).forEach(k=>setFb('2f'+k,tf(k),`[data-q2f="${k}"]`));R(0,6).forEach(k=>setFb('2g'+k,tg(k),`[data-q2g="${k}"]`));[0,1].forEach(k=>setFb('2q'+k,qq(k),`[data-q2q="${k}"]`));
+    const ch=A_.querySelector('[data-c4chips]');if(ch){const used=new Set(R(0,5).filter(k=>voc(k).ok).flatMap(k=>c4in(lc_(A('t2v'+k)))));ch.innerHTML='<span>C4 words:</span>'+C4W.map(x=>`<span class="wchip ${used.has(x[0])?'on':''}">${used.has(x[0])?'✔ ':''}${x[0]}</span>`).join('')}}
+  if(i===2){R(0,4).forEach(k=>setFb('3q'+k,d7(k),`[data-q3q="${k}"]`))}
+  if(i===3){R(0,3).forEach(k=>setFb('4c'+k,a1(k),`[data-q4c="${k}"]`));R(0,8).forEach(k=>setFb('4t'+k,a3(k),`[data-q4t="${k}"]`));R(0,9).forEach(k=>setFb('4a'+k,a4(k),`[data-q4a="${k}"]`));R(0,5).forEach(k=>setFb('4o'+k,own4(k),`[data-q4o="${k}"]`))}
+  if(i===4){R(0,6).forEach(k=>setFb('5q'+k,q5(k),`[data-q5q="${k}"]`));R(0,4).forEach(k=>setFb('5p'+k,p5(k),`[data-q5p="${k}"]`))}
+  const L=A_.querySelector('[data-live]');
+  if(L){const c=TASKS[i].chk();let h='<div class="livehd">Live checklist · '+c.score+'/'+TASKS[i].max+'</div>'+checklist(c.items);
+    if(c.errs&&c.errs.length)h+='<div class="warn">'+c.errs.map(x=>'⚠ '+x).join('<br>')+'</div>';L.innerHTML=h}
+  const sf=A_.querySelector('[data-self]');if(sf){const [c,l]=selfScore();sf.innerHTML=`Your self-assessment: <b>Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15</b>`}
+  updBar();
+}
+
+
+
+function renderTask(i){
+  st.cur=i;save();renderTabs();
+  const last=i===TASKS.length-1;
+  let h=body(i);
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${last?(st.submitted?'':`<button class="btn red" id="subB">Submit my writing ✓</button>`):`<button class="btn" id="nextB">Next task →</button>`}</div>`;
+  const A_=$('#qArea');A_.innerHTML=h;
+  A_.querySelectorAll('[data-k]').forEach(el=>{el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{st.a[el.dataset.k]=el.value;save();live(i)})});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.addEventListener('click',()=>{st.a[b.dataset.pk]=b.dataset.pv;save();live(i)}));
+  A_.querySelectorAll('[data-tg]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.tg,v=b.dataset.tv;let s=(A(k)||'').split('|').filter(Boolean);s=s.includes(v)?s.filter(x=>x!==v):[...s,v];st.a[k]=s.join('|');save();live(i)}));
+  A_.querySelectorAll('[data-c11]').forEach(el=>el.addEventListener('change',()=>{st.a['c11_'+el.dataset.c11]=el.checked;save()}));
+  A_.querySelectorAll('[data-rub]').forEach(el=>el.addEventListener('change',()=>{st.a['rub_'+el.dataset.rub]=el.checked;save();live(i)}));
+  live(i);
+  if($('#prevB'))$('#prevB').onclick=()=>{renderTask(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderTask(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit();
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+
+/* ---------- flow ---------- */
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved writing will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+function openTest(){$('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');$('#who').textContent='👤 '+st.name+' · '+st.cls;renderTask(st.cur||0)}
+async function submit(){
+  const left=TASKS.filter(t=>!t.done()).length;
+  const ok=await modal('Submit your writing?',left?`You have <b>${left}</b> task${left>1?'s':''} not finished. You cannot change your writing after you submit.`:'You have completed every task. You cannot change your writing after you submit.',{ok:'Yes, submit'});
+  if(!ok)return;
+  st.submitted=true;
+  const secs=TASKS.map(t=>Math.min(t.max,t.chk().score));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.floor((Date.now()-st.start)/1000),at:new Date().toLocaleString()};
+  save();showResults();
+}
+function grade(p){return p>=85?'Excellent – your writing includes almost every required feature.':p>=70?'Very good. Check the red items in the checklist to improve further.':p>=50?'Good effort. Review each task’s checklist and add the missing features.':'Keep going! Read the checklist under each task and try again with your teacher’s help.'}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resOut').textContent='out of '+TOTAL;$('#resGrade').textContent=p+'% of checklist features';$('#resMsg').textContent=grade(p);
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=TASKS.map((t,i)=>`<div class="br"><span>${t.id}. ${esc(t.title)}</span><span class="t"><i style="width:${r.secs[i]/t.max*100}%"></i></span><span class="s">${r.secs[i]}/${t.max}</span></div>`).join('');
+  $('#wcSum').innerHTML='<b>Words written:</b> '+TASKS.map(t=>`Task ${t.id}: ${t.words()}`).join(' · ')+' · <b>Total: '+TASKS.reduce((s,t)=>s+t.words(),0)+'</b>';
+  const [c,l]=selfScore();$('#selfBox').innerHTML=`<b>Exam-style article self-assessment:</b> Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15`;
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,[c,l]=selfScore(),mm=Math.floor(r.time/60),tk=ok=>ok?'✓':'✗';
+  let s=`IGCSE ESL Writing Studio – Unit 6 (Learning and study skills)\nName: ${st.name}\nClass: ${st.cls}\nChecklist score: ${r.total}/${TOTAL} (${Math.round(r.total/TOTAL*100)}%)\n`+
+   TASKS.map((t,i)=>`Task ${t.id} ${t.title}: ${r.secs[i]}/${t.max} (${t.words()} words)`).join('\n')+
+   `\nExam-style article self-assessment: Content ${c}/6, Language ${l}/9\nTime: ${mm} min · Submitted: ${r.at}\n`;
+  s+=`\n— Task 1: Quotations and approaches —\nB3: `+APPR.map((x,k)=>`${x[0]} ${(A('t1m'+k)||'—').split(' ')[0]} ${tk(b3(k).ok)}`).join(' · ')+
+   '\nB5 top five: '+TOP5().map((x,k)=>`${k+1} ${x||'—'}`).join(' · ')+`\n\n${A('t1txt').trim()||'—'}`;
+  s+='\n\n— Task 2: Active or passive learning —\nC4:\n'+R(0,5).map(k=>`${k+1}. ${A('t2v'+k).trim()||'—'} ${tk(voc(k).ok)}`).join('\n')+
+   '\nCorrections:\n'+TF.map((x,k)=>`${k+1}. ${A('t2f'+k).trim()||'—'} ${tk(tf(k).ok)}`).join('\n')+
+   '\nGaps: '+TG.map((x,k)=>`${k+7} ${A('t2g'+k).trim()||'—'} ${tk(tg(k).ok)}`).join(' · ')+
+   '\nQuestions:\n'+[0,1].map(k=>`${'ab'[k]} ${A('t2q'+k).trim()||'—'} ${tk(qq(k).ok)}`).join('\n')+`\n\n${A('t2txt').trim()||'—'}`;
+  s+='\n\n— Task 3: My approach to learning —\nD7:\n'+PPL.map((x,k)=>`${x[1]}: ${A('t3q'+k).trim()||'—'} ${tk(d7(k).ok)}`).join('\n')+
+   `\nD8: ${A('t3who')||'—'} – ${A('t3agree').trim()||'—'}\n\n${A('t3txt').trim()||'—'}`;
+  s+='\n\n— Task 4: Zero and first conditionals —\nActivity 1: '+ACT1C.map((x,k)=>`${x[0]} ${tk(a1(k).ok)}`).join(' · ')+
+   '\nActivity 3: '+ACT3.map((x,k)=>`${x[0]} ${A('t4t'+k)||'—'} (${A('t4i'+k)||'—'} / ${A('t4m'+k)||'—'}) ${tk(a3(k).ok)}`).join(' · ')+
+   '\nActivity 4:\n'+ACT4.map((x,k)=>`${x[0]} ${A('t4a'+k).trim()||'—'} ${tk(a4(k).ok)}`).join('\n')+
+   '\nOwn sentences:\n'+OWN4.map((x,k)=>`${k+1}. ${A('t4o'+k).trim()||'—'} ${tk(own4(k).ok)}`).join('\n');
+  s+='\n\n— Task 5: Project – Interviews about learning —\nQuestions:\n'+R(0,6).filter(k=>A('t5q'+k).trim()).map(k=>`${k+1}. ${A('t5q'+k).trim()} ${tk(q5(k).ok)}`).join('\n')+
+   '\n'+R(0,4).map(k=>`\n${NM5(k)||'Interviewee '+(k+1)} (${wc(A('t5p'+k))} words) ${tk(p5(k).ok)}\n${A('t5p'+k).trim()||'—'}`).join('\n');
+  s+=`\n\n— Task 6: Exam-style article (enhancement) —\n${A('t6txt').trim()||'—'}`;
+  return s;
+}
+
+
+
+
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderTask(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your writing will be cleared.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,a:{},start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function hsh(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await hsh(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderTask(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
