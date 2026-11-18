@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGCSE ESL Writing Studio – Unit 7: Interviews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#00838F;--teal-d:#006064;--teal-l:#E0F2F1;--red:#C62828;--ok:#2E7D32;--ok-l:#E8F5E9;--bad:#C62828;--bad-l:#FFEBEE;--part:#EF6C00;--part-l:#FFF3E0;--ink:#1d2b2f;--mut:#5f6f73;--line:#d6e2e3;--bg:#F4F8F8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;padding:28px 16px 34px}
+.hero .wrap{padding-bottom:0}
+.kicker{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hero h1{font-family:Merriweather,serif;font-size:clamp(24px,4.5vw,34px);margin:6px 0 6px;line-height:1.2}
+.hero p{margin:0;opacity:.92}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.start{margin-top:-18px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,143,.15)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:13.5px;padding:5px 11px;border-radius:999px}
+ul.ins{margin:10px 0 0;padding-left:20px;color:var(--mut)} ul.ins li{margin:3px 0}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal)} .btn.ghost:hover{background:var(--teal-l)}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.who{font-weight:800;font-size:14px;color:var(--teal-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prog{flex:1;min-width:120px;height:9px;background:var(--teal-l);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.ptxt,.timer{font-size:13.5px;font-weight:800;color:var(--mut);white-space:nowrap}
+.timer.low{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;max-width:860px;margin:0 auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab .d{font-weight:700;opacity:.8;margin-left:4px}
+/* sections */
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 16px;margin-top:22px}
+.sec-h h2{margin:0;font-size:19px} .sec-h .mk{font-weight:800;font-size:14px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.sec-i{color:var(--mut);font-style:italic;margin:10px 2px 4px}
+.keybox{display:flex;flex-wrap:wrap;gap:6px 14px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700;color:var(--teal-d);font-size:14.5px}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;transition:border-color .2s}
+.q.done{border-left:4px solid var(--teal)}
+.q.ok{border-color:var(--ok);background:linear-gradient(0deg,#fff,#fff) padding-box}
+.q.ok{border-left:5px solid var(--ok)} .q.bad{border-left:5px solid var(--bad)} .q.part{border-left:5px solid var(--part)}
+.qh{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--teal-l);color:var(--teal-d);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.qt{flex:1;font-weight:600} .qm{font-size:13px;font-weight:800;color:var(--mut);white-space:nowrap}
+.where{color:var(--mut);font-weight:600;font-size:14px}
+.body{margin:12px 0 0 44px}
+@media(max-width:600px){.body{margin-left:0}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.opt:hover{border-color:var(--teal)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+.opt.sel{border-color:var(--teal);background:var(--teal-l)} .opt.sel .L{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-l)} .opt.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-l)} .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:#fff}
+.tfrow{display:flex;gap:8px;flex-wrap:wrap}
+.tf{font:inherit;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 16px;cursor:pointer;color:var(--ink);min-width:96px}
+.tf:hover{border-color:var(--teal)} .tf.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.tf.right{background:var(--ok);border-color:var(--ok);color:#fff} .tf.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled,.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)} .fb.part{color:var(--part)}
+.ans{margin-top:8px;background:var(--ok-l);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.ans b{color:var(--ok)} .ans .n{color:var(--mut);font-style:italic;display:block;margin-top:2px}
+.wc{font-size:12.5px;color:var(--mut);text-align:right;margin-top:4px;font-weight:700} .wc.over{color:var(--red)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+/* results */
+.res-top{text-align:center;padding:28px 20px}
+.ring{width:170px;height:170px;margin:6px auto 10px;position:relative}
+.ring svg{transform:rotate(-90deg)} .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .big{font-size:40px;font-weight:800;color:var(--teal-d);line-height:1} .ring .sm{color:var(--mut);font-weight:800}
+.grade{display:inline-block;font-weight:800;background:var(--teal);color:#fff;border-radius:999px;padding:5px 16px;margin-top:4px}
+.msg{margin:10px auto 0;max-width:520px;color:var(--mut)}
+.brk{display:grid;gap:10px;margin-top:6px}
+.br{display:grid;grid-template-columns:minmax(150px,1.3fr) 3fr 60px;gap:12px;align-items:center;font-weight:700;font-size:14.5px}
+.br .t{height:12px;background:var(--teal-l);border-radius:9px;overflow:hidden} .br .t i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.br .s{text-align:right;color:var(--teal-d)}
+@media(max-width:600px){.br{grid-template-columns:1fr 60px}.br .t{grid-column:1/3;grid-row:2}}
+.note{font-size:13.5px;color:var(--mut);margin-top:12px}
+.modal{position:fixed;inset:0;background:rgba(10,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:22px}
+.modal h3{margin:0 0 8px;font-size:20px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+.chk{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.chk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff}
+.chk li .ic{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;background:var(--bad)}
+.chk li.y{border-color:var(--ok);background:var(--ok-l)} .chk li.y .ic{background:var(--ok)}
+.chk li.p{border-color:var(--part);background:var(--part-l)} .chk li.p .ic{background:var(--part)}
+.chk li .pt{margin-left:auto;font-weight:800;color:var(--mut);white-space:nowrap}
+.livehd{margin-top:14px;font-weight:800;color:var(--teal-d);font-size:14.5px}
+.warn{margin-top:10px;background:var(--part-l);border-left:4px solid var(--part);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600}
+.wchip{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-weight:800;background:#fff;color:var(--mut);margin-left:4px}
+.wchip.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.rub{display:grid;gap:6px;margin-top:10px} .rb{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.rb input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal)}
+.q .num{flex:0 0 32px}
+textarea{resize:vertical;line-height:1.55}
+.q > .keybox{margin-top:0}
+@media(max-width:600px){.q .row div[style*="grid-template-columns"]{grid-template-columns:1fr!important}}
+@media(max-width:600px){.q div[style*="repeat(5,1fr)"]{grid-template-columns:1fr 1fr!important}.q div[style*="grid-template-columns:1fr 1fr;gap:8px"]{grid-template-columns:1fr!important}}
+.cvbox{margin-top:14px;border:1.5px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+.cvh{background:var(--teal-d);color:#fff;font-weight:800;border-radius:8px;padding:7px 12px;margin-top:14px;font-size:15px}
+.cvh:first-child{margin-top:0}
+.cvrow{display:grid;grid-template-columns:170px 1fr;gap:8px}
+.cvrow3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:600px){.cvrow,.cvrow3{grid-template-columns:1fr}}
+.advert{margin-top:18px}
+</style>
+
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Cambridge IGCSE™ English as a Second Language (0510/0511)</div>
+  <h1>Writing Studio: Interviews</h1>
+  <p>Unit 7 · Grade 8 · Interactive writing tasks</p>
+</div></header>
+
+<!-- START SCREEN -->
+<div class="wrap" id="startScreen">
+  <div class="card start">
+    <h2 style="margin:0 0 4px">Before you begin</h2>
+    <div class="facts"><span class="chip">6 writing tasks</span><span class="chip">100 checklist marks</span><span class="chip">✍ live feedback</span><span class="chip">+ self-assessment</span></div>
+    <ul class="ins">
+      <li>Complete the tasks in order. Each one practises a skill from <b>Unit 7</b> of your Coursebook (pages 90–105).</li>
+      <li>As you type, the <b>live checklist</b> under each task turns green when you include what is needed. Use it to improve your writing.</li>
+      <li>Your writing is saved on this device while you work. Press <b>Submit</b> when you finish.</li>
+      <li>The checklist score is a guide only – your teacher will read your work and give the final mark.</li>
+    </ul>
+    <div class="grid2" style="margin-top:18px">
+      <div><label class="f" for="nm">Full name</label><input type="text" id="nm" autocomplete="name" placeholder="e.g. Ahmed Ali"></div>
+      <div><label class="f" for="cl">Class / Grade</label><input type="text" id="cl" placeholder="e.g. Grade 8A"></div>
+    </div>
+    <div class="err" id="startErr"></div>
+    <div class="row" style="margin-top:6px"><button class="btn" id="startBtn">Start writing →</button><span id="resumeNote" class="note"></span></div>
+  </div>
+</div>
+
+<!-- TASKS -->
+<div id="testScreen" class="hidden">
+  <div class="bar">
+    <div class="wrap"><span class="who" id="who"></span><div class="prog"><i id="progI"></i></div><span class="ptxt" id="ptxt">0/6 tasks</span><span class="timer" id="wtot">✍ 0 words</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="wrap" id="qArea"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="wrap hidden" id="resScreen">
+  <div class="card res-top">
+    <div class="kicker" style="color:var(--teal)">Your writing checklist score</div>
+    <h2 style="margin:4px 0 0" id="resName"></h2>
+    <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="#E0F2F1" stroke-width="14" fill="none"/><circle id="ringC" cx="85" cy="85" r="74" stroke="#00838F" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset 1s"/></svg>
+      <div class="c"><span class="big" id="resScore">0</span><span class="sm" id="resOut">out of 100</span></div></div>
+    <span class="grade" id="resGrade"></span>
+    <p class="msg" id="resMsg"></p>
+  </div>
+  <div class="card"><h3 style="margin:0 0 12px">Score by task</h3><div class="brk" id="brk"></div>
+    <div id="wcSum" class="note"></div>
+    <div id="selfBox" class="note"></div>
+    <p class="note">The checklist score shows how many of the required features your writing includes. <b>Your teacher will read your work and give the final mark.</b></p></div>
+  <div class="card">
+    <h3 style="margin:0 0 6px">Send your work to your teacher</h3>
+    <p class="note" style="margin-top:0">Press <b>Copy my result</b>, then paste it into a message to your teacher (WhatsApp, email or Teams). All your writing is included.</p>
+    <div class="row"><button class="btn" id="copyBtn">📋 Copy my result</button><button class="btn ghost" id="reviewBtn">Review my answers</button><button class="btn ghost" id="retryBtn">Try again</button></div>
+    <textarea id="copyArea" readonly rows="8" style="margin-top:12px;font-size:13px" class="hidden"></textarea>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><span class="note" style="margin:0">Teacher only</span><button class="btn ghost" id="teachBtn" style="padding:8px 14px;font-size:14px">🔒 Show model answers</button></div></div>
+</div>
+
+<div class="modal" id="modal"><div class="box"><h3 id="mT"></h3><p id="mB" style="color:var(--mut);margin:0 0 14px"></p><input type="text" id="mIn" class="hidden" placeholder="Teacher code" style="margin-bottom:12px"><div class="row" style="justify-content:flex-end"><button class="btn ghost" id="mNo">Cancel</button><button class="btn" id="mYes">OK</button></div></div></div>
+<div class="toast" id="toast"></div>
+<footer class="wrap">London International Schools – IGCSE Section · Prepared by Mr. Jibber Ahmed Mohammed, English Language Trainer &amp; Instructor</footer>
+
+<script>
+const TEACHER_HASH = "3c701e64a26adab33442218fa8875a59ef40519c41cddcef7b8151efec9db91a";
+const KEY = 'igcse-u07-writing-v1';
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => (s||'').replace(/[‘’`´]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,'-');
+const wc = s => { s=(s||'').trim(); return s ? s.split(/\s+/).length : 0; };
+let st = {name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0};
+let showModel = false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.a)return s}catch(e){}return null}
+const A = k => st.a[k] || '';
+const got = it => it[1]?it[2]:(typeof it[3]==='number'?it[3]:(it[3]&&it[2]>1?1:0));
+const sum = items => items.reduce((s,it)=>s+got(it),0);
+const R = (a,b) => [...Array(b-a).keys()].map(x=>x+a);
+
+
+/* ---------- shared word lists ---------- */
+const LK={
+ 'Sequence':['first of all','to begin with','firstly','secondly','thirdly','after that','afterwards','in addition','moreover','furthermore','besides','finally','lastly','to sum up','in conclusion','as well as','also','then','next','first'],
+ 'Contrast / comparison':['on the other hand','in spite of','in contrast','even though','compared with','compared to','nevertheless','nonetheless','however','although','whereas','despite','similarly','likewise','unlike','though','while','but','yet'],
+ 'Cause / effect':['as a result','for this reason','because of','that is why','due to','consequently','therefore','because','since','thus','so','as']};
+const LCAT=Object.keys(LK);
+function links(t){
+  const out={};let s=' '+t+' ';
+  LCAT.forEach(c=>out[c]=new Set());
+  const all=[];LCAT.forEach(c=>LK[c].forEach(w=>all.push([w,c])));all.sort((a,b)=>b[0].length-a[0].length);
+  all.forEach(([w,c])=>{const re=new RegExp('\\b'+w.replace(/ /g,'\\s+')+'\\b','g');if(re.test(s)){out[c].add(w);s=s.replace(re,' ## ')}});
+  return out;
+}
+const linkCount = L => LCAT.reduce((n,c)=>n+L[c].size,0);
+const REG_BAD=/\b(lol|omg|u|ur|gonna|wanna|gotta|kinda|dunno|ya|cuz|coz|stupid|rubbish|sucks)\b|!!|\?\?/;
+const paras = raw => (raw||'').split(/\n\s*\n|\n/).map(x=>x.trim()).filter(x=>wc(x)>=5);
+const sents = raw => norm(raw).split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean);
+const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
+
+/* ---------- unit word lists ---------- */
+const REASON=/\b(because|as|since|so|that's\s+why|the\s+reason|this\s+(helps|means|makes)|which\s+(helps|means|makes)|it\s+helps|helps\s+me)\b/;
+const lc_ = s => norm(s).toLowerCase();
+const nrm = s => norm(s).toLowerCase().replace(/\s+/g,' ').trim().replace(/[.!?]+$/,'').trim();
+const SKILLS=/\b(team\s?work|teamwork|working\s+(in|with)\s+(a\s+)?(team|others)|communicat\w*|time[\s-]management|managing\s+(my\s+)?time|responsib\w*|reliab\w*|customer\s+service|problem[\s-]solving|solving\s+problems|confiden(ce|t)|organi[sz]\w*|leadership|patien(ce|t)|punctual\w*|independen\w*|hard[\s-]work\w*|polite\w*|creativ\w*|disciplin\w*|fitness|hygiene|safety|money|cooperat\w*|listening|people\s+skills|social\s+skills|first\s+aid|cooking|knife\s+skills|friendl\w*|careful\w*|energy|strength)\b/g;
+const skills = t => new Set((t.match(SKILLS)||[]).map(x=>x.replace(/\s+/g,' ')));
+const FEELR=/\b(confiden(t|ce)|anxious(ly)?|anxiety|terrified|amazed|delighted|nervous(ly)?|frighten(ed|ing)|scared|worried|relieved|excited|happy|proud|surprised|calm|stressed|shocked|thrilled|pleased|disappointed|upset|glad)\b/g;
+const feels = t => new Set((t.match(FEELR)||[]).map(x=>x.replace(/ly$/,'')));
+const PERS=[['How are you?',/\bhow\s+are\s+(you|things)\b/],['Hope you’re well',/\bhope\s+(you('re|\s+are)|all\s+is|everything)\b/],['It was great seeing you …',/\bit\s+was\s+(great|lovely|nice|good|fun)\s+(seeing|to\s+see|talking|to\s+talk|meeting)\b/],['You remember …?',/\b(do\s+)?you\s+remember\b/],['Imagine how …',/\bimagine\s+(how|what|my)\b/],['I don’t need to tell you …',/\bi\s+(don't|do\s+not)\s+need\s+to\s+tell\s+you\b/],['As you suggested / As you know',/\bas\s+you\s+(suggested|know|said|advised)\b/],['Guess what!',/\bguess\s+what\b/],['Well, …',/(^|[.!?\n]\s*)well,/],['Actually …',/\bactually\b/],['Anyway, …',/\banyway\b/],['Let me know …',/\blet\s+me\s+know\b/],['Let’s meet soon',/\blet's\s+(meet|get\s+together|catch\s+up|talk)\b/],['You won’t believe …',/\byou\s+(won't|will\s+not)\s+believe\b/],['Wish me luck / Fingers crossed',/\b(wish\s+me\s+luck|fingers\s+crossed)\b/]];
+const persIn = t => PERS.filter(p=>p[1].test(t)).map(p=>p[0]);
+const CONTR=/\b\w+('m|'re|'s|'ve|'ll|'d|n't)\b/g;
+const UNITV=/\b(interview(s|er|ers|ee|ees|ed|ing)?|applicants?|cv|referees?|employers?|employees?|candidates?|qualifications?|experience|skills|voluntary|volunteer\w*|demonstrat\w*|vacancy|vacancies|part-time|career\w*|eye\s+contact|body\s+language|prepar\w+|research\w*|attendees?)\b/g;
+const unitv = t => new Set((t.match(UNITV)||[]).map(x=>x.replace(/\s+/g,' ')));
+
+/* ---------- Task 1: part-time jobs & CV vocabulary (B1–B4, C1) ---------- */
+const PICS=[['1','A young person in a cap and yellow boots picking up plastic litter on a beach and putting it into a big blue rubbish bag',/\b(beach|litter|rubbish|clean\w*|volunteer\w*|environment\w*|recycl\w*|plastic|waste)\b/,'volunteer beach cleaner / litter picker'],
+ ['2','A smiling teenage boy in a white T-shirt at an outdoor event, holding out printed leaflets',/\b(leaflets?|flyers?|promot\w*|advertis\w*|marketing|brochures?|hand(ing|s)?\s+out|distribut\w*|sales\w*)\b/,'promoter handing out leaflets / flyers'],
+ ['3','A young woman in a checked shirt and apron kneeling to plant seedlings in a raised vegetable bed',/\b(garden\w*|farm\w*|plant\w*|vegetables?|grow\w*|seedlings?|agricultur\w*)\b/,'gardener / garden or farm worker'],
+ ['4','A young woman in a white chef’s hat and jacket chopping tomatoes in a professional kitchen',/\b(chefs?|cook\w*|kitchen|restaurant|catering)\b/,'trainee chef / kitchen assistant'],
+ ['5','A young man in a cycle helmet riding a red bicycle in the city with a big delivery box on his back',/\b(deliver\w*|couriers?|riders?|cycl\w*|bikes?|messengers?|takeaway)\b/,'bicycle courier / food-delivery rider'],
+ ['6','A young woman in a green zoo uniform crouching next to a giant tortoise, writing notes on a clipboard',/\b(zoo\w*|animals?|keepers?|tortoises?|vets?|veterinar\w*|wildlife)\b/,'zoo assistant / zookeeper']];
+const picIn = t => PICS.filter(p=>p[2].test(t)).map(p=>p[0]);
+function b1(k){const raw=norm(A('t1j'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(PICS[k][2].test(t))return {ok:true,msg:'Good – e.g. '+PICS[k][3]+'.'};
+  return {ok:false,msg:'Read the picture description again – what is the person doing? Name the job (e.g. … worker / … assistant).'}}
+const LIKE=/\b(would\s+(really\s+|definitely\s+)?(like|love|enjoy)|'d\s+(really\s+|definitely\s+)?(like|love|enjoy)|would\s+be\s+happy)\b/;
+const DISLIKE=/\b(wouldn't|would\s+not|'d\s+not|would\s+hate|'d\s+hate)\b/;
+function b1b(k){const raw=norm(A('t1l'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(!(k?DISLIKE:LIKE).test(t)||(k===0&&DISLIKE.test(t)))return {ok:false,msg:k?'Use: I wouldn’t like to … / I would not like to be …':'Use: I would like to … / I’d like to be …'};
+  if(!picIn(t).length)return {ok:false,msg:'Name one of the six jobs in the pictures.'};
+  if(!REASON.test(t))return {ok:false,msg:'Give a reason (… because …).'};
+  if(!/^[A-Z]/.test(raw)||!/[.!]$/.test(raw))return {ok:false,msg:'Start with a capital letter and end with a full stop.'};
+  return {ok:true,msg:'Clear choice with a reason.'}}
+const QUALW=/\b(qualif\w*|certificates?|experience\w*|knowledge|train(ing|ed)|licen[cs]e|fit|strong|careful|friendly|good\s+at|able\s+to|know|knowing|skills?)\b/;
+function b2a(){const raw=norm(A('t1b2a')).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  const p=picIn(t);if(p.length<2)return {ok:false,msg:`Write about two of the jobs (${p.length} found so far).`};
+  if(!(QUALW.test(t)||skills(t).size))return {ok:false,msg:'Say what skills, qualifications or experience are needed.'};
+  return {ok:true,msg:'Two jobs with the skills / qualifications they need.'}}
+function b2b(){const raw=norm(A('t1b2b')).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  const s=skills(t);if(s.size<3)return {ok:false,msg:`List at least three skills (${s.size} found) – e.g. teamwork, communication, time management.`};
+  return {ok:true,msg:'Skills found: '+[...s].slice(0,6).join(', ')+'.'}}
+const B4OPT=['a Education and qualifications','b Hobbies and interests','c Languages','d Personal information (name, date of birth, etc.)','e Work experience','f Referees (people who will provide a reference for you)'];
+const B4ORD=['d','a','e','b','c','f'];
+const B4HINT=['Start with who you are: name, date of birth, telephone, email.','After personal details comes what you have studied.','Next: jobs you have done – part-time or voluntary.','Then what you like doing in your free time (with details!).','Near the end: what languages you speak.','The last section: people who will write about you.'];
+function b4(k){const v=A('t1o'+k);if(!v)return {ok:false,empty:true,msg:''};
+  const l=v[0];if(R(0,6).some(j=>j!==k&&A('t1o'+j)===v))return {ok:false,msg:'You have used this topic twice – each topic appears once.'};
+  if(l===B4ORD[k])return {ok:true,msg:'Correct position.'};return {ok:false,msg:'Not here. Hint: '+B4HINT[k]}}
+const C1=[['a','Some people recommend <b>combining</b> education and qualifications.','combining','iii'],['b','If you’re the captain of a sports team, include that information, as it <b>demonstrates</b> the skills to be a good leader.','demonstrates','v'],['c','A <b>common</b> mistake is simply to list things.','common','ii'],['d','The employer can decide whether or not to call the <b>applicant</b> for an interview.','applicant','i'],['e','It is worth mentioning weekend or after-school jobs, or any work for charities, or other <b>voluntary</b> work.','voluntary','vi'],['f','Possible employers need to be able to get a quick <b>summary</b>.','summary','iv']];
+const DEFS=['i candidate, interviewee','ii frequent','iii mixing or joining','iv overview','v shows','vi unpaid'];
+function c1(k){const v=A('t1c'+k);if(!v)return {ok:false,empty:true,msg:''};
+  if(v.split(' ')[0]===C1[k][3])return {ok:true,msg:'Correct.'};
+  if(R(0,6).some(j=>j!==k&&A('t1c'+j)===v&&C1[j][3]===v.split(' ')[0]))return {ok:false,msg:'This definition belongs to another word.'};
+  return {ok:false,msg:'Not quite – try to replace the bold word with the definition. Does the sentence still make sense?'}}
+const C1RX=[['combining',/\bcombin(e|es|ed|ing|ation)\b/],['demonstrates',/\bdemonstrat(e|es|ed|ing)\b/],['common',/\bcommon(ly)?\b/],['applicant',/\bapplicants?\b/],['voluntary',/\bvoluntar(y|ily)\b/],['summary',/\bsummar(y|ies|ise|ize|ised|ized)\b/]];
+const c1in = t => C1RX.filter(x=>x[1].test(t)).map(x=>x[0]);
+const JOBCTX=/\b(cvs?|jobs?|work\w*|employ\w*|interview\w*|careers?|skills?|charit\w*|school|experience|appl(y|ied|ication)|team|qualif\w*|compan(y|ies)|volunteer\w*|leader\w*|hobbies|referees?)\b/;
+function c1s(k){const raw=norm(A('t1s'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  const u=c1in(t);if(!u.length)return {ok:false,msg:'Use one of the six C1 words (combining, demonstrates, common, applicant, voluntary, summary).'};
+  const prev=new Set(R(0,k).flatMap(j=>c1s(j).ok?c1in(lc_(A('t1s'+j))):[]));if(!u.some(w=>!prev.has(w)))return {ok:false,msg:'Use a different C1 word in each sentence.'};
+  if(wc(raw)<6)return {ok:false,msg:'Write a longer sentence (at least 6 words).'};
+  if(!JOBCTX.test(t))return {ok:false,msg:'Make the sentence about CVs, jobs or work.'};
+  if(!/^[A-Z]/.test(raw)||!/[.!?]$/.test(raw))return {ok:false,msg:'Start with a capital letter and end with a full stop.'};
+  return {ok:true,msg:'Good sentence with “'+u.find(w=>!prev.has(w))+'”.'}}
+function chk1(){
+  const nj=R(0,6).filter(k=>b1(k).ok).length,nl=[0,1].filter(k=>b1b(k).ok).length,n4=R(0,6).filter(k=>b4(k).ok).length,nc=R(0,6).filter(k=>c1(k).ok).length,ns=R(0,3).filter(k=>c1s(k).ok).length;
+  const raw=A('t1txt'),t=lc_(raw),w=wc(t);
+  const op=/\b(i\s+(think|believe|feel|am\s+sure)|in\s+my\s+(opinion|view)|personally|definitely|of\s+course|yes,|no,)\b/.test(t)&&REASON.test(t);
+  const sk=skills(t),ex=sk.size>=2||(sk.size>=1&&/\b(for\s+example|for\s+instance|such\s+as|like\s+a|e\.g\.)\b/.test(t));
+  const items=[[`B1a: the job in each picture named (${nj}/6)`,nj===6,3,Math.floor(nj/2)],
+   [`B1b: a job you would / wouldn’t like, with reasons (${nl}/2)`,nl===2,1,0],
+   ['B2a: skills, qualifications or experience for two jobs',b2a().ok,1],
+   ['B2b: three or more skills young people gain at work',b2b().ok,1],
+   [`B4: the six CV topics in the correct order (${n4}/6)`,n4===6,3,Math.floor(n4/2)],
+   [`C1: bold words matched to definitions (${nc}/6)`,nc===6,3,Math.floor(nc/2)],
+   [`C1: three sentences, each with a different C1 word (${ns}/3)`,ns===3,3,ns],
+   [`B1d paragraph: 60–80 words (${w})`,w>=60&&w<=80,1],
+   ['B1d: a clear opinion with a reason (I think … because …)',op,1],
+   [`B1d: skills or examples that prepare you for a career (${sk.size})`+(sk.size?': '+[...sk].slice(0,5).join(', '):''),ex,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 2: My CV (D1–D3) ---------- */
+const MON='(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\\.?\\s+';
+const DRX=new RegExp('^(?:'+MON+')?((?:19|20)\\d\\d)(?:\\s*(?:-|to)\\s*(?:'+MON+')?((?:19|20)?\\d\\d|present|now|today|date))?$','i');
+function pd(s){const t=norm(s).trim().replace(/:$/,'');if(!t)return null;const m=t.match(DRX);if(!m)return {bad:true};const a=+m[1];let b=a;
+  if(m[2]){if(/^\d+$/.test(m[2]))b=m[2].length===2?Math.floor(a/100)*100+(+m[2]):+m[2];else b=9999}
+  if(b<a)return {bad:true,msg:'The end year is before the start year.'};return {a,b}}
+const QUALR=/\b(certificates?|checkpoint|igcse|exams?|examinations?|qualifications?|awards?|licen[cs]e|diploma|courses?|level|prize|medal|test|toefl|ielts|hafiz|quran|icdl|first\s+aid)\b/;
+function cvRow(dk,tk,kind){const d=A(dk).trim(),x=norm(A(tk)).trim(),t=x.toLowerCase();if(!d&&!x)return {ok:false,empty:true,msg:''};
+  if(!x)return {ok:false,msg:kind==='work'?'Add the job or voluntary work.':'Add the school, college or qualification.'};
+  if(!d)return {ok:false,msg:'Add the dates (e.g. 2021–23 or 2023–present).'};
+  const p=pd(d);if(p.bad)return {ok:false,msg:p.msg||'Write the dates like Sophie: 2017–22, 2022–present or 2023.'};
+  if(wc(x)>15)return {ok:false,msg:`Too long for a CV (${wc(x)} words) – use short notes, max. 15 words.`};
+  if(/^(i|i'm|i've|my|me)\b/.test(t))return {ok:false,msg:kind==='work'?'Note form: start with the activity – e.g. Worked as a barista in …':'Note form: just the name of the school / qualification.'};
+  if(kind==='qual'){if(!QUALR.test(t))return {ok:false,msg:'Name a qualification or certificate (exam, certificate, licence, course …).'};
+    if(!/\b(at|from|by|with)\s+[A-Z0-9]/.test(x)&&!/\b(school|college|academy|centre|center|council|institute|university|cambridge|british|club)\b/.test(t))return {ok:false,msg:'Say where you obtained it (… at / from Manzini High School).'}}
+  if(kind==='work'&&wc(x)<3)return {ok:false,msg:'Give a little more detail – what did you do and where?'};
+  return {ok:true,msg:'Clear note-form entry with dates.'}}
+const EDU=k=>cvRow('t2ed'+k,'t2et'+k,k===2?'qual':'edu'),WRK=k=>cvRow('t2wd'+k,'t2wt'+k,'work');
+function revOrder(pref){const p0=pd(A(pref+'d0')),p1=pd(A(pref+'d1'));if(!p0||!p1||p0.bad||p1.bad||!A(pref+'t0').trim()||!A(pref+'t1').trim())return null;return p0.b>=p1.b&&p0.a>=p1.a}
+function pers(){const nm=A('t2nm').trim(),dob=norm(A('t2dob')).trim(),tel=A('t2tel').trim(),em=A('t2em').trim();if(!nm&&!dob&&!tel&&!em)return {ok:false,empty:true,msg:''};
+  const miss=[];if(wc(nm)<2)miss.push('full name');if(!/\b(19|20)\d\d\b/.test(dob))miss.push('date of birth with the year');if((tel.match(/\d/g)||[]).length<7||/[a-z]/i.test(tel))miss.push('telephone number');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))miss.push('email address');
+  return miss.length?{ok:false,n:4-miss.length,msg:'Check: '+miss.join(', ')+'.'}:{ok:true,n:4,msg:'Personal information complete.'}}
+function hob(){const raw=norm(A('t2hob')).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(raw)<10)return {ok:false,msg:'Give details! (at least 10 words) – what exactly do you like, and how often?'};
+  if(!/\b(especially|such\s+as|for\s+example|including|because|every|in\s+particular|captain|member|club|team|since|favourite|weekends?|twice|once)\b/.test(t))return {ok:false,msg:'Don’t just list things – add a detail: I love reading, especially …'};
+  return {ok:true,msg:'Hobbies with details – well done.'}}
+const ITR=/\b(computers?|word|excel|powerpoint|typing|coding|programming|ict|it|scratch|python|internet|canva|licen[cs]e|software|digital|photoshop|video\s+editing|icdl|spreadsheets?|presentations?|keyboard|website)\b/;
+const LANGR=/\b(arabic|english|french|spanish|german|italian|turkish|urdu|hindi|bengali|chinese|mandarin|japanese|korean|russian|swahili|swazi|persian|farsi|malay|indonesian|tagalog|portuguese|hausa|fulfulde|somali|amharic|language|languages)\b/;
+function skl(k){const raw=norm(A(['t2it','t2lang','t2club'][k])).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(wc(raw)>25)return {ok:false,msg:'Keep it short – note form.'};
+  if(k===0&&!ITR.test(t))return {ok:false,msg:'Name an IT skill (Word, PowerPoint, typing, coding, a computer licence …).'};
+  if(k===1&&!LANGR.test(t))return {ok:false,msg:'Name the languages you speak (Arabic – home language; English – good …).'};
+  if(k===1&&!/\b(home|native|mother\s+tongue|first|fluent|good|basic|learning|beginner|intermediate|advanced|level|igcse|excellent)\b/.test(t))return {ok:false,msg:'Add your level: home language / fluent / good / basic / learning.'};
+  return {ok:true,msg:'Good.'}}
+const FAM=/\b(mother|father|mum|mom|dad|brother|sister|uncle|aunt|auntie|cousin|grand\w*|granny|parents?|nephew|niece|son|daughter|wife|husband|relatives?|family\s+member|my\s+family)\b/;
+function refR(k){const nm=norm(A('t2rn'+k)).trim(),ro=norm(A('t2rr'+k)).trim(),co=A('t2rc'+k).trim();if(!nm&&!ro&&!co)return {ok:false,empty:true,msg:''};
+  if(wc(nm)<2)return {ok:false,msg:'Write the referee’s title and full name (Mr / Mrs / Dr …).'};
+  if(FAM.test((nm+' '+ro).toLowerCase()))return {ok:false,msg:'A referee must NOT be a member of your family – choose a teacher, a doctor, a coach …'};
+  if(!ro)return {ok:false,msg:'Say who this person is (headteacher at my school, family doctor …).'};
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(co)&&(co.match(/\d/g)||[]).length<7)return {ok:false,msg:'Add an email address or a telephone number.'};
+  if(k===1&&nm&&nrm(nm)===nrm(A('t2rn0')))return {ok:false,msg:'Give two different referees.'};
+  return {ok:true,msg:'Good referee.'}}
+const CVENT=()=>[...R(0,3).map(k=>A('t2et'+k)),...R(0,2).map(k=>A('t2wt'+k)),A('t2it'),A('t2lang'),A('t2club')].filter(x=>x.trim());
+function chk2(){
+  const P=pers(),ne=R(0,3).filter(k=>EDU(k).ok).length,nw=R(0,2).filter(k=>WRK(k).ok).length,nr=[0,1].filter(k=>refR(k).ok).length,ns=R(0,3).filter(k=>skl(k).ok).length;
+  const heads=[P.ok,ne>=2,nw>=1,hob().ok,ns>=1,nr===2],nh=heads.filter(Boolean).length;
+  const dRows=[...R(0,3).map(k=>['t2ed'+k,'t2et'+k]),...R(0,2).map(k=>['t2wd'+k,'t2wt'+k])].filter(([d,x])=>A(x).trim());
+  const dOk=dRows.length>=3&&dRows.every(([d])=>{const p=pd(A(d));return p&&!p.bad});
+  const ro=[revOrder('t2e'),revOrder('t2w')],rev=ro[0]===true&&ro[1]!==false&&ro.some(x=>x===true)&&(ro[1]===true||nw===1);
+  const notes=CVENT().length>=5&&CVENT().every(x=>wc(x)<=15&&!/^(i|i'm|my)\b/i.test(norm(x).trim()))&&!/\b(dear|yours\s+(sincerely|faithfully))\b/i.test(A('t2hob'));
+  const items=[[`All six CV sections completed (${nh}/6)`,nh===6,3,Math.floor(nh/2)],
+   [`Personal information: name, date of birth, telephone, email (${P.n||0}/4)`,P.ok,2,(P.n||0)>=2?1:0],
+   ['Dates in every education and work entry, in one consistent style (e.g. 2021–23)',dOk,2,dRows.length&&dRows.filter(([d])=>{const p=pd(A(d));return p&&!p.bad}).length>=2?1:0],
+   ['Reverse chronological order – most recent school and job first',rev,2,ro.some(x=>x===true)?1:0],
+   ['Note form: short entries, no long sentences or paragraphs',notes,2],
+   ['A qualification or certificate and where you obtained it',EDU(2).ok,1],
+   ['Hobbies and interests with details (not just a list)',hob().ok,2],
+   [`Other skills: an IT skill and your languages with level (${[0,1].filter(k=>skl(k).ok).length}/2)`,skl(0).ok&&skl(1).ok,2,(skl(0).ok||skl(1).ok)?1:0],
+   [`Two referees – not family – with role and contact (${nr}/2)`,nr===2,2,nr]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 3: interview questions & answers, -er/-ee (E1–E9) ---------- */
+const QSTART=/^(what|how|when|where|why|which|who|whose|do|does|did|are|is|am|have|has|can|could|would|will|should|may)\b/;
+function qform(raw0,prevKeys){const raw=norm(raw0).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(/^(tell\s+me|describe|explain|give\s+me|talk\s+about)\b/.test(t)){if(!/[.?]$/.test(raw))return {ok:false,msg:'End the prompt with a full stop.'};if(wc(raw)<4)return {ok:false,msg:'Make the prompt clearer.'};return {ok:true,msg:'Good interview prompt (imperative: Tell me …).'}}
+  if(!/\?$/.test(raw))return {ok:false,msg:'End your question with a question mark (?).'};
+  if(wc(raw)<4)return {ok:false,msg:'Make your question longer and clearer.'};
+  if(!QSTART.test(t))return {ok:false,msg:'Start with a question word (What, Why, How …) or an auxiliary (Do, Are, Have, Can …).'};
+  if(/^(what|how|when|where|why|which\s+\w+|how\s+often|how\s+much|how\s+many|how\s+long)\s+(you|he|she|they|we|i)\s+(?!are|is|were|was|do|does|did|have|has|can|will|should|would|could|am)/.test(t))return {ok:false,msg:'Add an auxiliary: Why do you …? / How much time would I …?'};
+  const m=t.match(/^(do|does|did)\s+(you|he|she|they|we|i)\s+(?:usually\s+|ever\s+|often\s+|always\s+|really\s+)?([a-z]+)/);
+  if(m){const v=m[3];if(m[1]==='did'&&/ed$/.test(v)&&!/^(need|feed|seed)$/.test(v))return {ok:false,msg:'After did use the base form: Did you work …?'};
+    if(/[^s]s$/.test(v)&&!/^(focus|discuss|miss|pass|guess)$/.test(v))return {ok:false,msg:'After do / does / did use the base form of the verb.'}}
+  if((prevKeys||[]).some(k=>nrm(A(k))===nrm(raw)))return {ok:false,msg:'You have already asked this question.'};
+  return {ok:true,msg:/^(do|does|did|are|is|am|have|has|can|could|would|will|should|may)\b/.test(t)?'Correct yes/no question – an open question (Why …? How …?) gets more information.':'Correct open question.'}}
+const WSREL=/\b(sports?|fashion\w*|design\w*|cloth\w*|shoes?|trainers?|shops?|company|winning|job|work\w*|experience|certificate|school|team|interest\w*|skills?|strengths?|weakness\w*|years?|young|people|style|brands?|yourself|hobbies|qualif\w*|available|start|future|head\s+office|enthusias\w*|cairo|customers?)\b/;
+function qWS(k){const r=qform(A('t3q'+k),R(0,k).map(j=>'t3q'+j));if(!r.ok)return r;if(!WSREL.test(lc_(A('t3q'+k))))return {ok:false,msg:'Make the question relevant to the Winning Sports job (sport, fashion, designs, experience …).'};return r}
+function ansChk(raw0,qk,min){const raw=norm(raw0).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(qk&&!A(qk).trim())return {ok:false,msg:'Write the question first.'};
+  if(/\?$/.test(raw))return {ok:false,msg:'Write an answer, not a question.'};
+  if(REG_BAD.test(t))return {ok:false,msg:'Keep a polite, formal tone – no slang.'};
+  if(wc(raw)<min)return {ok:false,msg:`Give a fuller answer – at least ${min} words, with a detail or an example.`};
+  if(!/^[A-Z]/.test(raw)||!/[.!]$/.test(raw))return {ok:false,msg:'Start with a capital letter and end with a full stop.'};
+  return {ok:true,msg:'Full, relevant answer.'}}
+function aWS(k){const r=ansChk(A('t3a'+k),'t3q'+k,8);if(!r.ok)return r;if(!/\b(i|i'm|i've|i'd|my|me)\b/.test(lc_(A('t3a'+k))))return {ok:false,msg:'Answer about yourself (I … / My …).'};return r}
+const TWREL=/\b(time|hours?|pay|paid|money|salary|write|writing|topics?|articles?|stories|story|home|start|when|where|team|deadlines?|training|computers?|office|magazine|weekly|readers?|teenagers?|celebrit\w*|competitions?|problem\s+page|gossip|sports?|days?|week|job|work\w*|editor|online|travel|london|words?|biograph\w*)\b/;
+function bq(k){const q=qform(A('t3bq'+k),R(0,k).map(j=>'t3bq'+j));if(q.empty&&!A('t3ba'+k).trim())return q;if(!q.ok)return q.empty?{ok:false,msg:'Write Bambos’s question.'}:q;
+  if(!TWREL.test(lc_(A('t3bq'+k))))return {ok:false,msg:'Make it a question about the Teen Weekly! job (time, pay, topics, where to work …).'};
+  const a=ansChk(A('t3ba'+k),null,4);if(a.empty)return {ok:false,msg:'Now write Lan Huang’s answer.'};if(!a.ok)return {ok:false,msg:'Answer: '+a.msg};
+  return {ok:true,msg:'Question and answer – good.'}}
+const CORR=[['The nominer was delighted to find she had won the prize.',/^the nominee was delighted to (find|hear) (that )?she had won the prize$/,'nominee'],
+ ['We heard one interviewed saying he just wanted to earn lots of money.',/^we heard one interviewee saying (that )?he just wanted to earn lots of money$/,'interviewee'],
+ ['We expect 20 attendants on the course.',/^we expect (20|twenty) attendees on the course$/,'attendees']];
+function cor(k){const raw=norm(A('t3c'+k)).trim();if(!raw)return {ok:false,empty:true,msg:''};const t=nrm(raw),[b,rx,w]=CORR[k];
+  if(rx.test(t)){if(!/^[A-Z]/.test(raw)||!/[.!]$/.test(raw))return {ok:false,msg:'Correct word – now start with a capital letter and end with a full stop.'};return {ok:true,msg:`Correct – “${w}” (stress on -EE).`}}
+  if(new RegExp('\\b'+w+'\\b').test(t))return {ok:false,msg:'Correct word – now copy the rest of the sentence exactly.'};
+  return {ok:false,msg:'Find the wrong “person” noun and give it the -ee ending.'}}
+const EE=[['interviewer + interviewee',[/\binterviewers?\b/,/\binterviewees?\b/]],['employer + employee',[/\bemployers?\b/,/\bemployees?\b/]],['attendee or invitee',[/\b(attendees?|invitees?)\b/]],['nominee or trustee',[/\b(nominees?|trustees?)\b/]]];
+function ee(k){const raw=norm(A('t3e'+k)).trim(),t=raw.toLowerCase();if(!raw)return {ok:false,empty:true,msg:''};
+  if(/\b(nominers?|attendants?|invitors?|employe|trusters?|interviewd)\b/.test(t))return {ok:false,msg:'Check the ending: nominee, attendee, invitee, trustee (-ee, not -er / -ant).'};
+  if(!EE[k][1].every(r=>r.test(t)))return {ok:false,msg:`Use ${EE[k][0]} in your sentence.`};
+  if(wc(raw)<6)return {ok:false,msg:'Write a longer sentence (at least 6 words).'};
+  if(!/^[A-Z]/.test(raw)||!/[.!?]$/.test(raw))return {ok:false,msg:'Start with a capital letter and end with a full stop.'};
+  return {ok:true,msg:'Correct use of the -er / -ee nouns.'}}
+function e9(){const raw=norm(A('t3e9')).trim(),t=raw.toLowerCase(),w=wc(raw);if(!raw)return {ok:false,empty:true,msg:''};
+  if(!/\b(yes|no|i\s+think|i\s+don't\s+think|i\s+believe|probably|definitely|in\s+my\s+opinion|got\s+the\s+job|didn't\s+get)\b/.test(t))return {ok:false,msg:'Give a clear opinion: I think he got / didn’t get the job …'};
+  if(!REASON.test(t))return {ok:false,msg:'Give a reason (because he …).'};
+  if(w<15)return {ok:false,msg:`Write 2–3 sentences (${w} words so far).`};
+  return {ok:true,msg:'Opinion with a reason.'}}
+function chk3(){
+  const nq=R(0,4).filter(k=>qWS(k).ok).length,na=R(0,4).filter(k=>aWS(k).ok).length,nb=R(0,4).filter(k=>bq(k).ok).length,nc=R(0,3).filter(k=>cor(k).ok).length,ne=R(0,4).filter(k=>ee(k).ok).length;
+  const open=R(0,4).filter(k=>qWS(k).ok&&/^(what|how|why|which|when|where|who|tell|describe|explain)/i.test(A('t3q'+k).trim())).length;
+  const items=[[`E1: interview questions for the Winning Sports job, correctly formed (${nq}/4)`+(nq&&open<2?' – try more open questions':''),nq===4,4,nq],
+   [`E2: full, relevant, polite answers (${na}/4)`,na===4,4,na],
+   [`E7: Bambos’s questions + Lan Huang’s answers (${nb}/4)`,nb===4,2,Math.floor(nb/2)],
+   [`Language tip: -er / -ee errors corrected (${nc}/3)`,nc===3,3,nc],
+   [`Sentences with interviewer/interviewee, employer/employee, attendee/invitee, nominee/trustee (${ne}/4)`,ne===4,2,Math.floor(ne/2)],
+   ['E9: your opinion – did Bambos get the job? – with a reason',e9().ok,1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- shared email checks (Tasks 4 & 6) ---------- */
+function emailInfo(raw0){const r=norm(raw0||''),lines=r.split('\n').map(x=>x.trim()).filter(Boolean),t=r.toLowerCase();
+  const greet=lines.length>0&&/^(dear|hi|hello|hey)\s+[a-z]+/i.test(lines[0])&&/^\S+\s+[A-Z]/.test(lines[0])&&wc(lines[0])<=4;
+  const last=lines[lines.length-1]||'',nameEnd=lines.length>3&&/^[A-Z][a-z]+(\s+[A-Z][a-z]+)?[.!]?$/.test(last)&&!/^(bye|love|thanks|regards|cheers)/i.test(last);
+  const tail=lines.slice(-4).join(' ').toLowerCase();
+  const closeP=/\b(let\s+me\s+know|let's\s+(meet|talk|catch\s+up|get\s+together)|write\s+(back|soon)|bye|see\s+you|take\s+care|speak\s+soon|talk\s+soon|best\s+wishes|love|homework\s+calls|got\s+to\s+go|have\s+to\s+go|must\s+go|hope\s+to\s+(see|hear)|can't\s+wait)\b/.test(tail);
+  const body=lines.slice(greet?1:0,nameEnd?-1:undefined).join('\n');const P=paras(body);
+  const S=sents(r).map(x=>x.toLowerCase());
+  const pe=persIn(t),fe=feels(t),co=new Set((t.match(CONTR)||[])),L=links(t),lk=linkCount(L);
+  return {r,t,lines,greet,nameEnd,closeP,P,S,W:wc(t),pe,fe,co,L,lk}}
+const WHERE=/\b(took\s+place|was\s+(held\s+)?(at|in)|(at|in)\s+(the|a|an|their|its|his|her)\s+([a-z-]+\s+){0,3}(office|offices|shop|store|hq|headquarters|building|centre|center|room|school|cafe|café|restaurant|hotel|company|mall|library|club|branch|factory|studio|magazine|supermarket|bookshop|hospital|bank|gym)|online|on\s+(zoom|teams|a\s+video\s+call))\b/;
+const WHO=/\b(manager|interviewers?|owner|boss|director|head\w*|supervisor|panel|team\s+leader|(two|three|four)\s+(people|interviewers|women|men)|a\s+(man|woman|lady)|mr|mrs|ms|miss|dr|recruiter|editor|employer|coach)\b/;
+const ASKED=/\b(asked\s+(me\s+)?(about|why|what|if|whether|how|when|where|which|who|to|lots|some|several|many|a\s+few|questions?|a\s+question|me)|questions?\s+(about|were|was|like)|wanted\s+to\s+know)\b/;
+const KNOW=/\b(will|'ll|going\s+to|should|are\s+going\s+to|promised\s+to)\s+(\w+\s+)?(know|hear|find\s+out|tell|call|phone|ring|email|e-mail|contact|let\s+me\s+know|get|receive|send|text|message|decide|announce)\b|\b(i'll\s+know|find\s+out|hear\s+from\s+them|results?\s+(will|on|next))\b/;
+const WHEN=/\b(next\s+(week|month|monday|tuesday|wednesday|thursday|friday|saturday|sunday|few\s+days)|on\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday|the\s+\d+\w*)|in\s+(a|one|two|three|four|five|a\s+few|\d+)\s+(days?|weeks?)|by\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday|the\s+end|next)|tomorrow|end\s+of\s+(the|this|next)\s+(week|month)|within\s+\w+|this\s+(weekend|friday|week))\b/;
+
+/* ---------- Task 4: informal email (F1–F7) ---------- */
+const F1=[['a','It was frightening, but they kept smiling!','Body'],['b','Anyway, homework calls!','Conclusion'],['c','Well, it was yesterday, and this is what happened.','Introduction'],['d','The interview was at the company HQ near my house, so I knew where to go.','Body'],['e','It was great seeing you last weekend.','Introduction'],['f','Let me know your plans.','Conclusion'],['g','They also asked me why I wanted the job and if I could do it.','Body']];
+const F1WHY={Introduction:'It greets the friend or leads into the story.',Body:'It gives details of the event – place, people, questions, feelings.',Conclusion:'It signals the end of the email or future contact.'};
+function f1(k){const v=A('t4f'+k);if(!v)return {ok:false,empty:true,msg:''};if(v===F1[k][2])return {ok:true,msg:'Correct – '+F1WHY[v]};
+  return {ok:false,msg:'Think again: does it start the email, tell the story or end the email?'}}
+const F7=['Has the task been fully completed (all three bullet points)?','Is the style appropriate (informal, friendly)?','Is it clear who the audience is (a friend)?','Is the email 120–160 words?','Is the language accurate (spelling, grammar)?','Is there a wide range of vocabulary and structures?','Is the email well organised and sequenced?','Is there a good range of effective linking words?'];
+function chk4(){
+  const n1=R(0,7).filter(k=>f1(k).ok).length,E=emailInfo(A('t4txt')),t=E.t,S=E.S;
+  const where=WHERE.test(t),who=WHO.test(t)&&/\b(interview\w*|asked|met|talked|spoke|there|sitting)\b/.test(t);
+  const askS=S.filter(s=>ASKED.test(s)),q2=askS.length>=2||askS.some(s=>(s.match(/\b(why|what|if|whether|how|about|when|which)\b/g)||[]).length>=2);
+  const know=KNOW.test(t),when=WHEN.test(t)&&know;
+  const items=[[`F1: phrases sorted into introduction / body / conclusion (${n1}/7)`,n1===7,3,Math.floor(n1*3/7)],
+   ['Greeting on the first line (Hi / Dear + name)',E.greet,1],
+   ['Bullet 1: where the interview took place and who interviewed you',where&&who,2,where||who],
+   ['Bullet 2: the questions you had to answer (two or more)',askS.length>0&&q2,2,askS.length>0],
+   ['Bullet 3: when you will know if you were successful (… will tell me next Friday)',know&&when,2,know],
+   [`Personalising phrases from F1/F4 (${E.pe.length})`+(E.pe.length?': '+E.pe.slice(0,4).join(' · '):''),E.pe.length>=3,2,E.pe.length>=1?1:0],
+   [`Words for feelings – F5 (${E.fe.size})`+(E.fe.size?': '+[...E.fe].slice(0,5).join(', '):''),E.fe.size>=2,1],
+   [`Paragraphs – introduction, body, conclusion (${E.P.length})`,E.P.length>=3,1],
+   ['Friendly closing (Let me know … / Let’s meet soon / Bye!) and your name on the last line',E.closeP&&E.nameEnd,2,E.closeP||E.nameEnd],
+   [`Length 120–160 words (${E.W})`,E.W>=120&&E.W<=160,1],
+   [`Informal style: contractions (${E.co.size}) – I’m, didn’t, it’s … and no slang`,E.co.size>=2&&!REG_BAD.test(t),1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 5: imperatives + advice leaflet ---------- */
+const LF1=[['a','Imperatives are normally used in the (a) … person voice',/^(second|2nd|the\s+second)(\s+person)?$/,'second'],['b','… but they leave out the (b) …',/^(the\s+)?(subject|subject\s+pronoun|pronoun|you|"you")$/,'subject (you)'],['c','However, they can sometimes be used in the (c) … person, when preceded by let + object pronoun …',/^(first|1st|the\s+first)(\s+person)?$/,'first'],['d','… which always (d) … the sentence.',/^(begins?|starts?|opens?|comes?\s+(first|at\s+the\s+(start|beginning))|is\s+at\s+the\s+(start|beginning)|introduces?)(\s+of)?$/,'begins / starts']];
+function lf1(k){const v=nrm(A('t5g'+k)).replace(/^\(?[a-d]\)\s*|^[a-d]\s+/,'');if(!v)return {ok:false,empty:true,msg:''};if(LF1[k][2].test(v))return {ok:true,msg:'Correct.'};
+  return {ok:false,msg:['Who do we speak to with an imperative? (Start with personal details.) → … person.','Which word is missing from “(You) Start with personal details”?','Let’s = let us – which person is “us”?','Where does “Let’s” appear in the sentence?'][k]}}
+const FUN=['Order / command','Request','Warning','Advice','Recommendation / suggestion'];
+const LF2=[['a','Don’t touch that! It’s boiling hot!',['Warning']],['b','Please explain why these things interest you.',['Request']],['c','Go onto our website and click the link.',['Order / command','Recommendation / suggestion']],['d','Do visit us next time you’re in town.',['Recommendation / suggestion']],['e','Let’s sit down and have a rest.',['Recommendation / suggestion']],['f','Pass me that book, please.',['Request']],['g','Don’t turn right, turn left.',['Order / command','Warning']],['h','Drink plenty of water before you fly.',['Advice','Recommendation / suggestion']]];
+const F2HINT={a:'“It’s boiling hot!” – the speaker wants to stop danger.',b:'Notice the word “Please”.',c:'It tells you what to do – an instruction.',d:'Emphatic “Do” – a friendly invitation.',e:'Let’s … – an idea for both of us.',f:'Notice “please” at the end.',g:'It corrects someone’s direction firmly.',h:'Helpful information for someone who is going to travel.'};
+function lf2(k){const v=A('t5f'+k);if(!v)return {ok:false,empty:true,msg:''};const [l,s,acc]=LF2[k];if(acc.includes(v))return {ok:true,msg:'Correct'+(acc.length>1?' – also possible: '+acc.filter(x=>x!==v).join(', '):'')+'.'};return {ok:false,msg:'Hint: '+F2HINT[l]}}
+const NOTVERB=/^(the|a|an|my|your|his|her|our|their|this|that|these|those|it|there|here|good|great|very|interviews?|yes|no|ok|okay|hello|hi|sorry)\b/;
+const BASEX=/^(focus|discuss|miss|pass|guess|dress|press|cross|access|process|express|stress|bless|kiss|toss|address|impress|assess|bus|canvas|unless)$/;
+function baseV(v){if(/ing$/.test(v)&&!/^(bring|sing|ring|sting|swing|cling|fling|wring|ping)$/.test(v))return 'ing';
+  if(/ed$/.test(v)&&!/^(need|feed|speed|bleed|breed|heed|proceed|succeed|exceed|shed|wed|embed|weed|seed|plead|lead|read|spread|shred|head|bed|red)$/.test(v))return 'ed';
+  if(/[^s]s$/.test(v)&&!BASEX.test(v)&&v.length>2)return 's';return ''}
+function imp(raw0,heading=false){let raw=norm(raw0).trim();if(!raw)return {ok:false,empty:true,msg:''};
+  if(!/^[A-Z]/.test(raw))return {ok:false,msg:'Start with a capital letter.'};
+  if(/\?$/.test(raw))return {ok:false,msg:'An imperative is not a question – end with . or !'};
+  if(!heading&&!/[.!]$/.test(raw))return {ok:false,msg:'End with a full stop or an exclamation mark.'};
+  let t=raw.toLowerCase().replace(/[.!]+$/,'').trim();
+  t=t.replace(/^(please|kindly)\s*,?\s*/,'');
+  const sub=t.match(/^(if|when|before|after|as\s+soon\s+as|during|while|in\s+an\s+interview|at\s+the\s+interview)\b[^,]*,\s*/);if(sub)t=t.slice(sub[0].length).replace(/^please\s+/,'');
+  t=t.replace(/^(always|just|now|first|then|finally|also|next|so|oh|hey)\s*,?\s+/,'');
+  if(/^(you|i|he|she|we|they|it)\b/.test(t))return {ok:false,msg:'Leave out the subject – start with the verb (Turn your phone off, not You turn …).'};
+  if(/^(doesn't|does\s+not|didn't|did\s+not|won't|not|no)\b/.test(t))return {ok:false,msg:'For a negative imperative use Don’t or Never + base verb: Don’t be late.'};
+  if(/^to\s/.test(t))return {ok:false,msg:'Leave out “to” – start with the base verb (Arrive …, not To arrive …).'};
+  const m=t.match(/^(don't|do\s+not|never)\s+([a-z'-]+)/);
+  if(m){if(m[2]==='to')return {ok:false,msg:'Don’t + base verb, without “to” (Don’t be late).'};if(baseV(m[2])||/^(you|not)$/.test(m[2]))return {ok:false,msg:`After ${cap(m[1])} use the base verb (Don’t worry, Never arrive late …).`};return {ok:true,neg:true,msg:'Correct negative imperative (Don’t / Never + base verb).'}}
+  if(/^let('s|\s+us|\s+me)\b/.test(t))return {ok:true,msg:'Correct – Let’s + base verb (first-person imperative).'};
+  if(NOTVERB.test(t))return {ok:false,msg:'Start with a verb – an imperative begins with the base form (Arrive, Prepare, Dress …).'};
+  const v=(t.match(/^[a-z'-]+/)||[''])[0],e=baseV(v);
+  if(e==='ing')return {ok:false,msg:'Use the base verb, not the -ing form (Arrive, not Arriving).'};
+  if(e==='ed')return {ok:false,msg:'Use the base verb, not the past form (Prepare, not Prepared).'};
+  if(e==='s')return {ok:false,msg:'No -s on an imperative – use the base verb (Take, not Takes).'};
+  if(wc(t)<2)return {ok:false,msg:'Add more information.'};
+  return {ok:true,msg:'Correct imperative – base verb first, no subject.'}}
+const LF3=[['a','You are watching a film and someone is talking loudly on their phone.',/\b(quiet|phone|talk\w*|stop|turn|switch|silent|off|mute|shh|outside|voice|noise|lower|down)\b/],
+ ['b','Your friend has a bad headache.',/\b(medicine|tablets?|paracetamol|painkillers?|lie|rest|sleep|water|drink|doctor|sit|relax|take|nurse|eyes|lights?)\b/],
+ ['c','Your cousin likes the cake you have baked.',/\b(have|take|eat|try|enjoy|piece|slice|more|another|recipe|help\s+yourself|bake)\b/],
+ ['d','A family member has just come to visit you.',/\b(come|sit|make\s+yourself|have|welcome|drink|tea|coffee|eat|take|seat|stay|relax)\b/],
+ ['e','You need to explain to someone how to find your school.',/\b(turn|go|take|walk|get\s+off|cross|follow|straight|left|right|bus|drive|road|street|past|opposite|next\s+to)\b/],
+ ['f','Your friend is asking you what to do about a problem he has.',/\b(worry|talk|tell|ask|think|try|speak|calm|relax|help|teacher|parents?|sleep|write|stay)\b/]];
+function lf3(k){const r=imp(A('t5i'+k));if(!r.ok)return r;const t=lc_(A('t5i'+k));if(!LF3[k][2].test(t))return {ok:false,msg:'Correct form – but is it what you would say in this situation?'};
+  if(k===4&&(t.match(/\b(turn|go|take|walk|get\s+off|cross|follow|drive|keep)\b/g)||[]).length<2)return {ok:false,msg:'Give at least two directions (Take the bus …, then turn left …).'};
+  return r}
+const BODYL=/\b(eye\s+contact|sit\s+(up\s+)?straight|back\s+straight|body\s+language|feet\s+(flat\s+)?on\s+the\s+floor|smile|posture|look\s+at\s+the\s+interviewer|handshake|shake\s+hands|look\s+(the\s+interviewer\s+)?in\s+the\s+eyes?|sit\s+comfortabl\w*)\b/;
+const tipHead=k=>{const r=imp(A('t5h'+k),true);if(r.empty)return r;if(!r.ok)return r;if(wc(A('t5h'+k))>8)return {ok:false,msg:'A heading should be short – max. 8 words.'};return r};
+function tip(k){const h=tipHead(k),x=norm(A('t5x'+k)).trim();if(h.empty&&!x)return {ok:false,empty:true,msg:''};if(h.empty)return {ok:false,msg:'Write the imperative heading (e.g. Arrive on time).'};if(!h.ok)return {ok:false,msg:'Heading: '+h.msg};
+  if(wc(x)<8)return {ok:false,msg:'Explain the tip in a sentence or two (at least 8 words).'};
+  if(R(0,k).some(j=>nrm(A('t5h'+j))===nrm(A('t5h'+k))))return {ok:false,msg:'Give a different tip.'};
+  if(!/[.!]$/.test(x))return {ok:false,msg:'End the explanation with a full stop.'};
+  return {ok:true,msg:'Imperative heading + explanation.'}}
+const leafW=()=>wc(A('t5title'))+R(0,6).reduce((s,k)=>s+wc(A('t5h'+k))+wc(A('t5x'+k)),0);
+function chk5(){
+  const n1=R(0,4).filter(k=>lf1(k).ok).length,n2=R(0,8).filter(k=>lf2(k).ok).length,n3=R(0,6).filter(k=>lf3(k).ok).length,neg=R(0,6).some(k=>lf3(k).ok&&imp(A('t5i'+k)).neg)||R(0,6).some(k=>{const r=tipHead(k);return r.ok&&r.neg});
+  const nt=R(0,6).filter(k=>tip(k).ok).length,nh=R(0,6).filter(k=>tipHead(k).ok).length,ti=norm(A('t5title')).trim(),W=leafW();
+  const all=lc_(R(0,6).map(k=>A('t5h'+k)+' '+A('t5x'+k)).join(' '));
+  const items=[[`Activity 1: explanation gaps (a)–(d) (${n1}/4)`,n1===4,2,Math.floor(n1/2)],
+   [`Activity 2: function of each imperative (${n2}/8)`,n2>=7,3,Math.floor(n2*3/8)],
+   [`Activity 3: what you would say – correct imperatives (${n3}/6)`,n3===6,3,Math.floor(n3/2)],
+   ['A negative imperative (Don’t … / Never …) used correctly',neg,1],
+   ['Leaflet: a short title',wc(ti)>=2&&wc(ti)<=10&&!/[.,]$/.test(ti),1],
+   [`Leaflet: six tips, each headed by an imperative (${nh}/6)`,nh>=6,2,nh>=5?1:0],
+   [`Leaflet: every tip explained (${nt}/6)`,nt>=6,1],
+   [`Leaflet length 100–150 words (${W})`,W>=100&&W<=150,1],
+   ['Leaflet: body-language advice from the Speaking tip (eye contact, sit up straight …)',BODYL.test(all),1]];
+  return {items,score:sum(items)};
+}
+
+/* ---------- Task 6: the unit's exam-style email (p.104) ---------- */
+const RUB=[['c1','Content','I described how I prepared for the interview, with details',2],['c2','Content','I explained what I think went well in the interview',2],['c3','Content','I said what I learnt from the experience',1],['c4','Content','My email is clearly to a friend, with an informal greeting and close',1],
+ ['l1','Language','I organised my email in paragraphs (one for each bullet point) with a short introduction',2],['l2','Language','I used informal phrases and words for feelings (Imagine how …, delighted, nervous …)',2],['l3','Language','I used a range of unit vocabulary and past tenses accurately',1],['l4','Language','I used a variety of linking words (first, then, after that, anyway …)',2],['l5','Language','My spelling, grammar and punctuation are mostly accurate; 120–160 words',2]];
+const PREP=/\b(prepar\w+|practis\w+|practic\w+|research\w*|read\s+about|rewr(o|i)te|updated|wrote\s+(a\s+|my\s+)?(new\s+)?cv|my\s+cv|chose|ironed|planned|looked\s+(at|up)|learnt\s+about|learned\s+about|found\s+out\s+about|rehears\w+|mock|practice\s+interview|asked\s+my|made\s+notes|wrote\s+(down\s+)?(some\s+)?(notes|questions)|visited\s+the\s+shop|went\s+to\s+the\s+shop)\b/g;
+const WELL=/\b(went\s+(really\s+|quite\s+|very\s+)?well|went\s+(really\s+)?(ok|okay|fine|great|smoothly)|i\s+did\s+(well|ok|okay|fine)|did\s+(really\s+)?well|smiled|liked\s+my|impressed|eye\s+contact|answered\s+(all|every|well|confidently|clearly)|felt\s+(confident|calm|relaxed)|was\s+(pleased|happy|proud)\s+(with|that|when)|the\s+best\s+(part|moment|thing))\b/;
+const LEARNT=/\b(i\s+(have\s+)?(learnt|learned|realised|realized|discovered|found\s+out|understood)|lesson|next\s+time|in\s+(the\s+)?future|now\s+i\s+know|taught\s+me|i\s+will\s+(always|never))\b/;
+const SHOP=/\b(shops?|store|supermarket|bookshop|boutique|customers?|till|cashier|shop\s+assistant|sales\s+assistant|shelves|products?)\b/;
+function chk6(){
+  const E=emailInfo(A('t6txt')),t=E.t,S=E.S;
+  const pr=new Set((t.match(PREP)||[]).map(x=>x.replace(/\s+/g,' ')));
+  const well=WELL.test(t),wellR=S.some((s,j)=>WELL.test(s)&&(REASON.test(s)||REASON.test(S[j+1]||'')||/\b(when|and)\b/.test(s)));
+  const lea=LEARNT.test(t),v=unitv(t);
+  const items=[
+   ['Greeting on the first line (Hi / Dear + name)',E.greet,1],
+   [`Length 120–160 words (${E.W})`,E.W>=120&&E.W<=160,1],
+   [`Paragraphs – one for each bullet point (${E.P.length})`,E.P.length>=3,1],
+   ['The interview was for a shop job in the school holidays',SHOP.test(t),1],
+   ['Bullet 1: how you prepared for the interview',pr.size>=1,1],
+   [`Bullet 1: two or more preparation details (${pr.size})`+(pr.size?': '+[...pr].slice(0,4).join(', '):''),pr.size>=2,1],
+   ['Bullet 2: what you think went well',well,1],
+   ['Bullet 2: a detail or reason for what went well',well&&wellR,1],
+   ['Bullet 3: what you learnt from the experience',lea,1],
+   [`Personalising informal phrases (${E.pe.length})`+(E.pe.length?': '+E.pe.slice(0,4).join(' · '):''),E.pe.length>=2,1],
+   [`Words for feelings (${E.fe.size})`+(E.fe.size?': '+[...E.fe].slice(0,5).join(', '):''),E.fe.size>=2,1],
+   [`Linking words – 4+ (${E.lk})`+(E.lk?': '+LCAT.flatMap(c=>[...E.L[c]]).slice(0,6).join(', '):''),E.lk>=4,1],
+   [`Unit vocabulary (${v.size}) – interviewer, CV, eye contact, experience …`,v.size>=3,1],
+   ['Friendly closing and your name on the last line',E.closeP&&E.nameEnd,1],
+   [`Informal register: contractions (${E.co.size}), no slang`,E.co.size>=2&&!REG_BAD.test(t),1]];
+  return {items,score:sum(items)};
+}
+function selfScore(){let c=0,l=0;RUB.forEach(r=>{if(st.a['rub_'+r[0]]){if(r[1]==='Content')c+=r[3];else l+=r[3]}});return [c,l]}
+
+/* ---------- task definitions ---------- */
+const TASKS=[
+ {id:1,title:'Part-time jobs & CV vocabulary',icon:'💼',max:18,lesson:'Lessons 7.1–7.2 · B1–B4 & C1, Coursebook pp. 90–92',chk:chk1,
+  done:()=>R(0,6).filter(k=>A('t1j'+k).trim()).length>=4&&R(0,6).filter(k=>A('t1o'+k)).length>=4&&wc(A('t1txt'))>=40,
+  words:()=>R(0,6).reduce((s,k)=>s+wc(A('t1j'+k)),0)+[0,1].reduce((s,k)=>s+wc(A('t1l'+k)),0)+wc(A('t1b2a'))+wc(A('t1b2b'))+R(0,3).reduce((s,k)=>s+wc(A('t1s'+k)),0)+wc(A('t1txt')),
+  model:`<b>B1a (suggested):</b> 1 volunteer beach cleaner / litter picker · 2 promoter handing out leaflets · 3 gardener / garden worker · 4 trainee chef / kitchen assistant · 5 bicycle courier / food-delivery rider · 6 zoo assistant / zookeeper<br><b>B1b (example):</b> I would like to be a zoo assistant because I love animals. · I wouldn’t like to be a delivery rider because it is dangerous in heavy traffic.<br><b>B2a (example):</b> A trainee chef needs food-hygiene knowledge and knife skills. A delivery rider must be fit, know the area well and understand road safety.<br><b>B2b:</b> teamwork, communication, time management, responsibility, customer service, problem-solving, confidence<br><b>B4:</b> 1 d Personal information · 2 a Education and qualifications · 3 e Work experience · 4 b Hobbies and interests · 5 c Languages · 6 f Referees (check the order with Listening 1, C2)<br><b>C1:</b> a combining – iii · b demonstrates – v · c common – ii · d applicant – i · e voluntary – vi · f summary – iv<br><b>C1 sentences (examples):</b> My voluntary work at the hospital demonstrates that I am responsible. · A common mistake on a CV is writing long paragraphs. · The employer read a short summary of each applicant’s experience.<br><b>B1d paragraph (example):</b> I think a part-time job can definitely prepare you for a future career. For example, a young person who works in a café learns customer service, teamwork and time management. These skills are useful in any job. Working also makes you more responsible and confident, because you have to arrive on time and talk to adults. Finally, it gives you experience to put on your CV, so employers can see that you are reliable.`},
+ {id:2,title:'My CV',icon:'📄',max:18,lesson:'Lessons 7.3–7.4 · D1–D3, Coursebook pp. 94–95',chk:chk2,
+  done:()=>wc(A('t2nm'))>=1&&R(0,3).filter(k=>A('t2et'+k).trim()).length>=2&&A('t2rn0').trim()!=='',
+  words:()=>['t2nm','t2dob','t2tel','t2em','t2hob','t2it','t2lang','t2club'].reduce((s,k)=>s+wc(A(k)),0)+R(0,3).reduce((s,k)=>s+wc(A('t2et'+k)),0)+R(0,2).reduce((s,k)=>s+wc(A('t2wt'+k))+wc(A('t2rn'+k))+wc(A('t2rr'+k)),0),
+  model:`<b>Model CV (example – based on Sophie Labane’s CV, D1):</b><br><b>Personal information</b> – Name: Omar Hassan · Date of birth: 4 March 2011 · Telephone: +966 50 123 4567 · Email: omar.hassan@email.com<br><b>Education and qualifications</b> – 2022–present: Al Noor International School (Grade 8, IGCSE section) · 2016–22: Al Noor Primary School · 2024: Cambridge Checkpoint English, Maths and Science at Al Noor International School<br><b>Work experience</b> – 2025–present: Helped at my uncle’s bookshop on Saturdays (serving customers) · 2024–25: Volunteer litter picker, Green Beach Project<br><b>Hobbies and interests</b> – I play basketball for my school team every Tuesday. I love reading, especially science-fiction novels.<br><b>Other skills</b> – IT: Word, PowerPoint, fast typing · Languages: Arabic (home language), English (good – IGCSE ESL) · Clubs: school chess club (member since 2023)<br><b>Referees</b> – Mr Khalid Saleh, English teacher at Al Noor International School, k.saleh@alnoor.edu.sa · Dr Sara Ahmed, family doctor, +966 14 555 0101`},
+ {id:3,title:'Interview questions & answers',icon:'🎙',max:16,lesson:'Lessons 7.5–7.6 · E1–E9 & Language tip, Coursebook pp. 95–97',chk:chk3,
+  done:()=>R(0,4).filter(k=>A('t3q'+k).trim()).length>=3&&R(0,4).filter(k=>A('t3a'+k).trim()).length>=3,
+  words:()=>R(0,4).reduce((s,k)=>s+wc(A('t3q'+k))+wc(A('t3a'+k))+wc(A('t3bq'+k))+wc(A('t3ba'+k))+wc(A('t3e'+k)),0)+R(0,3).reduce((s,k)=>s+wc(A('t3c'+k)),0)+wc(A('t3e9')),
+  model:`<b>E1/E2 (examples):</b> Tell me which sports interest you. – I love all sports, but I really enjoy swimming in particular. · How up-to-date with sports fashions are you? – I think I’m quite up-to-date – I read online sports fashion blogs. · Why do you want to work for Winning Sports? – I love sport and I’m really interested in sports clothing and design. · What makes you a good person to choose our new designs? – I know what young people like to wear, because I ask my friends and teammates what they want.<br><b>E7 (examples – predictions before you listen):</b> How much time would I need for this job? – It’s part-time, only five hours a week. · What topics would I write about? – Stories, celebrity biographies, sports and competitions. · Would I be paid for my articles? – (your prediction) · Can I work from home? – (your prediction). Check your predictions with the recording (E8).<br><b>-er/-ee corrections:</b> The nominee was delighted to find she had won the prize. · We heard one interviewee saying he just wanted to earn lots of money. · We expect 20 attendees on the course.<br><b>-ee sentences (examples):</b> The interviewer asked the interviewee about her CV. · A good employer listens to every employee. · Every attendee received a certificate at the end of the course. · The nominee thanked the trustees of the charity.<br><b>E9:</b> Personal answer – give a clear opinion and a reason based on what you heard in the interview (relevance, politeness, amount of information).`},
+ {id:4,title:'Informal email: my interview',icon:'✉',max:18,lesson:'Lessons 7.7–7.8 · F1–F7, Coursebook pp. 97–98',chk:chk4,
+  done:()=>wc(A('t4txt'))>=80,words:()=>wc(A('t4txt'))+R(0,3).reduce((s,k)=>s+wc(A('t4p'+k)),0),
+  model:`<b>F1:</b> Introduction – c, e · Body – a, d, g · Conclusion – b, f<br><b>Model email:</b><br>Hi Omar,<br><br>How are you? It was great seeing you at the match last weekend. You remember that part-time job interview I mentioned? Well, it was yesterday, and this is what happened.<br><br>The interview was at the new sports shop in the city centre, so I knew where to go. The manager, Mrs Hassan, and her assistant interviewed me. Imagine how nervous I was when I walked in!<br><br>First, they asked me why I wanted the job and which sports I play. Then they asked me if I could work on Saturdays. I was amazed because I’d prepared answers to these questions, so I felt more confident.<br><br>They’ll phone me next Monday to tell me if I got the job. Fingers crossed!<br><br>Anyway, homework calls! Let me know your plans for the holidays.<br><br>Bye!<br>Ali`},
+ {id:5,title:'Imperatives & advice leaflet',icon:'📢',max:15,lesson:'Lessons 7.9–7.10 · Language focus p. 101 & Project p. 102',chk:chk5,
+  done:()=>R(0,6).filter(k=>A('t5i'+k).trim()).length>=4&&R(0,6).filter(k=>A('t5h'+k).trim()).length>=4,
+  words:()=>R(0,6).reduce((s,k)=>s+wc(A('t5i'+k)),0)+leafW(),
+  model:`<b>Activity 1:</b> (a) second (b) subject (you) (c) first (d) begins / starts<br><b>Activity 2:</b> a warning · b request · c order/command (instruction) · d recommendation/suggestion (friendly invitation) · e suggestion · f request · g order/command (also warning) · h advice<br><b>Activity 3 (suggested):</b> a Please be quiet! / Turn your phone off, please. · b Take some medicine and lie down. · c Have another piece! · d Come in and sit down! Make yourself at home. · e Take the number 5 bus, get off at the market and turn left. · f Don’t worry. Talk to your teacher about it.<br><b>Leaflet (example):</b><br><b>Ace Your Interview!</b><br><b>Research the company.</b> Find out what they do and why you want to work there.<br><b>Write a professional-looking CV.</b> Keep it short, clear and in the right order.<br><b>Arrange a practice interview.</b> Ask a teacher or a family member to ask you typical questions.<br><b>Dress smartly.</b> Clean, simple clothes show the interviewer that you are serious.<br><b>Arrive on time.</b> Plan your journey and leave early, so you are calm.<br><b>Sit up straight and keep eye contact.</b> Good body language shows that you are interested and confident.<br><b>Don’t be over-confident.</b> Be polite, listen carefully and answer every question fully.`},
+ {id:6,title:'Exam-style email',icon:'📝',max:15,lesson:'Lesson 7.10 · Exam-style question: Writing, informal writing, Coursebook p. 104',chk:chk6,done:()=>wc(A('t6txt'))>=60,words:()=>wc(A('t6txt')),
+  model:`Hi Sara,<br><br>You remember that holiday job in the bookshop I told you about? Well, I had the interview on Tuesday!<br><br>I prepared really carefully. First, I updated my CV and asked my English teacher to be a referee. Then I researched the shop online, and my brother gave me a practice interview, so I wasn’t too nervous.<br><br>I think the interview went well. I arrived ten minutes early, smiled and kept eye contact with the manager. She asked me about my favourite books and I answered with lots of details, because I love reading. I was delighted when she said my answers were interesting.<br><br>I learnt that preparation really builds your confidence. I also learnt to listen carefully to each question before I answer. Next time I’ll prepare some questions to ask the interviewer, too.<br><br>Anyway, let me know how your exams went. Let’s meet soon!<br><br>Love,<br>Mona`}
+];
+
+
+
+const TOTAL=TASKS.reduce((s,t)=>s+t.max,0);
+
+/* ---------- UI helpers ---------- */
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function modal(title,body,{input=false,ok='OK',cancel=true}={}){return new Promise(res=>{
+  $('#mT').textContent=title;$('#mB').innerHTML=body;$('#mIn').value='';$('#mIn').classList.toggle('hidden',!input);
+  $('#mYes').textContent=ok;$('#mNo').classList.toggle('hidden',!cancel);$('#modal').classList.add('on');if(input)setTimeout(()=>$('#mIn').focus(),50);
+  const done=r=>{$('#modal').classList.remove('on');$('#mYes').onclick=$('#mNo').onclick=null;res(r)};
+  $('#mYes').onclick=()=>done(input?$('#mIn').value:true);$('#mNo').onclick=()=>done(false);})}
+function checklist(items){return '<ul class="chk">'+items.map(it=>{const part=!it[1]&&(typeof it[3]==='number'?it[3]>0:!!it[3]);const g=got(it);
+  return `<li class="${it[1]?'y':(part?'p':'n')}"><span class="ic">${it[1]?'✔':(part?'◐':'✘')}</span><span>${it[0]}</span>${it[2]?`<span class="pt">${g}/${it[2]}</span>`:''}</li>`}).join('')+'</ul>'}
+function ta(key,rows,ph,extra=''){return `<textarea data-k="${key}" rows="${rows}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} ${extra}>${esc(A(key))}</textarea>`}
+function inp(key,ph,style=''){return `<input type="text" data-k="${key}" value="${esc(A(key))}" placeholder="${esc(ph)}" ${st.submitted?'disabled':''} style="${style}" autocomplete="off">`}
+function sel(key,opts,ph,style=''){return `<select data-k="${key}" ${st.submitted?'disabled':''} style="${style}"><option value="">${ph}</option>${opts.map(o=>`<option ${A(key)===o?'selected':''}>${o}</option>`).join('')}</select>`}
+
+/* ---------- render ---------- */
+function renderTabs(){
+  $('#tabs').innerHTML=TASKS.map((t,i)=>`<button class="tab ${i===st.cur?'on':''}" data-i="${i}">${t.id}. ${esc(t.title)}<span class="d">${t.done()?'✓':''}</span></button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{renderTask(+b.dataset.i);scrollTo({top:0,behavior:'smooth'})});
+  updBar();
+}
+function updBar(){const d=TASKS.filter(t=>t.done()).length;$('#ptxt').textContent=d+'/6 tasks';$('#progI').style.width=(d/6*100)+'%';
+  $('#wtot').textContent='✍ '+TASKS.reduce((s,t)=>s+t.words(),0)+' words';
+  $('#tabs').querySelectorAll('.tab').forEach((b,i)=>{const e=b.querySelector('.d');if(e)e.textContent=TASKS[i].done()?'✓':''})}
+function head(t,instr){return `<div class="sec-h"><h2>${t.icon} Task ${t.id} – ${esc(t.title)}</h2><span class="mk">${t.max} marks</span></div><p class="sec-i">${t.lesson}. ${instr}</p>`}
+function modelBox(t){return st.submitted&&showModel?`<div class="ans"><b>Model answer:</b><br>${t.model}</div>`:''}
+const fbDiv=k=>`<div class="fb" data-fb="${k}"></div>`;
+
+
+function pick(key,opts,small=false){return `<div class="tfrow" data-pkw="${key}">${opts.map(o=>`<button type="button" class="tf ${A(key)===o?'sel':''}" data-pk="${key}" data-pv="${esc(o)}" ${st.submitted?'disabled':''} style="${small?'min-width:0;padding:7px 11px;font-size:14px':''}">${esc(o)}</button>`).join('')}</div>`}
+
+
+function tog(key,opts,allowed){const s=(A(key)||'').split('|');return `<div class="tfrow">${opts.map(o=>`<button type="button" class="tf ${s.includes(o)?'sel':''}" data-tg="${key}" data-tv="${esc(o)}" ${st.submitted?'disabled':''} style="min-width:0;padding:7px 11px;font-size:14px">${esc(o)}</button>`).join('')}</div>`}
+const subh = t => `<div class="sec-i" style="margin-top:18px;font-style:normal;font-weight:800;color:var(--teal-d)">${t}</div>`;
+function advert(title,lines,foot,col){return `<div class="q advert" style="border:2px solid ${col};background:${col}0d"><div style="font-weight:800;font-size:18px;color:${col};letter-spacing:.04em">${title}</div>${lines.map(l=>`<p style="margin:6px 0">${l}</p>`).join('')}<p class="where" style="margin:6px 0 0;font-style:italic">${foot}</p></div>`}
+function body(i){
+  const t=TASKS[i];
+  if(i===0){
+    let h=head(t,'<b>B1:</b> young people all over the world have part-time jobs after school or at the weekend. Read the descriptions of the six pictures on p. 91 and <b>name the job</b>. Which job <b>would</b> you like to do, and which <b>wouldn’t</b> you like to do? Why? <b>B2:</b> what skills, qualifications or experience are needed, and what skills do young people gain at work? <b>B4:</b> put the six CV topics in order. <b>C1:</b> match the bold words to their definitions and use three of them in your own sentences. Finally, write a paragraph of <b>60–80 words</b> answering <b>B1d</b>.');
+    h+=subh('B1a – What job is the person doing?');
+    PICS.forEach((p,k)=>{h+=`<div class="q" data-q1j="${k}"><div class="qh"><span class="num">${p[0]}</span><span class="qt">${esc(p[1])}</span><span class="qm">[½]</span></div><div class="body">${inp('t1j'+k,'The job: …','max-width:420px')}${fbDiv('1j'+k)}</div></div>`});
+    h+=subh('B1b – Would you like to do these jobs?');
+    [['I would like to …','e.g. I would like to be a trainee chef because I love cooking.'],['I wouldn’t like to …','e.g. I wouldn’t like to be a delivery rider because …']].forEach((x,k)=>{h+=`<div class="q" data-q1l="${k}"><div class="qh"><span class="num">${'ab'[k]}</span><span class="qt">${x[0]}</span></div><div class="body">${inp('t1l'+k,x[1])}${fbDiv('1l'+k)}</div></div>`});
+    h+=`${subh('B2 – Skills, qualifications and experience')}<div class="q" data-q1b2a><label class="f">a What is needed for <u>two</u> of the jobs?</label>${ta('t1b2a',3,'A trainee chef needs … A zoo assistant must …')}${fbDiv('1b2a')}<label class="f" style="margin-top:12px">b What additional skills do young people gain while working? (list three or more)</label>${inp('t1b2b','e.g. teamwork, communication, …')}${fbDiv('1b2b')}</div>`;
+    h+=`${subh('B4 – In what order should these topics appear on a CV?')}<div class="keybox"><span>a Education and qualifications</span><span>b Hobbies and interests</span><span>c Languages</span><span>d Personal information</span><span>e Work experience</span><span>f Referees</span></div>`;
+    R(0,6).forEach(k=>{h+=`<div class="q" data-q1o="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${sel('t1o'+k,B4OPT,'— choose the topic —','max-width:460px')}</span><span class="qm">[½]</span></div>${fbDiv('1o'+k)}</div>`});
+    h+=`<div class="sec-i">🎧 In Lesson 7.2 (C2) you will check this order while you listen to Janine Mesumo, a careers adviser.</div>`;
+    h+=`${subh('C1 – Match the words in bold with the definitions')}<div class="keybox">${DEFS.map(d=>`<span>${d}</span>`).join('')}</div>`;
+    C1.forEach((x,k)=>{h+=`<div class="q" data-q1c="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt" style="font-weight:500">${x[1]}</span><span class="qm">[½]</span></div><div class="body">${sel('t1c'+k,DEFS,'— choose the definition —','max-width:300px')}${fbDiv('1c'+k)}</div></div>`});
+    h+=subh('C1 – Use three of the words in your own sentences about CVs or jobs');
+    R(0,3).forEach(k=>{h+=`<div class="q" data-q1s="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">${inp('t1s'+k,['e.g. My voluntary work at the hospital demonstrates that I am responsible.','Write your sentence…','Write your sentence…'][k])}</span><span class="qm">[1]</span></div>${fbDiv('1s'+k)}</div>`});
+    h+=`${subh('B1d – My paragraph')}<div class="q"><label class="f">Do you think having a part-time job can prepare you for a future career? (60–80 words)</label>${ta('t1txt',7,'I think a part-time job can … because … For example, …')}<div class="wc" data-wc="t1txt"></div><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===1){
+    let h=head(t,'<b>D1:</b> look at Sophie Labane’s CV information. <b>D2–D3:</b> now write <b>your own CV</b> under the six headings. Use <b>short notes</b>, not paragraphs. Put your <b>current school first</b>, then the one before, and your <b>most recent work first</b> (reverse chronological order). Give <b>details</b> of your hobbies. Give <b>two referees</b> who are <b>not members of your family</b> – perhaps a teacher and a doctor.');
+    h+=`<div class="keybox"><span><b>Model – Sophie Labane (D1):</b></span><span>2017–22: Manzini High School</span><span>2021–22: Worked as a barista in my uncle’s coffee shop.</span><span>I love reading books, especially historical non-fiction about Africa.</span><span>Mr Ndumiso Mahlosane (headteacher at my school)</span></div>`;
+    h+=`<div class="cvbox">`;
+    h+=`<div class="cvh">1 Personal information</div><div class="q" data-q2p style="margin-top:6px"><div class="grid2"><div><label class="f">Name</label>${inp('t2nm','e.g. Omar Hassan')}</div><div><label class="f">Date of birth</label>${inp('t2dob','e.g. 4 March 2011')}</div><div><label class="f">Telephone</label>${inp('t2tel','e.g. +966 50 123 4567')}</div><div><label class="f">Email</label>${inp('t2em','e.g. omar.hassan@email.com')}</div></div>${fbDiv('2p')}</div>`;
+    h+=`<div class="cvh">2 Education and qualifications <span class="where" style="color:#fff;opacity:.85">– current school first</span></div>`;
+    [['Current school / college','2022–present','e.g. Al Noor International School (Grade 8)'],['The school before','2016–22','e.g. Al Noor Primary School'],['A qualification or certificate – and where you obtained it','2024','e.g. Checkpoint English, Maths and Science at Al Noor International School']].forEach((x,k)=>{h+=`<div class="q" data-q2e="${k}" style="margin-top:6px"><label class="f">${x[0]}</label><div class="cvrow">${inp('t2ed'+k,'Dates: '+x[1])}${inp('t2et'+k,x[2])}</div>${fbDiv('2e'+k)}</div>`});
+    h+=`<div class="cvh">3 Work experience <span class="where" style="color:#fff;opacity:.85">– part-time or voluntary, most recent first</span></div>`;
+    [['Most recent','2025–present','e.g. Helped at my uncle’s bookshop on Saturdays'],['Before that','2024–25','e.g. Volunteer litter picker, Green Beach Project']].forEach((x,k)=>{h+=`<div class="q" data-q2w="${k}" style="margin-top:6px"><label class="f">${x[0]}</label><div class="cvrow">${inp('t2wd'+k,'Dates: '+x[1])}${inp('t2wt'+k,x[2])}</div>${fbDiv('2w'+k)}</div>`});
+    h+=`<div class="cvh">4 Hobbies and interests <span class="where" style="color:#fff;opacity:.85">– don’t forget to give details!</span></div><div class="q" data-q2h style="margin-top:6px">${ta('t2hob',3,'e.g. I play basketball for my school team every Tuesday. I love reading, especially …')}${fbDiv('2h')}</div>`;
+    h+=`<div class="cvh">5 Other skills <span class="where" style="color:#fff;opacity:.85">– IT, languages, club memberships</span></div>`;
+    [['IT skills','e.g. Word, PowerPoint, fast typing'],['Languages (with your level)','e.g. Arabic (home language), English (good – IGCSE ESL)'],['Clubs / other skills (optional)','e.g. school chess club (member since 2023), first aid certificate']].forEach((x,k)=>{h+=`<div class="q" data-q2s="${k}" style="margin-top:6px"><label class="f">${x[0]}</label>${inp(['t2it','t2lang','t2club'][k],x[1])}${fbDiv('2s'+k)}</div>`});
+    h+=`<div class="cvh">6 Referees <span class="where" style="color:#fff;opacity:.85">– two people, not family members</span></div>`;
+    [0,1].forEach(k=>{h+=`<div class="q" data-q2r="${k}" style="margin-top:6px"><label class="f">Referee ${k+1}</label><div class="cvrow3">${inp('t2rn'+k,['e.g. Mr Khalid Saleh','e.g. Dr Sara Ahmed'][k])}${inp('t2rr'+k,['e.g. English teacher at my school','e.g. family doctor'][k])}${inp('t2rc'+k,'email or telephone')}</div>${fbDiv('2r'+k)}</div>`});
+    h+=`</div><div class="q"><div data-live></div><p class="note">D3: read your partner’s CV. Have they included examples of all the necessary information?</p></div>`;
+    return h+modelBox(t);
+  }
+  if(i===2){
+    let h=head(t,'<b>Job interview 1 – E1/E2:</b> read the Winning Sports advert. Write <b>four questions</b> the interviewer might ask, and a <b>full, relevant, polite answer</b> to each. <b>Job interview 2 – E7:</b> read the <i>Teen Weekly!</i> advert. Write <b>four questions</b> Bambos might ask Lan Huang and the answers you think she gives. <b>Language tip:</b> correct the -er/-ee mistakes and write your own sentences. <b>E9:</b> after listening, say whether you think Bambos got the job, and why.');
+    h+=advert('VACANCY',['Are you aged 16–19 with a school-leaving certificate? Want to join a well-known international sports company? Would you like to influence sports fashion over the next three years? Here’s your chance!','<b>We are looking for young, enthusiastic people with a real interest in sport and the sports clothing industry to join our head office.</b>','<b>Your role will be to decide which new fashion designs should be sold in Winning Sports shops all over the country.</b>','Contact us today for more details!'],'Winning Sports, 246 Arena Lane, Cairo, Egypt · Tel: 246 1234 · enquiries@winningsports.int','#1565C0');
+    h+=`${subh('E1/E2 – The interviewer’s questions and your answers')}<div class="keybox" style="background:#fff"><span>Examples: <i>Tell me which sports interest you.</i> – <i>I love all sports, but I really enjoy swimming in particular.</i></span><span>Think about E3: relevance · amount of information · polite tone · range · accuracy.</span></div>`;
+    R(0,4).forEach(k=>{h+=`<div class="q" data-q3q="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt"><label class="f">Interviewer</label>${inp('t3q'+k,['e.g. How up-to-date with sports fashions are you?','e.g. Why do you want to work for Winning Sports?','Question 3…','Question 4…'][k])}</span><span class="qm">[2]</span></div>${fbDiv('3q'+k)}<div class="body" data-q3a="${k}"><label class="f">Interviewee (you)</label>${inp('t3a'+k,'I … (a full answer with a detail or example)')}${fbDiv('3a'+k)}</div></div>`});
+    h+=advert('Teen Weekly!',['<i>New magazine for teenagers all over the world!</i>','Stories, celebrity biographies, sports, gossip, competitions, problem page and lots more!','<b>We are looking for people who are interested in these topics to join our team of young writers.</b>','If you think you can write for teenagers, contact us today for more details.'],'Teen Weekly, 912 Riddle Road, London, SW16 4RT · vacancies@teenweekly.en','#2E7D32');
+    h+=`${subh('E7 – Four questions Bambos might ask Lan Huang (and her answers)')}<div class="keybox" style="background:#fff"><span>Example: <i>How much time would I need for this job?</i> – <i>It’s part-time, only five hours a week.</i></span><span>🎧 These are your predictions – check them when you listen to part 2 (E8).</span></div>`;
+    R(0,4).forEach(k=>{h+=`<div class="q" data-q3b="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt"><div class="grid2"><div><label class="f">Bambos</label>${inp('t3bq'+k,['e.g. What topics would I write about?','Question…','Question…','Question…'][k])}</div><div><label class="f">Lan Huang</label>${inp('t3ba'+k,'Her answer…')}</div></div></span><span class="qm">[½]</span></div>${fbDiv('3b'+k)}</div>`});
+    h+=`${subh('Language tip – Words ending in -er / -ee')}<div class="keybox"><span><i>INterviewer</i> → <i>interviewEE</i></span><span><i>emPLOYer</i> → <i>employEE</i></span><span>Other -ee nouns: <b>attendee · nominee · invitee · trustee</b></span><span>Use <b>-ee</b>, not -er, -ed or -ant.</span></div><div class="sec-i" style="font-style:normal">Rewrite each sentence correctly.</div>`;
+    CORR.forEach((x,k)=>{h+=`<div class="q" data-q3c="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt">✘ <i>${esc(x[0])}</i></span><span class="qm">[1]</span></div><div class="body">${inp('t3c'+k,'Write the correct sentence…')}${fbDiv('3c'+k)}</div></div>`});
+    h+=`<div class="sec-i" style="font-style:normal">Write your own sentences.</div>`;
+    EE.forEach((x,k)=>{h+=`<div class="q" data-q3e="${k}"><div class="qh"><span class="num">${'abcd'[k]}</span><span class="qt">Use <b>${x[0]}</b></span><span class="qm">[½]</span></div><div class="body">${inp('t3e'+k,['e.g. The interviewer asked the interviewee about her CV.','Write your sentence…','Write your sentence…','Write your sentence…'][k])}${fbDiv('3e'+k)}</div></div>`});
+    h+=`${subh('E9 – Do you think Bambos got the job? Why?')}<div class="q" data-q3n><div class="sec-i" style="margin-top:0">🎧 Answer after listening to the interview with Bambos (E5–E8). Use the E3 criteria to explain your opinion.</div>${ta('t3e9',3,'I think Bambos got / didn’t get the job because he …')}<div class="wc" data-wc="t3e9"></div>${fbDiv('3n')}</div>`;
+    h+=`<div class="q"><div data-live></div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===3){
+    let h=head(t,'Informal writing is often an email to a friend about something that happened recently. Use informal language, but keep the structure: <b>introduction – body – conclusion</b>. <b>F1:</b> sort the phrases. <b>F2/F6:</b> write your own answer to the exam-style task below. Use personalising phrases (F4) and words for feelings (F5). <b>F7:</b> check your email with the prompts.');
+    h+=subh('F1 – Introduction, body or conclusion?');
+    F1.forEach((x,k)=>{h+=`<div class="q" data-q4f="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])}</i></span></div><div class="body">${pick('t4f'+k,['Introduction','Body','Conclusion'],true)}${fbDiv('4f'+k)}</div></div>`});
+    h+=`${subh('F2 – Exam-style question')}<div class="q" style="border:2px solid var(--teal)"><p style="margin:0">You were recently interviewed for a part-time job. <b>Write an email to a friend explaining what happened.</b></p><p style="margin:8px 0 4px">In your email you should:</p><ul style="margin:0;padding-left:22px"><li>describe where the interview took place and who interviewed you</li><li>explain the questions that you had to answer</li><li>say when you will know if you were successful.</li></ul><p style="margin:8px 0 0"><b>Write about 120 to 160 words.</b> <i>You will receive up to 6 marks for the content of your email, and up to 9 marks for the language used. [Total: 15]</i></p></div>
+      <div class="keybox"><span><b>F4 personalising:</b> How are you? · It was great seeing you … · You remember that interview I mentioned? · Imagine how terrified I was … · I don’t need to tell you … · Actually … · Anyway, … · Let me know your plans. · Let’s meet soon.</span><span><b>F5 feelings:</b> feel more confident · anxiously · terrified · amazed · delighted · frightening</span></div>`;
+    h+=`${subh('Planner – one idea for each bullet point')}<div class="q"><div style="display:grid;gap:8px">${[['Where? Who interviewed you?','e.g. sports shop in the city centre – the manager and her assistant'],['Which questions?','e.g. why I wanted the job, which sports I play, Saturdays?'],['When will you know?','e.g. they will phone me next Monday']].map((x,k)=>`<div><label class="f">${x[0]}</label>${inp('t4p'+k,x[1])}</div>`).join('')}</div></div>`;
+    h+=`<div class="q"><label class="f">Your email (greeting on the first line; press Enter between paragraphs; your name on the last line)</label>${ta('t4txt',16,'Hi …,\n\nHow are you? …\n\n…\n\nLet me know …\n\nBye!\nYour name')}<div class="wc" data-wc="t4txt"></div><div data-live></div></div>`;
+    h+=`<div class="q"><b>F7 – Check your email</b> <span class="where">– tick each prompt when you are happy with your email (then ask a partner to check it too)</span><div class="rub">${F7.map((x,k)=>`<label class="rb"><input type="checkbox" data-c11="f7_${k}" ${st.a['c11_f7_'+k]?'checked':''} ${st.submitted?'disabled':''}><span>${x}</span></label>`).join('')}</div>
+      <div class="warn" style="margin-top:12px">✍ <b>Writing tip:</b> respond fully to the three prompts – don’t waste words on a long introduction. Make the introduction create interest, then move on to the body.</div></div>`;
+    return h+modelBox(t);
+  }
+  if(i===4){
+    let h=head(t,'Imperatives give orders, make requests, give warnings, offer advice and make recommendations. They use the <b>base form of the verb</b> with <b>no subject</b>: <i>(You) Start with personal details.</i> Negative: <b>Don’t / Never</b> + base verb. <b>Activities 1–3</b> (p. 101), then the <b>Project</b> (p. 102): write the text for an <b>advice leaflet</b> on interview techniques for students – a title and <b>six tips</b>, each headed by an imperative (<b>100–150 words</b>).');
+    h+=`<div class="keybox"><span><b>Order / command:</b> Come here.</span><span><b>Request:</b> Please take a seat.</span><span><b>Warning:</b> Watch out!</span><span><b>Advice:</b> Check your notes.</span><span><b>Recommendation / suggestion:</b> Start with the personal details.</span></div>${subh('Activity 1 – Complete the explanation')}`;
+    LF1.forEach((x,k)=>{h+=`<div class="q" data-q5g="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])}</i></span><span class="qm">[½]</span></div><div class="body">${inp('t5g'+k,'word…','max-width:260px')}${fbDiv('5g'+k)}</div></div>`});
+    h+=`<div class="sec-i" style="font-style:normal">Examples: <i>(You) Start with personal details.</i> · <i>Let’s not forget, you won’t get the job if …</i></div>${subh('Activity 2 – What is the function of each imperative?')}`;
+    LF2.forEach((x,k)=>{h+=`<div class="q" data-q5f="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt"><i>${esc(x[1])}</i></span></div><div class="body">${pick('t5f'+k,FUN,true)}${fbDiv('5f'+k)}</div></div>`});
+    h+=subh('Activity 3 – What would you say? Use an imperative.');
+    LF3.forEach((x,k)=>{h+=`<div class="q" data-q5i="${k}"><div class="qh"><span class="num">${x[0]}</span><span class="qt">${esc(x[1])}</span><span class="qm">[½]</span></div><div class="body">${inp('t5i'+k,['e.g. Please turn your phone off!','e.g. Take some medicine and …','Your imperative…','Your imperative…','Take … , then turn …','Don’t worry. …'][k])}${fbDiv('5i'+k)}</div></div>`});
+    h+=`${subh('Project – An advice leaflet: interview techniques for students')}<div class="keybox" style="background:#fff"><span><b>H1 top tips:</b> Arrange a practice interview · Arrive on time · Do not be over-confident · Prepare handwritten notes and questions · Write a professional-looking CV · Research interview techniques · Dress smartly</span><span><b>Speaking tip – body language:</b> sit comfortably but keep your back straight and your feet on the floor · maintain eye contact</span></div>
+      <div class="q"><label class="f">Leaflet title</label>${inp('t5title','e.g. Ace Your Interview!','max-width:420px')}</div>`;
+    R(0,6).forEach(k=>{h+=`<div class="q" data-q5t="${k}"><div class="qh"><span class="num">${k+1}</span><span class="qt"><label class="f">Tip ${k+1} – imperative heading</label>${inp('t5h'+k,['e.g. Arrive on time','e.g. Dress smartly','e.g. Keep eye contact','Imperative…','Imperative…','Imperative…'][k])}</span></div><div class="body"><label class="f">Explanation (1–2 sentences)</label>${inp('t5x'+k,k?'Why? How?':'e.g. Plan your journey and leave early, so you are calm.')}${fbDiv('5t'+k)}</div></div>`});
+    h+=`<div class="q"><div class="wc" data-lwc style="text-align:left"></div><div data-live></div><p class="note">Evaluation: does the leaflet communicate ideas clearly · organise them logically · use a range of grammar and vocabulary accurately · show good punctuation and spelling · use an appropriate register and format?</p></div>`;
+    return h+modelBox(t);
+  }
+  if(i===5){
+    let h=head(t,'<b>Exam-style question – Writing, informal writing.</b> You recently attended an interview for a job working in a shop during the school holidays. <b>Write an email to a friend explaining what happened.</b> In your email, you should: <b>·</b> describe how you prepared for the interview <b>·</b> explain what you think went well in the interview <b>·</b> say what you learnt from the experience. Write about <b>120 to 160 words</b>. <i>You will receive up to 6 marks for the content of your email, and up to 9 marks for the language used. [Total: 15]</i>');
+    h+=`<div class="keybox"><span>✍ Writing tip: underline the key words. You are writing to a friend, so use an informal style. Plan one paragraph for each bullet point – one bullet point usually gives you the chance to go into more detail. Check grammar, spelling and punctuation at the end.</span></div>
+      <div class="q"><b>Planner</b> <span class="where">(optional – not marked)</span><div style="display:grid;gap:8px;margin-top:8px">${[['How I prepared','e.g. updated CV, researched the shop, practice interview'],['What went well','e.g. arrived early, eye contact, detailed answers'],['What I learnt','e.g. preparation builds confidence; next time …']].map((x,k)=>`<div><label class="f">${x[0]}</label>${inp('t6p'+k,x[1])}</div>`).join('')}</div></div>
+      <div class="q"><label class="f">Your email (greeting on the first line; press Enter between paragraphs; your name on the last line)</label>${ta('t6txt',16,'Hi …,\n\n…\n\nBye!\nYour name')}<div class="wc" data-wc="t6txt"></div><div data-live></div></div>
+      <div class="q"><b>Self-assessment</b> <span class="where">– tick what is true about your email (Content /6, Language /9)</span>
+      <div class="rub">${RUB.map(r=>`<label class="rb"><input type="checkbox" data-rub="${r[0]}" ${st.a['rub_'+r[0]]?'checked':''} ${st.submitted?'disabled':''}><span><b>${r[1]}</b> · ${r[2]} <span class="where">(${r[3]})</span></span></label>`).join('')}</div>
+      <div class="note" data-self></div></div>`;
+    return h+modelBox(t);
+  }
+}
+
+
+function setFb(k,r,qsel){const A_=$('#qArea'),e=A_.querySelector(`[data-fb="${k}"]`);if(!e)return;const q=qsel?A_.querySelector(qsel):null;
+  if(r.empty||r.ex){e.className='fb';e.innerHTML='';if(q&&q.classList.contains('q'))q.className='q';else if(q)q.style.borderColor='';return}
+  const cls=r.ok?(r.two?'part':'ok'):'bad';e.className='fb '+cls;e.innerHTML=(r.ok?'✔ ':'✘ ')+esc(r.msg);
+  if(q){if(q.classList.contains('q'))q.className='q '+cls;else q.style.borderColor=`var(--${cls==='ok'?'ok':cls==='part'?'part':'bad'})`}}
+const WR={t1txt:[60,80],t4txt:[120,160],t6txt:[120,160],t3e9:[15,60]};
+function live(i){
+  const A_=$('#qArea');
+  A_.querySelectorAll('[data-wc]').forEach(e=>{const k=e.dataset.wc,w=wc(A(k)),rng=WR[k];
+    e.textContent=w+' words (aim for '+rng[0]+'–'+rng[1]+')';e.classList.toggle('over',w>rng[1])});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.classList.toggle('sel',A(b.dataset.pk)===b.dataset.pv));
+  if(i===0){R(0,6).forEach(k=>setFb('1j'+k,b1(k),`[data-q1j="${k}"]`));[0,1].forEach(k=>setFb('1l'+k,b1b(k),`[data-q1l="${k}"]`));setFb('1b2a',b2a());setFb('1b2b',b2b());
+    R(0,6).forEach(k=>setFb('1o'+k,b4(k),`[data-q1o="${k}"]`));R(0,6).forEach(k=>setFb('1c'+k,c1(k),`[data-q1c="${k}"]`));R(0,3).forEach(k=>setFb('1s'+k,c1s(k),`[data-q1s="${k}"]`))}
+  if(i===1){setFb('2p',pers(),'[data-q2p]');R(0,3).forEach(k=>setFb('2e'+k,EDU(k),`[data-q2e="${k}"]`));R(0,2).forEach(k=>setFb('2w'+k,WRK(k),`[data-q2w="${k}"]`));setFb('2h',hob(),'[data-q2h]');
+    R(0,3).forEach(k=>setFb('2s'+k,skl(k),`[data-q2s="${k}"]`));[0,1].forEach(k=>setFb('2r'+k,refR(k),`[data-q2r="${k}"]`))}
+  if(i===2){R(0,4).forEach(k=>{setFb('3q'+k,qWS(k),`[data-q3q="${k}"]`);setFb('3a'+k,aWS(k))});R(0,4).forEach(k=>setFb('3b'+k,bq(k),`[data-q3b="${k}"]`));
+    R(0,3).forEach(k=>setFb('3c'+k,cor(k),`[data-q3c="${k}"]`));R(0,4).forEach(k=>setFb('3e'+k,ee(k),`[data-q3e="${k}"]`));setFb('3n',e9(),'[data-q3n]')}
+  if(i===3){R(0,7).forEach(k=>setFb('4f'+k,f1(k),`[data-q4f="${k}"]`))}
+  if(i===4){R(0,4).forEach(k=>setFb('5g'+k,lf1(k),`[data-q5g="${k}"]`));R(0,8).forEach(k=>setFb('5f'+k,lf2(k),`[data-q5f="${k}"]`));R(0,6).forEach(k=>setFb('5i'+k,lf3(k),`[data-q5i="${k}"]`));R(0,6).forEach(k=>setFb('5t'+k,tip(k),`[data-q5t="${k}"]`));
+    const lw=A_.querySelector('[data-lwc]');if(lw){const w=leafW();lw.textContent='Leaflet: '+w+' words (aim for 100–150)';lw.classList.toggle('over',w>150)}}
+  const L=A_.querySelector('[data-live]');
+  if(L){const c=TASKS[i].chk();let h='<div class="livehd">Live checklist · '+c.score+'/'+TASKS[i].max+'</div>'+checklist(c.items);
+    if(c.errs&&c.errs.length)h+='<div class="warn">'+c.errs.map(x=>'⚠ '+x).join('<br>')+'</div>';L.innerHTML=h}
+  const sf=A_.querySelector('[data-self]');if(sf){const [c,l]=selfScore();sf.innerHTML=`Your self-assessment: <b>Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15</b>`}
+  updBar();
+}
+
+
+
+function renderTask(i){
+  st.cur=i;save();renderTabs();
+  const last=i===TASKS.length-1;
+  let h=body(i);
+  h+=`<div class="nav"><button class="btn ghost" id="prevB" ${i===0?'style="visibility:hidden"':''}>← Previous</button>${st.submitted?`<button class="btn" id="toRes">Back to my result</button>`:''}${last?(st.submitted?'':`<button class="btn red" id="subB">Submit my writing ✓</button>`):`<button class="btn" id="nextB">Next task →</button>`}</div>`;
+  const A_=$('#qArea');A_.innerHTML=h;
+  A_.querySelectorAll('[data-k]').forEach(el=>{el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{st.a[el.dataset.k]=el.value;save();live(i)})});
+  A_.querySelectorAll('[data-pk]').forEach(b=>b.addEventListener('click',()=>{st.a[b.dataset.pk]=b.dataset.pv;save();live(i)}));
+  A_.querySelectorAll('[data-tg]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.tg,v=b.dataset.tv;let s=(A(k)||'').split('|').filter(Boolean);s=s.includes(v)?s.filter(x=>x!==v):[...s,v];st.a[k]=s.join('|');save();live(i)}));
+  A_.querySelectorAll('[data-c11]').forEach(el=>el.addEventListener('change',()=>{st.a['c11_'+el.dataset.c11]=el.checked;save()}));
+  A_.querySelectorAll('[data-rub]').forEach(el=>el.addEventListener('change',()=>{st.a['rub_'+el.dataset.rub]=el.checked;save();live(i)}));
+  live(i);
+  if($('#prevB'))$('#prevB').onclick=()=>{renderTask(i-1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#nextB'))$('#nextB').onclick=()=>{renderTask(i+1);scrollTo({top:0,behavior:'smooth'})};
+  if($('#subB'))$('#subB').onclick=()=>submit();
+  if($('#toRes'))$('#toRes').onclick=showResults;
+}
+
+/* ---------- flow ---------- */
+const prev=load();
+if(prev&&prev.name){st=prev;$('#nm').value=st.name;$('#cl').value=st.cls;
+  $('#resumeNote').textContent=st.submitted?'You have already submitted – press Start to see your result.':'Your saved writing will be restored.';}
+$('#startBtn').onclick=()=>{
+  const n=$('#nm').value.trim(),c=$('#cl').value.trim();
+  if(n.length<3){$('#startErr').textContent='Please write your full name.';return}
+  if(!c){$('#startErr').textContent='Please write your class or grade.';return}
+  if(st.name&&st.name!==n){st={name:'',cls:'',a:{},start:0,submitted:false,res:null,cur:0}}
+  st.name=n;st.cls=c;if(!st.start)st.start=Date.now();save();
+  $('#startScreen').classList.add('hidden');
+  if(st.submitted){showResults();return}
+  openTest();
+};
+function openTest(){$('#testScreen').classList.remove('hidden');$('#resScreen').classList.add('hidden');$('#who').textContent='👤 '+st.name+' · '+st.cls;renderTask(st.cur||0)}
+async function submit(){
+  const left=TASKS.filter(t=>!t.done()).length;
+  const ok=await modal('Submit your writing?',left?`You have <b>${left}</b> task${left>1?'s':''} not finished. You cannot change your writing after you submit.`:'You have completed every task. You cannot change your writing after you submit.',{ok:'Yes, submit'});
+  if(!ok)return;
+  st.submitted=true;
+  const secs=TASKS.map(t=>Math.min(t.max,t.chk().score));
+  st.res={total:secs.reduce((a,b)=>a+b,0),secs,time:Math.floor((Date.now()-st.start)/1000),at:new Date().toLocaleString()};
+  save();showResults();
+}
+function grade(p){return p>=85?'Excellent – your writing includes almost every required feature.':p>=70?'Very good. Check the red items in the checklist to improve further.':p>=50?'Good effort. Review each task’s checklist and add the missing features.':'Keep going! Read the checklist under each task and try again with your teacher’s help.'}
+function showResults(){
+  $('#testScreen').classList.add('hidden');$('#resScreen').classList.remove('hidden');$('#startScreen').classList.add('hidden');
+  const r=st.res,p=Math.round(r.total/TOTAL*100);
+  $('#resName').textContent=st.name+' · '+st.cls;$('#resScore').textContent=r.total;$('#resOut').textContent='out of '+TOTAL;$('#resGrade').textContent=p+'% of checklist features';$('#resMsg').textContent=grade(p);
+  setTimeout(()=>$('#ringC').style.strokeDashoffset=465-465*r.total/TOTAL,60);
+  $('#brk').innerHTML=TASKS.map((t,i)=>`<div class="br"><span>${t.id}. ${esc(t.title)}</span><span class="t"><i style="width:${r.secs[i]/t.max*100}%"></i></span><span class="s">${r.secs[i]}/${t.max}</span></div>`).join('');
+  $('#wcSum').innerHTML='<b>Words written:</b> '+TASKS.map(t=>`Task ${t.id}: ${t.words()}`).join(' · ')+' · <b>Total: '+TASKS.reduce((s,t)=>s+t.words(),0)+'</b>';
+  const [c,l]=selfScore();$('#selfBox').innerHTML=`<b>Exam-style email self-assessment:</b> Content ${c}/6 · Language ${l}/9 · Total ${c+l}/15`;
+  scrollTo({top:0});
+}
+function resultText(){
+  const r=st.res,[c,l]=selfScore(),mm=Math.floor(r.time/60),tk=ok=>ok?'✓':'✗',v=k=>A(k).trim()||'—';
+  let s=`IGCSE ESL Writing Studio – Unit 7 (Interviews)\nName: ${st.name}\nClass: ${st.cls}\nChecklist score: ${r.total}/${TOTAL} (${Math.round(r.total/TOTAL*100)}%)\n`+
+   TASKS.map((t,i)=>`Task ${t.id} ${t.title}: ${r.secs[i]}/${t.max} (${t.words()} words)`).join('\n')+
+   `\nExam-style email self-assessment: Content ${c}/6, Language ${l}/9\nTime: ${mm} min · Submitted: ${r.at}\n`;
+  s+='\n— Task 1: Part-time jobs & CV vocabulary —\nB1a: '+PICS.map((x,k)=>`${x[0]} ${v('t1j'+k)} ${tk(b1(k).ok)}`).join(' · ')+
+   '\nB1b:\n'+[0,1].map(k=>`${v('t1l'+k)} ${tk(b1b(k).ok)}`).join('\n')+
+   `\nB2a: ${v('t1b2a')} ${tk(b2a().ok)}\nB2b: ${v('t1b2b')} ${tk(b2b().ok)}`+
+   '\nB4: '+R(0,6).map(k=>`${k+1} ${(A('t1o'+k)||'—').split(' ')[0]} ${tk(b4(k).ok)}`).join(' · ')+
+   '\nC1: '+C1.map((x,k)=>`${x[0]} ${(A('t1c'+k)||'—').split(' ')[0]} ${tk(c1(k).ok)}`).join(' · ')+
+   '\nC1 sentences:\n'+R(0,3).map(k=>`${k+1}. ${v('t1s'+k)} ${tk(c1s(k).ok)}`).join('\n')+`\n\nB1d:\n${v('t1txt')}`;
+  s+='\n\n— Task 2: My CV —\nPERSONAL INFORMATION\nName: '+v('t2nm')+'\nDate of birth: '+v('t2dob')+'\nTelephone: '+v('t2tel')+'\nEmail: '+v('t2em')+
+   '\nEDUCATION AND QUALIFICATIONS\n'+R(0,3).map(k=>`${v('t2ed'+k)}: ${v('t2et'+k)} ${tk(EDU(k).ok)}`).join('\n')+
+   '\nWORK EXPERIENCE\n'+R(0,2).map(k=>`${v('t2wd'+k)}: ${v('t2wt'+k)} ${tk(WRK(k).ok)}`).join('\n')+
+   '\nHOBBIES AND INTERESTS\n'+v('t2hob')+'\nOTHER SKILLS\nIT: '+v('t2it')+'\nLanguages: '+v('t2lang')+'\nClubs / other: '+v('t2club')+
+   '\nREFEREES\n'+[0,1].map(k=>`${v('t2rn'+k)} (${v('t2rr'+k)}) ${v('t2rc'+k)} ${tk(refR(k).ok)}`).join('\n');
+  s+='\n\n— Task 3: Interview questions & answers —\nE1/E2 (Winning Sports):\n'+R(0,4).map(k=>`Q${k+1}: ${v('t3q'+k)} ${tk(qWS(k).ok)}\nA${k+1}: ${v('t3a'+k)} ${tk(aWS(k).ok)}`).join('\n')+
+   '\nE7 (Teen Weekly!):\n'+R(0,4).map(k=>`Bambos: ${v('t3bq'+k)} – Lan Huang: ${v('t3ba'+k)} ${tk(bq(k).ok)}`).join('\n')+
+   '\n-er/-ee corrections:\n'+R(0,3).map(k=>`${k+1}. ${v('t3c'+k)} ${tk(cor(k).ok)}`).join('\n')+
+   '\n-ee sentences:\n'+R(0,4).map(k=>`${'abcd'[k]}. ${v('t3e'+k)} ${tk(ee(k).ok)}`).join('\n')+`\nE9: ${v('t3e9')}`;
+  s+='\n\n— Task 4: Informal email (F2) —\nF1: '+F1.map((x,k)=>`${x[0]} ${A('t4f'+k)||'—'} ${tk(f1(k).ok)}`).join(' · ')+
+   `\nF7 self-check: ${F7.filter((x,k)=>st.a['c11_f7_'+k]).length}/${F7.length} prompts ticked\n\n${v('t4txt')}`;
+  s+='\n\n— Task 5: Imperatives & advice leaflet —\nActivity 1: '+LF1.map((x,k)=>`(${x[0]}) ${v('t5g'+k)} ${tk(lf1(k).ok)}`).join(' · ')+
+   '\nActivity 2: '+LF2.map((x,k)=>`${x[0]} ${A('t5f'+k)||'—'} ${tk(lf2(k).ok)}`).join(' · ')+
+   '\nActivity 3:\n'+LF3.map((x,k)=>`${x[0]} ${v('t5i'+k)} ${tk(lf3(k).ok)}`).join('\n')+
+   `\nLeaflet (${leafW()} words):\n${v('t5title')}\n`+R(0,6).map(k=>`• ${v('t5h'+k)} – ${v('t5x'+k)} ${tk(tip(k).ok)}`).join('\n');
+  s+=`\n\n— Task 6: Exam-style email (p. 104) —\n${v('t6txt')}`;
+  return s;
+}
+
+
+
+
+
+$('#copyBtn').onclick=async()=>{const t=resultText();const ta=$('#copyArea');ta.value=t;ta.classList.remove('hidden');
+  try{await navigator.clipboard.writeText(t);toast('Result copied – paste it into a message to your teacher.')}catch(e){ta.select();toast('Select the text below and copy it.')}};
+$('#reviewBtn').onclick=()=>{openTest();renderTask(0);scrollTo({top:0})};
+$('#retryBtn').onclick=async()=>{if(!await modal('Start again?','All your writing will be cleared.',{ok:'Yes, start again'}))return;
+  const n=st.name,c=st.cls;st={name:n,cls:c,a:{},start:Date.now(),submitted:false,res:null,cur:0};showModel=false;save();openTest();scrollTo({top:0})};
+async function hsh(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+$('#teachBtn').onclick=async()=>{const c=await modal('Teacher access','Enter the teacher code to show the model answers.',{input:true,ok:'Unlock'});if(!c)return;
+  let ok=false;try{ok=(await hsh(c))===TEACHER_HASH}catch(e){}
+  if(!ok){toast('Incorrect code.');return}showModel=true;toast('Model answers unlocked.');openTest();renderTask(0)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+</script>
+</body>
