@@ -128,16 +128,25 @@ section.set{padding-block:26px 6px;scroll-margin-top:70px}
 .confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:15px}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{padding-block:18px 28px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+/* Watermark: once, centred on the screen */
+.wm{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;z-index:5;overflow:hidden}
+.wm span{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,7vw,72px);color:var(--ink);opacity:.06;transform:rotate(-28deg);white-space:nowrap;user-select:none}
+.author{display:grid;gap:0;line-height:1.3}
+.author b{color:var(--ink);font-family:var(--f-display);font-size:16px}
+.byline{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:15px;opacity:.95}
+.byline b{font-family:var(--f-display)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:520px){body{font-size:16px}.stem{font-size:17px}.jump{display:none}}
 </style>
 </head>
 <body>
 
+<div class="wm" aria-hidden="true"><span>Mr. Jibber Ahmed Mohammed</span></div>
 <header class="band">
   <div class="wrap">
     <div class="school"><span class="crest">LIS</span>London International Schools · IGCSE English as a Second Language</div>
     <h1>Relative Clauses <em>Lab</em></h1>
+    <div class="byline"><b>Mr. Jibber Ahmed Mohammed</b><span>English Language Trainer &amp; Instructor</span></div>
     <div class="meta"><span><b>Grade 9</b></span><span>Unit 12 · Organisations and volunteers</span><span>60 questions · 6 relative pronouns</span></div>
     <div class="idrow">
       <label for="studentName">Student name</label>
@@ -191,7 +200,7 @@ footer .wrap{padding-block:18px 28px;display:flex;flex-wrap:wrap;gap:6px 18px;ju
   </div>
 </main>
 
-<footer><div class="wrap"><span>London International Schools · Grade 9 IGCSE ESL · Relative clauses</span><span>Mr. Jibber Ahmed Mohammed · English Language Trainer and Instructor</span></div></footer>
+<footer><div class="wrap"><div class="author"><b>Mr. Jibber Ahmed Mohammed</b><span>English Language Trainer &amp; Instructor</span></div><span>London International Schools · Grade 9 IGCSE ESL · Relative clauses</span></div></footer>
 
 <script>
 const SETS = [
